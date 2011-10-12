@@ -1,0 +1,19 @@
+//Vakcodes en vakken vaN DKC
+//Allleen de "belangrijke" vakken zijn vermeld
+//Mentoraat wordt NIET meegenomen in casus
+//Datum: 10-10-2011
+//Versie 1
+
+
+NED ; Nederlands
+ENG ; Engels
+DUI ; Duits
+FRA ; Frans
+WIS ; Wiskunde
+INF ; Informatica
+BIO ; Biologie
+SCH ; Scheikunde
+NAT ; Natuurkunde
+GES ; Geschiedenins
+AAR ; Aardrijkskunde
+ECO ; Economie
