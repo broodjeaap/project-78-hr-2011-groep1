@@ -64,3 +64,10 @@ def inList(item, list):
             return count
         count += 1
     return -1
+
+def insertLink(entiteitNaam):
+    entiteitNaam = entiteitNaam.lower()
+    return "<a href = '/insert/"+entiteitNaam+"'>"+entiteitNaam.capitalize()+" insert</a><form action='/insert/"+entiteitNaam+"post' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete all from "+entiteitNaam.capitalize()+"' /></form><br />"
+    
+    
+    

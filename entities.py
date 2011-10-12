@@ -9,4 +9,14 @@ class Afspraak(db.Model):
   tijd = db.IntegerProperty()
   dag = db.DateProperty()
   
-  
+class Docent(db.Model):
+    docentID = db.StringProperty()
+    aanhef = db.StringProperty()
+    naam = db.StringProperty()
+    postvaknummer = db.IntegerProperty()
+    email= db.StringProperty()
+    wachtwoord = db.StringProperty()
+    
+class Vak(db.Model):
+    vakCode = db.StringProperty()
+    vakNaam = db.StringProperty()

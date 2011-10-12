@@ -1,130 +1,117 @@
-//Docenten Donald Knuth College
-//117 docenten
-//aanhef, titel, intitialen, voorvoegsels en achternaam zijn samengevoegd
-//velden: docentID, volledigeNaam, postvaknummer, emailadres
-//datum: 12-10-2011
-//versie: 2
-//BOERM ; dhr. ir. mw. M. Boerebach ; 63 ; BOERM@DKC.NL vernaderd in:
-//BOERM ; dhr. ir. M. Boerebach ; 63 ; BOERM@DKC.NL
-
-
-
-BAARR ; mw. drs. R.Baart ; 41 ; BAARR@DKC.NL
-BABER ; dhr. R.Babel ; 48 ; BABER@DKC.NL
-BACUL ; dhr. L.Bacuna ; 55 ; BACUL@DKC.NL
-BAKAX ; dhr. A.Bak ; 62 ; BAKAX@DKC.NL
-BAKET ; dhr. T.Bakens ; 69 ; BAKET@DKC.NL
-BAKHB ; mw. B.B.Bakhuys ; 76 ; BAKHB@DKC.NL
-BAKKO ; mw. O.O.Bakkal ; 83 ; BAKKO@DKC.NL
-BAKKY ; dhr. ir. Y.Bakkati ; 90 ; BAKKY@DKC.NL
-BAKKB ; mw. drs. B.Z.N.Bakker ; 97 ; BAKKB@DKC.NL
-BAKXI ; dhr. mr. I.C.Bakx ; 104 ; BAKXI@DKC.NL
-BALSG ; dhr. G.Bals ; 111 ; BALSG@DKC.NL
-BARAA ; mw. drs. A.Barakat ; 118 ; BARAA@DKC.NL
-BAREJ ; dhr. drs. J. Barendregt ; 4 ; BAREJ@DKC.NL
-BARTL ; mw. L.Barth ; 11 ; BARTL@DKC.NL
-BARNJ ; dhr. drs. J. van Barneveld ; 18 ; BARNJ@DKC.NL
-BASTM ; mw. M. van Basten ; 25 ; BASTM@DKC.NL
-BEEKC ; dhr. C.C.Beekink ; 32 ; BEEKC@DKC.NL
-BEEND ; dhr. D.Been ; 39 ; BEEND@DKC.NL
-BEENM ; dhr. M.Been ; 46 ; BEENM@DKC.NL
-BEENL ; dhr. dr. ir. L.Beenhakker ; 53 ; BEENL@DKC.NL
-BEERR ; dhr. R.Beerens ; 60 ; BEERR@DKC.NL
-BENOA ; dhr. ir. A.Benomar ; 67 ; BENOA@DKC.NL
-BEELM ; dhr. M.M.M.Beelenkamp ; 74 ; BEELM@DKC.NL
-BERGP ; mw. drs. P. van den Berg ; 81 ; BERGP@DKC.NL
-BERGR ; mw. drs. R. van den Berg ; 88 ; BERGR@DKC.NL
-BERGD ; dhr. D. van den Bergh ; 95 ; BERGD@DKC.NL
-BERGH ; mw. R.N.A. van den Bergh ; 102 ; BERGH@DKC.NL
-BERGG ; dhr. G.Bergholtz ; 109 ; BERGG@DKC.NL
-BERGF ; dhr. F.Berghuis ; 116 ; BERGF@DKC.NL
-BERGX ; dhr. X.Bergkamp ; 2 ; BERGX@DKC.NL
-BERRE ; mw. R.E.T.Bergkamp ; 9 ; BERRE@DKC.NL
-BEUKR ; dhr. drs. R.Beukenkamp ; 16 ; BEUKR@DKC.NL
-BEUKJ ; dhr. ir. J. van Beukering ; 23 ; BEUKJ@DKC.NL
-BEVEJ ; dhr. J.H.M. van Beveren ; 30 ; BEVEJ@DKC.NL
-BEVEW ; dhr. W. van Beveren ; 37 ; BEVEW@DKC.NL
-BIESL ; mw. drs. L.Biesbrouck ; 44 ; BIESL@DKC.NL
-BISCF ; mw. F.Bischot ; 51 ; BISCF@DKC.NL
-BISED ; mw. D.Biseswar ; 58 ; BISED@DKC.NL
-BIYAM ; dhr. M.Biyadat ; 65 ; BIYAM@DKC.NL
-BLANF ; dhr. F.Blankemeijer ; 72 ; BLANF@DKC.NL
-BLEWW ; mw. drs. W.W.Bleijenberg ; 79 ; BLEWW@DKC.NL
-BLEUE ; dhr. E.Bleuming ; 86 ; BLEUE@DKC.NL
-BLIND ; dhr. D.Blind ; 93 ; BLIND@DKC.NL
-BLINR ; dhr. R.Blinker ; 100 ; BLINR@DKC.NL
-BLOEB ; dhr. drs. B.B.Bloemendaal ; 107 ; BLOEB@DKC.NL
-BLUMH ; dhr. H.Blume ; 114 ; BLUMH@DKC.NL
-BOATG ; mw. G.Boateng ; 0 ; BOATG@DKC.NL
-BOBSK ; mw. K.Bobson ; 7 ; BOBSK@DKC.NL
-BODDF ; mw. drs. F.Bodde ; 14 ; BODDF@DKC.NL
-BOEKL ; dhr.L. te Boekhorst ; 21 ; BOEKL@DKC.NL
-BOEKC ; dhr. ir. C. Boekweg ; 28 ; BOEKC@DKC.NL
-BOERD ; dhr. D. de Boer ; 35 ; BOERD@DKC.NL
-BOERY ; mw. Y. Boer ; 42 ; BOERY@DKC.NL
-BOERR ; dhr. R. de Boer ; 49 ; BOERR@DKC.NL
-BOERJ ; dhr. ir. J. Boere ; 56 ; BOERJ@DKC.NL
-BOERM ; dhr. ir. M. Boerebach ; 63 ; BOERM@DKC.NL
-BOERA ; dhr. A. Boersma ; 70 ; BOERA@DKC.NL
-BOEVP ; dhr. P. Boeve ; 77 ; BOEVP@DKC.NL
-BOGAW ; dhr. W. Bogarde ; 84 ; BOGAW@DKC.NL
-BOMMM ; mw. drs. M. van Bommel ; 91 ; BOMMM@DKC.NL
-BONSO ; dhr. drs. O. Bonsema ; 98 ; BONSO@DKC.NL
-BOOGM ; dhr. M. van den Boogaart ; 105 ; BOOGM@DKC.NL
-BOOGE ; dhr. M. Boogers ; 112 ; BOOGE@DKC.NL
-BOOYF ; dhr. ir. F. Booy ; 119 ; BOOYF@DKC.NL
-BOSCS ; dhr. ir. S. Boschker ; 5 ; BOSCS@DKC.NL
-BOSKH ; dhr. H. Boskamp ; 12 ; BOSKH@DKC.NL
-BOSKJ ; dhr. J. Boskamp ; 19 ; BOSKJ@DKC.NL
-BOSMJ ; mw. J. Bosman ; 26 ; BOSMJ@DKC.NL
-BOSSP ; mw. P. Bosschaart ; 33 ; BOSSP@DKC.NL
-BOSVG ; mw. G. Bosveld ; 40 ; BOSVG@DKC.NL
-BOSVH ; mw. H. Bosveld ; 47 ; BOSVH@DKC.NL
-BOSVP ; dhr. dr. P. Bosvelt ; 54 ; BOSVP@DKC.NL
-BOSZP ; dhr. P. Bosz ; 61 ; BOSZP@DKC.NL
-BOTRR ; dhr. ir. R. Bot ; 68 ; BOTRR@DKC.NL
-BOVED ; mw. drs. D. Bovenberg ; 75 ; BOVED@DKC.NL
-BOUCE ; dhr. drs. E. Bouchiba ; 82 ; BOUCE@DKC.NL
-BOULK ; dhr. ir. K. Boulahrouz ; 89 ; BOULK@DKC.NL
-BOUMW ; dhr. W. Bouma, BSc ; 96 ; BOUMW@DKC.NL
-BOUSA ; dhr. A. Boussaboun ; 103 ; BOUSA@DKC.NL
-BOUSD ; dhr. D. Boussatta ; 110 ; BOUSD@DKC.NL
-BOUSM ; dhr. M. Boussoufa ; 117 ; BOUSM@DKC.NL
-BOUTS ; dhr. drs. S. Boutahar ; 3 ; BOUTS@DKC.NL
-BRAAE ; dhr. E.T. Braafheid, MSc ; 10 ; BRAAE@DKC.NL
-BRAAU ; dhr. U.R.L. te Braak ; 17 ; BRAAU@DKC.NL
-BRATH ; mw. drs. Th. Brack ; 24 ; BRATH@DKC.NL
-BRAMW ; dhr. ir. W. Brama ; 31 ; BRAMW@DKC.NL
-BRANM ; dhr. M. Brands ; 38 ; BRANM@DKC.NL
-BRANE ; dhr. E. Brandts ; 45 ; BRANE@DKC.NL
-BRAZB ; dhr. B. Brazil ; 52 ; BRAZB@DKC.NL
-BREDJ ; mw. drs. J. van Breda Kolff ; 59 ; BREDJ@DKC.NL
-BREEN ; dhr. ir. N. de Bree ; 66 ; BREEN@DKC.NL
-BREIR ; dhr. R. Breinburg ; 73 ; BREIR@DKC.NL
-BREUM ; dhr. M. Breuer ; 80 ; BREUM@DKC.NL
-BREUH ; dhr. H. van Breukelen ; 87 ; BREUH@DKC.NL
-BREUT ; dhr. T. Breukers ; 94 ; BREUT@DKC.NL
-BRINJ ; dhr. J. ten Brinke ; 101 ; BRINJ@DKC.NL
-BROEB ; dhr. B. van den Broek ; 108 ; BROEB@DKC.NL
-BROEJ ; dhr. J. Broerse ; 115 ; BROEJ@DKC.NL
-BROKW ; dhr. W.W. Brokamp ; 1 ; BROKW@DKC.NL
-BROMJ ; dhr. J. van den Brom ; 8 ; BROMJ@DKC.NL
-BRONG ; dhr. drs. G. van Bronckhorst ; 15 ; BRONG@DKC.NL
-BRUGA ; dhr. A. Bruggink ; 22 ; BRUGA@DKC.NL
-BRUIJ ; mw. J. Bruin ; 29 ; BRUIJ@DKC.NL
-BRUIL ; mw. drs. L. Bruins ; 36 ; BRUIL@DKC.NL
-BRUMJ ; mw. drs. J. Bruma ; 43 ; BRUMJ@DKC.NL
-BRUMM ; dhr. M. Bruma ; 50 ; BRUMM@DKC.NL
-BRUSM ; dhr. M. Brusselers ; 57 ; BRUSM@DKC.NL
-BRUST ; dhr. T. Brusselers ; 64 ; BRUST@DKC.NL
-BUIJD ; dhr. D.D. Buijs, MSc ; 71 ; BUIJD@DKC.NL
-BUIKR ; dhr. R.E. Buikema, RA ; 78 ; BUIKR@DKC.NL
-BUNJI ; dhr. J.I.T. van Bun ; 85 ; BUNJI@DKC.NL
-BURTH ; dhr. drs. Th. van den Burch ; 92 ; BURTH@DKC.NL
-BURGJ ; dhr. J. Burgers ; 99 ; BURGJ@DKC.NL
-BURGM ; dhr. M. Burgzorg ; 106 ; BURGM@DKC.NL
-BURID ; mw. drs. D. van Burik ; 113 ; BURID@DKC.NL
-BUSDD ; dhr. D. Bus ; 120 ; BUSDD@DKC.NL
-BUSKM ; dhr. M. Buskermolen ; 6 ; BUSKM@DKC.NL
-
-
+BAARR ; mw. drs. ; R.Baart ; 41 ; BAARR@DKC.NL
+BABER ; dhr. ; R.Babel ; 48 ; BABER@DKC.NL
+BACUL ; dhr. ; L.Bacuna ; 55 ; BACUL@DKC.NL
+BAKAX ; dhr. ; A.Bak ; 62 ; BAKAX@DKC.NL
+BAKET ; dhr. ; T.Bakens ; 69 ; BAKET@DKC.NL
+BAKHB ; mw. ; B.B.Bakhuys ; 76 ; BAKHB@DKC.NL
+BAKKO ; mw. ; O.O.Bakkal ; 83 ; BAKKO@DKC.NL
+BAKKY ; dhr. ir. ; Y.Bakkati ; 90 ; BAKKY@DKC.NL
+BAKKB ; mw. drs. ; B.Z.N.Bakker ; 97 ; BAKKB@DKC.NL
+BAKXI ; dhr. mr. ; I.C.Bakx ; 104 ; BAKXI@DKC.NL
+BALSG ; dhr. ; G.Bals ; 111 ; BALSG@DKC.NL
+BARAA ; mw. drs. ; A.Barakat ; 118 ; BARAA@DKC.NL
+BAREJ ; dhr. drs. ; J. Barendregt ; 4 ; BAREJ@DKC.NL
+BARTL ; mw. ; L.Barth ; 11 ; BARTL@DKC.NL
+BARNJ ; dhr. drs. ; J. van Barneveld ; 18 ; BARNJ@DKC.NL
+BASTM ; mw. ; M. van Basten ; 25 ; BASTM@DKC.NL
+BEEKC ; dhr. ; C.C.Beekink ; 32 ; BEEKC@DKC.NL
+BEEND ; dhr. ; D.Been ; 39 ; BEEND@DKC.NL
+BEENM ; dhr. ; M.Been ; 46 ; BEENM@DKC.NL
+BEENL ; dhr. dr. ir. ; L.Beenhakker ; 53 ; BEENL@DKC.NL
+BEERR ; dhr. ; R.Beerens ; 60 ; BEERR@DKC.NL
+BENOA ; dhr. ir. ; A.Benomar ; 67 ; BENOA@DKC.NL
+BEELM ; dhr. ; M.M.M.Beelenkamp ; 74 ; BEELM@DKC.NL
+BERGP ; mw. drs. ; P. van den Berg ; 81 ; BERGP@DKC.NL
+BERGR ; mw. drs. ; R. van den Berg ; 88 ; BERGR@DKC.NL
+BERGD ; dhr. ; D. van den Bergh ; 95 ; BERGD@DKC.NL
+BERGH ; mw. ; R.N.A. van den Bergh ; 102 ; BERGH@DKC.NL
+BERGG ; dhr. ; G.Bergholtz ; 109 ; BERGG@DKC.NL
+BERGF ; dhr. ; F.Berghuis ; 116 ; BERGF@DKC.NL
+BERGX ; dhr. ; X.Bergkamp ; 2 ; BERGX@DKC.NL
+BERRE ; mw. ; R.E.T.Bergkamp ; 9 ; BERRE@DKC.NL
+BEUKR ; dhr. drs. ; R.Beukenkamp ; 16 ; BEUKR@DKC.NL
+BEUKJ ; dhr. ir. ; J. van Beukering ; 23 ; BEUKJ@DKC.NL
+BEVEJ ; dhr. ; J.H.M. van Beveren ; 30 ; BEVEJ@DKC.NL
+BEVEW ; dhr. ; W. van Beveren ; 37 ; BEVEW@DKC.NL
+BIESL ; mw. drs. ; L.Biesbrouck ; 44 ; BIESL@DKC.NL
+BISCF ; mw. ; F.Bischot ; 51 ; BISCF@DKC.NL
+BISED ; mw. ; D.Biseswar ; 58 ; BISED@DKC.NL
+BIYAM ; dhr. ; M.Biyadat ; 65 ; BIYAM@DKC.NL
+BLANF ; dhr. ; F.Blankemeijer ; 72 ; BLANF@DKC.NL
+BLEWW ; mw. drs. ; W.W.Bleijenberg ; 79 ; BLEWW@DKC.NL
+BLEUE ; dhr. ; E.Bleuming ; 86 ; BLEUE@DKC.NL
+BLIND ; dhr. ; D.Blind ; 93 ; BLIND@DKC.NL
+BLINR ; dhr. ; R.Blinker ; 100 ; BLINR@DKC.NL
+BLOEB ; dhr. drs. ; B.B.Bloemendaal ; 107 ; BLOEB@DKC.NL
+BLUMH ; dhr. ; H.Blume ; 114 ; BLUMH@DKC.NL
+BOATG ; mw. ; G.Boateng ; 0 ; BOATG@DKC.NL
+BOBSK ; mw. ; K.Bobson ; 7 ; BOBSK@DKC.NL
+BODDF ; mw. drs. ; F.Bodde ; 14 ; BODDF@DKC.NL
+BOEKL ; dhr. ; L. te Boekhorst ; 21 ; BOEKL@DKC.NL
+BOEKC ; dhr. ir. ; C. Boekweg ; 28 ; BOEKC@DKC.NL
+BOERD ; dhr. ; D. de Boer ; 35 ; BOERD@DKC.NL
+BOERY ; mw. ; Y. Boer ; 42 ; BOERY@DKC.NL
+BOERR ; dhr. ; R. de Boer ; 49 ; BOERR@DKC.NL
+BOERJ ; dhr. ir. ; J. Boere ; 56 ; BOERJ@DKC.NL
+BOERM ; dhr. ir. ; M. Boerebach ; 63 ; BOERM@DKC.NL
+BOERA ; dhr. ; A. Boersma ; 70 ; BOERA@DKC.NL
+BOEVP ; dhr. ; P. Boeve ; 77 ; BOEVP@DKC.NL
+BOGAW ; dhr. ; W. Bogarde ; 84 ; BOGAW@DKC.NL
+BOMMM ; mw. drs. ; M. van Bommel ; 91 ; BOMMM@DKC.NL
+BONSO ; dhr. drs. ; O. Bonsema ; 98 ; BONSO@DKC.NL
+BOOGM ; dhr. ; M. van den Boogaart ; 105 ; BOOGM@DKC.NL
+BOOGE ; dhr. ; M. Boogers ; 112 ; BOOGE@DKC.NL
+BOOYF ; dhr. ir. ; F. Booy ; 119 ; BOOYF@DKC.NL
+BOSCS ; dhr. ir. ; S. Boschker ; 5 ; BOSCS@DKC.NL
+BOSKH ; dhr. ; H. Boskamp ; 12 ; BOSKH@DKC.NL
+BOSKJ ; dhr. ; J. Boskamp ; 19 ; BOSKJ@DKC.NL
+BOSMJ ; mw. ; J. Bosman ; 26 ; BOSMJ@DKC.NL
+BOSSP ; mw. ; P. Bosschaart ; 33 ; BOSSP@DKC.NL
+BOSVG ; mw. ; G. Bosveld ; 40 ; BOSVG@DKC.NL
+BOSVH ; mw. ; H. Bosveld ; 47 ; BOSVH@DKC.NL
+BOSVP ; dhr. dr. ; P. Bosvelt ; 54 ; BOSVP@DKC.NL
+BOSZP ; dhr. ; P. Bosz ; 61 ; BOSZP@DKC.NL
+BOTRR ; dhr. ir. ; R. Bot ; 68 ; BOTRR@DKC.NL
+BOVED ; mw. drs. ; D. Bovenberg ; 75 ; BOVED@DKC.NL
+BOUCE ; dhr. drs. ; E. Bouchiba ; 82 ; BOUCE@DKC.NL
+BOULK ; dhr. ir. ; K. Boulahrouz ; 89 ; BOULK@DKC.NL
+BOUMW ; dhr. ; W. Bouma, BSc ; 96 ; BOUMW@DKC.NL
+BOUSA ; dhr. ; A. Boussaboun ; 103 ; BOUSA@DKC.NL
+BOUSD ; dhr. ; D. Boussatta ; 110 ; BOUSD@DKC.NL
+BOUSM ; dhr. ; M. Boussoufa ; 117 ; BOUSM@DKC.NL
+BOUTS ; dhr. drs. ; S. Boutahar ; 3 ; BOUTS@DKC.NL
+BRAAE ; dhr. ; E.T. Braafheid, MSc ; 10 ; BRAAE@DKC.NL
+BRAAU ; dhr. ; U.R.L. te Braak ; 17 ; BRAAU@DKC.NL
+BRATH ; mw. drs. ; Th. Brack ; 24 ; BRATH@DKC.NL
+BRAMW ; dhr. ir. ; W. Brama ; 31 ; BRAMW@DKC.NL
+BRANM ; dhr. ; M. Brands ; 38 ; BRANM@DKC.NL
+BRANE ; dhr. ; E. Brandts ; 45 ; BRANE@DKC.NL
+BRAZB ; dhr. ; B. Brazil ; 52 ; BRAZB@DKC.NL
+BREDJ ; mw. drs. ; J. van Breda Kolff ; 59 ; BREDJ@DKC.NL
+BREEN ; dhr. ir. ; N. de Bree ; 66 ; BREEN@DKC.NL
+BREIR ; dhr. ; R. Breinburg ; 73 ; BREIR@DKC.NL
+BREUM ; dhr. ; M. Breuer ; 80 ; BREUM@DKC.NL
+BREUH ; dhr. ; H. van Breukelen ; 87 ; BREUH@DKC.NL
+BREUT ; dhr. ; T. Breukers ; 94 ; BREUT@DKC.NL
+BRINJ ; dhr. ; J. ten Brinke ; 101 ; BRINJ@DKC.NL
+BROEB ; dhr. ; B. van den Broek ; 108 ; BROEB@DKC.NL
+BROEJ ; dhr. ; J. Broerse ; 115 ; BROEJ@DKC.NL
+BROKW ; dhr. ; W.W. Brokamp ; 1 ; BROKW@DKC.NL
+BROMJ ; dhr. ; J. van den Brom ; 8 ; BROMJ@DKC.NL
+BRONG ; dhr. drs. ; G. van Bronckhorst ; 15 ; BRONG@DKC.NL
+BRUGA ; dhr. ; A. Bruggink ; 22 ; BRUGA@DKC.NL
+BRUIJ ; mw. ; J. Bruin ; 29 ; BRUIJ@DKC.NL
+BRUIL ; mw. drs. ; L. Bruins ; 36 ; BRUIL@DKC.NL
+BRUMJ ; mw. drs. ; J. Bruma ; 43 ; BRUMJ@DKC.NL
+BRUMM ; dhr. ; M. Bruma ; 50 ; BRUMM@DKC.NL
+BRUSM ; dhr. ; M. Brusselers ; 57 ; BRUSM@DKC.NL
+BRUST ; dhr. ; T. Brusselers ; 64 ; BRUST@DKC.NL
+BUIJD ; dhr. ; D.D. Buijs, MSc ; 71 ; BUIJD@DKC.NL
+BUIKR ; dhr. ; R.E. Buikema, RA ; 78 ; BUIKR@DKC.NL
+BUNJI ; dhr. ; J.I.T. van Bun ; 85 ; BUNJI@DKC.NL
+BURTH ; dhr. drs. ; Th. van den Burch ; 92 ; BURTH@DKC.NL
+BURGJ ; dhr. ; J. Burgers ; 99 ; BURGJ@DKC.NL
+BURGM ; dhr. ; M. Burgzorg ; 106 ; BURGM@DKC.NL
+BURID ; mw. drs. ; D. van Burik ; 113 ; BURID@DKC.NL
+BUSDD ; dhr. ; D. Bus ; 120 ; BUSDD@DKC.NL
+BUSKM ; dhr. ; M. Buskermolen ; 6 ; BUSKM@DKC.NL
