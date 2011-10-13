@@ -15,6 +15,13 @@ class MainHandler(webapp.RequestHandler):
         
 class AfspraakPlanningPost(webapp.RequestHandler):
     def post(self):
+        key = self.request.get("afzegkey")
+        if(len(key) != 0):
+            afspraak = entities.Afspraak.get(key)
+            afspraak.delete()
+            self.redirect('/')
+            return
+            
         """
         entities.Afspraak(leerlingID="0",
                             docentID='BAARR',
@@ -24,25 +31,19 @@ class AfspraakPlanningPost(webapp.RequestHandler):
                             beschrijving='test')
         """
         klas = self.request.get("klas")
+        leerlingID = "1234"
         vakken = db.GqlQuery("SELECT * FROM VakPerKlas WHERE klas = '"+klas+"'")
+        
         #self.response.out.write("<table border='1'><tr><th>leerlingID</th><th>docentID</th><th>dag</th><th>tijd</th><th>beschrijving</th></tr>")
         for vak in vakken:
             afspraakString = self.request.get(vak.docentID+"_afspraak")
             if(len(afspraakString) != 0):
-                
-                leerlingID = "1234"
                 beschrijving = self.request.get(vak.docentID+"_beschrijving")
                 afspraakData = afspraakString.split("_")
                 
                 datumStrings = afspraakData[0].split("-")
                 
-                afspraak = entities.Afspraak(leerlingID = leerlingID,
-                                             docentID = vak.docentID,
-                                             dag= datetime.date(int(datumStrings[0]),int(datumStrings[1]), int(datumStrings[2])),
-                                             tijd= int(afspraakData[1]),
-                                             tafelnummer=0,
-                                             beschrijving = beschrijving
-                                             )
+                afspraak = entities.Afspraak(leerlingID = leerlingID,docentID = vak.docentID,dag= datetime.date(int(datumStrings[0]),int(datumStrings[1]), int(datumStrings[2])),tijd= int(afspraakData[1]),tafelnummer=0,beschrijving = beschrijving)
                 afspraak.put()
                 self.redirect('/')
                 """

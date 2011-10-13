@@ -16,18 +16,29 @@ def startTable(header=None, tableStart=True,border=True):
         ret += "</tr>"
     return ret
 
-def klasAfspraakPage(klas):
+def klasAfspraakPage(klas,leerlingID="1234"):
     vakken = db.GqlQuery("SELECT * FROM VakPerKlas WHERE klas = '"+klas+"'")
     ret = "<div><form name='afspraken' action='/afspraakplanningpost' method='post'>"
     for vak in vakken:
-        ret += afspraakTable(vak.docentID)
+        ret += afspraakTable(vak.docentID,leerlingID)
     ret += "<input type='hidden' name='klas' value='"+klas+"' />"
     ret += "<input type='submit' value='Ok' /></form></div>"
     return ret
 
-def afspraakTable(docentID,aantalTijden=12):
+def afspraakTable(docentID,aantalTijden=12,leerlingID="1234"):
     afspraken = db.GqlQuery("SELECT * FROM Afspraak WHERE docentID = '"+docentID+"'")
     
+    oudeAfspraken = db.GqlQuery("SELECT * FROM Afspraak WHERE leerlingID = '"+leerlingID+"' and docentID = '"+docentID+"'")
+    oudeAfspraak = None
+    for tmp in oudeAfspraken:
+        oudeAfspraak = tmp
+    
+    if(oudeAfspraak != None):
+        ret = "<table border='1'><tr><th colspan='100%'>"+docentID+"</th></tr>"
+        ret += "<tr><th>LeerlingID</th><th>DocentID</th><th>Datum</th><th>Tijd</th><th>Tafelnummer</th><th>Afzeggen</th></tr>"
+        ret += "<tr><td>"+oudeAfspraak.leerlingID+"</td><td>"+oudeAfspraak.docentID+"</td><td>"+str(oudeAfspraak.dag)+"</td><td>"+str(oudeAfspraak.tijd)+"</td><td>"+str(oudeAfspraak.tafelnummer)+"</td><td><form name='afzeggen_"+docentID+"' action='/afspraakplanningpost' method='post'><input type='hidden' name='afzegkey' value='"+str(oudeAfspraak.key())+"' /><input type='submit' value='Afzeggen' /></form></td></tr>"
+        ret += "</table>"
+        return ret
     
     tijden = []
     datums = []
@@ -49,6 +60,7 @@ def afspraakTable(docentID,aantalTijden=12):
     ret += "<tr><th>Tijd</th>"
     for datum in datums:
         ret += "<th>"+str(datum)+"</th>"
+    ret += "</tr>"
     count = 0;
     time = datetime.datetime(2011,1,1,hour=19)
     delta = datetime.timedelta(minutes=15)
