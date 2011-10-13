@@ -4,10 +4,13 @@ from google.appengine.ext import db
 
 class Afspraak(db.Model):
   leerlingID = db.StringProperty()
-  klas = db.StringProperty()
-  docent = db.StringProperty()
-  tijd = db.IntegerProperty()
+  docentID = db.StringProperty()
   dag = db.DateProperty()
+  tijd = db.IntegerProperty()
+  tafelnummer = db.IntegerProperty()
+  beschrijving = db.StringProperty()
+  
+  
   
 class Docent(db.Model):
     docentID = db.StringProperty()
@@ -20,3 +23,10 @@ class Docent(db.Model):
 class Vak(db.Model):
     vakCode = db.StringProperty()
     vakNaam = db.StringProperty()
+    
+class VakPerKlas(db.Model):
+    jaargang = db.StringProperty()
+    klas = db.StringProperty()
+    vakCode = db.StringProperty()
+    docentID = db.StringProperty()
+    

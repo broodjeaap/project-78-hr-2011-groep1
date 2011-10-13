@@ -8,11 +8,9 @@ import entities
 
 class MainHandler(webapp.RequestHandler):
     def get(self):
-        self.response.out.write("<html><body><SCRIPT LANGUAGE='JavaScript' SRC='/js/Afspraak.js'></SCRIPT>")
-
-        self.response.out.write(htmlHelper.afspraakTable('ABC'))
-        self.response.out.write(htmlHelper.afspraakTable('DEF'))
-        self.response.out.write('</body></html>')
+        self.response.out.write(htmlHelper.header())
+        self.response.out.write(htmlHelper.klasAfspraakPage('h3'))
+        self.response.out.write(htmlHelper.footer())
         
 
 def main():

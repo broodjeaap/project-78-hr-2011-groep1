@@ -7,76 +7,69 @@ import htmlHelper
 
 class InsertRoot(webapp.RequestHandler):
     def get(self):
-        self.response.out.write('<html><body>')
-        self.response.out.write(htmlHelper.insertLink("afspraak"))
-        self.response.out.write(htmlHelper.insertLink("docent"))
-        self.response.out.write(htmlHelper.insertLink("vak"))
-        self.response.out.write('</body></html>')
+        self.response.out.write(htmlHelper.header())
+        self.response.out.write(htmlHelper.insertRootLink("Afspraak"))
+        self.response.out.write(htmlHelper.insertRootLink("Docent"))
+        self.response.out.write(htmlHelper.insertRootLink("Vak"))
+        self.response.out.write(htmlHelper.insertRootLink("VakPerKlas"))
+        self.response.out.write(htmlHelper.footer())
 
 class InsertAfspraak(webapp.RequestHandler):
     def get(self):
-        self.response.out.write('<html><body>')
-        afspraken = db.GqlQuery("SELECT * FROM Afspraak")
+        self.response.out.write(htmlHelper.header())
+        afspraken = entities.Afspraak.all()
         if(afspraken.count() == 0):
-            afspraak = entities.Afspraak(leerlingID="1234",klas = 'h3',docent='ABC',tijd=1,dag=datetime.date(2011, 10, 11))
+            afspraak = entities.Afspraak(leerlingID="1234",docentID='BAARR',dag=datetime.date(2011, 10, 11), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="4523",klas = 'h3',docent='ABC',tijd=4,dag=datetime.date(2011, 10, 11))
+            afspraak = entities.Afspraak(leerlingID="1234",docentID='BAARR',dag=datetime.date(2011, 10, 12), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="5432",klas = 'h3',docent='ABC',tijd=8,dag=datetime.date(2011, 10, 11))
+            afspraak = entities.Afspraak(leerlingID="1234",docentID='BAARR',dag=datetime.date(2011, 10, 13), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="3432",klas = 'h3',docent='ABC',tijd=11,dag=datetime.date(2011, 10, 11))
+            afspraak = entities.Afspraak(leerlingID="1235",docentID='BABER',dag=datetime.date(2011, 10, 11), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="4532",klas = 'h3',docent='ABC',tijd=11,dag=datetime.date(2011, 10, 12))
+            afspraak = entities.Afspraak(leerlingID="1235",docentID='BABER',dag=datetime.date(2011, 10, 12), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="2321",klas = 'h3',docent='ABC',tijd=4,dag=datetime.date(2011, 10, 12))
+            afspraak = entities.Afspraak(leerlingID="1235",docentID='BABER',dag=datetime.date(2011, 10, 13), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="3423",klas = 'h3',docent='ABC',tijd=1,dag=datetime.date(2011, 10, 12))
+            afspraak = entities.Afspraak(leerlingID="1235",docentID='BACUL',dag=datetime.date(2011, 10, 11), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="4321",klas = 'h3',docent='ABC',tijd=1,dag=datetime.date(2011, 10, 13))
+            afspraak = entities.Afspraak(leerlingID="1235",docentID='BACUL',dag=datetime.date(2011, 10, 12), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="2321",klas = 'h3',docent='ABC',tijd=2,dag=datetime.date(2011, 10, 13))
+            afspraak = entities.Afspraak(leerlingID="1235",docentID='BACUL',dag=datetime.date(2011, 10, 13), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="2432",klas = 'h3',docent='ABC',tijd=6,dag=datetime.date(2011, 10, 13))
+            afspraak = entities.Afspraak(leerlingID="1235",docentID='BAKAX',dag=datetime.date(2011, 10, 11), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            
-            
-            afspraak = entities.Afspraak(leerlingID="1234",klas = 'h3',docent='DEF',tijd=0,dag=datetime.date(2011, 10, 11))
+            afspraak = entities.Afspraak(leerlingID="1235",docentID='BAKAX',dag=datetime.date(2011, 10, 12), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="2432",klas = 'h3',docent='DEF',tijd=1,dag=datetime.date(2011, 10, 11))
+            afspraak = entities.Afspraak(leerlingID="1235",docentID='BAKAX',dag=datetime.date(2011, 10, 13), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="2321",klas = 'h3',docent='DEF',tijd=2,dag=datetime.date(2011, 10, 11))
+            afspraak = entities.Afspraak(leerlingID="1235",docentID='BAKET',dag=datetime.date(2011, 10, 11), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="4321",klas = 'h3',docent='DEF',tijd=3,dag=datetime.date(2011, 10, 11))
+            afspraak = entities.Afspraak(leerlingID="1235",docentID='BAKET',dag=datetime.date(2011, 10, 12), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="3423",klas = 'h3',docent='DEF',tijd=6,dag=datetime.date(2011, 10, 11))
-            afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="4346",klas = 'h3',docent='DEF',tijd=8,dag=datetime.date(2011, 10, 11))
-            afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="4532",klas = 'h3',docent='DEF',tijd=8,dag=datetime.date(2011, 10, 12))
-            afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="3421",klas = 'h3',docent='DEF',tijd=-1,dag=datetime.date(2011, 10, 13))
-            afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="6754",klas = 'h3',docent='DEF',tijd=-1,dag=datetime.date(2011, 10, 14))
+            afspraak = entities.Afspraak(leerlingID="1235",docentID='BAKET',dag=datetime.date(2011, 10, 13), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
             
             self.response.out.write('Afspraken toegevoegd aan de datastore')
         else:
-            self.response.out.write(htmlHelper.startTable(header=['leerlingID','Klas','Docent','Tijd','Dag']))
+            self.response.out.write(htmlHelper.startTable(header=['leerlingID','DocentID','dag','Tijd','Tafelnummer','beschrijving']))
             for afspraak in afspraken:
                 self.response.out.write("<tr>")
-                self.response.out.write("<td>"+str(afspraak.leerlingID)+"</td>")
-                self.response.out.write("<td>"+afspraak.klas+"</td>")
-                self.response.out.write("<td>"+afspraak.docent+"</td>")
-                self.response.out.write("<td>"+str(afspraak.tijd)+"</td>")
+                self.response.out.write("<td>"+afspraak.leerlingID+"</td>")
+                self.response.out.write("<td>"+afspraak.docentID+"</td>")
                 self.response.out.write("<td>"+str(afspraak.dag)+"</td>")
+                self.response.out.write("<td>"+str(afspraak.tijd)+"</td>")
+                self.response.out.write("<td>"+str(afspraak.tafelnummer)+"</td>")
+                self.response.out.write("<td>"+afspraak.beschrijving+"</td>")
                 self.response.out.write("</tr>")
             self.response.out.write("</table>")
             self.response.out.write("<form action='/insert/afspraakpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
+            self.response.out.write(htmlHelper.footer())
 
 class InsertDocent(webapp.RequestHandler):
     def get(self):
-        self.response.out.write('<html><body>')
-        docenten = db.GqlQuery("SELECT * FROM Docent")
+        self.response.out.write(htmlHelper.header())
+        docenten = entities.Docent.all()
         if(docenten.count() == 0):
             docent = entities.Docent(docentID='BAARR', aanhef='mw. drs.', naam='R.Baart', postvaknummer=41, email='BAARR@DKC.NL', wachtwoord='a')
             docent.put()
@@ -326,11 +319,12 @@ class InsertDocent(webapp.RequestHandler):
                 self.response.out.write("</tr>")
             self.response.out.write("</table>")
             self.response.out.write("<form action='/insert/docentpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
+            self.response.out.write(htmlHelper.footer())
 
 class InsertVak(webapp.RequestHandler):
     def get(self):
-        self.response.out.write('<html><body>')
-        vakken = db.GqlQuery("SELECT * FROM Vak")
+        self.response.out.write(htmlHelper.header())
+        vakken = entities.Vak.all()
         if(vakken.count() == 0):
             vak = entities.Vak(vakCode='NED', vakNaam='Nederlands')
             vak.put()
@@ -367,6 +361,36 @@ class InsertVak(webapp.RequestHandler):
                 self.response.out.write("</tr>")
             self.response.out.write("</table>")
             self.response.out.write("<form action='/insert/vakpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
+            self.response.out.write(htmlHelper.footer())
+
+class InsertVakPerKlas(webapp.RequestHandler):
+    def get(self):
+        self.response.out.write(htmlHelper.header())
+        vakken = entities.VakPerKlas.all()
+        if(vakken.count() == 0):
+            vak = entities.VakPerKlas(jaargang='2010-2011', klas='h3', vakCode='NED', docentID='BAARR')
+            vak.put()
+            vak = entities.VakPerKlas(jaargang='2010-2011', klas='h3', vakCode='ENG', docentID='BABER')
+            vak.put()
+            vak = entities.VakPerKlas(jaargang='2010-2011', klas='h3', vakCode='DUI', docentID='BACUL')
+            vak.put()
+            vak = entities.VakPerKlas(jaargang='2010-2011', klas='h3', vakCode='FRA', docentID='BAKAX')
+            vak.put()
+            vak = entities.VakPerKlas(jaargang='2010-2011', klas='h3', vakCode='WIS', docentID='BAKET')
+            vak.put()
+            self.response.out.write('Vakken per klas toegevoegd aan de datastore')
+        else:
+            self.response.out.write(htmlHelper.startTable(header=['Jaargang','Klas','VakCode','docentID']))
+            for vak in vakken:
+                self.response.out.write("<tr>")
+                self.response.out.write("<td>"+vak.jaargang+"</td>")
+                self.response.out.write("<td>"+vak.klas+"</td>")
+                self.response.out.write("<td>"+vak.vakCode+"</td>")
+                self.response.out.write("<td>"+vak.docentID+"</td>")
+                self.response.out.write("</tr>")
+            self.response.out.write("</table>")
+            self.response.out.write("<form action='/insert/vakpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
+            self.response.out.write(htmlHelper.footer())
 
 
 class PostAfspraak(webapp.RequestHandler):
@@ -375,7 +399,9 @@ class PostAfspraak(webapp.RequestHandler):
             afspraken = db.GqlQuery("SELECT * FROM Afspraak")
             for afspraak in afspraken:
                 afspraak.delete()
-            self.response.out.write("<html><body><p>Deleted all entries <a href='/insert/afspraak'>terug (insert nieuwe data)</a></p></body></html>")
+            self.response.out.write(htmlHelper.header())
+            self.response.out.write("<p>Deleted all entries <a href='/insert/afspraak'>terug (insert nieuwe data)</a></p></body></html>")
+            self.response.out.write(htmlHelper.footer())
 
 class PostDocent(webapp.RequestHandler):
     def post(self):
@@ -383,7 +409,9 @@ class PostDocent(webapp.RequestHandler):
             docenten = db.GqlQuery("SELECT * FROM Docent")
             for docent in docenten:
                 docent.delete()
-            self.response.out.write("<html><body><p>Deleted all entries <a href='/insert/docent'>terug (insert nieuwe data)</a></p></body></html>")
+            self.response.out.write(htmlHelper.header())
+            self.response.out.write("<p>Deleted all entries <a href='/insert/docent'>terug (insert nieuwe data)</a></p></body></html>")
+            self.response.out.write(htmlHelper.footer())
 
 class PostVak(webapp.RequestHandler):
     def post(self):
@@ -391,7 +419,19 @@ class PostVak(webapp.RequestHandler):
             vakken = db.GqlQuery("SELECT * FROM Vak")
             for vak in vakken:
                 vak.delete()
-            self.response.out.write("<html><body><p>Deleted all entries <a href='/insert/vak'>terug (insert nieuwe data)</a></p></body></html>")
+            self.response.out.write(htmlHelper.header())
+            self.response.out.write("<p>Deleted all entries <a href='/insert/vak'>terug (insert nieuwe data)</a></p></body></html>")
+            self.response.out.write(htmlHelper.footer())
+
+class PostVakPerKlas(webapp.RequestHandler):
+    def post(self):
+        if(self.request.get('delete') == 'delete'):
+            vakken = db.GqlQuery("SELECT * FROM VakPerKlas")
+            for vak in vakken:
+                vak.delete()
+            self.response.out.write(htmlHelper.header())
+            self.response.out.write("<p>Deleted all entries <a href='/insert/vakperklas'>terug (insert nieuwe data)</a></p></body></html>")
+            self.response.out.write(htmlHelper.footer())
 
 
 def main():
@@ -401,6 +441,8 @@ def main():
                                           ('/insert/docentpost', PostDocent),
                                           ('/insert/vak', InsertVak),
                                           ('/insert/vakpost', PostVak),
+                                          ('/insert/vakperklas', InsertVakPerKlas),
+                                          ('/insert/vakperklaspost', PostVakPerKlas),
                                           ('/insert', InsertRoot)],
                                          debug=True)
     util.run_wsgi_app(application)
