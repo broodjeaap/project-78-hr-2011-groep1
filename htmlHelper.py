@@ -21,6 +21,7 @@ def klasAfspraakPage(klas):
     ret = "<div><form name='afspraken' action='/afspraakplanningpost' method='post'>"
     for vak in vakken:
         ret += afspraakTable(vak.docentID)
+    ret += "<input type='hidden' name='klas' value='"+klas+"' />"
     ret += "<input type='submit' value='Ok' /></form></div>"
     return ret
 
@@ -68,7 +69,7 @@ def afspraakTable(docentID,aantalTijden=12):
         afspraaknummer += 1
         time += delta
         
-    ret += "<tr colspan='100%'><td colspan='100%'><input style='width:100%' type='text' value='Gespreks punt(en)' /></td></tr>"
+    ret += "<tr><td colspan='100%'><input style='width:100%' name='"+docentID+"_beschrijving' type='text' value='Gespreks punt(en)' /></td></tr>"
     ret += "</form></table>"
     return ret
 

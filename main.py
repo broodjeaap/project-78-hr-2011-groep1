@@ -1,5 +1,6 @@
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
+from google.appengine.ext import db
 import datetime
 
 
@@ -14,16 +15,45 @@ class MainHandler(webapp.RequestHandler):
         
 class AfspraakPlanningPost(webapp.RequestHandler):
     def post(self):
-        
-        vakken = entities.Vak.all()
-        self.response.out.write("<table border='1'>")
+        """
+        entities.Afspraak(leerlingID="0",
+                            docentID='BAARR',
+                            dag=datetime.date(2011, 10, 11), 
+                            tijd=-1,
+                            tafelnummer=0,
+                            beschrijving='test')
+        """
+        klas = self.request.get("klas")
+        vakken = db.GqlQuery("SELECT * FROM VakPerKlas WHERE klas = '"+klas+"'")
+        #self.response.out.write("<table border='1'><tr><th>leerlingID</th><th>docentID</th><th>dag</th><th>tijd</th><th>beschrijving</th></tr>")
         for vak in vakken:
-            self.response.out.write("<tr>")
-            self.response.out.write("<td>"+vak.vakCode+"</td>")
-            x = self.request.get(vak.vakCode+"_afspraak")
-            self.response.out.write("<td>"+x+"</td>")
-            self.response.out.write("<td>"+vak.vakCode+"_afspraak</td>")
-            self.response.out.write("</tr>")
+            afspraakString = self.request.get(vak.docentID+"_afspraak")
+            if(len(afspraakString) != 0):
+                
+                leerlingID = "1234"
+                beschrijving = self.request.get(vak.docentID+"_beschrijving")
+                afspraakData = afspraakString.split("_")
+                
+                datumStrings = afspraakData[0].split("-")
+                
+                afspraak = entities.Afspraak(leerlingID = leerlingID,
+                                             docentID = vak.docentID,
+                                             dag= datetime.date(int(datumStrings[0]),int(datumStrings[1]), int(datumStrings[2])),
+                                             tijd= int(afspraakData[1]),
+                                             tafelnummer=0,
+                                             beschrijving = beschrijving
+                                             )
+                afspraak.put()
+                self.redirect('/')
+                """
+                self.response.out.write("<tr>")
+                self.response.out.write("<td>"+afspraak.leerlingID+"</td>")
+                self.response.out.write("<td>"+afspraak.docentID+"</td>")
+                self.response.out.write("<td>"+str(afspraak.dag)+"</td>")
+                self.response.out.write("<td>"+str(afspraak.tijd)+"</td>")
+                self.response.out.write("<td>"+afspraak.beschrijving+"</td>")
+                self.response.out.write("</tr>")
+        self.response.out.write("</table>")"""
     
 def main():
     application = webapp.WSGIApplication([('/', MainHandler),

@@ -8,8 +8,10 @@ function selectCheckbox(checkbox, dag, afspraakNummer, docentNaam, datum){
 		for(dagloop = 0;dagloop < aantalDagen;++dagloop){
 			for(tijd = 0;tijd < aantalTijden;++tijd){
 				var cb = document.getElementById(docentNaam+"_"+dagloop+"_"+tijd);
-				cb.disabled = true;
-				cb.parentNode.bgColor = "#00FE00";
+				if(cb != null){
+					cb.disabled = true;
+					cb.parentNode.bgColor = "#00FE00";
+				}
 			}
 		}
 		document.getElementById(docentNaam+"_afspraak").value = datum+"_"+afspraakNummer;
@@ -23,8 +25,10 @@ function selectCheckbox(checkbox, dag, afspraakNummer, docentNaam, datum){
 		for(dagloop = 0;dagloop < aantalDagen;++dagloop){
 			for(tijd = 0;tijd < aantalTijden;++tijd){
 				var cb = document.getElementById(docentNaam+"_"+dagloop+"_"+tijd);
-				cb.disabled = false;
-				cb.parentNode.bgColor = "#00FF00";
+				if(cb != null){
+					cb.disabled = false;
+					cb.parentNode.bgColor = "#00FF00";
+				}
 			}
 		}
 		document.getElementById(docentNaam+"_afspraak").value = "";

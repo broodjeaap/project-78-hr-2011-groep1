@@ -4,7 +4,11 @@ runtime: python
 api_version: 1
 
 handlers:
-- url: /*.*
+
+- url: /afspraakplanningpost
+  script: main.py
+  
+- url: /
   script: main.py
 
 - url: /insert/*.*

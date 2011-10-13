@@ -19,37 +19,37 @@ class InsertAfspraak(webapp.RequestHandler):
         self.response.out.write(htmlHelper.header())
         afspraken = entities.Afspraak.all()
         if(afspraken.count() == 0):
-            afspraak = entities.Afspraak(leerlingID="1234",docentID='BAARR',dag=datetime.date(2011, 10, 11), tijd=-1,tafelnummer=0,beschrijving='test')
+            afspraak = entities.Afspraak(leerlingID="0",docentID='BAARR',dag=datetime.date(2011, 10, 11), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="1234",docentID='BAARR',dag=datetime.date(2011, 10, 12), tijd=-1,tafelnummer=0,beschrijving='test')
+            afspraak = entities.Afspraak(leerlingID="0",docentID='BAARR',dag=datetime.date(2011, 10, 12), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="1234",docentID='BAARR',dag=datetime.date(2011, 10, 13), tijd=-1,tafelnummer=0,beschrijving='test')
+            afspraak = entities.Afspraak(leerlingID="0",docentID='BAARR',dag=datetime.date(2011, 10, 13), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="1234",docentID='BAARR',dag=datetime.date(2011, 10, 14), tijd=-1,tafelnummer=0,beschrijving='test')
+            afspraak = entities.Afspraak(leerlingID="0",docentID='BAARR',dag=datetime.date(2011, 10, 14), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="1235",docentID='BABER',dag=datetime.date(2011, 10, 11), tijd=-1,tafelnummer=0,beschrijving='test')
+            afspraak = entities.Afspraak(leerlingID="0",docentID='BABER',dag=datetime.date(2011, 10, 11), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="1235",docentID='BABER',dag=datetime.date(2011, 10, 12), tijd=-1,tafelnummer=0,beschrijving='test')
+            afspraak = entities.Afspraak(leerlingID="0",docentID='BABER',dag=datetime.date(2011, 10, 12), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="1235",docentID='BABER',dag=datetime.date(2011, 10, 13), tijd=-1,tafelnummer=0,beschrijving='test')
+            afspraak = entities.Afspraak(leerlingID="0",docentID='BABER',dag=datetime.date(2011, 10, 13), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="1235",docentID='BACUL',dag=datetime.date(2011, 10, 11), tijd=-1,tafelnummer=0,beschrijving='test')
+            afspraak = entities.Afspraak(leerlingID="0",docentID='BACUL',dag=datetime.date(2011, 10, 11), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="1235",docentID='BACUL',dag=datetime.date(2011, 10, 12), tijd=-1,tafelnummer=0,beschrijving='test')
+            afspraak = entities.Afspraak(leerlingID="0",docentID='BACUL',dag=datetime.date(2011, 10, 12), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="1235",docentID='BACUL',dag=datetime.date(2011, 10, 13), tijd=-1,tafelnummer=0,beschrijving='test')
+            afspraak = entities.Afspraak(leerlingID="0",docentID='BACUL',dag=datetime.date(2011, 10, 13), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="1235",docentID='BAKAX',dag=datetime.date(2011, 10, 11), tijd=-1,tafelnummer=0,beschrijving='test')
+            afspraak = entities.Afspraak(leerlingID="0",docentID='BAKAX',dag=datetime.date(2011, 10, 11), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="1235",docentID='BAKAX',dag=datetime.date(2011, 10, 12), tijd=-1,tafelnummer=0,beschrijving='test')
+            afspraak = entities.Afspraak(leerlingID="0",docentID='BAKAX',dag=datetime.date(2011, 10, 12), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="1235",docentID='BAKAX',dag=datetime.date(2011, 10, 13), tijd=-1,tafelnummer=0,beschrijving='test')
+            afspraak = entities.Afspraak(leerlingID="0",docentID='BAKAX',dag=datetime.date(2011, 10, 13), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="1235",docentID='BAKET',dag=datetime.date(2011, 10, 11), tijd=-1,tafelnummer=0,beschrijving='test')
+            afspraak = entities.Afspraak(leerlingID="0",docentID='BAKET',dag=datetime.date(2011, 10, 11), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="1235",docentID='BAKET',dag=datetime.date(2011, 10, 12), tijd=-1,tafelnummer=0,beschrijving='test')
+            afspraak = entities.Afspraak(leerlingID="0",docentID='BAKET',dag=datetime.date(2011, 10, 12), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
-            afspraak = entities.Afspraak(leerlingID="1235",docentID='BAKET',dag=datetime.date(2011, 10, 13), tijd=-1,tafelnummer=0,beschrijving='test')
+            afspraak = entities.Afspraak(leerlingID="0",docentID='BAKET',dag=datetime.date(2011, 10, 13), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
             
             self.response.out.write('Afspraken toegevoegd aan de datastore')
