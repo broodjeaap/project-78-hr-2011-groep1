@@ -25,6 +25,8 @@ class InsertAfspraak(webapp.RequestHandler):
             afspraak.put();
             afspraak = entities.Afspraak(leerlingID="1234",docentID='BAARR',dag=datetime.date(2011, 10, 13), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
+            afspraak = entities.Afspraak(leerlingID="1234",docentID='BAARR',dag=datetime.date(2011, 10, 14), tijd=-1,tafelnummer=0,beschrijving='test')
+            afspraak.put();
             afspraak = entities.Afspraak(leerlingID="1235",docentID='BABER',dag=datetime.date(2011, 10, 11), tijd=-1,tafelnummer=0,beschrijving='test')
             afspraak.put();
             afspraak = entities.Afspraak(leerlingID="1235",docentID='BABER',dag=datetime.date(2011, 10, 12), tijd=-1,tafelnummer=0,beschrijving='test')

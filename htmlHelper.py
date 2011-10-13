@@ -21,7 +21,7 @@ def klasAfspraakPage(klas):
     ret = "<div><form name='afspraken' action='/afspraakplanningpost' method='post'>"
     for vak in vakken:
         ret += afspraakTable(vak.docentID)
-    ret += "</div>"
+    ret += "<input type='submit' value='Ok' /></form></div>"
     return ret
 
 def afspraakTable(docentID,aantalTijden=12):
@@ -42,8 +42,9 @@ def afspraakTable(docentID,aantalTijden=12):
     tijden = zip(*tijden)
     
     ret = "<table border='1'><tr><th colspan='100%'>"+docentID+"</th></tr>"
-    ret += "<input type='hidden' name='aantalDagen' id='aantalDagen' value='"+str(len(datums))+"' />"
-    ret += "<input type='hidden' name='aantalTijden' id='aantalTijden' value='"+str(aantalTijden)+"' />"
+    ret += "<input type='hidden' name='"+docentID+"_aantalDagen' id='"+docentID+"_aantalDagen' value='"+str(len(datums))+"' />"
+    ret += "<input type='hidden' name='"+docentID+"_aantalTijden' id='"+docentID+"_aantalTijden' value='"+str(aantalTijden)+"' />"
+    ret += "<input type='text' name='"+docentID+"_afspraak' id='"+docentID+"_afspraak' value='' />"
     ret += "<tr><th>Tijd</th>"
     for datum in datums:
         ret += "<th>"+str(datum)+"</th>"
@@ -61,7 +62,7 @@ def afspraakTable(docentID,aantalTijden=12):
                 ret += "</td>"
             else:
                 ret += "<td bgcolor=#00FF00>"
-                ret += "<input type='checkbox' name='"+docentID+str(afspraaknummer)+"' id='"+docentID+"_"+str(dag)+"_"+str(afspraaknummer)+"' value='afspraak"+str(afspraaknummer)+"' onClick='selectCheckbox(this,"+str(dag)+", "+str(afspraaknummer)+", \""+docentID+"\");'/>"
+                ret += "<input type='checkbox' name='checkbox' id='"+docentID+"_"+str(dag)+"_"+str(afspraaknummer)+"' value='afspraak"+str(afspraaknummer)+"' onClick='selectCheckbox(this,"+str(dag)+", "+str(afspraaknummer)+", \""+docentID+"\", \""+str(datums[dag])+"\");'/>"
                 ret += "</td>"
                 dag += 1
         afspraaknummer += 1
@@ -84,7 +85,7 @@ def insertRootLink(entiteitNaam):
     
 def header():
     return """<html>
-                <body onload='load()'>
+                <body>
                     <SCRIPT LANGUAGE='JavaScript' SRC='/js/Afspraak.js'></SCRIPT>
                     <table width='500'>
                         <tr>
