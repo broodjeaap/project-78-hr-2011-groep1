@@ -12,7 +12,7 @@ def startTable(header=None, tableStart=True,border=True):
     if(header != None):
         ret += "<tr>"
         for item in header:
-            ret += "<th>"+str(item)+"</th>"
+            ret += cell(item)
         ret += "</tr>"
     return ret
 
@@ -36,7 +36,7 @@ def afspraakTable(docentID,aantalTijden=12,leerlingID="1234"):
     if(oudeAfspraak != None):
         ret = "<table border='1'><tr><th colspan='100%'>"+docentID+"</th></tr>"
         ret += "<tr><th>LeerlingID</th><th>DocentID</th><th>Datum</th><th>Tijd</th><th>Tafelnummer</th><th>Afzeggen</th></tr>"
-        ret += "<tr><td>"+oudeAfspraak.leerlingID+"</td><td>"+oudeAfspraak.docentID+"</td><td>"+str(oudeAfspraak.dag)+"</td><td>"+str(oudeAfspraak.tijd)+"</td><td>"+str(oudeAfspraak.tafelnummer)+"</td><td><form name='afzeggen_"+docentID+"' action='/afspraakplanningpost' method='post'><input type='hidden' name='afzegkey' value='"+str(oudeAfspraak.key())+"' /><input type='submit' value='Afzeggen' /></form></td></tr>"
+        ret += "<tr>"+cell(oudeAfspraak.leerlingID)+cell(oudeAfspraak.docentID)+cell(oudeAfspraak.dag)+cell(oudeAfspraak.tijd)+cell(oudeAfspraak.tafelnummer)+cell("<form name='afzeggen_"+docentID+"' action='/afspraakplanningpost' method='post'><input type='hidden' name='afzegkey' value='"+str(oudeAfspraak.key())+"' /><input type='submit' value='Afzeggen' /></form>")+"</tr>"
         ret += "</table>"
         return ret
     
@@ -66,22 +66,19 @@ def afspraakTable(docentID,aantalTijden=12,leerlingID="1234"):
     delta = datetime.timedelta(minutes=15)
     afspraaknummer = 0
     for tijdList in tijden:
-        ret += "<tr><td>"+str(datetime.time(hour=time.hour,minute=time.minute))[:-3]+"</td>"
+        ret += "<tr>"+cell(str(datetime.time(hour=time.hour,minute=time.minute))[:-3])
         dag = 0
         for tijd in tijdList:
             if(tijd):
-                ret += "<td bgcolor=#FF0000>"
+                ret += cell(data=" ",attributes="bgcolor=#FF0000 ")
                 #ret += "<input type='checkbox' name='afspraak_"+docentID+"' value='afspraak"+str(count)+"' disabled='disabled'/>"
-                ret += "</td>"
             else:
-                ret += "<td bgcolor=#00FF00>"
-                ret += "<input type='checkbox' name='checkbox' id='"+docentID+"_"+str(dag)+"_"+str(afspraaknummer)+"' value='afspraak"+str(afspraaknummer)+"' onClick='selectCheckbox(this,"+str(dag)+", "+str(afspraaknummer)+", \""+docentID+"\", \""+str(datums[dag])+"\");'/>"
-                ret += "</td>"
+                ret += cell("<input type='checkbox' name='checkbox' id='"+docentID+"_"+str(dag)+"_"+str(afspraaknummer)+"' value='afspraak"+str(afspraaknummer)+"' onClick='selectCheckbox(this,"+str(dag)+", "+str(afspraaknummer)+", \""+docentID+"\", \""+str(datums[dag])+"\");'/>", attributes="bgcolor=#00FF00 ")
                 dag += 1
         afspraaknummer += 1
         time += delta
         
-    ret += "<tr><td colspan='100%'><input style='width:100%' name='"+docentID+"_beschrijving' type='text' value='Gespreks punt(en)' /></td></tr>"
+    ret += "<tr>"+cell(data="<input style='width:100%' name='"+docentID+"_beschrijving' type='text' value='Gespreks punt(en)' />", attributes="colspan='100% ")+"</tr>"
     ret += "</form></table>"
     return ret
 
@@ -109,4 +106,7 @@ def header():
 
 def footer():
     return "</body></html>"
+
+def cell(data,attributes=""):
+    return "<td "+attributes+">"+str(data)+"</td>"
     
