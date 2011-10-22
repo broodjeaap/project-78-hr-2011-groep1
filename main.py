@@ -13,7 +13,13 @@ class MainHandler(webapp.RequestHandler):
         self.response.out.write(htmlHelper.header())
         self.response.out.write(htmlHelper.klasAfspraakPage('h3'))
         self.response.out.write(htmlHelper.footer())
-        
+
+class OuderAvondPlannen(webapp.RequestHandler):
+    def get(self):
+        self.response.out.write(htmlHelper.header())
+        self.response.out.write("test")
+        self.response.out.write(htmlHelper.footer())
+
 class AfspraakPlanningPost(webapp.RequestHandler):
     def post(self):
         key = self.request.get("afzegkey")
@@ -22,15 +28,6 @@ class AfspraakPlanningPost(webapp.RequestHandler):
             afspraak.delete()
             self.redirect('/')
             return
-            
-        """
-        entities.Afspraak(leerlingID="0",
-                            docentID='BAARR',
-                            dag=datetime.date(2011, 10, 11), 
-                            tijd=-1,
-                            tafelnummer=0,
-                            beschrijving='test')
-        """
         klas = self.request.get("klas")
         leerlingID = "1234"
         vakken = db.GqlQuery("SELECT * FROM VakPerKlas WHERE klas = '"+klas+"'")
@@ -47,19 +44,11 @@ class AfspraakPlanningPost(webapp.RequestHandler):
                 afspraak = entities.Afspraak(leerlingID = leerlingID,docentID = vak.docentID,dag= datetime.date(int(datumStrings[0]),int(datumStrings[1]), int(datumStrings[2])),tijd= int(afspraakData[1]),tafelnummer=0,beschrijving = beschrijving)
                 afspraak.put()
                 self.redirect('/')
-                """
-                self.response.out.write("<tr>")
-                self.response.out.write("<td>"+afspraak.leerlingID+"</td>")
-                self.response.out.write("<td>"+afspraak.docentID+"</td>")
-                self.response.out.write("<td>"+str(afspraak.dag)+"</td>")
-                self.response.out.write("<td>"+str(afspraak.tijd)+"</td>")
-                self.response.out.write("<td>"+afspraak.beschrijving+"</td>")
-                self.response.out.write("</tr>")
-        self.response.out.write("</table>")"""
     
 def main():
     application = webapp.WSGIApplication([('/', MainHandler),
-                                          ('/afspraakplanningpost', AfspraakPlanningPost)],
+                                          ('/afspraakplanningpost', AfspraakPlanningPost),
+                                          ('/plannen', OuderAvondPlannen)],
                                          debug=True)
     util.run_wsgi_app(application)
 

@@ -19,13 +19,23 @@ def startTable(header=None, tableStart=True,border=True):
 def klasAfspraakPage(klas,leerlingID="1234"): #maak voor een klas alle afspraak tabellen aan
     vakken = db.GqlQuery("SELECT * FROM VakPerKlas WHERE klas = '"+klas+"'") # pak alle vakken van een klas
     ret = "<div><form name='afspraken' action='/afspraakplanningpost' method='post'>"
+    count = 0
+    afspraakCount = 0;
     for vak in vakken: # voor elk vak in de klas, maak een afspraakTable
-        ret += afspraakTable(vak.docentID,leerlingID)
+        ret += afspraakTable(vak.docentID,leerlingID,tableCount=count)
+        if(ret[-1:] == "1"):
+            afspraakCount += 1
+            ret = ret[:-1]
+        ret += "<input type='hidden' name='klas' value='"+klas+"' />"
+            
+        count += 1
+    
+    ret += "<input type='hidden' id='aantalAfspraken' name='aantalAfspraken' value='"+str(afspraakCount)+"' />"
     ret += "<input type='hidden' name='klas' value='"+klas+"' />"
     ret += "<input type='submit' value='Ok' /></form></div>"
     return ret
 
-def afspraakTable(docentID,aantalTijden=12,leerlingID="1234"): # maak een afspraakTable
+def afspraakTable(docentID,aantalTijden=12,leerlingID="1234",tableCount=0): # maak een afspraakTable
     afspraken = db.GqlQuery("SELECT * FROM Afspraak WHERE docentID = '"+docentID+"'") # pak alle afspraken voor de docent
     
     oudeAfspraken = db.GqlQuery("SELECT * FROM Afspraak WHERE leerlingID = '"+leerlingID+"' and docentID = '"+docentID+"'") # kijk of deze persoon al een afsrpaak heeft geplanned
@@ -34,10 +44,17 @@ def afspraakTable(docentID,aantalTijden=12,leerlingID="1234"): # maak een afspra
         oudeAfspraak = tmp
     
     if(oudeAfspraak != None): # is er al een afspraak geplanned? laat dan geen schema zien, maar de huidige afspraak met een knop om af te zeggen
-        ret = "<table border='1'><tr><th colspan='100%'>"+docentID+"</th></tr>"
-        ret += "<tr><th>LeerlingID</th><th>DocentID</th><th>Datum</th><th>Tijd</th><th>Tafelnummer</th><th>Afzeggen</th></tr>"
-        ret += "<tr>"+cell(oudeAfspraak.leerlingID)+cell(oudeAfspraak.docentID)+cell(oudeAfspraak.dag)+cell(oudeAfspraak.tijd)+cell(oudeAfspraak.tafelnummer)+cell("<form name='afzeggen_"+docentID+"' action='/afspraakplanningpost' method='post'><input type='hidden' name='afzegkey' value='"+str(oudeAfspraak.key())+"' /><input type='submit' value='Afzeggen' /></form>")+"</tr>"
-        ret += "</table>"
+        afspraakTable = []
+        tableRow = []
+        tableRow.append(oudeAfspraak.leerlingID)
+        tableRow.append(oudeAfspraak.docentID)
+        tableRow.append(oudeAfspraak.dag)
+        tableRow.append(oudeAfspraak.tijd)
+        tableRow.append(oudeAfspraak.tafelnummer)
+        tableRow.append("<form name='afzeggen_"+docentID+"' action='/afspraakplanningpost' method='post'><input type='hidden' name='afzegkey' value='"+str(oudeAfspraak.key())+"' /><input type='submit' value='Afzeggen' /></form>")
+        afspraakTable.append(tableRow)
+        ret = table(afspraakTable, attributes="border='1'", head=["LeerlingID","DocentID","Datum","Tijd","Tafelnummer","Afzeggen"])
+        ret += "1" #yeah... uuh...
         return ret
     
     tijden = []
@@ -56,6 +73,8 @@ def afspraakTable(docentID,aantalTijden=12,leerlingID="1234"): # maak een afspra
     ret = "<table border='1'><tr><th colspan='100%'>"+docentID+"</th></tr>"
     ret += "<input type='hidden' name='"+docentID+"_aantalDagen' id='"+docentID+"_aantalDagen' value='"+str(len(datums))+"' />" #aantal dagen, nodig voor javascript
     ret += "<input type='hidden' name='"+docentID+"_aantalTijden' id='"+docentID+"_aantalTijden' value='"+str(aantalTijden)+"' />" #aantal tijden, nodig voor javascript
+    ret += "<input type='hidden' name='"+docentID+"_docentIndex' id='"+docentID+"_docentIndex' value='"+str(tableCount)+"' />"
+    
     ret += "<input type='hidden' name='"+docentID+"_afspraak' id='"+docentID+"_afspraak' value='' />" # belangrijkste data voor post
     ret += "<tr><th>Tijd</th>"
     for datum in datums: #print alle datums uit
@@ -73,7 +92,8 @@ def afspraakTable(docentID,aantalTijden=12,leerlingID="1234"): # maak een afspra
                 ret += cell(data=" ",attributes="bgcolor=#FF0000 ")
                 #ret += "<input type='checkbox' name='afspraak_"+docentID+"' value='afspraak"+str(count)+"' disabled='disabled'/>"
             else:
-                ret += cell("<input type='checkbox' name='checkbox' id='"+docentID+"_"+str(dag)+"_"+str(afspraaknummer)+"' value='afspraak"+str(afspraaknummer)+"' onClick='selectCheckbox(this,"+str(dag)+", "+str(afspraaknummer)+", \""+docentID+"\", \""+str(datums[dag])+"\");'/>", attributes="bgcolor=#00FF00 ")
+                #ret += cell("<input type='checkbox' name='checkbox' id='"+docentID+"_"+str(dag)+"_"+str(afspraaknummer)+"' value='afspraak"+str(afspraaknummer)+"' onClick='selectCheckbox(this,"+str(dag)+", "+str(afspraaknummer)+", \""+docentID+"\", \""+str(datums[dag])+"\");'/>", attributes=" ")
+                ret += "<td onClick='selectCheckbox(this,"+str(dag)+", "+str(afspraaknummer)+", \""+docentID+"\", \""+str(datums[dag])+"\");' bgcolor=#00FF00> </td>"
                 dag += 1
         afspraaknummer += 1
         time += delta # time += 15 minuten
@@ -95,7 +115,7 @@ def insertRootLink(entiteitNaam):
     
 def header():
     return """<html>
-                <body>
+                <body onload='init()'>
                     <style type="text/css">
                     @import "css/jquery.datepick.css";
                     </style>
@@ -106,6 +126,7 @@ def header():
                         <tr>
                             <td><a href='/'>Home</a></td>
                             <td><a href='/insert'>Insert root</a></td>
+                            <td><a href='/plannen'>Ouder avond plannen</a></td>
                         </tr>
                     </table>"""
 
@@ -119,7 +140,7 @@ def table(data, attributes="",head=None, headAttributes="",title=None):
     if(head != None):
         ret += "<tr "+headAttributes+">"
         for item in head:
-            ret += "<th>"+str(item)+"</th"
+            ret += "<th>"+str(item)+"</th>"
         ret += "</tr>"
     for tableRow in data:
         ret += row(tableRow)
@@ -129,7 +150,7 @@ def table(data, attributes="",head=None, headAttributes="",title=None):
 def row(values,attributes=""):
     ret = "<tr "+attributes+" >"
     for value in values:
-        ret += "<td>"+str(value)+"</td>"
+        ret += cell(value)
     ret += "</tr>"
     return ret
 
