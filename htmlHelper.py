@@ -96,7 +96,12 @@ def insertRootLink(entiteitNaam):
 def header():
     return """<html>
                 <body>
-                    <SCRIPT LANGUAGE='JavaScript' SRC='/js/Afspraak.js'></SCRIPT>
+                    <style type="text/css">
+                    @import "css/jquery.datepick.css";
+                    </style>
+                    <script type='text/javascript' src='js/Afspraak.js'></SCRIPT>
+                    <script type='text/javascript' src='js/jquery-1.6.4.js'></SCRIPT>
+                    <script type='text/javascript' src='js/jquery.datepick.js'></script>
                     <table width='500'>
                         <tr>
                             <td><a href='/'>Home</a></td>
@@ -106,6 +111,27 @@ def header():
 
 def footer():
     return "</body></html>"
+
+def table(data, attributes="",head=None, headAttributes="",title=None):
+    ret = "<table "+attributes+" >"
+    if(title != None):
+        ret += "<tr><td colspan='100%'>"+str(title)+"</td></tr>"
+    if(head != None):
+        ret += "<tr "+headAttributes+">"
+        for item in head:
+            ret += "<th>"+str(item)+"</th"
+        ret += "</tr>"
+    for tableRow in data:
+        ret += row(tableRow)
+    ret += "</table>"
+    return ret
+
+def row(values,attributes=""):
+    ret = "<tr "+attributes+" >"
+    for value in values:
+        ret += "<td>"+str(value)+"</td>"
+    ret += "</tr>"
+    return ret
 
 def cell(data,attributes=""):
     return "<td "+attributes+">"+str(data)+"</td>"

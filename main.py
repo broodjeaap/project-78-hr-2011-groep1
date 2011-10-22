@@ -9,6 +9,7 @@ import entities
 
 class MainHandler(webapp.RequestHandler):
     def get(self):
+
         self.response.out.write(htmlHelper.header())
         self.response.out.write(htmlHelper.klasAfspraakPage('h3'))
         self.response.out.write(htmlHelper.footer())
