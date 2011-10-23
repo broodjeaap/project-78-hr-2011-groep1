@@ -9,17 +9,34 @@ import entities
 
 class MainHandler(webapp.RequestHandler):
     def get(self):
-
-        self.response.out.write(htmlHelper.header())
+        self.response.out.write(htmlHelper.header(bodyAttributes ="onload='afspraakInit()'" ))
         self.response.out.write(htmlHelper.klasAfspraakPage('h3'))
         self.response.out.write(htmlHelper.footer())
 
 class OuderAvondPlannen(webapp.RequestHandler):
     def get(self):
         self.response.out.write(htmlHelper.header())
-        self.response.out.write("test")
+        self.response.out.write(htmlHelper.planningPage())
         self.response.out.write(htmlHelper.footer())
 
+class OuderAvondPlannenPost(webapp.RequestHandler):
+    def post(self):
+        docenten = self.request.get("checkedDocenten").split(",")
+        datums = self.request.get("datums").split(",")
+        splitDatums = []
+        for datum in datums:
+            splitDatums.append(datum.split("-"))
+            
+        for docent in docenten:
+            for datum in splitDatums:
+                afspraak = entities.Afspraak(leerlingID="0",docentID=docent,dag=datetime.date(int(datum[0]), int(datum[1]), int(datum[2])), tijd=-1,tafelnummer=0,beschrijving='#')
+                afspraak.put();
+            self.response.out.write(docent+" heeft ouderavond(en) op: <br />")
+            for datum in datums:
+                self.response.out.write(datum+" <br />")
+            self.response.out.write("<br />")
+
+            
 class AfspraakPlanningPost(webapp.RequestHandler):
     def post(self):
         key = self.request.get("afzegkey")
@@ -48,7 +65,8 @@ class AfspraakPlanningPost(webapp.RequestHandler):
 def main():
     application = webapp.WSGIApplication([('/', MainHandler),
                                           ('/afspraakplanningpost', AfspraakPlanningPost),
-                                          ('/plannen', OuderAvondPlannen)],
+                                          ('/plannen', OuderAvondPlannen),
+                                          ('/plannenpost', OuderAvondPlannenPost)],
                                          debug=True)
     util.run_wsgi_app(application)
 

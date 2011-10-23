@@ -8,6 +8,12 @@ handlers:
 - url: /afspraakplanningpost
   script: main.py
   
+- url: /plannen
+  script: main.py
+  
+- url: /plannenpost
+  script: main.py
+  
 - url: /
   script: main.py
 
@@ -20,3 +26,5 @@ handlers:
 - url: /js
   static_dir: js
   
+- url: /css
+  static_dir: css

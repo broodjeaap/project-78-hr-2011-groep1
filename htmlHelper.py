@@ -57,6 +57,9 @@ def afspraakTable(docentID,aantalTijden=12,leerlingID="1234",tableCount=0): # ma
         ret += "1" #yeah... uuh...
         return ret
     
+    if(afspraken.count() == 0):
+        return "<h3>"+docentID+" heeft geen ouderavond ingepland </h3>"
+    
     tijden = []
     datums = []
     for afspraak in afspraken: # aanmaken van het 2d afspraken array
@@ -110,25 +113,54 @@ def inList(item, list): #checkt of 'item' in de 'list' zit, zo ja, return de ind
         count += 1
     return -1
 
+def planningPage():
+    docentTable = []
+    tableRow = []
+    ret = "<form name='plannen' action='/plannenpost' method='post'>"
+    tableRow.append("""<input type='text' name='datums' id='datepicker' />
+                <script type="text/javascript">
+                    $('#datepicker').datepick({
+                    multiSelect: 999,
+                    dateFormat: 'yyyy-mm-dd',
+                    showTrigger: '#calImg', 
+                    monthsToShow: 3, 
+                    monthsToStep: 3, 
+                    prevText: 'Prev months', 
+                    nextText: 'Next months'});
+                </script>""")
+    tableRow.append("<input type='submit' value='Ok'>")
+    docentTable.append(tableRow)
+    
+    
+    docenten = db.GqlQuery("SELECT * FROM Docent")
+    for docent in docenten:
+        tableRow = []
+        tableRow.append(docent.naam)
+        tableRow.append("<input type='checkbox' name='"+docent.docentID+"_planning_checkbox[]' id='"+docent.docentID+"_planning_checkbox' value='"+docent.docentID+"' />")
+        docentTable.append(tableRow)
+    
+    ret += table(docentTable,attributes="border='1'",title="Ouder avond plannen")
+    ret += "<input type='hidden' name='checkedDocenten' id='checkedDocenten' value='' />"
+    ret += "</form>"
+    return ret
+
 def insertRootLink(entiteitNaam):
     return "<a href = '/insert/"+entiteitNaam.lower()+"'>"+entiteitNaam+" insert</a><form action='/insert/"+entiteitNaam.lower()+"post' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete all from "+entiteitNaam+"' /></form><br />"
     
-def header():
+def header(bodyAttributes = ""):
     return """<html>
-                <body onload='init()'>
-                    <style type="text/css">
-                    @import "css/jquery.datepick.css";
-                    </style>
-                    <script type='text/javascript' src='js/Afspraak.js'></SCRIPT>
+                <body %s>
+                    <link rel="stylesheet" type="text/css" href="css/jquery.datepick.css" media="screen" />
                     <script type='text/javascript' src='js/jquery-1.6.4.js'></SCRIPT>
                     <script type='text/javascript' src='js/jquery.datepick.js'></script>
+                    <script type='text/javascript' src='js/Afspraak.js'></SCRIPT>
                     <table width='500'>
                         <tr>
                             <td><a href='/'>Home</a></td>
                             <td><a href='/insert'>Insert root</a></td>
                             <td><a href='/plannen'>Ouder avond plannen</a></td>
                         </tr>
-                    </table>"""
+                    </table>""" %(bodyAttributes)
 
 def footer():
     return "</body></html>"
