@@ -6,14 +6,21 @@ function afspraakInit(){
 }
 
 $(document).ready(function() {
-	$('input:checkbox').click(function (){
-		$("#checkedDocenten").val($('input:checkbox').map(function() {
-			if(this.checked == true){
-				return this.value;
-			}
+
+	var updateHidden = function (){
+		$("#checkedDocenten").val($("input:checkbox:checked[docentCheckBox |='true']").map(function(i,n) {
+			return $(n).val();
 		}).get().join(','));
+	}
+	
+	$("input:checkbox").change(updateHidden);
+	
+	$("#select_all").change(function() {
+		$("input:checkbox").attr('checked', $('#select_all').is(':checked')); 
+		updateHidden();
 	});
 });
+
 function selectCheckbox(clickedCell, dag, afspraakNummer, docentNaam, datum){
 	aantalDagen = $("#"+docentNaam+"_aantalDagen").val();
 	aantalTijden = $("#"+docentNaam+"_aantalTijden").val();

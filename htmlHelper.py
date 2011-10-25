@@ -22,12 +22,11 @@ def klasAfspraakPage(klas,leerlingID="1234"): #maak voor een klas alle afspraak 
     count = 0
     afspraakCount = 0;
     for vak in vakken: # voor elk vak in de klas, maak een afspraakTable
-        ret += afspraakTable(vak.docentID,leerlingID,tableCount=count)
+        ret += afspraakTable(docentID=vak.docentID,leerlingID=leerlingID,tableCount=count)
         if(ret[-1:] == "1"):
             afspraakCount += 1
             ret = ret[:-1]
         ret += "<input type='hidden' name='klas' value='"+klas+"' />"
-            
         count += 1
     
     ret += "<input type='hidden' id='aantalAfspraken' name='aantalAfspraken' value='"+str(afspraakCount)+"' />"
@@ -38,14 +37,27 @@ def klasAfspraakPage(klas,leerlingID="1234"): #maak voor een klas alle afspraak 
 def afspraakTable(docentID,aantalTijden=12,leerlingID="1234",tableCount=0): # maak een afspraakTable
     afspraken = db.GqlQuery("SELECT * FROM Afspraak WHERE docentID = '"+docentID+"'") # pak alle afspraken voor de docent
     
-    oudeAfspraken = db.GqlQuery("SELECT * FROM Afspraak WHERE leerlingID = '"+leerlingID+"' and docentID = '"+docentID+"'") # kijk of deze persoon al een afsrpaak heeft geplanned
-    oudeAfspraak = None
-    for tmp in oudeAfspraken:
-        oudeAfspraak = tmp
     
-    if(oudeAfspraak != None): # is er al een afspraak geplanned? laat dan geen schema zien, maar de huidige afspraak met een knop om af te zeggen
+    oudeAfspraak = False
+    for afspraak in afspraken:
+        if(afspraak.leerlingID == leerlingID):
+            oudeAfspraak = True
+            break
+    
+    """
+    
+    afspraakTest = None
+    ret = "blaat"
+    for tmp in oudeAfspraken:
+        afspraakTest = tmp
+        ret += "blaat"
+    ret += "blaat"
+    """
+    if(oudeAfspraak): # is er al een afspraak geplanned? laat dan geen schema zien, maar de huidige afspraak met een knop om af te zeggen
         afspraakTable = []
         tableRow = []
+        oudeAfspraken = db.GqlQuery("SELECT * FROM Afspraak WHERE leerlingID = '"+leerlingID+"' and docentID = '"+docentID+"'") # kijk of deze persoon al een afsrpaak heeft geplanned
+        oudeAfspraak = oudeAfspraken[0]
         tableRow.append(oudeAfspraak.leerlingID)
         tableRow.append(oudeAfspraak.docentID)
         tableRow.append(oudeAfspraak.dag)
@@ -117,6 +129,7 @@ def planningPage():
     docentTable = []
     tableRow = []
     ret = "<form name='plannen' action='/plannenpost' method='post'>"
+    ret += "<input type='hidden' name='checkedDocenten' id='checkedDocenten' value='' />"
     tableRow.append("""<input type='text' name='datums' id='datepicker' />
                 <script type="text/javascript">
                     $('#datepicker').datepick({
@@ -131,16 +144,19 @@ def planningPage():
     tableRow.append("<input type='submit' value='Ok'>")
     docentTable.append(tableRow)
     
+    tableRow = []
+    tableRow.append("<h3>Select All</h3>")
+    tableRow.append("<input type='checkbox' name='select_all' id='select_all' value='select_all' />")
+    docentTable.append(tableRow)
     
     docenten = db.GqlQuery("SELECT * FROM Docent")
     for docent in docenten:
         tableRow = []
         tableRow.append(docent.naam)
-        tableRow.append("<input type='checkbox' name='"+docent.docentID+"_planning_checkbox[]' id='"+docent.docentID+"_planning_checkbox' value='"+docent.docentID+"' />")
+        tableRow.append("<input type='checkbox' name='docent_planning_checkbox' id='"+docent.docentID+"_planning_checkbox' docentCheckBox='true' value='"+docent.docentID+"' />")
         docentTable.append(tableRow)
     
     ret += table(docentTable,attributes="border='1'",title="Ouder avond plannen")
-    ret += "<input type='hidden' name='checkedDocenten' id='checkedDocenten' value='' />"
     ret += "</form>"
     return ret
 

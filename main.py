@@ -10,7 +10,7 @@ import entities
 class MainHandler(webapp.RequestHandler):
     def get(self):
         self.response.out.write(htmlHelper.header(bodyAttributes ="onload='afspraakInit()'" ))
-        self.response.out.write(htmlHelper.klasAfspraakPage('h3'))
+        self.response.out.write(htmlHelper.klasAfspraakPage('h3',leerlingID="1234"))
         self.response.out.write(htmlHelper.footer())
 
 class OuderAvondPlannen(webapp.RequestHandler):
@@ -21,6 +21,7 @@ class OuderAvondPlannen(webapp.RequestHandler):
 
 class OuderAvondPlannenPost(webapp.RequestHandler):
     def post(self):
+        self.response.out.write(htmlHelper.header())
         docenten = self.request.get("checkedDocenten").split(",")
         datums = self.request.get("datums").split(",")
         splitDatums = []
@@ -35,7 +36,7 @@ class OuderAvondPlannenPost(webapp.RequestHandler):
             for datum in datums:
                 self.response.out.write(datum+" <br />")
             self.response.out.write("<br />")
-
+        self.response.out.write(htmlHelper.footer())
             
 class AfspraakPlanningPost(webapp.RequestHandler):
     def post(self):
