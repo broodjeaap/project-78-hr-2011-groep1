@@ -203,5 +203,10 @@ def row(values,attributes=""):
     return ret
 
 def cell(data,attributes=""):
-    return "<td "+attributes+" >"+str(data.encode('utf-8'))+"</td>"
+    ret = ""
+    try:
+      ret = "<td "+attributes+" >"+str(data)+"</td>"
+    except: 
+      ret = "<td "+attributes+" >"+str(data.encode('utf-8'))+"</td>"
+    return ret
     
