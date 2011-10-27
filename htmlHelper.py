@@ -113,7 +113,7 @@ def afspraakTable(docentID,aantalTijden=12,leerlingID="1234",tableCount=0): # ma
         afspraaknummer += 1
         time += delta # time += 15 minuten
         
-    ret += "<tr>"+cell(data="<input style='width:100%' name='"+docentID+"_beschrijving' type='text' value='Gespreks punt(en)' />", attributes="colspan='100% ")+"</tr>"
+    ret += "<tr>"+cell(data="<input style='width:100%'  name='"+docentID+"_beschrijving' type='text' value='Gespreks punt(en)' />", attributes="colspan='100%' ")+"</tr>"
     ret += "</form></table>"
     return ret
 
@@ -203,5 +203,5 @@ def row(values,attributes=""):
     return ret
 
 def cell(data,attributes=""):
-    return "<td "+attributes+">"+str(data)+"</td>"
+    return "<td "+attributes+" >"+str(data.encode('utf-8'))+"</td>"
     

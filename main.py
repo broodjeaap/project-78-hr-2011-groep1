@@ -47,7 +47,7 @@ class AfspraakPlanningPost(webapp.RequestHandler):
             self.redirect('/')
             return
         klas = self.request.get("klas")
-        leerlingID = "1234"
+        leerlingID = "4321"
         vakken = db.GqlQuery("SELECT * FROM VakPerKlas WHERE klas = '"+klas+"'")
         
         #self.response.out.write("<table border='1'><tr><th>leerlingID</th><th>docentID</th><th>dag</th><th>tijd</th><th>beschrijving</th></tr>")

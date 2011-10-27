@@ -1,0 +1,650 @@
+1111 ; dhr. ; A. ;  ; Hilverda ; ouder ; Snoystraat ; 1 ; Gouda ; 2802 SV ; 06-1234321 ; 0182-234321 ; Hilverda@planeet.nl
+1139 ; dhr. ; E. ;  ; Lousma ; ouder ; Ronsseweg ; 11 ; Gouda ; 2803 ZB ; 06-1297321 ; 0182-297321 ; Lousma@hetweb.nl
+1167 ; dhr. ; I. ;  ; Schingenga ; ouder ; Romerostraat ; 21 ; Gouda ; 2807 RK ; 06-1361889 ; 0182-361889 ; Schingenga@xs4you.nl
+1195 ; dhr. ; M. ;  ; Velema ; ouder ; Beatrixlaan ; 31 ; Reeuwijk ; 2811 LZ ; 06-1428025 ; 0182-428025 ; Velema@zoggi.nl
+1223 ; dhr. ; Q. ;  ; Beertema ; ouder ; Runmolenerf ; 8 ; Gouda ; 2807 DT ; 06-1495729 ; 0182-495729 ; Beertema@freeweb.com
+1251 ; dhr. ; U. ;  ; Folbeda ; ouder ; Keizerstraat ; 18 ; Gouda ; 2801 NJ ; 06-1565001 ; 0182-565001 ; Folbeda@gmailer.com
+1279 ; dhr. ; Y. ;  ; Jolsma ; ouder ; Oostboezemkade ; 28 ; Gouda ; 2805 JG ; 06-1635841 ; 0182-635841 ; Jolsma@hotmailing.com
+1307 ; dhr. ; C. ;  ; Pijpstra ; ouder ; Beringlaan ; 5 ; Gouda ; 2803 GA ; 06-1708249 ; 0182-708249 ; Pijpstra@planeet.nl
+1335 ; dhr. ; G.Th. ;  ; Stania ; ouder ; Irisstraat ; 15 ; Stolwijk ; 2821 SJ ; 06-1782225 ; 0182-782225 ; Stania@hetweb.nl
+1363 ; dhr. ; K. ;  ; Wijtema ; ouder ; Zuidelijk Halfrond ; 25 ; Gouda ; 2801 DD ; 06-1857769 ; 0182-857769 ; Wijtema@xs4you.nl
+1391 ; dhr. ; O. ;  ; Brandsema ; ouder ; Orchislaan ; 2 ; Reeuwijk ; 2811 CS ; 06-1934881 ; 0182-934881 ; Brandsema@zoggi.nl
+1419 ; dhr. ; S. ;  ; Heerenga ; ouder ; Klimopstraat ; 12 ; Gouda ; 2802 KP ; 06-2013561 ; 0182-13561 ; Heerenga@freeweb.com
+1447 ; dhr. ; W. ;  ; Kylstra ; ouder ; Lethmaetstraat ; 22 ; Gouda ; 2802 KA ; 06-2093809 ; 0182-93809 ; Kylstra@gmailer.com
+1475 ; dhr. ; A. ;  ; Roelsma ; ouder ; Derde Kade ; 32 ; Gouda ; 2806 RP ; 06-2175625 ; 0182-175625 ; Roelsma@hotmailing.com
+1503 ; dhr. ; E. ;  ; Tjalsma ; ouder ; Reeuwijkse Poort ; 9 ; Reeuwijk ; 2811 MZ ; 06-2259009 ; 0182-259009 ; Tjalsma@planeet.nl
+1531 ; dhr. ; I. ;  ; Apma ; ouder ; Rossinistraat ; 19 ; Gouda ; 2807 HK ; 06-2343961 ; 0182-343961 ; Apma@hetweb.nl
+1559 ; dhr. ; M. ;  ; Eikema ; ouder ; Papaverstraat ; 29 ; Stolwijk ; 2821 VV ; 06-2430481 ; 0182-430481 ; Eikema@xs4you.nl
+1587 ; dhr. ; Q. ;  ; Idserda ; ouder ; Kluitmanstraat ; 6 ; Gouda ; 2804 JR ; 06-2518569 ; 0182-518569 ; Idserda@zoggi.nl
+1615 ; dhr. ; U. ;  ; Ockema ; ouder ; Van Heuven Goedhartstraat ; 16 ; Reeuwijk ; 2811 BZ ; 06-2608225 ; 0182-608225 ; Ockema@freeweb.com
+1643 ; dhr. ; Y. ;  ; Sijtsinga ; ouder ; Eikelaan ; 26 ; Gouda ; 2803 SL ; 06-2699449 ; 0182-699449 ; Sijtsinga@gmailer.com
+1671 ; dhr. ; C. ;  ; Weistra ; ouder ; Wilde Wingerdlaan ; 3 ; Gouda ; 2803 VV ; 06-2792241 ; 0182-792241 ; Weistra@hotmailing.com
+1699 ; dhr. ; G. ;  ; Boerma ; ouder ; 't Kerkestuk ; 13 ; Reeuwijk ; 2811 BJ ; 06-2886601 ; 0182-886601 ; Boerma@planeet.nl
+1727 ; dhr. ; K. ;  ; Haaisma ; ouder ; Koolwijkseweg ; 23 ; Stolwijk ; 2821 NS ; 06-2982529 ; 0182-982529 ; Haaisma@hetweb.nl
+1755 ; dhr. ; O. ;  ; Klijnstra ; ouder ; Markt ; 33 ; Gouda ; 2801 JJ ; 06-3080025 ; 0182-80025 ; Klijnstra@xs4you.nl
+1783 ; dhr. ; S. ; Voogdholst ; voogd ; ouder ; Nansenstraat ; 10 ; Gouda ; 2806 HN ; 06-3179089 ; 0182-179089 ; Renia@zoggi.nl
+1811 ; dhr. ; W. ;  ; Tammenga ; ouder ; Wipmolenerf ; 20 ; Gouda ; 2807 DJ ; 06-3279721 ; 0182-279721 ; Tammenga@freeweb.com
+1839 ; dhr. ; A. ;  ; Zwaga ; ouder ; Koningin Wilhelminaweg ; 30 ; Gouda ; 2802 HT ; 06-3381921 ; 0182-381921 ; Zwaga@gmailer.com
+1867 ; dhr. ; E. ;  ; Dekkinga ; ouder ; Veenzoom ; 7 ; Gouda ; 2804 CJ ; 06-3485689 ; 0182-485689 ; Dekkinga@hotmailing.com
+1895 ; dhr. ; I. ;  ; Hoitenga ; ouder ; Zonnedauw ; 17 ; Reeuwijk ; 2811 RM ; 06-3591025 ; 0182-591025 ; Hoitenga@planeet.nl
+1923 ; dhr. ; M. ;  ; Medema ; ouder ; Gaffelaarwerf ; 27 ; Gouda ; 2804 MH ; 06-3697929 ; 0182-697929 ; Medema@hetweb.nl
+1951 ; dhr. ; Q. ;  ; Schrijfsma ; ouder ; Bloemendaalseweg ; 4 ; Gouda ; 2803 AW ; 06-3806401 ; 0182-806401 ; Schrijfsma@xs4you.nl
+1979 ; dhr. ; U. ;  ; Vierstra ; ouder ; Johannes Poststraat ; 14 ; Gouda ; 2806 KC ; 06-3916441 ; 0182-916441 ; Vierstra@zoggi.nl
+2007 ; dhr. ; Y. ;  ; Belksma ; ouder ; Middenmolenlaan ; 24 ; Gouda ; 2807 DM ; 06-4028049 ; 0182-28049 ; Belksma@freeweb.com
+2035 ; dhr. ; C.Th. ;  ; Frijda ; ouder ; Vondelstraat ; 1 ; Gouda ; 2802 NJ ; 06-4141225 ; 0182-141225 ; Frijda@gmailer.com
+2063 ; dhr. ; G. ;  ; Jouwsma ; ouder ; Crocuspad ; 11 ; Gouda ; 2803 AR ; 06-4255969 ; 0182-255969 ; Jouwsma@hotmailing.com
+2091 ; dhr. ; K. ;  ; Polsema ; ouder ; Verzetslaan ; 21 ; Gouda ; 2806 MS ; 06-4372281 ; 0182-372281 ; Polsema@planeet.nl
+2119 ; dhr. ; O. ;  ; Steginga ; ouder ; Rembrandtstraat ; 31 ; Reeuwijk ; 2811 XC ; 06-4490161 ; 0182-490161 ; Steginga@hetweb.nl
+2147 ; dhr. ; S. ;  ; Woldenga ; ouder ; Gouderakse Tiendweg Sectie L ; 8 ; Gouda ; 2808 NH ; 06-4609609 ; 0182-609609 ; Woldenga@xs4you.nl
+2175 ; dhr. ; W. ;  ; Broksma ; ouder ; Heuvellaan ; 18 ; Gouda ; 2803 DN ; 06-4730625 ; 0182-730625 ; Broksma@zoggi.nl
+2203 ; dhr. ; A. ;  ; Heinstra ; ouder ; Van Staverenstraat ; 28 ; Reeuwijk ; 2811 TN ; 06-4853209 ; 0182-853209 ; Heinstra@freeweb.com
+2231 ; dhr. ; E. ;  ; Leegsma ; ouder ; Naaierstraat ; 5 ; Gouda ; 2801 NG ; 06-4977361 ; 0182-977361 ; Leegsma@gmailer.com
+2259 ; dhr. ; I. ;  ; Rotsma ; ouder ; Verdistraat ; 15 ; Gouda ; 2807 HS ; 06-5103081 ; 0182-103081 ; Rotsma@hotmailing.com
+2287 ; dhr. ; M. ;  ; Torensma ; ouder ; Mondlanestraat ; 25 ; Gouda ; 2807 RJ ; 06-5230369 ; 0182-230369 ; Torensma@planeet.nl
+2315 ; dhr. ; Q. ;  ; Aukema ; ouder ; Muurmos ; 2 ; Reeuwijk ; 2811 JB ; 06-5359225 ; 0182-359225 ; Aukema@hetweb.nl
+2343 ; dhr. ; U. ;  ; Elzinga ; ouder ; Waterland ; 12 ; Stolwijk ; 2821 ZH ; 06-5489649 ; 0182-489649 ; Elzinga@xs4you.nl
+2371 ; dhr. ; Y. ;  ; IJntema ; ouder ; Van Staverenstraat ; 22 ; Reeuwijk ; 2811 TK ; 06-5621641 ; 0182-621641 ; IJntema@zoggi.nl
+2399 ; dhr. ; C. ;  ; Ongersma ; ouder ; Looierspoort ; 32 ; Gouda ; 2801 LP ; 06-5755201 ; 0182-755201 ; Ongersma@freeweb.com
+2427 ; dhr. ; G. ;  ; Sipma ; ouder ; Zeugstraat ; 9 ; Gouda ; 2801 JB ; 06-5890329 ; 0182-890329 ; Sipma@gmailer.com
+2455 ; dhr. ; K. ;  ; Wibena ; ouder ; Raadhuisweg ; 19 ; Reeuwijk ; 2811 KA ; 06-6027025 ; 0182-27025 ; Wibena@hotmailing.com
+2483 ; dhr. ; O. ;  ; Bonga ; ouder ; 't Kerkestuk ; 29 ; Reeuwijk ; 2811 BE ; 06-6165289 ; 0182-165289 ; Bonga@planeet.nl
+2511 ; dhr. ; S. ;  ; Haijenga ; ouder ; Prunuslaan ; 6 ; Gouda ; 2803 SC ; 06-6305121 ; 0182-305121 ; Haijenga@hetweb.nl
+2532 ; mw. ; V. ;  ; Jorna ; ouder ; De Genestetstraat ; 16 ; Gouda ; 2802 XE ; 06-6411024 ; 0182-411024 ; Jorna@xs4you.nl
+2553 ; dhr. ; Y. ;  ; Muntinga ; ouder ; Bosweg ; 26 ; Gouda ; 2802 NR ; 06-6517809 ; 0182-517809 ; Muntinga@zoggi.nl
+2574 ; mw. ; B. ;  ; Schaafsma ; ouder ; Zuidelijke Steijnkade ; 3 ; Gouda ; 2806 ZB ; 06-6625476 ; 0182-625476 ; Schaafsma@freeweb.com
+2595 ; dhr. ; E. ;  ; Tekstra ; ouder ; Turfmarkt ; 13 ; Gouda ; 2801 HB ; 06-6734025 ; 0182-734025 ; Tekstra@gmailer.com
+2616 ; mw. ; H. ; de ; Winia ; ouder ; Tollensstraat ; 23 ; Gouda ; 2802 LK ; 06-6843456 ; 0182-843456 ; Winia@hotmailing.com
+2637 ; dhr. ; K. ;  ; Blesma ; ouder ; Bleulandweg ; 33 ; Gouda ; 2803 HS ; 06-6953769 ; 0182-953769 ; Blesma@planeet.nl
+2658 ; mw. ; N. ;  ; Feeringa ; ouder ; Rodenburg ; 10 ; Gouda ; 2804 WL ; 06-7064964 ; 0182-64964 ; Feeringa@hetweb.nl
+2679 ; dhr. ; Q. ;  ; Hommema ; ouder ; Baljuwslag ; 20 ; Gouda ; 2805 DB ; 06-7177041 ; 0182-177041 ; Hommema@xs4you.nl
+2700 ; mw. ; T. ;  ; Lamstra ; ouder ; Ronsseweg ; 30 ; Gouda ; 2803 ZS ; 06-7290000 ; 0182-290000 ; Lamstra@zoggi.nl
+2721 ; dhr. ; W. ;  ; Reijenga ; ouder ; Anna van Hensbeeksingel ; 7 ; Gouda ; 2803 LL ; 06-7403841 ; 0182-403841 ; Reijenga@freeweb.com
+2742 ; mw. ; Z. ;  ; Sminia ; ouder ; Bloeme ; 17 ; Reeuwijk ; 2811 AM ; 06-7518564 ; 0182-518564 ; Sminia@gmailer.com
+2763 ; dhr. ; C. ;  ; Vollenga ; ouder ; Haastenburg ; 27 ; Gouda ; 2804 VA ; 06-7634169 ; 0182-634169 ; Vollenga@hotmailing.com
+2784 ; mw. ; F. ;  ; Asinga ; ouder ; Rijnenburg ; 4 ; Gouda ; 2804 ZM ; 06-7750656 ; 0182-750656 ; Asinga@planeet.nl
+2805 ; dhr. ; I. ;  ; Cleveringa ; ouder ; Van Heuven Goedhartstraat ; 14 ; Reeuwijk ; 2811 BW ; 06-7868025 ; 0182-868025 ; Cleveringa@hetweb.nl
+2826 ; mw. ; L. ;  ; Hansma ; ouder ; Koningin Wilhelminaweg ; 24 ; Gouda ; 2802 HK ; 06-7986276 ; 0182-986276 ; Hansma@xs4you.nl
+2847 ; dhr. ; O. ;  ; Kalksma ; ouder ; Gouderaksedijk ; 1 ; Gouda ; 2808 NB ; 06-8105409 ; 0182-105409 ; Kalksma@zoggi.nl
+2868 ; mw. ; R. ; van ; Offeringa ; ouder ; Bunchestraat ; 11 ; Reeuwijk ; 2811 SK ; 06-8225424 ; 0182-225424 ; Offeringa@freeweb.com
+2889 ; dhr. ; U.M.H. ;  ; Scherstra ; ouder ; Populierenlaan ; 21 ; Stolwijk ; 2821 BA ; 06-8346321 ; 0182-346321 ; Scherstra@gmailer.com
+2910 ; mw. ; X. ;  ; Tiesinga ; ouder ; Plataanstraat ; 31 ; Gouda ; 2803 ST ; 06-8468100 ; 0182-468100 ; Tiesinga@hotmailing.com
+2931 ; dhr. ; A. ;  ; Yetsinga ; ouder ; Violagaarde ; 8 ; Gouda ; 2803 TK ; 06-8590761 ; 0182-590761 ; Yetsinga@planeet.nl
+2952 ; mw. ; D. ;  ; Bogtstra ; ouder ; Vondelstraat ; 18 ; Gouda ; 2802 NK ; 06-8714304 ; 0182-714304 ; Bogtstra@hetweb.nl
+2973 ; dhr. ; G. ;  ; Fokma ; ouder ; Pijnboomweg ; 28 ; Gouda ; 2803 KB ; 06-8838729 ; 0182-838729 ; Fokma@xs4you.nl
+2994 ; mw. ; J. ;  ; Hottinga ; ouder ; Schoonhovensweg ; 5 ; Gouda ; 2808 PD ; 06-8964036 ; 0182-964036 ; Hottinga@zoggi.nl
+3015 ; dhr. ; M. ;  ; Lemmersma ; ouder ; Vlietenburg ; 15 ; Gouda ; 2804 WS ; 06-9090225 ; 0182-90225 ; Lemmersma@freeweb.com
+3036 ; mw. ; P. ; de ; Retra ; ouder ; Tweede Schoolstraat ; 25 ; Gouda ; 2802 SN ; 06-9217296 ; 0182-217296 ; Retra@gmailer.com
+3057 ; dhr. ; S. ;  ; Staa ; ouder ; Bleulandweg ; 2 ; Gouda ; 2803 HL ; 06-9345249 ; 0182-345249 ; Staa@hotmailing.com
+3078 ; mw. ; V. ;  ; Walma ; ouder ; Van Baerlestraat ; 12 ; Gouda ; 2802 GJ ; 06-9474084 ; 0182-474084 ; Walma@planeet.nl
+3099 ; dhr. ; Y. ;  ; Balstra ; ouder ; Johannes Poststraat ; 22 ; Gouda ; 2806 KA ; 06-9603801 ; 0182-603801 ; Balstra@hetweb.nl
+3120 ; mw. ; B. ;  ; Diepstra ; ouder ; Van Staverenstraat ; 32 ; Reeuwijk ; 2811 TJ ; 06-9734400 ; 0182-734400 ; Diepstra@xs4you.nl
+3141 ; dhr. ; E. ;  ; Heemenga ; ouder ; Rentmeesterslag ; 9 ; Gouda ; 2805 ET ; 06-9865881 ; 0182-865881 ; Heemenga@zoggi.nl
+3162 ; mw. ; H. ;  ; Kema ; ouder ; Weegbreegaarde ; 19 ; Gouda ; 2803 TH ; 06-9998244 ; 0182-998244 ; Kema@freeweb.com
+3183 ; dhr. ; K. ;  ; Ouwinga ; ouder ; Kattensingel ; 29 ; Gouda ; 2801 CC ; 06-10131489 ; 0182-131489 ; Ouwinga@gmailer.com
+3204 ; mw. ; N. ;  ; Schultinga ; ouder ; Ridder van Catsweg ; 6 ; Gouda ; 2805 BB ; 06-10265616 ; 0182-265616 ; Schultinga@hotmailing.com
+3225 ; dhr. ; Q. ;  ; Tjaerda ; ouder ; 's-Gravenbroekseweg ; 16 ; Reeuwijk ; 2811 GE ; 06-10400625 ; 0182-400625 ; Tjaerda@planeet.nl
+3246 ; mw. ; T. ;  ; Zeilstra ; ouder ; Swadenburg ; 26 ; Gouda ; 2804 VH ; 06-10536516 ; 0182-536516 ; Zeilstra@hetweb.nl
+3267 ; dhr. ; W. ;  ; Bordenga ; ouder ; Rozetuin ; 3 ; Reeuwijk ; 2811 AB ; 06-10673289 ; 0182-673289 ; Bordenga@xs4you.nl
+3288 ; mw. ; Z. ; van ; Galema ; ouder ; Graaf Florisweg ; 13 ; Gouda ; 2805 AX ; 06-10810944 ; 0182-810944 ; Galema@zoggi.nl
+3309 ; dhr. ; C. ;  ; Hylkema ; ouder ; Van Henegouwenstraat ; 23 ; Gouda ; 2805 PG ; 06-10949481 ; 0182-949481 ; Hylkema@freeweb.com
+3330 ; mw. ; F. ;  ; Loddema ; ouder ; Deborah Hoeve ; 33 ; Gouda ; 2804 HL ; 06-11088900 ; 0182-88900 ; Loddema@gmailer.com
+3351 ; dhr. ; I. ;  ; Rijpema ; ouder ; Da Costakade ; 10 ; Gouda ; 2802 VP ; 06-11229201 ; 0182-229201 ; Rijpema@hotmailing.com
+3372 ; mw. ; L. ;  ; Stellingsma ; ouder ; Van Persijnstraat ; 20 ; Gouda ; 2806 RX ; 06-11370384 ; 0182-370384 ; Stellingsma@planeet.nl
+3393 ; dhr. ; O. ;  ; Weijma ; ouder ; Rietgors ; 30 ; Stolwijk ; 2821 SP ; 06-11512449 ; 0182-512449 ; Weijma@hetweb.nl
+3414 ; mw. ; R.M.H. ;  ; Batema ; ouder ; Jan Luykenstraat ; 7 ; Gouda ; 2806 PG ; 06-11655396 ; 0182-655396 ; Batema@xs4you.nl
+3435 ; dhr. ; U. ;  ; Douwma ; ouder ; Jan van Riebeecklaan ; 17 ; Gouda ; 2803 WN ; 06-11799225 ; 0182-799225 ; Douwma@zoggi.nl
+3456 ; mw. ; X. ; de ; Hellema ; ouder ; Jaagpad ; 27 ; Gouda ; 2802 BA ; 06-11943936 ; 0182-943936 ; Hellema@freeweb.com
+3477 ; dhr. ; A. ;  ; Kleveringa ; ouder ; Bernhardhof ; 4 ; Gouda ; 2802 GT ; 06-12089529 ; 0182-89529 ; Kleveringa@gmailer.com
+3498 ; mw. ; D. ;  ; Penninga ; ouder ; Tuinstraat ; 14 ; Gouda ; 2801 ZP ; 06-12236004 ; 0182-236004 ; Penninga@hotmailing.com
+3519 ; dhr. ; G. ;  ; Siebinga ; ouder ; Kleiwegstraat ; 24 ; Gouda ; 2801 GM ; 06-12383361 ; 0182-383361 ; Siebinga@planeet.nl
+3540 ; mw. ; J. ;  ; Troelstra ; ouder ; Oosthoef ; 1 ; Gouda ; 2804 ST ; 06-12531600 ; 0182-531600 ; Troelstra@hetweb.nl
+3561 ; dhr. ; M. ;  ; Zuininga ; ouder ; Ronsseweg ; 11 ; Gouda ; 2803 ZD ; 06-12680721 ; 0182-680721 ; Zuininga@xs4you.nl
+3582 ; mw. ; P. ;  ; Boutsema ; ouder ; Aernout Drostkade ; 21 ; Gouda ; 2802 TM ; 06-12830724 ; 0182-830724 ; Boutsema@zoggi.nl
+3603 ; dhr. ; S. ;  ; Gjeltema ; ouder ; Achterwillenseweg ; 31 ; Gouda ; 2805 JW ; 06-12981609 ; 0182-981609 ; Gjeltema@freeweb.com
+3624 ; mw. ; V. ;  ; IJtsema ; ouder ; Wilhelmina van Pruisenlaan ; 8 ; Gouda ; 2807 MH ; 06-13133376 ; 0182-133376 ; IJtsema@gmailer.com
+3645 ; dhr. ; Y. ;  ; Matla ; ouder ; Raam ; 18 ; Gouda ; 2801 VR ; 06-13286025 ; 0182-286025 ; Matla@hotmailing.com
+3666 ; mw. ; B. ;  ; Rittersma ; ouder ; Componistenlaan ; 28 ; Gouda ; 2807 HD ; 06-13439556 ; 0182-439556 ; Rittersma@planeet.nl
+3687 ; dhr. ; E. ;  ; Strijkstra ; ouder ; Joubertstraat ; 5 ; Gouda ; 2806 GC ; 06-13593969 ; 0182-593969 ; Strijkstra@hetweb.nl
+3708 ; mw. ; H. ; van ; Wielema ; ouder ; Achterwillenseweg ; 15 ; Gouda ; 2805 KA ; 06-13749264 ; 0182-749264 ; Wielema@xs4you.nl
+3729 ; dhr. ; K. ;  ; Bekkema ; ouder ; Zoutmanplein ; 25 ; Gouda ; 2806 WP ; 06-13905441 ; 0182-905441 ; Bekkema@zoggi.nl
+3750 ; mw. ; N. ;  ; Eedema ; ouder ; Krugerlaan ; 2 ; Gouda ; 2806 EH ; 06-14062500 ; 0182-62500 ; Eedema@freeweb.com
+3771 ; dhr. ; Q. ;  ; Hibma ; ouder ; Bunchestraat ; 12 ; Reeuwijk ; 2811 SH ; 06-14220441 ; 0182-220441 ; Hibma@gmailer.com
+3792 ; mw. ; T. ;  ; Kolkema ; ouder ; Nieuwehaven ; 22 ; Gouda ; 2801 EE ; 06-14379264 ; 0182-379264 ; Kolkema@hotmailing.com
+3813 ; dhr. ; W. ;  ; Poetsma ; ouder ; Van Heuven Goedhartstraat ; 32 ; Reeuwijk ; 2811 BT ; 06-14538969 ; 0182-538969 ; Poetsma@planeet.nl
+3834 ; mw. ; Z. ;  ; Sijbertsma ; ouder ; Nieuwdorperweg ; 9 ; Reeuwijk ; 2811 LA ; 06-14699556 ; 0182-699556 ; Sijbertsma@hetweb.nl
+3855 ; dhr. ; C. ;  ; Unema ; ouder ; Poldermolendreef ; 19 ; Gouda ; 2807 HB ; 06-14861025 ; 0182-861025 ; Unema@xs4you.nl
+3876 ; mw. ; F. ; de ; Agema ; ouder ; Hopgaarde ; 29 ; Gouda ; 2803 RR ; 06-15023376 ; 0182-23376 ; Agema@zoggi.nl
+3897 ; dhr. ; I. ;  ; Broeksma ; ouder ; Bunchestraat ; 6 ; Reeuwijk ; 2811 SJ ; 06-15186609 ; 0182-186609 ; Broeksma@freeweb.com
+3918 ; mw. ; L. ;  ; Gropstra ; ouder ; Marathonlaan ; 16 ; Gouda ; 2807 BB ; 06-15350724 ; 0182-350724 ; Gropstra@gmailer.com
+3939 ; dhr. ; O.M.H. ;  ; Jedema ; ouder ; Bilwijkerweg ; 26 ; Stolwijk ; 2821 SE ; 06-15515721 ; 0182-515721 ; Jedema@hotmailing.com
+3960 ; mw. ; R. ;  ; Menalda ; ouder ; Raesbergenstraat ; 3 ; Gouda ; 2804 TH ; 06-15681600 ; 0182-681600 ; Menalda@planeet.nl
+3981 ; dhr. ; U. ;  ; Roosma ; ouder ; Moerbeistraat ; 13 ; Gouda ; 2803 TC ; 06-15848361 ; 0182-848361 ; Roosma@hetweb.nl
+4002 ; mw. ; X. ;  ; Sytsema ; ouder ; Lage Gouwe ; 23 ; Gouda ; 2801 LN ; 06-16016004 ; 0182-16004 ; Sytsema@xs4you.nl
+4023 ; dhr. ; A. ;  ; Wiglema ; ouder ; Snippendreef ; 33 ; Stolwijk ; 2821 WB ; 06-16184529 ; 0182-184529 ; Wiglema@zoggi.nl
+4044 ; mw. ; D. ;  ; Bieringa ; ouder ; Rembrandtstraat ; 10 ; Reeuwijk ; 2811 XB ; 06-16353936 ; 0182-353936 ; Bieringa@freeweb.com
+4065 ; dhr. ; G. ;  ; Elsma ; ouder ; Heesterlaan ; 20 ; Gouda ; 2803 BM ; 06-16524225 ; 0182-524225 ; Elsma@gmailer.com
+4086 ; mw. ; J. ;  ; Hobbema ; ouder ; Nonnenwater ; 30 ; Gouda ; 2801 VA ; 06-16695396 ; 0182-695396 ; Hobbema@hotmailing.com
+4107 ; dhr. ; M. ;  ; Kraaijinga ; ouder ; Waterruit ; 7 ; Gouda ; 2804 PG ; 06-16867449 ; 0182-867449 ; Kraaijinga@planeet.nl
+4128 ; mw. ; P. ; van ; Postiena ; ouder ; Madrigaalhof ; 17 ; Gouda ; 2807 PL ; 06-17040384 ; 0182-40384 ; Postiena@hetweb.nl
+4149 ; dhr. ; S. ;  ; Sinnega ; ouder ; Mercatorsingel ; 27 ; Gouda ; 2803 ER ; 06-17214201 ; 0182-214201 ; Sinnega@xs4you.nl
+4170 ; mw. ; V. ; van de ; Vellinga ; ouder ; Groeneweg ; 4 ; Gouda ; 2801 ZB ; 06-17388900 ; 0182-388900 ; Vellinga@zoggi.nl
+4191 ; dhr. ; Y. ;  ; Alserda ; ouder ; Gentseweg ; 14 ; Gouda ; 2803 PC ; 06-17564481 ; 0182-564481 ; Alserda@freeweb.com
+4212 ; mw. ; B. ;  ; Buitenga ; ouder ; Koningin Wilhelminahof ; 24 ; Reeuwijk ; 2811 SZ ; 06-17740944 ; 0182-740944 ; Buitenga@gmailer.com
+4233 ; dhr. ; E. ;  ; Haga ; ouder ; Parallelweg ; 1 ; Reeuwijk ; 2811 NS ; 06-17918289 ; 0182-918289 ; Haga@hotmailing.com
+4254 ; mw. ; H. ;  ; Jongsma ; ouder ; Zoutmansweg ; 11 ; Reeuwijk ; 2811 EX ; 06-18096516 ; 0182-96516 ; Jongsma@planeet.nl
+4275 ; dhr. ; K. ;  ; Morrema ; ouder ; Jan van Renesseplein ; 21 ; Gouda ; 2805 GT ; 06-18275625 ; 0182-275625 ; Morrema@hetweb.nl
+4296 ; mw. ; N. ; de ; Santema ; ouder ; Cort van der Lindenstraat ; 31 ; Gouda ; 2805 SW ; 06-18455616 ; 0182-455616 ; Santema@xs4you.nl
+4317 ; dhr. ; Q. ;  ; Teinsma ; ouder ; Bieslookgaarde ; 8 ; Gouda ; 2803 RC ; 06-18636489 ; 0182-636489 ; Teinsma@zoggi.nl
+4338 ; mw. ; T. ;  ; Wilstra ; ouder ; Joost de Hondtlaan ; 18 ; Gouda ; 2803 XJ ; 06-18818244 ; 0182-818244 ; Wilstra@freeweb.com
+4359 ; dhr. ; W. ;  ; Bleijenga ; ouder ; Provincialeweg ; 28 ; Stolwijk ; 2821 QQ ; 06-19000881 ; 0182-881 ; Bleijenga@gmailer.com
+4380 ; mw. ; Z. ;  ; Feddema ; ouder ; Pelmolenerf ; 5 ; Gouda ; 2807 EM ; 06-19184400 ; 0182-184400 ; Feddema@hotmailing.com
+4401 ; dhr. ; C. ;  ; Holwarda ; ouder ; Nieuwehaven ; 15 ; Gouda ; 2801 EC ; 06-19368801 ; 0182-368801 ; Holwarda@planeet.nl
+4422 ; mw. ; F. ;  ; Lammersma ; ouder ; Achter de Vismarkt ; 25 ; Gouda ; 2801 NC ; 06-19554084 ; 0182-554084 ; Lammersma@hetweb.nl
+4443 ; dhr. ; I. ;  ; Reidinga ; ouder ; Bollenveld ; 2 ; Stolwijk ; 2821 TP ; 06-19740249 ; 0182-740249 ; Reidinga@xs4you.nl
+4464 ; mw. ; L.M.H. ;  ; Smedinga ; ouder ; Constantijn Huygensstraat ; 12 ; Gouda ; 2802 LW ; 06-19927296 ; 0182-927296 ; Smedinga@zoggi.nl
+4485 ; dhr. ; O. ;  ; Volbeda ; ouder ; Vasco da Gamalaan ; 22 ; Gouda ; 2803 XV ; 06-20115225 ; 0182-115225 ; Volbeda@freeweb.com
+4506 ; mw. ; R. ;  ; Arentsma ; ouder ; Hofpoldersingel ; 32 ; Gouda ; 2807 LW ; 06-20304036 ; 0182-304036 ; Arentsma@gmailer.com
+4527 ; dhr. ; U. ;  ; Camstra ; ouder ; Westhoef ; 9 ; Gouda ; 2804 SP ; 06-20493729 ; 0182-493729 ; Camstra@hotmailing.com
+4548 ; mw. ; X. ; van ; Hanema ; ouder ; Willem de Zwijgersingel ; 19 ; Gouda ; 2805 BR ; 06-20684304 ; 0182-684304 ; Hanema@planeet.nl
+4569 ; dhr. ; A. ;  ; Kainama ; ouder ; Drielingschouw ; 29 ; Reeuwijk ; 2811 LP ; 06-20875761 ; 0182-875761 ; Kainama@hetweb.nl
+4590 ; mw. ; D. ;  ; Oegema ; ouder ; Sjahrirsingel ; 6 ; Gouda ; 2807 RT ; 06-21068100 ; 0182-68100 ; Oegema@xs4you.nl
+4611 ; dhr. ; G. ;  ; Scheninga ; ouder ; Chopinstraat ; 16 ; Gouda ; 2807 PR ; 06-21261321 ; 0182-261321 ; Scheninga@zoggi.nl
+4625 ; dhr. ; I. ;  ; Steursma ; ouder ; Goudseweg ; 26 ; Stolwijk ; 2821 NA ; 06-21390625 ; 0182-390625 ; Steursma@freeweb.com
+4639 ; dhr. ; K. ;  ; Veersema ; ouder ; Karekietstraat ; 3 ; Stolwijk ; 2821 XP ; 06-21520321 ; 0182-520321 ; Veersema@gmailer.com
+4653 ; dhr. ; M. ;  ; Yedema ; ouder ; Lem Dulstraat ; 13 ; Gouda ; 2801 EN ; 06-21650409 ; 0182-650409 ; Yedema@hotmailing.com
+4667 ; dhr. ; O. ;  ; Beekma ; ouder ; Bogen ; 23 ; Gouda ; 2801 RC ; 06-21780889 ; 0182-780889 ; Beekma@planeet.nl
+4681 ; dhr. ; Q. ;  ; Bruinsma ; ouder ; Gildenburg ; 33 ; Gouda ; 2804 VK ; 06-21911761 ; 0182-911761 ; Bruinsma@hetweb.nl
+4695 ; dhr. ; S. ;  ; Foekema ; ouder ; Kwekerspad ; 10 ; Reeuwijk ; 2811 PW ; 06-22043025 ; 0182-43025 ; Foekema@xs4you.nl
+4709 ; dhr. ; U. ;  ; Hemmema ; ouder ; Eerste Schoolstraat ; 20 ; Gouda ; 2802 SP ; 06-22174681 ; 0182-174681 ; Hemmema@zoggi.nl
+4723 ; dhr. ; W. ;  ; Jilderda ; ouder ; Fokkerstraat ; 30 ; Reeuwijk ; 2811 EN ; 06-22306729 ; 0182-306729 ; Jilderda@freeweb.com
+4737 ; dhr. ; Y. ;  ; Leininga ; ouder ; Marendijkpoldersingel ; 7 ; Gouda ; 2807 NA ; 06-22439169 ; 0182-439169 ; Leininga@gmailer.com
+4751 ; dhr. ; A. ;  ; Petstra ; ouder ; Vrijheidslaan ; 17 ; Gouda ; 2806 KH ; 06-22572001 ; 0182-572001 ; Petstra@hotmailing.com
+4765 ; dhr. ; C. ;  ; Ruwersma ; ouder ; Koningin Wilhelminastraat ; 27 ; Reeuwijk ; 2811 TT ; 06-22705225 ; 0182-705225 ; Ruwersma@planeet.nl
+4779 ; dhr. ; E. ;  ; Spoelstra ; ouder ; Turfmarkt ; 4 ; Gouda ; 2801 HD ; 06-22838841 ; 0182-838841 ; Spoelstra@hetweb.nl
+4793 ; dhr. ; G. ;  ; Tuizenga ; ouder ; Vogelplein ; 14 ; Gouda ; 2802 CH ; 06-22972849 ; 0182-972849 ; Tuizenga@xs4you.nl
+4807 ; dhr. ; I. ;  ; Wijnsema ; ouder ; Vest ; 24 ; Gouda ; 2801 TW ; 06-23107249 ; 0182-107249 ; Wijnsema@zoggi.nl
+4821 ; dhr. ; K.K. ;  ; Ballema ; ouder ; Zijdeweg ; 1 ; Reeuwijk ; 2811 PD ; 06-23242041 ; 0182-242041 ; Ballema@freeweb.com
+4835 ; dhr. ; M. ;  ; Bovinga ; ouder ; Cort van der Lindenstraat ; 11 ; Gouda ; 2805 SV ; 06-23377225 ; 0182-377225 ; Bovinga@gmailer.com
+4849 ; dhr. ; O. ;  ; Eringa ; ouder ; Benedenkerkseweg ; 21 ; Stolwijk ; 2821 LA ; 06-23512801 ; 0182-512801 ; Eringa@hotmailing.com
+4863 ; dhr. ; Q. ;  ; Heddema ; ouder ; Raadhuisweg ; 31 ; Reeuwijk ; 2811 HT ; 06-23648769 ; 0182-648769 ; Heddema@planeet.nl
+4877 ; dhr. ; S. ;  ; Inja ; ouder ; Gloriantplantsoen ; 8 ; Gouda ; 2805 XD ; 06-23785129 ; 0182-785129 ; Inja@hetweb.nl
+4891 ; dhr. ; U. ;  ; Kuilma ; ouder ; Conrad Busken Huetstraat ; 18 ; Gouda ; 2802 XC ; 06-23921881 ; 0182-921881 ; Kuilma@xs4you.nl
+4905 ; dhr. ; W. ;  ; Oudega ; ouder ; Groeneweg ; 28 ; Gouda ; 2801 ZC ; 06-24059025 ; 0182-59025 ; Oudega@zoggi.nl
+4919 ; dhr. ; Y. ;  ; Roelfsma ; ouder ; Jacob Lemairelaan ; 5 ; Gouda ; 2803 XD ; 06-24196561 ; 0182-196561 ; Roelfsma@freeweb.com
+4933 ; dhr. ; A. ;  ; Sjoukema ; ouder ; Gandhiweg ; 15 ; Gouda ; 2807 RD ; 06-24334489 ; 0182-334489 ; Sjoukema@gmailer.com
+4947 ; dhr. ; C. ;  ; Tjaardstra ; ouder ; Goudseweg ; 25 ; Gouda ; 2808 NK ; 06-24472809 ; 0182-472809 ; Tjaardstra@hotmailing.com
+4961 ; dhr. ; E. ;  ; Wienija ; ouder ; Sparreweg ; 2 ; Gouda ; 2803 JS ; 06-24611521 ; 0182-611521 ; Wienija@planeet.nl
+4975 ; dhr. ; G. ;  ; Ankringa ; ouder ; Heuvellaan ; 12 ; Gouda ; 2803 DS ; 06-24750625 ; 0182-750625 ; Ankringa@hetweb.nl
+4989 ; dhr. ; I. ;  ; Boorsma ; ouder ; Middenmolenlaan ; 22 ; Gouda ; 2807 EA ; 06-24890121 ; 0182-890121 ; Boorsma@xs4you.nl
+5003 ; dhr. ; K. ;  ; Eenshuistra ; ouder ; Doormanstraat ; 32 ; Reeuwijk ; 2811 XT ; 06-25030009 ; 0182-30009 ; Eenshuistra@zoggi.nl
+5017 ; dhr. ; M. ; Voogt ; voogd ; ouder ; Palenstein ; 9 ; Gouda ; 2804 GB ; 06-25170289 ; 0182-170289 ; Halma@freeweb.com
+5031 ; dhr. ; O. ;  ; Huttenga ; ouder ; Dunantsingel ; 19 ; Gouda ; 2806 JG ; 06-25310961 ; 0182-310961 ; Huttenga@gmailer.com
+5045 ; dhr. ; Q. ;  ; Koolma ; ouder ; Zijdeweg ; 29 ; Reeuwijk ; 2811 PE ; 06-25452025 ; 0182-452025 ; Koolma@hotmailing.com
+5059 ; dhr. ; S. ;  ; Norda ; ouder ; Pittebies ; 6 ; Reeuwijk ; 2811 ST ; 06-25593481 ; 0182-593481 ; Norda@planeet.nl
+5073 ; dhr. ; U. ;  ; Rietsema ; ouder ; Vlietenburg ; 16 ; Gouda ; 2804 WT ; 06-25735329 ; 0182-735329 ; Rietsema@hetweb.nl
+5087 ; dhr. ; W. ;  ; Sijperda ; ouder ; Dillegaarde ; 26 ; Gouda ; 2803 RD ; 06-25877569 ; 0182-877569 ; Sijperda@xs4you.nl
+5101 ; dhr. ; Y. ;  ; Thoma ; ouder ; Benedenkerkseweg ; 3 ; Stolwijk ; 2821 LB ; 06-26020201 ; 0182-20201 ; Thoma@zoggi.nl
+5115 ; dhr. ; A. ;  ; Weidema ; ouder ; Zonnedauw ; 13 ; Reeuwijk ; 2811 RL ; 06-26163225 ; 0182-163225 ; Weidema@freeweb.com
+5129 ; dhr. ; C. ;  ; Albada ; ouder ; Van de Puttestraat ; 23 ; Gouda ; 2804 JP ; 06-26306641 ; 0182-306641 ; Albada@gmailer.com
+5143 ; dhr. ; E. ;  ; Boelsma ; ouder ; Pinksterbloemstraat ; 33 ; Gouda ; 2802 ZP ; 06-26450449 ; 0182-450449 ; Boelsma@hotmailing.com
+5157 ; dhr. ; G. ;  ; Douna ; ouder ; Abel Tasmanlaan ; 10 ; Gouda ; 2803 GH ; 06-26594649 ; 0182-594649 ; Douna@planeet.nl
+5171 ; dhr. ; I.I. ;  ; Gudema ; ouder ; Rietzoom ; 20 ; Gouda ; 2804 CX ; 06-26739241 ; 0182-739241 ; Gudema@hetweb.nl
+5185 ; dhr. ; K. ;  ; Hopma ; ouder ; Oosthaven ; 30 ; Gouda ; 2801 PB ; 06-26884225 ; 0182-884225 ; Hopma@xs4you.nl
+5199 ; dhr. ; M. ;  ; Kleisma ; ouder ; Voltaweg ; 7 ; Gouda ; 2809 JP ; 06-27029601 ; 0182-29601 ; Kleisma@zoggi.nl
+5213 ; dhr. ; O. ;  ; Merema ; ouder ; Bosranklaan ; 17 ; Gouda ; 2803 VE ; 06-27175369 ; 0182-175369 ; Merema@freeweb.com
+5227 ; dhr. ; Q. ;  ; Reitzema ; ouder ; Walvisstraat ; 27 ; Gouda ; 2802 SC ; 06-27321529 ; 0182-321529 ; Reitzema@gmailer.com
+5241 ; dhr. ; S. ;  ; Sickinga ; ouder ; Lange Noodgodsstraat ; 4 ; Gouda ; 2801 RS ; 06-27468081 ; 0182-468081 ; Sickinga@hotmailing.com
+5255 ; dhr. ; U. ;  ; Tadema ; ouder ; Tweede Kade ; 14 ; Gouda ; 2806 PS ; 06-27615025 ; 0182-615025 ; Tadema@planeet.nl
+5269 ; dhr. ; W. ;  ; Vrijma ; ouder ; Ruichthoek ; 24 ; Reeuwijk ; 2811 AG ; 06-27762361 ; 0182-762361 ; Vrijma@hetweb.nl
+5283 ; dhr. ; Y. ;  ; Zuidersma ; ouder ; Bosweg ; 1 ; Gouda ; 2802 NP ; 06-27910089 ; 0182-910089 ; Zuidersma@xs4you.nl
+5297 ; dhr. ; A. ;  ; Bijkersma ; ouder ; Gravekoopsedijk ; 11 ; Reeuwijk ; 2811 NL ; 06-28058209 ; 0182-58209 ; Bijkersma@zoggi.nl
+5311 ; dhr. ; C. ;  ; Deenstra ; ouder ; Gortmolenerf ; 21 ; Gouda ; 2807 EJ ; 06-28206721 ; 0182-206721 ; Deenstra@freeweb.com
+5325 ; dhr. ; E. ;  ; Gielstra ; ouder ; Kanaalstraat ; 31 ; Gouda ; 2801 SG ; 06-28355625 ; 0182-355625 ; Gielstra@gmailer.com
+5339 ; dhr. ; G. ;  ; Hoekstra ; ouder ; Onder de Boompjes ; 8 ; Gouda ; 2802 AT ; 06-28504921 ; 0182-504921 ; Hoekstra@hotmailing.com
+5353 ; dhr. ; I. ;  ; Kapma ; ouder ; Lekkenburg ; 18 ; Gouda ; 2804 XC ; 06-28654609 ; 0182-654609 ; Kapma@planeet.nl
+5367 ; dhr. ; K. ;  ; Mantinga ; ouder ; Jantjeserf ; 28 ; Gouda ; 2806 PW ; 06-28804689 ; 0182-804689 ; Mantinga@hetweb.nl
+5381 ; dhr. ; M. ;  ; Poutsma ; ouder ; Dorpsweg ; 5 ; Reeuwijk ; 2811 KE ; 06-28955161 ; 0182-955161 ; Poutsma@xs4you.nl
+5395 ; dhr. ; O. ;  ; Schoustra ; ouder ; Cornelis Ketelstraat ; 15 ; Gouda ; 2806 SN ; 06-29106025 ; 0182-106025 ; Schoustra@zoggi.nl
+5409 ; dhr. ; Q. ;  ; Streekstra ; ouder ; Tuinkersgaarde ; 25 ; Gouda ; 2803 RM ; 06-29257281 ; 0182-257281 ; Streekstra@freeweb.com
+5423 ; dhr. ; S. ;  ; Veninga ; ouder ; Van Baerlestraat ; 2 ; Gouda ; 2802 GL ; 06-29408929 ; 0182-408929 ; Veninga@gmailer.com
+5437 ; dhr. ; U. ;  ; Zaagstra ; ouder ; Vinkeveldpoldersingel ; 12 ; Gouda ; 2807 NK ; 06-29560969 ; 0182-560969 ; Zaagstra@hotmailing.com
+5451 ; dhr. ; W. ;  ; Beista ; ouder ; Terwindtplein ; 22 ; Gouda ; 2807 RP ; 06-29713401 ; 0182-713401 ; Beista@planeet.nl
+5465 ; dhr. ; Y. ;  ; Bultsma ; ouder ; Doormanstraat ; 32 ; Reeuwijk ; 2811 XS ; 06-29866225 ; 0182-866225 ; Bultsma@hetweb.nl
+5479 ; dhr. ; A. ; Voogdt ; voogd ; ouder ; Vondelstraat ; 9 ; Gouda ; 2802 NG ; 06-30019441 ; 0182-19441 ; Freerkstra@xs4you.nl
+5493 ; dhr. ; C. ;  ; Hettenga ; ouder ; Oostmolenpad ; 19 ; Gouda ; 2807 DN ; 06-30173049 ; 0182-173049 ; Hettenga@zoggi.nl
+5507 ; dhr. ; E. ;  ; Joukema ; ouder ; Nieuwehaven ; 29 ; Gouda ; 2801 ED ; 06-30327049 ; 0182-327049 ; Joukema@freeweb.com
+5521 ; dhr. ; G.G. ;  ; Libbinga ; ouder ; Gregorius Coolstraat ; 6 ; Gouda ; 2806 RZ ; 06-30481441 ; 0182-481441 ; Libbinga@gmailer.com
+5535 ; dhr. ; I. ;  ; Poelsma ; ouder ; Moerbeistraat ; 16 ; Gouda ; 2803 TB ; 06-30636225 ; 0182-636225 ; Poelsma@hotmailing.com
+5549 ; dhr. ; K. ;  ; Schansema ; ouder ; Hoogaarswerf ; 26 ; Gouda ; 2804 MG ; 06-30791401 ; 0182-791401 ; Schansema@planeet.nl
+5563 ; dhr. ; M. ;  ; Steeksma ; ouder ; Benedenheulseweg ; 3 ; Stolwijk ; 2821 LV ; 06-30946969 ; 0182-946969 ; Steeksma@hetweb.nl
+5577 ; dhr. ; O. ;  ; Ukena ; ouder ; Gouderaksedijk ; 13 ; Gouda ; 2808 NC ; 06-31102929 ; 0182-102929 ; Ukena@xs4you.nl
+5591 ; dhr. ; Q. ;  ; Wobbema ; ouder ; Albrechtsveld ; 23 ; Gouda ; 2804 WC ; 06-31259281 ; 0182-259281 ; Wobbema@zoggi.nl
+5605 ; dhr. ; S. ;  ; Bantema ; ouder ; Cronjestraat ; 33 ; Gouda ; 2806 TV ; 06-31416025 ; 0182-416025 ; Bantema@freeweb.com
+5619 ; dhr. ; U. ;  ; Brinxma ; ouder ; Deborah Hoeve ; 10 ; Gouda ; 2804 HH ; 06-31573161 ; 0182-573161 ; Brinxma@gmailer.com
+5633 ; dhr. ; W. ;  ; Feitsma ; ouder ; Rietzoom ; 20 ; Gouda ; 2804 CN ; 06-31730689 ; 0182-730689 ; Feitsma@hotmailing.com
+5647 ; dhr. ; Y. ;  ; Heijenga ; ouder ; Overburg ; 30 ; Gouda ; 2804 ZP ; 06-31888609 ; 0182-888609 ; Heijenga@planeet.nl
+5661 ; dhr. ; A. ;  ; Jansma ; ouder ; Waterpeper ; 7 ; Gouda ; 2804 PR ; 06-32046921 ; 0182-46921 ; Jansma@hetweb.nl
+5675 ; dhr. ; C. ;  ; Laninga ; ouder ; Agnietenstraat ; 17 ; Gouda ; 2801 GZ ; 06-32205625 ; 0182-205625 ; Laninga@xs4you.nl
+5689 ; dhr. ; E. ;  ; Pasma ; ouder ; Drossaardslag ; 27 ; Gouda ; 2805 DC ; 06-32364721 ; 0182-364721 ; Pasma@zoggi.nl
+5703 ; dhr. ; G. ;  ; Rooda ; ouder ; Beijerscheweg ; 4 ; Stolwijk ; 2821 NG ; 06-32524209 ; 0182-524209 ; Rooda@freeweb.com
+5717 ; dhr. ; I. ;  ; Soetinga ; ouder ; Noothoven van Goorstraat ; 14 ; Gouda ; 2806 RA ; 06-32684089 ; 0182-684089 ; Soetinga@gmailer.com
+5731 ; dhr. ; K. ;  ; Toomstra ; ouder ; Cornelis Ketelstraat ; 24 ; Gouda ; 2806 SM ; 06-32844361 ; 0182-844361 ; Toomstra@hotmailing.com
+5745 ; dhr. ; M. ;  ; Wietsma ; ouder ; Schinkeldijk ; 1 ; Reeuwijk ; 2811 PA ; 06-33005025 ; 0182-5025 ; Wietsma@planeet.nl
+5759 ; dhr. ; O. ;  ; Atma ; ouder ; Dorpsplein ; 11 ; Stolwijk ; 2821 AS ; 06-33166081 ; 0182-166081 ; Atma@hetweb.nl
+5773 ; dhr. ; Q. ;  ; Bossinga ; ouder ; Goverwellesingel ; 21 ; Gouda ; 2807 DZ ; 06-33327529 ; 0182-327529 ; Bossinga@xs4you.nl
+5787 ; dhr. ; S. ;  ; Elinga ; ouder ; Oosthaven ; 31 ; Gouda ; 2801 PE ; 06-33489369 ; 0182-489369 ; Elinga@zoggi.nl
+5801 ; dhr. ; U. ;  ; Harinxma ; ouder ; Keizerstraat ; 8 ; Gouda ; 2801 NM ; 06-33651601 ; 0182-651601 ; Harinxma@freeweb.com
+5815 ; dhr. ; W. ;  ; IJbema ; ouder ; Sneeuwbeslaan ; 18 ; Gouda ; 2803 AE ; 06-33814225 ; 0182-814225 ; IJbema@gmailer.com
+5829 ; dhr. ; Y. ;  ; Kraaijema ; ouder ; Laura Hoeve ; 28 ; Gouda ; 2804 JH ; 06-33977241 ; 0182-977241 ; Kraaijema@hotmailing.com
+5843 ; dhr. ; A. ;  ; Oldersma ; ouder ; Kwartslag ; 5 ; Gouda ; 2805 DW ; 06-34140649 ; 0182-140649 ; Oldersma@planeet.nl
+5857 ; dhr. ; C. ;  ; Ringsma ; ouder ; Gerard Leeustraat ; 15 ; Gouda ; 2802 RZ ; 06-34304449 ; 0182-304449 ; Ringsma@hetweb.nl
+5871 ; dhr. ; E.E. ;  ; Singelsma ; ouder ; Middelburgseweg ; 25 ; Reeuwijk ; 2811 PN ; 06-34468641 ; 0182-468641 ; Singelsma@xs4you.nl
+5885 ; dhr. ; G. ;  ; Tietsma ; ouder ; Kamperfoelielaan ; 2 ; Gouda ; 2803 BG ; 06-34633225 ; 0182-633225 ; Tietsma@zoggi.nl
+5899 ; dhr. ; I. ;  ; Westra ; ouder ; Noordpool ; 12 ; Gouda ; 2801 DH ; 06-34798201 ; 0182-798201 ; Westra@freeweb.com
+5913 ; dhr. ; K. ;  ; Allersma ; ouder ; Frederik Hendriklaan ; 22 ; Gouda ; 2805 EH ; 06-34963569 ; 0182-963569 ; Allersma@gmailer.com
+5927 ; dhr. ; M. ;  ; Boksma ; ouder ; Aderpolderweg ; 32 ; Gouda ; 2807 KL ; 06-35129329 ; 0182-129329 ; Boksma@hotmailing.com
+5941 ; dhr. ; O. ; Voogdmans ; voogd ; ouder ; Industriestraat ; 9 ; Gouda ; 2802 AC ; 06-35295481 ; 0182-295481 ; Dubblinga@planeet.nl
+5955 ; dhr. ; Q. ;  ; Haersma ; ouder ; Karel Lotsystraat ; 19 ; Gouda ; 2807 BZ ; 06-35462025 ; 0182-462025 ; Haersma@hetweb.nl
+5969 ; dhr. ; S. ;  ; Houtstra ; ouder ; Hoogstraat ; 29 ; Gouda ; 2801 HH ; 06-35628961 ; 0182-628961 ; Houtstra@xs4you.nl
+5983 ; dhr. ; U. ;  ; Kluiwstra ; ouder ; Abel Tasmanlaan ; 6 ; Gouda ; 2803 GJ ; 06-35796289 ; 0182-796289 ; Kluiwstra@zoggi.nl
+5997 ; dhr. ; W. ;  ; Monsma ; ouder ; Dubbele Buurt ; 16 ; Gouda ; 2801 PA ; 06-35964009 ; 0182-964009 ; Monsma@freeweb.com
+6011 ; dhr. ; Y.R. ;  ; Reverda ; ouder ; Gnephoekpolderstraat ; 26 ; Gouda ; 2807 LN ; 06-36132121 ; 0182-132121 ; Reverda@gmailer.com
+6018 ; mw. ; Z.S. ;  ; Sanna ; ouder ; Klipperwerf ; 3 ; Gouda ; 2804 MP ; 06-36216324 ; 0182-216324 ; Sanna@hotmailing.com
+6025 ; dhr. ; A.S. ;  ; Sierkstra ; ouder ; Bernadottestraat ; 13 ; Reeuwijk ; 2811 SV ; 06-36300625 ; 0182-300625 ; Sierkstra@planeet.nl
+6032 ; mw. ; B.S. ;  ; Stapensea ; ouder ; Vest ; 23 ; Gouda ; 2801 VD ; 06-36385024 ; 0182-385024 ; Stapensea@hetweb.nl
+6039 ; dhr. ; C.T. ;  ; Teertstra ; ouder ; Schinkeldijk ; 33 ; Reeuwijk ; 2811 PB ; 06-36469521 ; 0182-469521 ; Teertstra@xs4you.nl
+6046 ; mw. ; D.T. ;  ; Tyema ; ouder ; Wilde Wingerdlaan ; 10 ; Gouda ; 2803 VR ; 06-36554116 ; 0182-554116 ; Tyema@zoggi.nl
+6053 ; dhr. ; E.W. ;  ; Wanga ; ouder ; Kamgras ; 20 ; Gouda ; 2804 NP ; 06-36638809 ; 0182-638809 ; Wanga@freeweb.com
+6060 ; mw. ; F.W. ;  ; Wijtsma ; ouder ; Westerkade ; 30 ; Gouda ; 2802 SJ ; 06-36723600 ; 0182-723600 ; Wijtsma@gmailer.com
+6067 ; dhr. ; G.A. ;  ; Aardema ; ouder ; Wibautstraat ; 7 ; Gouda ; 2805 GA ; 06-36808489 ; 0182-808489 ; Aardema@hotmailing.com
+6074 ; mw. ; H.B. ;  ; Bandsema ; ouder ; Waterdekmos ; 17 ; Reeuwijk ; 2811 GS ; 06-36893476 ; 0182-893476 ; Bandsema@planeet.nl
+6081 ; dhr. ; I.B. ;  ; Blanksma ; ouder ; Hovenierskade ; 27 ; Gouda ; 2805 PK ; 06-36978561 ; 0182-978561 ; Blanksma@hetweb.nl
+6088 ; mw. ; J.B. ; van ; Brandsma ; ouder ; Raesbergenstraat ; 4 ; Gouda ; 2804 TJ ; 06-37063744 ; 0182-63744 ; Brandsma@xs4you.nl
+6095 ; dhr. ; K.D. ;  ; Dijkma ; ouder ; Drieblad ; 14 ; Reeuwijk ; 2811 EG ; 06-37149025 ; 0182-149025 ; Dijkma@zoggi.nl
+6102 ; mw. ; L.E. ;  ; Eyzinga ; ouder ; Tak van Poortvlietstraat ; 24 ; Gouda ; 2805 TC ; 06-37234404 ; 0182-234404 ; Eyzinga@freeweb.com
+6109 ; dhr. ; M.G. ;  ; Griepstra ; ouder ; Bodegraafsestraatweg ; 1 ; Gouda ; 2805 GM ; 06-37319881 ; 0182-319881 ; Griepstra@gmailer.com
+6116 ; mw. ; N.H. ; de ; Heeresma ; ouder ; Wiardi Beckmanstraat ; 11 ; Gouda ; 2806 MB ; 06-37405456 ; 0182-405456 ; Heeresma@hotmailing.com
+6123 ; dhr. ; O.H. ;  ; Holmersma ; ouder ; Heemskerkstraat ; 21 ; Gouda ; 2805 SR ; 06-37491129 ; 0182-491129 ; Holmersma@planeet.nl
+6130 ; mw. ; P.J. ;  ; Jaarsma ; ouder ; Ree ; 31 ; Reeuwijk ; 2811 HE ; 06-37576900 ; 0182-576900 ; Jaarsma@hetweb.nl
+6137 ; dhr. ; Q.K. ;  ; Ketema ; ouder ; Vrouwevestesteeg ; 8 ; Gouda ; 2801 CP ; 06-37662769 ; 0182-662769 ; Ketema@xs4you.nl
+6144 ; mw. ; R.L. ;  ; Laadstra ; ouder ; Hoge Gouwe ; 18 ; Gouda ; 2801 LD ; 06-37748736 ; 0182-748736 ; Laadstra@zoggi.nl
+6151 ; dhr. ; S.M. ;  ; Meijma ; ouder ; Deborah Hoeve ; 28 ; Gouda ; 2804 HJ ; 06-37834801 ; 0182-834801 ; Meijma@freeweb.com
+6158 ; mw. ; T.P. ;  ; Paanstra ; ouder ; Tweede Hieronymus van Alphenstraat ; 5 ; Gouda ; 2806 RV ; 06-37920964 ; 0182-920964 ; Paanstra@gmailer.com
+6165 ; dhr. ; U.R. ;  ; Reenalda ; ouder ; Dunantsingel ; 15 ; Gouda ; 2806 JD ; 06-38007225 ; 0182-7225 ; Reenalda@hotmailing.com
+6172 ; mw. ; V.R. ; Voogt ; voogd ; ouder ; Jan Steenlaan ; 25 ; Stolwijk ; 2821 VA ; 06-38093584 ; 0182-93584 ; Roemersma@planeet.nl
+6179 ; dhr. ; W.S. ;  ; Schuursma ; ouder ; Nijverheidsweg ; 2 ; Stolwijk ; 2821 AV ; 06-38180041 ; 0182-180041 ; Schuursma@hetweb.nl
+6186 ; mw. ; X.S. ;  ; Slopstra ; ouder ; Statensingel ; 12 ; Gouda ; 2805 BH ; 06-38266596 ; 0182-266596 ; Slopstra@xs4you.nl
+6193 ; dhr. ; Y.S. ;  ; Suitela ; ouder ; Oukoopsedijk ; 22 ; Reeuwijk ; 2811 NE ; 06-38353249 ; 0182-353249 ; Suitela@zoggi.nl
+6200 ; mw. ; Z.T. ;  ; Tjeerdema ; ouder ; Groen van Prinsterersingel ; 32 ; Gouda ; 2805 TE ; 06-38440000 ; 0182-440000 ; Tjeerdema@freeweb.com
+6207 ; dhr. ; A.V. ;  ; Vlietstra ; ouder ; Buchnerweg ; 9 ; Gouda ; 2803 GR ; 06-38526849 ; 0182-526849 ; Vlietstra@gmailer.com
+6214 ; mw. ; B.W. ;  ; Wierenga ; ouder ; Warmoesenierstraat ; 19 ; Gouda ; 2805 PV ; 06-38613796 ; 0182-613796 ; Wierenga@hotmailing.com
+6221 ; dhr. ; C.Z. ;  ; Zetstra ; ouder ; Winterdijk ; 29 ; Gouda ; 2801 SJ ; 06-38700841 ; 0182-700841 ; Zetstra@planeet.nl
+6228 ; mw. ; D.A. ; van ; Arema ; ouder ; Robaarstraat ; 6 ; Gouda ; 2801 XL ; 06-38787984 ; 0182-787984 ; Arema@hetweb.nl
+6235 ; dhr. ; E.B. ;  ; Berisha ; ouder ; Getijmolenerf ; 16 ; Gouda ; 2807 GN ; 06-38875225 ; 0182-875225 ; Berisha@xs4you.nl
+6242 ; mw. ; F.B. ;  ; Boschma ; ouder ; Getijmolenerf ; 26 ; Gouda ; 2807 GJ ; 06-38962564 ; 0182-962564 ; Boschma@zoggi.nl
+6249 ; dhr. ; G.B. ;  ; Byma ; ouder ; Tempeldijk ; 3 ; Reeuwijk ; 2811 PJ ; 06-39050001 ; 0182-50001 ; Byma@freeweb.com
+6256 ; mw. ; H.E. ; de ; Eisema ; ouder ; John Rosslaan ; 13 ; Gouda ; 2803 XR ; 06-39137536 ; 0182-137536 ; Eisema@gmailer.com
+6263 ; dhr. ; I.G. ;  ; Gatsma ; ouder ; Spieringstraat ; 23 ; Gouda ; 2801 ZH ; 06-39225169 ; 0182-225169 ; Gatsma@hotmailing.com
+6270 ; mw. ; J.H. ;  ; Hamstra ; ouder ; Gandhiweg ; 33 ; Gouda ; 2807 RH ; 06-39312900 ; 0182-312900 ; Hamstra@planeet.nl
+6277 ; dhr. ; K.H. ;  ; Hijma ; ouder ; Benedenkerkseweg ; 10 ; Stolwijk ; 2821 LD ; 06-39400729 ; 0182-400729 ; Hijma@hetweb.nl
+6284 ; mw. ; L.I. ;  ; Idsinga ; ouder ; Zoutmanstraat ; 20 ; Gouda ; 2806 XD ; 06-39488656 ; 0182-488656 ; Idsinga@xs4you.nl
+6291 ; dhr. ; M.J. ;  ; Juursema ; ouder ; Nieuwdorperweg ; 30 ; Reeuwijk ; 2811 LD ; 06-39576681 ; 0182-576681 ; Juursema@zoggi.nl
+6298 ; mw. ; N.K. ;  ; Koostra ; ouder ; Kleiweg ; 7 ; Gouda ; 2801 GD ; 06-39664804 ; 0182-664804 ; Koostra@freeweb.com
+6305 ; dhr. ; O.L. ;  ; Lolkema ; ouder ; Rietgors ; 17 ; Stolwijk ; 2821 SR ; 06-39753025 ; 0182-753025 ; Lolkema@gmailer.com
+6312 ; mw. ; P.O. ;  ; Ockinga ; ouder ; Prins Hendrikstraat ; 27 ; Gouda ; 2802 JL ; 06-39841344 ; 0182-841344 ; Ockinga@hotmailing.com
+6319 ; dhr. ; Q.P. ;  ; Popma ; ouder ; Merijntje Gijzenstraat ; 4 ; Gouda ; 2801 TC ; 06-39929761 ; 0182-929761 ; Popma@planeet.nl
+6326 ; mw. ; R.R. ;  ; Rijzenga ; ouder ; Kerkpolderpad ; 14 ; Gouda ; 2807 KT ; 06-40018276 ; 0182-18276 ; Rijzenga@hetweb.nl
+6333 ; dhr. ; S.S. ;  ; Scheltema ; ouder ; Wilhelmina van Pruisenlaan ; 24 ; Gouda ; 2807 KC ; 06-40106889 ; 0182-106889 ; Scheltema@xs4you.nl
+6340 ; mw. ; T.S. ;  ; Sijtsma ; ouder ; Platteweg ; 1 ; Reeuwijk ; 2811 NA ; 06-40195600 ; 0182-195600 ; Sijtsma@zoggi.nl
+6347 ; dhr. ; U.S. ;  ; Stenstra ; ouder ; Vossiusstraat ; 11 ; Gouda ; 2802 XM ; 06-40284409 ; 0182-284409 ; Stenstra@freeweb.com
+6354 ; mw. ; V.T. ;  ; Tiemensma ; ouder ; Trilgras ; 21 ; Gouda ; 2804 NL ; 06-40373316 ; 0182-373316 ; Tiemensma@gmailer.com
+6361 ; dhr. ; W.V. ;  ; Veennema ; ouder ; Kattensingel ; 31 ; Gouda ; 2801 CB ; 06-40462321 ; 0182-462321 ; Veennema@hotmailing.com
+6368 ; mw. ; X.W. ; van ; Wekema ; ouder ; Nieuwe Gouwe Oostzijde ; 8 ; Gouda ; 2803 RA ; 06-40551424 ; 0182-551424 ; Wekema@planeet.nl
+6375 ; dhr. ; Y.W. ;  ; Wubbena ; ouder ; Schoonouwenseweg ; 18 ; Stolwijk ; 2821 NW ; 06-40640625 ; 0182-640625 ; Wubbena@hetweb.nl
+6382 ; mw. ; Z.A. ;  ; Albertsma ; ouder ; Karekietstraat ; 28 ; Gouda ; 2802 CN ; 06-40729924 ; 0182-729924 ; Albertsma@xs4you.nl
+6389 ; dhr. ; A.B. ;  ; Bazegra ; ouder ; Torenmolenerf ; 5 ; Gouda ; 2807 DK ; 06-40819321 ; 0182-819321 ; Bazegra@zoggi.nl
+6396 ; mw. ; B.B. ; de ; Boersema ; ouder ; Nijverheidsstraat ; 15 ; Gouda ; 2802 AG ; 06-40908816 ; 0182-908816 ; Boersema@freeweb.com
+6403 ; dhr. ; C.B. ; Voogdholst ; voogd ; ouder ; Goudse Poort ; 25 ; Gouda ; 2803 PJ ; 06-40998409 ; 0182-998409 ; Bruinenga@gmailer.com
+6410 ; mw. ; D.D. ; van de ; Draaisma ; ouder ; IJssellaan ; 2 ; Gouda ; 2806 TG ; 06-41088100 ; 0182-88100 ; Draaisma@hotmailing.com
+6417 ; dhr. ; E.F. ;  ; Flokstra ; ouder ; Achter de Kerk ; 12 ; Stolwijk ; 2821 AP ; 06-41177889 ; 0182-177889 ; Flokstra@planeet.nl
+6424 ; mw. ; F.H. ;  ; Haaitsma ; ouder ; Lange Tiendeweg ; 22 ; Gouda ; 2801 KH ; 06-41267776 ; 0182-267776 ; Haaitsma@hetweb.nl
+6431 ; dhr. ; G.H. ;  ; Heloma ; ouder ; Noothoven van Goorstraat ; 32 ; Gouda ; 2806 RE ; 06-41357761 ; 0182-357761 ; Heloma@xs4you.nl
+6438 ; mw. ; H.H. ;  ; Horkstra ; ouder ; Estafetteweg ; 9 ; Gouda ; 2807 BL ; 06-41447844 ; 0182-447844 ; Horkstra@zoggi.nl
+6445 ; dhr. ; I.J. ;  ; Jensma ; ouder ; Ravelplein ; 19 ; Gouda ; 2807 HJ ; 06-41538025 ; 0182-538025 ; Jensma@freeweb.com
+6452 ; mw. ; J.K. ;  ; Klimstra ; ouder ; Rolandstraat ; 29 ; Gouda ; 2805 VX ; 06-41628304 ; 0182-628304 ; Klimstra@gmailer.com
+6459 ; dhr. ; K.L. ;  ; Leijsma ; ouder ; Constantijn Huygensstraat ; 6 ; Gouda ; 2802 LZ ; 06-41718681 ; 0182-718681 ; Leijsma@hotmailing.com
+6466 ; mw. ; L.M. ;  ; Mindertsma ; ouder ; Tjotterwerf ; 16 ; Gouda ; 2804 LL ; 06-41809156 ; 0182-809156 ; Mindertsma@planeet.nl
+6473 ; dhr. ; M.P. ;  ; Peringa ; ouder ; Dreef ; 26 ; Gouda ; 2803 HC ; 06-41899729 ; 0182-899729 ; Peringa@hetweb.nl
+6480 ; mw. ; N.R. ;  ; Renkema ; ouder ; Cornelis Ketelstraat ; 3 ; Gouda ; 2806 SL ; 06-41990400 ; 0182-990400 ; Renkema@xs4you.nl
+6487 ; dhr. ; O.R. ;  ; Ruringa ; ouder ; Van Beresteijnstraat ; 13 ; Reeuwijk ; 2811 XJ ; 06-42081169 ; 0182-81169 ; Ruringa@zoggi.nl
+6494 ; mw. ; P.S. ;  ; Sielstra ; ouder ; Rendiermos ; 23 ; Reeuwijk ; 2811 GV ; 06-42172036 ; 0182-172036 ; Sielstra@freeweb.com
+6501 ; dhr. ; Q.S. ;  ; Spijkstra ; ouder ; Nieburg ; 33 ; Gouda ; 2804 WK ; 06-42263001 ; 0182-263001 ; Spijkstra@gmailer.com
+6508 ; mw. ; R.T. ; van ; Tamminga ; ouder ; Diepenbrockhof ; 10 ; Gouda ; 2807 SB ; 06-42354064 ; 0182-354064 ; Tamminga@hotmailing.com
+6515 ; dhr. ; S.T. ;  ; Tuinrnga ; ouder ; Onder de Boompjes ; 20 ; Gouda ; 2802 AW ; 06-42445225 ; 0182-445225 ; Tuinrnga@planeet.nl
+6522 ; mw. ; T.W. ;  ; Wagena ; ouder ; Mercatorsingel ; 30 ; Gouda ; 2803 EP ; 06-42536484 ; 0182-536484 ; Wagena@hetweb.nl
+6529 ; dhr. ; U.W. ;  ; Wijnia ; ouder ; Walmolenerf ; 7 ; Gouda ; 2807 DE ; 06-42627841 ; 0182-627841 ; Wijnia@xs4you.nl
+6536 ; mw. ; V.Z. ; de ; Zwaginga ; ouder ; Fugalaan ; 17 ; Gouda ; 2807 PJ ; 06-42719296 ; 0182-719296 ; Zwaginga@zoggi.nl
+6543 ; dhr. ; W.B. ;  ; Baayma ; ouder ; Anna Hoeve ; 27 ; Gouda ; 2804 HB ; 06-42810849 ; 0182-810849 ; Baayma@freeweb.com
+6550 ; mw. ; X.B. ;  ; Bilstra ; ouder ; Gaspeldoornlaan ; 4 ; Gouda ; 2803 VM ; 06-42902500 ; 0182-902500 ; Bilstra@gmailer.com
+6557 ; dhr. ; Y.B. ;  ; Bouwsma ; ouder ; Piet Moeskopsstraat ; 14 ; Gouda ; 2807 AM ; 06-42994249 ; 0182-994249 ; Bouwsma@hotmailing.com
+6564 ; mw. ; Z.D. ;  ; Delfsma ; ouder ; Helmersstraat ; 24 ; Gouda ; 2802 ND ; 06-43086096 ; 0182-86096 ; Delfsma@planeet.nl
+6571 ; dhr. ; A.E. ;  ; Eppenga ; ouder ; Spieringstraat ; 1 ; Gouda ; 2801 ZJ ; 06-43178041 ; 0182-178041 ; Eppenga@hetweb.nl
+6578 ; mw. ; B.G. ;  ; Goelema ; ouder ; Gravestein ; 11 ; Gouda ; 2804 GW ; 06-43270084 ; 0182-270084 ; Goelema@xs4you.nl
+6585 ; dhr. ; C.H. ;  ; Havenga ; ouder ; Halewijnplein ; 21 ; Gouda ; 2805 VP ; 06-43362225 ; 0182-362225 ; Havenga@zoggi.nl
+6592 ; mw. ; D.H. ;  ; Hoitinga ; ouder ; Dunantlaan ; 31 ; Reeuwijk ; 2811 CA ; 06-43454464 ; 0182-454464 ; Hoitinga@freeweb.com
+6599 ; dhr. ; E.I. ;  ; Imminga ; ouder ; Tentweg ; 8 ; Stolwijk ; 2821 AA ; 06-43546801 ; 0182-546801 ; Imminga@gmailer.com
+6606 ; mw. ; F.K. ;  ; Keekstra ; ouder ; Eline Verestraat ; 18 ; Gouda ; 2801 SW ; 06-43639236 ; 0182-639236 ; Keekstra@hotmailing.com
+6613 ; dhr. ; G.K. ;  ; Kubbinga ; ouder ; Nieuwdorperweg ; 28 ; Reeuwijk ; 2811 LB ; 06-43731769 ; 0182-731769 ; Kubbinga@planeet.nl
+6620 ; mw. ; H.M. ;  ; Meedema ; ouder ; Peperstraat ; 5 ; Gouda ; 2801 RD ; 06-43824400 ; 0182-824400 ; Meedema@hetweb.nl
+6627 ; dhr. ; I.O. ;  ; Ottema ; ouder ; Constantijn Huygensstraat ; 15 ; Gouda ; 2802 LV ; 06-43917129 ; 0182-917129 ; Ottema@xs4you.nl
+6634 ; mw. ; J.P. ; Voogdt ; voogd ; ouder ; Statensingel ; 25 ; Gouda ; 2805 BJ ; 06-44009956 ; 0182-9956 ; Pruiksma@zoggi.nl
+6641 ; dhr. ; K.R. ;  ; Roefstra ; ouder ; Ridder van Catsweg ; 2 ; Gouda ; 2804 RJ ; 06-44102881 ; 0182-102881 ; Roefstra@freeweb.com
+6648 ; mw. ; L.S. ; van ; Schrikkema ; ouder ; Kleiweg ; 12 ; Gouda ; 2801 GB ; 06-44195904 ; 0182-195904 ; Schrikkema@gmailer.com
+6655 ; dhr. ; M.S. ;  ; Sjollema ; ouder ; Motetplein ; 22 ; Gouda ; 2807 PC ; 06-44289025 ; 0182-289025 ; Sjollema@hotmailing.com
+6662 ; mw. ; N.S. ;  ; Strooisma ; ouder ; Willem de Zwijgersingel ; 32 ; Gouda ; 2805 BS ; 06-44382244 ; 0182-382244 ; Strooisma@planeet.nl
+6669 ; dhr. ; O.T. ;  ; Tirnsa ; ouder ; Claespolderstraat ; 9 ; Gouda ; 2807 LD ; 06-44475561 ; 0182-475561 ; Tirnsa@hetweb.nl
+6676 ; mw. ; P.V. ; de ; Vijsma ; ouder ; Waterklaver ; 19 ; Gouda ; 2804 PM ; 06-44568976 ; 0182-568976 ; Vijsma@xs4you.nl
+6683 ; dhr. ; Q.W. ;  ; Wielstra ; ouder ; Dreef ; 29 ; Gouda ; 2803 HA ; 06-44662489 ; 0182-662489 ; Wielstra@zoggi.nl
+6690 ; mw. ; R.Z. ;  ; Zanstra ; ouder ; Westerkade ; 6 ; Gouda ; 2802 SG ; 06-44756100 ; 0182-756100 ; Zanstra@freeweb.com
+6697 ; dhr. ; S.A. ;  ; Anema ; ouder ; Zoutmansweg ; 16 ; Reeuwijk ; 2811 EV ; 06-44849809 ; 0182-849809 ; Anema@gmailer.com
+6704 ; mw. ; T.B. ;  ; Bellinga ; ouder ; Platteweg ; 26 ; Reeuwijk ; 2811 HL ; 06-44943616 ; 0182-943616 ; Bellinga@hotmailing.com
+6711 ; dhr. ; U.B. ;  ; Boomstra ; ouder ; Douwes Dekkerstraat ; 3 ; Reeuwijk ; 2811 XL ; 06-45037521 ; 0182-37521 ; Boomstra@planeet.nl
+6718 ; mw. ; V.B. ;  ; Burgsma ; ouder ; Scharroosingel ; 13 ; Gouda ; 2807 CX ; 06-45131524 ; 0182-131524 ; Burgsma@hetweb.nl
+6725 ; dhr. ; W.E. ;  ; Eelssema ; ouder ; Noordveenpolderstraat ; 23 ; Gouda ; 2807 ND ; 06-45225625 ; 0182-225625 ; Eelssema@xs4you.nl
+6732 ; mw. ; X.F. ;  ; Froma ; ouder ; Tristanstraat ; 33 ; Gouda ; 2805 VA ; 06-45319824 ; 0182-319824 ; Froma@zoggi.nl
+6739 ; dhr. ; Y.H. ;  ; Halbesma ; ouder ; Jan van Beaumontstraat ; 10 ; Gouda ; 2805 RN ; 06-45414121 ; 0182-414121 ; Halbesma@freeweb.com
+6746 ; mw. ; Z.H. ;  ; Hidma ; ouder ; Bloeme ; 20 ; Reeuwijk ; 2811 AN ; 06-45508516 ; 0182-508516 ; Hidma@gmailer.com
+6753 ; dhr. ; A.H. ;  ; Hulzinga ; ouder ; Gravestein ; 30 ; Gouda ; 2804 GR ; 06-45603009 ; 0182-603009 ; Hulzinga@hotmailing.com
+6760 ; mw. ; B.J. ;  ; Jubbema ; ouder ; Beukmolenplantsoen ; 7 ; Gouda ; 2807 EL ; 06-45697600 ; 0182-697600 ; Jubbema@planeet.nl
+6767 ; dhr. ; C.K. ;  ; Kooijstra ; ouder ; Volmolenhof ; 17 ; Gouda ; 2807 ES ; 06-45792289 ; 0182-792289 ; Kooijstra@hetweb.nl
+6774 ; mw. ; D.L. ;  ; Lijklama ; ouder ; Schilkerpolderstraat ; 27 ; Gouda ; 2807 MR ; 06-45887076 ; 0182-887076 ; Lijklama@xs4you.nl
+6781 ; dhr. ; E.N. ;  ; Niewsma ; ouder ; Pasteurstraat ; 4 ; Reeuwijk ; 2811 DX ; 06-45981961 ; 0182-981961 ; Niewsma@zoggi.nl
+6788 ; mw. ; F.P. ; van ; Polsma ; ouder ; Woudestein ; 14 ; Gouda ; 2804 GM ; 06-46076944 ; 0182-76944 ; Polsma@freeweb.com
+6795 ; dhr. ; G.R. ;  ; Riepstra ; ouder ; Hugo de Vrieslaan ; 24 ; Gouda ; 2803 JK ; 06-46172025 ; 0182-172025 ; Riepstra@gmailer.com
+6802 ; mw. ; H.S. ;  ; Scheemda ; ouder ; Houtmansgracht ; 1 ; Gouda ; 2801 XC ; 06-46267204 ; 0182-267204 ; Scheemda@hotmailing.com
+6809 ; dhr. ; I.S. ;  ; Sijmensma ; ouder ; Burgemeester Martenssingel ; 11 ; Gouda ; 2806 CP ; 06-46362481 ; 0182-362481 ; Sijmensma@planeet.nl
+6816 ; mw. ; J.S. ; de ; Steigenga ; ouder ; Landluststraat ; 21 ; Gouda ; 2804 KS ; 06-46457856 ; 0182-457856 ; Steigenga@hetweb.nl
+6823 ; dhr. ; K.T. ;  ; Thedinga ; ouder ; Karnemelksloot ; 31 ; Gouda ; 2806 BJ ; 06-46553329 ; 0182-553329 ; Thedinga@xs4you.nl
+6830 ; mw. ; L.U. ;  ; Uwema ; ouder ; Aakwerf ; 8 ; Gouda ; 2804 MX ; 06-46648900 ; 0182-648900 ; Uwema@zoggi.nl
+6837 ; dhr. ; M.W. ;  ; Weersinga ; ouder ; Dorpsweg ; 18 ; Reeuwijk ; 2811 KJ ; 06-46744569 ; 0182-744569 ; Weersinga@freeweb.com
+6844 ; mw. ; N.W. ;  ; Woldinga ; ouder ; Krugerlaan ; 28 ; Gouda ; 2806 EK ; 06-46840336 ; 0182-840336 ; Woldinga@gmailer.com
+6851 ; dhr. ; O.A. ;  ; Akkerma ; ouder ; Ten Boomstraat ; 5 ; Gouda ; 2807 RN ; 06-46936201 ; 0182-936201 ; Akkerma@hotmailing.com
+6858 ; mw. ; P.B. ;  ; Barma ; ouder ; Raam ; 15 ; Gouda ; 2801 VP ; 06-47032164 ; 0182-32164 ; Barma@planeet.nl
+6865 ; dhr. ; Q.B. ; Voogderdijk ; voogd ; ouder ; Prins Hendrikstraat ; 25 ; Gouda ; 2802 JK ; 06-47128225 ; 0182-128225 ; Bodema@hetweb.nl
+6872 ; mw. ; R.B. ;  ; Brokstra ; ouder ; Watermunt ; 2 ; Reeuwijk ; 2811 SM ; 06-47224384 ; 0182-224384 ; Brokstra@xs4you.nl
+6879 ; dhr. ; S.D. ;  ; Doringa ; ouder ; Zoutmanstraat ; 12 ; Gouda ; 2806 XA ; 06-47320641 ; 0182-320641 ; Doringa@zoggi.nl
+6886 ; mw. ; T.F. ;  ; Ferweda ; ouder ; Geertruida Hoeve ; 22 ; Gouda ; 2804 HS ; 06-47416996 ; 0182-416996 ; Ferweda@freeweb.com
+6893 ; dhr. ; U.G. ;  ; Grunstra ; ouder ; Klein Amerika ; 32 ; Gouda ; 2806 CA ; 06-47513449 ; 0182-513449 ; Grunstra@gmailer.com
+6900 ; mw. ; V.H. ;  ; Heistra ; ouder ; Edisonstraat ; 9 ; Gouda ; 2809 PC ; 06-47610000 ; 0182-610000 ; Heistra@hotmailing.com
+6907 ; dhr. ; W.H. ;  ; Hoolsema ; ouder ; Heemraadslag ; 19 ; Gouda ; 2805 DP ; 06-47706649 ; 0182-706649 ; Hoolsema@planeet.nl
+6914 ; mw. ; X.J. ;  ; Jelkema ; ouder ; Hulkestein ; 29 ; Gouda ; 2804 ER ; 06-47803396 ; 0182-803396 ; Jelkema@hetweb.nl
+6921 ; dhr. ; Y.K. ;  ; Kleefsma ; ouder ; Middenmolenlaan ; 6 ; Gouda ; 2807 EV ; 06-47900241 ; 0182-900241 ; Kleefsma@xs4you.nl
+6928 ; mw. ; Z.L. ; van ; Leegstra ; ouder ; Heemskerkstraat ; 16 ; Gouda ; 2805 ST ; 06-47997184 ; 0182-997184 ; Leegstra@zoggi.nl
+6935 ; dhr. ; A.M. ;  ; Menninga ; ouder ; Hugo de Grootstraat ; 26 ; Reeuwijk ; 2811 KW ; 06-48094225 ; 0182-94225 ; Menninga@freeweb.com
+6942 ; mw. ; B.P. ;  ; Peetsma ; ouder ; Bitterzoet ; 3 ; Reeuwijk ; 2811 RS ; 06-48191364 ; 0182-191364 ; Peetsma@gmailer.com
+6949 ; dhr. ; C.R. ;  ; Reitema ; ouder ; Snoystraat ; 13 ; Gouda ; 2802 SX ; 06-48288601 ; 0182-288601 ; Reitema@hotmailing.com
+6956 ; mw. ; D.R. ; de ; Roukama ; ouder ; Beemdgras ; 23 ; Gouda ; 2804 NT ; 06-48385936 ; 0182-385936 ; Roukama@planeet.nl
+6963 ; dhr. ; E.S. ;  ; Sibma ; ouder ; Hugo de Grootstraat ; 33 ; Reeuwijk ; 2811 KX ; 06-48483369 ; 0182-483369 ; Sibma@hetweb.nl
+6970 ; mw. ; F.S. ; van de ; Spaanstra ; ouder ; Koningin Wilhelminastraat ; 10 ; Reeuwijk ; 2811 TS ; 06-48580900 ; 0182-580900 ; Spaanstra@xs4you.nl
+6977 ; dhr. ; G.S. ;  ; Sytzema ; ouder ; Componistenlaan ; 20 ; Gouda ; 2807 HG ; 06-48678529 ; 0182-678529 ; Sytzema@zoggi.nl
+6984 ; mw. ; H.T. ;  ; Torenstra ; ouder ; Rietzoom ; 30 ; Gouda ; 2804 CS ; 06-48776256 ; 0182-776256 ; Torenstra@freeweb.com
+6991 ; dhr. ; I.V. ;  ; Vriezema ; ouder ; Burgemeester Martenssingel ; 7 ; Gouda ; 2806 CR ; 06-48874081 ; 0182-874081 ; Vriezema@gmailer.com
+6998 ; mw. ; J.W. ;  ; Wijkenga ; ouder ; Wilhelmina van Pruisenlaan ; 17 ; Gouda ; 2807 KD ; 06-48972004 ; 0182-972004 ; Wijkenga@hotmailing.com
+7005 ; dhr. ; K.Z. ;  ; Zoutsma ; ouder ; Pelmolenerf ; 27 ; Gouda ; 2807 EX ; 06-49070025 ; 0182-70025 ; Zoutsma@planeet.nl
+7012 ; mw. ; L.A. ;  ; Ausema ; ouder ; Hortensialaan ; 4 ; Stolwijk ; 2821 TJ ; 06-49168144 ; 0182-168144 ; Ausema@hetweb.nl
+7019 ; dhr. ; M.B. ;  ; Biesta ; ouder ; Fugalaan ; 14 ; Gouda ; 2807 PH ; 06-49266361 ; 0182-266361 ; Biesta@xs4you.nl
+7026 ; mw. ; N.B. ;  ; Bottinga ; ouder ; Van Heuven Goedhartsingel ; 24 ; Gouda ; 2806 ZL ; 06-49364676 ; 0182-364676 ; Bottinga@zoggi.nl
+7033 ; dhr. ; O.D. ;  ; Datema ; ouder ; Kalmoes ; 1 ; Reeuwijk ; 2811 EB ; 06-49463089 ; 0182-463089 ; Datema@freeweb.com
+7040 ; mw. ; P.E. ;  ; Endema ; ouder ; Onder de Boompjes ; 11 ; Gouda ; 2802 AV ; 06-49561600 ; 0182-561600 ; Endema@gmailer.com
+7047 ; dhr. ; Q.G. ;  ; Gerringa ; ouder ; De Kempenaerstraat ; 21 ; Gouda ; 2805 SC ; 06-49660209 ; 0182-660209 ; Gerringa@hotmailing.com
+7054 ; mw. ; R.H. ;  ; Harstra ; ouder ; Kennedysingel ; 31 ; Reeuwijk ; 2811 VB ; 06-49758916 ; 0182-758916 ; Harstra@planeet.nl
+7061 ; dhr. ; S.H. ;  ; Hoekenga ; ouder ; Palenstein ; 8 ; Gouda ; 2804 GA ; 06-49857721 ; 0182-857721 ; Hoekenga@hetweb.nl
+7068 ; mw. ; T.I. ; van ; IJpema ; ouder ; Van Staverenstraat ; 18 ; Reeuwijk ; 2811 TR ; 06-49956624 ; 0182-956624 ; IJpema@xs4you.nl
+7075 ; dhr. ; U.K. ;  ; Kamstra ; ouder ; Zwanebloem ; 28 ; Reeuwijk ; 2811 RH ; 06-50055625 ; 0182-55625 ; Kamstra@zoggi.nl
+7082 ; mw. ; V.K. ;  ; Kroezinga ; ouder ; Verkennerspad ; 5 ; Gouda ; 2807 AA ; 06-50154724 ; 0182-154724 ; Kroezinga@freeweb.com
+7089 ; dhr. ; W.M. ;  ; Makkinga ; ouder ; Koningin Wilhelminastraat ; 15 ; Reeuwijk ; 2811 TV ; 06-50253921 ; 0182-253921 ; Makkinga@gmailer.com
+7096 ; mw. ; X.O. ; Voogdmans ; voogd ; ouder ; Roelat ; 25 ; Reeuwijk ; 2811 EC ; 06-50353216 ; 0182-353216 ; Oostema@hotmailing.com
+7103 ; dhr. ; Y.P. ;  ; Potma ; ouder ; Veenzoom ; 2 ; Gouda ; 2804 CB ; 06-50452609 ; 0182-452609 ; Potma@planeet.nl
+7110 ; mw. ; Z.R. ;  ; Rintjema ; ouder ; Burgemeester Martenssingel ; 12 ; Gouda ; 2806 CM ; 06-50552100 ; 0182-552100 ; Rintjema@hetweb.nl
+7117 ; dhr. ; A.S. ;  ; Schootstra ; ouder ; Twaalfmorgen ; 22 ; Reeuwijk ; 2811 ND ; 06-50651689 ; 0182-651689 ; Schootstra@xs4you.nl
+7124 ; mw. ; B.S. ;  ; Sipsma ; ouder ; Vogelplein ; 32 ; Gouda ; 2802 CK ; 06-50751376 ; 0182-751376 ; Sipsma@zoggi.nl
+7131 ; dhr. ; C.S. ;  ; Straatsma ; ouder ; Hoge Gouwe ; 9 ; Gouda ; 2801 LC ; 06-50851161 ; 0182-851161 ; Straatsma@freeweb.com
+7138 ; mw. ; D.T. ;  ; Tijsma ; ouder ; Zwenkgras ; 19 ; Gouda ; 2804 NG ; 06-50951044 ; 0182-951044 ; Tijsma@gmailer.com
+7145 ; dhr. ; E.V. ;  ; Veltsema ; ouder ; Vreelust ; 29 ; Gouda ; 2804 LH ; 06-51051025 ; 0182-51025 ; Veltsema@hotmailing.com
+7152 ; mw. ; F.W. ;  ; Wiebenga ; ouder ; Raam ; 6 ; Gouda ; 2801 VJ ; 06-51151104 ; 0182-151104 ; Wiebenga@planeet.nl
+7159 ; dhr. ; G.Y. ;  ; Ytsma ; ouder ; Beekpoldersingel ; 16 ; Gouda ; 2807 KW ; 06-51251281 ; 0182-251281 ; Ytsma@hetweb.nl
+7166 ; mw. ; H.A. ;  ; Altinga ; ouder ; Corssenpolderstraat ; 26 ; Gouda ; 2807 LG ; 06-51351556 ; 0182-351556 ; Altinga@xs4you.nl
+7173 ; dhr. ; I.B. ;  ; Beima ; ouder ; Jan Luykenstraat ; 3 ; Gouda ; 2806 PD ; 06-51451929 ; 0182-451929 ; Beima@zoggi.nl
+7180 ; mw. ; J.B. ;  ; Bonnema ; ouder ; Gouderaksedijk ; 13 ; Gouda ; 2808 ND ; 06-51552400 ; 0182-552400 ; Bonnema@freeweb.com
+7187 ; dhr. ; K.B. ;  ; Bulstra ; ouder ; Ronsseweg ; 23 ; Gouda ; 2803 ZH ; 06-51652969 ; 0182-652969 ; Bulstra@gmailer.com
+7194 ; mw. ; L.D. ;  ; Dyksma ; ouder ; Blekerssingel ; 33 ; Gouda ; 2806 AA ; 06-51753636 ; 0182-753636 ; Dyksma@hotmailing.com
+7201 ; dhr. ; M.F. ;  ; Frankema ; ouder ; Raaigras ; 10 ; Gouda ; 2804 ND ; 06-51854401 ; 0182-854401 ; Frankema@planeet.nl
+7208 ; mw. ; N.H. ; van ; Haijma ; ouder ; Zwarteweg ; 20 ; Gouda ; 2805 JH ; 06-51955264 ; 0182-955264 ; Haijma@hetweb.nl
+7215 ; dhr. ; O.H. ;  ; Herresma ; ouder ; Lage Gouwe ; 30 ; Gouda ; 2801 LH ; 06-52056225 ; 0182-56225 ; Herresma@xs4you.nl
+7222 ; mw. ; P.H. ;  ; Huisinga ; ouder ; Ridder van Catsweg ; 7 ; Gouda ; 2805 BA ; 06-52157284 ; 0182-157284 ; Huisinga@zoggi.nl
+7229 ; dhr. ; Q.J. ;  ; Jorritsma ; ouder ; Kuiperstraat ; 17 ; Gouda ; 2801 NS ; 06-52258441 ; 0182-258441 ; Jorritsma@freeweb.com
+7236 ; mw. ; R.K. ; de ; Koelma ; ouder ; Driewegplein ; 27 ; Gouda ; 2805 HV ; 06-52359696 ; 0182-359696 ; Koelma@gmailer.com
+7243 ; dhr. ; S.L. ;  ; Leysma ; ouder ; Punterwerf ; 4 ; Gouda ; 2804 LP ; 06-52461049 ; 0182-461049 ; Leysma@hotmailing.com
+7250 ; mw. ; T.M. ;  ; Musschenga ; ouder ; Lage Gouwe ; 14 ; Gouda ; 2801 LL ; 06-52562500 ; 0182-562500 ; Musschenga@planeet.nl
+7257 ; dhr. ; U.P. ;  ; Ploegstra ; ouder ; Zwaluwhof ; 24 ; Stolwijk ; 2821 XJ ; 06-52664049 ; 0182-664049 ; Ploegstra@hetweb.nl
+7264 ; mw. ; V.R. ;  ; Riegstra ; ouder ; Lange Willemsteeg ; 1 ; Gouda ; 2801 WC ; 06-52765696 ; 0182-765696 ; Riegstra@xs4you.nl
+7271 ; dhr. ; W.S. ;  ; Schaafstra ; ouder ; Keizerstraat ; 11 ; Gouda ; 2801 NL ; 06-52867441 ; 0182-867441 ; Schaafstra@zoggi.nl
+7278 ; mw. ; X.S. ;  ; Sietsma ; ouder ; Spieringstraat ; 21 ; Gouda ; 2801 ZK ; 06-52969284 ; 0182-969284 ; Sietsma@freeweb.com
+7285 ; dhr. ; Y.S. ;  ; Stedema ; ouder ; Landmeterslag ; 31 ; Gouda ; 2805 HS ; 06-53071225 ; 0182-71225 ; Stedema@gmailer.com
+7292 ; mw. ; Z.T. ;  ; Telenga ; ouder ; Ida Hoeve ; 8 ; Gouda ; 2804 JA ; 06-53173264 ; 0182-173264 ; Telenga@hotmailing.com
+7299 ; dhr. ; A.U. ;  ; Uildersma ; ouder ; Jacob van Lennepkade ; 18 ; Gouda ; 2802 LG ; 06-53275401 ; 0182-275401 ; Uildersma@planeet.nl
+7306 ; mw. ; B.W. ;  ; Wartna ; ouder ; Ida Hoeve ; 28 ; Gouda ; 2804 JC ; 06-53377636 ; 0182-377636 ; Wartna@hetweb.nl
+7313 ; dhr. ; C.W. ;  ; Wiringa ; ouder ; Snippedrift ; 5 ; Reeuwijk ; 2811 AK ; 06-53479969 ; 0182-479969 ; Wiringa@xs4you.nl
+7320 ; mw. ; D.A. ;  ; Abma ; ouder ; Vossenburchkade ; 15 ; Gouda ; 2805 PD ; 06-53582400 ; 0182-582400 ; Abma@zoggi.nl
+7327 ; dhr. ; E.B. ; Voogt ; voogd ; ouder ; Albert Plesmanplein ; 25 ; Gouda ; 2805 AD ; 06-53684929 ; 0182-684929 ; Bansenga@freeweb.com
+7334 ; mw. ; F.B. ;  ; Blessinga ; ouder ; Willem de Zwijgersingel ; 2 ; Gouda ; 2805 BV ; 06-53787556 ; 0182-787556 ; Blessinga@gmailer.com
+7341 ; dhr. ; G.B. ;  ; Brilstra ; ouder ; Oukoopsedijk ; 12 ; Reeuwijk ; 2811 NG ; 06-53890281 ; 0182-890281 ; Brilstra@hotmailing.com
+7348 ; mw. ; H.D. ; van ; Doddema ; ouder ; IJssellaan ; 22 ; Gouda ; 2806 TD ; 06-53993104 ; 0182-993104 ; Doddema@planeet.nl
+7355 ; dhr. ; I.F. ;  ; Feersma ; ouder ; Kerklaan ; 32 ; Stolwijk ; 2821 BM ; 06-54096025 ; 0182-96025 ; Feersma@hetweb.nl
+7362 ; mw. ; J.G. ;  ; Groenia ; ouder ; John Raedeckersingel ; 9 ; Reeuwijk ; 2811 VK ; 06-54199044 ; 0182-199044 ; Groenia@xs4you.nl
+7369 ; dhr. ; K.H. ;  ; Heidsma ; ouder ; Waterlelie ; 19 ; Gouda ; 2804 PT ; 06-54302161 ; 0182-302161 ; Heidsma@zoggi.nl
+7376 ; mw. ; L.H. ; de ; Hommenga ; ouder ; Graaf van Bloisstraat ; 29 ; Gouda ; 2805 RL ; 06-54405376 ; 0182-405376 ; Hommenga@freeweb.com
+7383 ; dhr. ; M.J. ;  ; Janga ; ouder ; Boelekade ; 6 ; Gouda ; 2806 AN ; 06-54508689 ; 0182-508689 ; Janga@gmailer.com
+7390 ; mw. ; N.K. ;  ; Kijlstra ; ouder ; De Visserstraat ; 16 ; Gouda ; 2805 SJ ; 06-54612100 ; 0182-612100 ; Kijlstra@hotmailing.com
+7397 ; dhr. ; O.L. ;  ; Landstra ; ouder ; Tollensstraat ; 26 ; Gouda ; 2802 LL ; 06-54715609 ; 0182-715609 ; Landstra@planeet.nl
+7404 ; mw. ; P.M. ;  ; Meintema ; ouder ; Bodegraafsestraatweg ; 3 ; Gouda ; 2805 GP ; 06-54819216 ; 0182-819216 ; Meintema@hetweb.nl
+7411 ; dhr. ; Q.P. ;  ; Panstra ; ouder ; Marga Klompestraat ; 13 ; Gouda ; 2805 CX ; 06-54922921 ; 0182-922921 ; Panstra@xs4you.nl
+7418 ; mw. ; R.R. ;  ; Reijinga ; ouder ; Bilwijkerweg ; 23 ; Stolwijk ; 2821 SG ; 06-55026724 ; 0182-26724 ; Reijinga@zoggi.nl
+7425 ; dhr. ; S.R. ;  ; Romkema ; ouder ; Paganinistraat ; 33 ; Gouda ; 2807 SR ; 06-55130625 ; 0182-130625 ; Romkema@freeweb.com
+7432 ; mw. ; T.S. ;  ; Sekema ; ouder ; Rentmeesterslag ; 10 ; Gouda ; 2805 EV ; 06-55234624 ; 0182-234624 ; Sekema@gmailer.com
+7439 ; dhr. ; U.S. ;  ; Smitstra ; ouder ; Groeneweg ; 20 ; Stolwijk ; 2821 ST ; 06-55338721 ; 0182-338721 ; Smitstra@hotmailing.com
+7446 ; mw. ; V.S. ;  ; Swiersema ; ouder ; Koekoekstraat ; 30 ; Gouda ; 2802 CC ; 06-55442916 ; 0182-442916 ; Swiersema@planeet.nl
+7453 ; dhr. ; W.T. ;  ; Tolstra ; ouder ; Wilhelminastraat ; 7 ; Gouda ; 2801 XK ; 06-55547209 ; 0182-547209 ; Tolstra@hetweb.nl
+7460 ; mw. ; X.V. ;  ; Vollinga ; ouder ; Albrechtsveld ; 17 ; Gouda ; 2804 WB ; 06-55651600 ; 0182-651600 ; Vollinga@xs4you.nl
+7467 ; dhr. ; Y.W. ;  ; Wiertsema ; ouder ; Burgemeester Gaarlandtsingel ; 27 ; Gouda ; 2802 TD ; 06-55756089 ; 0182-756089 ; Wiertsema@zoggi.nl
+7474 ; mw. ; Z.Z. ;  ; Zijlema ; ouder ; 's-Gravenbroekseweg ; 4 ; Reeuwijk ; 2811 GG ; 06-55860676 ; 0182-860676 ; Zijlema@freeweb.com
+7481 ; dhr. ; A.A. ;  ; Asma ; ouder ; Veenzoom ; 14 ; Gouda ; 2804 CK ; 06-55965361 ; 0182-965361 ; Asma@gmailer.com
+7488 ; mw. ; B.B. ; van ; Beukinga ; ouder ; Walmolenerf ; 24 ; Gouda ; 2807 DG ; 06-56070144 ; 0182-70144 ; Beukinga@hotmailing.com
+7495 ; dhr. ; C.B. ;  ; Bossema ; ouder ; Eerste Everhardus Johannes Potgieterstraat ; 1 ; Gouda ; 2802 LE ; 06-56175025 ; 0182-175025 ; Bossema@planeet.nl
+7502 ; mw. ; D.C. ;  ; Copinga ; ouder ; Postbus ; 11 ; Stolwijk ; 2820 AB ; 06-56280004 ; 0182-280004 ; Copinga@hetweb.nl
+7509 ; dhr. ; E.E. ;  ; Elenga ; ouder ; Van Vreumingenstraat ; 21 ; Gouda ; 2801 AV ; 06-56385081 ; 0182-385081 ; Elenga@xs4you.nl
+7516 ; mw. ; F.G. ; de ; Geertruida ; ouder ; Bovenkerkseweg ; 31 ; Stolwijk ; 2821 XW ; 06-56490256 ; 0182-490256 ; Geertruida@zoggi.nl
+7523 ; dhr. ; G.H. ;  ; Harenga ; ouder ; Wilhelmina van Pruisenlaan ; 8 ; Gouda ; 2807 KG ; 06-56595529 ; 0182-595529 ; Harenga@freeweb.com
+7530 ; mw. ; H.H. ; van de ; Hillinga ; ouder ; Olympiadeplein ; 18 ; Gouda ; 2807 BH ; 06-56700900 ; 0182-700900 ; Hillinga@gmailer.com
+7537 ; dhr. ; I.I. ;  ; Iepma ; ouder ; Dorus Rijkersstraat ; 28 ; Reeuwijk ; 2811 XN ; 06-56806369 ; 0182-806369 ; Iepma@hotmailing.com
+7544 ; mw. ; J.K. ;  ; Kalma ; ouder ; Veldzoom ; 5 ; Stolwijk ; 2821 ZE ; 06-56911936 ; 0182-911936 ; Kalma@planeet.nl
+7551 ; dhr. ; K.K. ;  ; Korringa ; ouder ; Jan Tinbergenstraat ; 15 ; Reeuwijk ; 2811 DZ ; 06-57017601 ; 0182-17601 ; Korringa@hetweb.nl
+7558 ; mw. ; L.L. ; Voogdholst ; voogd ; ouder ; Burgemeester Gaarlandtsingel ; 25 ; Gouda ; 2802 TE ; 06-57123364 ; 0182-123364 ; Lootstra@xs4you.nl
+7565 ; dhr. ; M.O. ;  ; Offinga ; ouder ; Loevestein ; 2 ; Gouda ; 2804 EV ; 06-57229225 ; 0182-229225 ; Offinga@zoggi.nl
+7572 ; mw. ; N.P. ;  ; Portena ; ouder ; Beatrixlaan ; 12 ; Reeuwijk ; 2811 LX ; 06-57335184 ; 0182-335184 ; Portena@freeweb.com
+7579 ; dhr. ; O.R. ;  ; Ringia ; ouder ; Sint Josephstraat ; 22 ; Gouda ; 2806 WK ; 06-57441241 ; 0182-441241 ; Ringia@gmailer.com
+7586 ; mw. ; P.S. ;  ; Schijfsma ; ouder ; Lage Gouwe ; 32 ; Gouda ; 2801 LG ; 06-57547396 ; 0182-547396 ; Schijfsma@hotmailing.com
+7593 ; dhr. ; Q.S. ;  ; Siksma ; ouder ; Van Goghstraat ; 9 ; Reeuwijk ; 2811 TB ; 06-57653649 ; 0182-653649 ; Siksma@planeet.nl
+7600 ; mw. ; R.S. ;  ; Stiemstra ; ouder ; Terwenstraat ; 19 ; Gouda ; 2804 JW ; 06-57760000 ; 0182-760000 ; Stiemstra@hetweb.nl
+7607 ; dhr. ; S.T. ;  ; Tiesjema ; ouder ; Turfsingel ; 29 ; Gouda ; 2802 BB ; 06-57866449 ; 0182-866449 ; Tiesjema@xs4you.nl
+7614 ; mw. ; T.V. ;  ; Veldsema ; ouder ; Swanenburghshofje ; 6 ; Gouda ; 2801 ZG ; 06-57972996 ; 0182-972996 ; Veldsema@zoggi.nl
+7621 ; dhr. ; U.W. ;  ; Westera ; ouder ; Berkenbroek ; 16 ; Reeuwijk ; 2811 NZ ; 06-58079641 ; 0182-79641 ; Westera@freeweb.com
+7628 ; mw. ; V.Y. ; van ; Ykema ; ouder ; Justus van Effenpad ; 26 ; Gouda ; 2806 SX ; 06-58186384 ; 0182-186384 ; Ykema@gmailer.com
+7635 ; dhr. ; W.A. ;  ; Alleda ; ouder ; IJssellaan ; 3 ; Gouda ; 2806 TM ; 06-58293225 ; 0182-293225 ; Alleda@hotmailing.com
+7642 ; mw. ; X.B. ;  ; Beerstra ; ouder ; Vossiusstraat ; 13 ; Gouda ; 2802 XP ; 06-58400164 ; 0182-400164 ; Beerstra@planeet.nl
+7649 ; dhr. ; Y.B. ;  ; Bokkema ; ouder ; Willem Vroesenplein ; 23 ; Gouda ; 2801 PR ; 06-58507201 ; 0182-507201 ; Bokkema@hetweb.nl
+7656 ; mw. ; Z.B. ; de ; Bruursema ; ouder ; Keizerstraat ; 33 ; Gouda ; 2801 NK ; 06-58614336 ; 0182-614336 ; Bruursema@xs4you.nl
+7663 ; dhr. ; A.D. ;  ; Drilsma ; ouder ; Oudeweg ; 10 ; Reeuwijk ; 2811 NM ; 06-58721569 ; 0182-721569 ; Drilsma@zoggi.nl
+7670 ; mw. ; B.F. ;  ; Fokstra ; ouder ; Vossenburchkade ; 20 ; Gouda ; 2805 PC ; 06-58828900 ; 0182-828900 ; Fokstra@freeweb.com
+7677 ; dhr. ; C.H. ;  ; Haarsma ; ouder ; Kandeelstraat ; 30 ; Gouda ; 2801 WG ; 06-58936329 ; 0182-936329 ; Haarsma@gmailer.com
+7684 ; mw. ; D.H. ;  ; Hemstra ; ouder ; Eendrachtsweg ; 7 ; Gouda ; 2806 MC ; 06-59043856 ; 0182-43856 ; Hemstra@hotmailing.com
+7691 ; dhr. ; E.H. ;  ; Houkema ; ouder ; Lange Tiendeweg ; 17 ; Gouda ; 2801 KK ; 06-59151481 ; 0182-151481 ; Houkema@planeet.nl
+7698 ; mw. ; F.J. ;  ; Joldersma ; ouder ; Dijkgraafslag ; 27 ; Gouda ; 2805 DG ; 06-59259204 ; 0182-259204 ; Joldersma@hetweb.nl
+7705 ; dhr. ; G.K. ;  ; Klopma ; ouder ; Zijdeweg ; 4 ; Reeuwijk ; 2811 PC ; 06-59367025 ; 0182-367025 ; Klopma@xs4you.nl
+7712 ; mw. ; H.L. ;  ; Lemminga ; ouder ; Reeuwijkpolderplantsoen ; 14 ; Gouda ; 2807 LX ; 06-59474944 ; 0182-474944 ; Lemminga@zoggi.nl
+7719 ; dhr. ; I.M. ;  ; Molnersma ; ouder ; Waterpeper ; 24 ; Gouda ; 2804 PP ; 06-59582961 ; 0182-582961 ; Molnersma@freeweb.com
+7726 ; mw. ; J.P. ;  ; Piersma ; ouder ; Eerste Moordrechtse Tiendeweg ; 1 ; Gouda ; 2802 AB ; 06-59691076 ; 0182-691076 ; Piersma@gmailer.com
+7733 ; dhr. ; K.R. ;  ; Retsema ; ouder ; Kervelgaarde ; 11 ; Gouda ; 2803 RH ; 06-59799289 ; 0182-799289 ; Retsema@hotmailing.com
+7740 ; mw. ; L.S. ;  ; Saeckma ; ouder ; Da Costakade ; 21 ; Gouda ; 2802 VS ; 06-59907600 ; 0182-907600 ; Saeckma@planeet.nl
+7747 ; dhr. ; M.S. ;  ; Sierdsema ; ouder ; Componistenlaan ; 31 ; Gouda ; 2807 HE ; 06-60016009 ; 0182-16009 ; Sierdsema@hetweb.nl
+7754 ; mw. ; N.S. ;  ; Stallinga ; ouder ; Crabethpark ; 8 ; Gouda ; 2801 AP ; 06-60124516 ; 0182-124516 ; Stallinga@xs4you.nl
+7761 ; dhr. ; O.T. ;  ; Teenstra ; ouder ; Wagenaarstraat ; 18 ; Gouda ; 2807 HV ; 06-60233121 ; 0182-233121 ; Teenstra@zoggi.nl
+7768 ; mw. ; P.T. ; van ; Turkstra ; ouder ; Graaf Florisweg ; 28 ; Gouda ; 2805 AG ; 06-60341824 ; 0182-341824 ; Turkstra@freeweb.com
+7775 ; dhr. ; Q.W. ;  ; Walsma ; ouder ; Jacob van Lennepkade ; 5 ; Gouda ; 2802 LH ; 06-60450625 ; 0182-450625 ; Walsma@gmailer.com
+7782 ; mw. ; R.W. ;  ; Wijsma ; ouder ; Nansenstraat ; 15 ; Gouda ; 2806 HM ; 06-60559524 ; 0182-559524 ; Wijsma@hotmailing.com
+7789 ; dhr. ; S.Z. ; Voogdt ; voogd ; ouder ; Blekerssingel ; 25 ; Gouda ; 2806 AB ; 06-60668521 ; 0182-668521 ; Zwikstra@planeet.nl
+7796 ; mw. ; T.B. ; de ; Balta ; ouder ; Randenburgseweg ; 2 ; Reeuwijk ; 2811 PR ; 06-60777616 ; 0182-777616 ; Balta@hetweb.nl
+7803 ; dhr. ; U.B. ;  ; Binsma ; ouder ; Sneeuwbeslaan ; 12 ; Gouda ; 2803 AD ; 06-60886809 ; 0182-886809 ; Binsma@xs4you.nl
+7810 ; mw. ; V.B. ;  ; Brama ; ouder ; Zandpolderpad ; 22 ; Gouda ; 2807 NS ; 06-60996100 ; 0182-996100 ; Brama@zoggi.nl
+7817 ; dhr. ; W.D. ;  ; Dijkema ; ouder ; 't Kerkestuk ; 32 ; Reeuwijk ; 2811 BG ; 06-61105489 ; 0182-105489 ; Dijkema@freeweb.com
+7824 ; mw. ; X.E. ;  ; Eysinga ; ouder ; Groenhovenweg ; 9 ; Gouda ; 2803 DJ ; 06-61214976 ; 0182-214976 ; Eysinga@gmailer.com
+7831 ; dhr. ; Y.G. ;  ; Gratama ; ouder ; Elzenbroek ; 19 ; Reeuwijk ; 2811 NX ; 06-61324561 ; 0182-324561 ; Gratama@hotmailing.com
+7838 ; mw. ; Z.H. ;  ; Heemstra ; ouder ; Boelekade ; 29 ; Gouda ; 2806 AH ; 06-61434244 ; 0182-434244 ; Heemstra@planeet.nl
+7845 ; dhr. ; A.H. ;  ; Hollema ; ouder ; Nansenstraat ; 6 ; Gouda ; 2806 HL ; 06-61544025 ; 0182-544025 ; Hollema@hetweb.nl
+7852 ; mw. ; B.I. ;  ; Ipema ; ouder ; Middenmolenlaan ; 16 ; Gouda ; 2807 EB ; 06-61653904 ; 0182-653904 ; Ipema@xs4you.nl
+7859 ; dhr. ; C.K. ;  ; Kempinga ; ouder ; Nieuwehaven ; 26 ; Gouda ; 2801 CW ; 06-61763881 ; 0182-763881 ; Kempinga@zoggi.nl
+7866 ; mw. ; D.K. ;  ; Kundersma ; ouder ; Papaverstraat ; 3 ; Gouda ; 2803 AL ; 06-61873956 ; 0182-873956 ; Kundersma@freeweb.com
+7873 ; dhr. ; E.M. ;  ; Meestra ; ouder ; Johan de Wittlaan ; 13 ; Gouda ; 2805 CM ; 06-61984129 ; 0182-984129 ; Meestra@gmailer.com
+7880 ; mw. ; F.O. ;  ; Ozenga ; ouder ; Platteweg ; 23 ; Reeuwijk ; 2811 HR ; 06-62094400 ; 0182-94400 ; Ozenga@hotmailing.com
+7887 ; dhr. ; G.R. ;  ; Ratsma ; ouder ; Rembrandtlaan ; 33 ; Stolwijk ; 2821 VK ; 06-62204769 ; 0182-204769 ; Ratsma@planeet.nl
+7894 ; mw. ; H.R. ;  ; Roelinga ; ouder ; Waterkers ; 10 ; Gouda ; 2804 PL ; 06-62315236 ; 0182-315236 ; Roelinga@hetweb.nl
+7901 ; dhr. ; I.S. ;  ; Schurenga ; ouder ; Hoflaan ; 20 ; Stolwijk ; 2821 XD ; 06-62425801 ; 0182-425801 ; Schurenga@xs4you.nl
+7908 ; mw. ; J.S. ; van ; Slootstra ; ouder ; Nieuwe-Marktpassage ; 30 ; Gouda ; 2801 HV ; 06-62536464 ; 0182-536464 ; Slootstra@zoggi.nl
+7915 ; dhr. ; K.S. ;  ; Stuivinga ; ouder ; Vrouwesteeg ; 7 ; Gouda ; 2801 EK ; 06-62647225 ; 0182-647225 ; Stuivinga@freeweb.com
+7922 ; mw. ; L.T. ;  ; Tjallema ; ouder ; Stoofsteeg ; 17 ; Gouda ; 2801 JR ; 06-62758084 ; 0182-758084 ; Tjallema@gmailer.com
+7929 ; dhr. ; M.V. ;  ; Vlasma ; ouder ; Kastanjestraat ; 27 ; Gouda ; 2803 TD ; 06-62869041 ; 0182-869041 ; Vlasma@hotmailing.com
+7936 ; mw. ; N.W. ; de ; Wierda ; ouder ; Provincialeweg ; 4 ; Gouda ; 2809 RA ; 06-62980096 ; 0182-980096 ; Wierda@planeet.nl
+7943 ; dhr. ; O.Z. ;  ; Zeinstra ; ouder ; Orteliuslaan ; 14 ; Gouda ; 2803 EC ; 06-63091249 ; 0182-91249 ; Zeinstra@hetweb.nl
+7950 ; mw. ; P.A. ;  ; Antema ; ouder ; Beinsdorppolderweg ; 24 ; Gouda ; 2807 KR ; 06-63202500 ; 0182-202500 ; Antema@xs4you.nl
+7957 ; dhr. ; Q.B. ;  ; Bergema ; ouder ; Anna van Hensbeeksingel ; 1 ; Gouda ; 2803 LP ; 06-63313849 ; 0182-313849 ; Bergema@zoggi.nl
+7964 ; mw. ; R.B. ;  ; Boringa ; ouder ; Dijkgraafslag ; 11 ; Gouda ; 2805 DS ; 06-63425296 ; 0182-425296 ; Boringa@freeweb.com
+7971 ; dhr. ; S.B. ;  ; Buursma ; ouder ; Vreelust ; 21 ; Gouda ; 2804 LE ; 06-63536841 ; 0182-536841 ; Buursma@gmailer.com
+7978 ; mw. ; T.E. ;  ; Eijsinga ; ouder ; Bunchestraat ; 31 ; Gouda ; 2806 ZK ; 06-63648484 ; 0182-648484 ; Eijsinga@hotmailing.com
+7985 ; dhr. ; U.G. ;  ; Galjema ; ouder ; Pijpenpad ; 8 ; Gouda ; 2802 BG ; 06-63760225 ; 0182-760225 ; Galjema@planeet.nl
+7992 ; mw. ; V.H. ;  ; Hammersma ; ouder ; Prins Hendrikstraat ; 18 ; Gouda ; 2802 JN ; 06-63872064 ; 0182-872064 ; Hammersma@hetweb.nl
+7999 ; dhr. ; W.H. ;  ; Hijdra ; ouder ; Elckerlycstraat ; 28 ; Gouda ; 2805 VR ; 06-63984001 ; 0182-984001 ; Hijdra@xs4you.nl
+8006 ; mw. ; X.H. ;  ; Hyma ; ouder ; Lange Groenendaal ; 5 ; Gouda ; 2801 LS ; 06-64096036 ; 0182-96036 ; Hyma@zoggi.nl
+8013 ; dhr. ; Y.J. ;  ; Jurrema ; ouder ; Beemdgras ; 15 ; Gouda ; 2804 NW ; 06-64208169 ; 0182-208169 ; Jurrema@freeweb.com
+8020 ; mw. ; Z.K. ; Voogderdijk ; voogd ; ouder ; Lange Groenendaal ; 25 ; Gouda ; 2801 LT ; 06-64320400 ; 0182-320400 ; Koopstra@gmailer.com
+8027 ; dhr. ; A.L. ;  ; Lodema ; ouder ; Wibautstraat ; 2 ; Gouda ; 2805 GC ; 06-64432729 ; 0182-432729 ; Lodema@hotmailing.com
+8034 ; mw. ; B.N. ;  ; Nutma ; ouder ; Dahliastraat ; 12 ; Stolwijk ; 2821 VP ; 06-64545156 ; 0182-545156 ; Nutma@planeet.nl
+8041 ; dhr. ; C.P. ;  ; Poortinga ; ouder ; Nijverheidsweg ; 22 ; Stolwijk ; 2821 AW ; 06-64657681 ; 0182-657681 ; Poortinga@hetweb.nl
+8048 ; mw. ; D.R. ; van ; Rijpsma ; ouder ; Roemer Visscherstraat ; 32 ; Gouda ; 2802 NB ; 06-64770304 ; 0182-770304 ; Rijpsma@xs4you.nl
+8055 ; dhr. ; E.S. ;  ; Schelfsma ; ouder ; Prins Mauritsstraat ; 9 ; Gouda ; 2805 AT ; 06-64883025 ; 0182-883025 ; Schelfsma@zoggi.nl
+8062 ; mw. ; F.S. ;  ; Sijtema ; ouder ; Leeuwenburg ; 19 ; Gouda ; 2804 WN ; 06-64995844 ; 0182-995844 ; Sijtema@freeweb.com
+8069 ; dhr. ; G.S. ;  ; Stelma ; ouder ; Schoonouwenseweg ; 29 ; Stolwijk ; 2821 NX ; 06-65108761 ; 0182-108761 ; Stelma@gmailer.com
+8076 ; mw. ; H.T. ; de ; Tiedema ; ouder ; Van Itersonlaan ; 6 ; Gouda ; 2806 DE ; 06-65221776 ; 0182-221776 ; Tiedema@hotmailing.com
+8083 ; dhr. ; I.V. ;  ; Veenema ; ouder ; Vogelkersgaarde ; 16 ; Gouda ; 2803 TJ ; 06-65334889 ; 0182-334889 ; Veenema@planeet.nl
+8090 ; mw. ; J.W. ; van de ; Weijtsema ; ouder ; Marco Pololaan ; 26 ; Gouda ; 2803 GG ; 06-65448100 ; 0182-448100 ; Weijtsema@hetweb.nl
+8097 ; dhr. ; K.W. ;  ; Woudstra ; ouder ; De Jongstraat ; 3 ; Reeuwijk ; 2811 KR ; 06-65561409 ; 0182-561409 ; Woudstra@xs4you.nl
+8104 ; mw. ; L.A. ;  ; Alberga ; ouder ; Boelekade ; 13 ; Gouda ; 2806 AE ; 06-65674816 ; 0182-674816 ; Alberga@zoggi.nl
+8111 ; dhr. ; M.B. ;  ; Batstra ; ouder ; Vliegenstraat ; 23 ; Gouda ; 2805 GG ; 06-65788321 ; 0182-788321 ; Batstra@freeweb.com
+8118 ; mw. ; N.B. ;  ; Boerema ; ouder ; Raaphorstpolderweg ; 33 ; Gouda ; 2807 MN ; 06-65901924 ; 0182-901924 ; Boerema@gmailer.com
+8125 ; dhr. ; O.B. ;  ; Bronsema ; ouder ; Douwes Dekkerstraat ; 10 ; Reeuwijk ; 2811 XK ; 06-66015625 ; 0182-15625 ; Bronsema@hotmailing.com
+8132 ; mw. ; P.D. ;  ; Douwsma ; ouder ; 's-Gravenbroekseweg ; 20 ; Reeuwijk ; 2811 GK ; 06-66129424 ; 0182-129424 ; Douwsma@planeet.nl
+8139 ; dhr. ; Q.F. ;  ; Flieringa ; ouder ; Brahmsstraat ; 30 ; Gouda ; 2807 SM ; 06-66243321 ; 0182-243321 ; Flieringa@hetweb.nl
+8146 ; mw. ; R.H. ;  ; Haaijema ; ouder ; Goudseweg ; 7 ; Gouda ; 2808 NM ; 06-66357316 ; 0182-357316 ; Haaijema@xs4you.nl
+8153 ; dhr. ; S.H. ;  ; Hellinga ; ouder ; Oranjepoldererf ; 17 ; Gouda ; 2807 NG ; 06-66471409 ; 0182-471409 ; Hellinga@zoggi.nl
+8160 ; mw. ; T.H. ;  ; Horenga ; ouder ; Sporkenhoutlaan ; 27 ; Gouda ; 2803 VJ ; 06-66585600 ; 0182-585600 ; Horenga@freeweb.com
+8167 ; dhr. ; U.J. ;  ; Jeninga ; ouder ; Nieuwe-Marktpassage ; 4 ; Gouda ; 2801 HW ; 06-66699889 ; 0182-699889 ; Jeninga@gmailer.com
+8174 ; mw. ; V.K. ;  ; Klevringa ; ouder ; D.O.N.K.-Straat ; 14 ; Gouda ; 2802 RA ; 06-66814276 ; 0182-814276 ; Klevringa@hotmailing.com
+8181 ; dhr. ; W.L. ;  ; Leeuwma ; ouder ; Spoorstraat ; 24 ; Gouda ; 2801 BA ; 06-66928761 ; 0182-928761 ; Leeuwma@planeet.nl
+8188 ; mw. ; X.M. ; van ; Miedema ; ouder ; Meester D.J. van Heusdestraat ; 1 ; Gouda ; 2806 XJ ; 06-67043344 ; 0182-43344 ; Miedema@hetweb.nl
+8195 ; dhr. ; Y.P. ;  ; Pentenga ; ouder ; Ronsseweg ; 11 ; Gouda ; 2803 ZN ; 06-67158025 ; 0182-158025 ; Pentenga@xs4you.nl
+8202 ; mw. ; Z.R. ;  ; Renalda ; ouder ; Schubertplein ; 21 ; Gouda ; 2807 HX ; 06-67272804 ; 0182-272804 ; Renalda@zoggi.nl
+8209 ; dhr. ; A.R. ;  ; Ruitinga ; ouder ; Albrechtsveld ; 31 ; Gouda ; 2804 WH ; 06-67387681 ; 0182-387681 ; Ruitinga@freeweb.com
+8216 ; mw. ; B.S. ; de ; Siebma ; ouder ; Van Limburg Stirumstraat ; 8 ; Gouda ; 2805 BD ; 06-67502656 ; 0182-502656 ; Siebma@gmailer.com
+8223 ; dhr. ; C.S. ;  ; Spienstra ; ouder ; Lanseloetstraat ; 18 ; Gouda ; 2805 VN ; 06-67617729 ; 0182-617729 ; Spienstra@hotmailing.com
+8230 ; mw. ; D.T. ;  ; Talsma ; ouder ; Acaciaplein ; 28 ; Gouda ; 2803 WE ; 06-67732900 ; 0182-732900 ; Talsma@planeet.nl
+8237 ; dhr. ; E.T. ;  ; Tsjallinga ; ouder ; Kaarde ; 5 ; Reeuwijk ; 2811 RW ; 06-67848169 ; 0182-848169 ; Tsjallinga@hetweb.nl
+8244 ; mw. ; F.W. ;  ; Waarma ; ouder ; Groenhovenpark ; 15 ; Gouda ; 2803 PH ; 06-67963536 ; 0182-963536 ; Waarma@xs4you.nl
+8251 ; dhr. ; G.W. ; Voogdmans ; voogd ; ouder ; Ronsseweg ; 25 ; Gouda ; 2803 ZR ; 06-68079001 ; 0182-79001 ; Wijna@zoggi.nl
+8258 ; mw. ; H.Z. ;  ; Zwaagstra ; ouder ; Ouverturelaan ; 2 ; Gouda ; 2807 JV ; 06-68194564 ; 0182-194564 ; Zwaagstra@freeweb.com
+8265 ; dhr. ; I.B. ;  ; Baanstra ; ouder ; Johanna Hoeve ; 12 ; Gouda ; 2804 JD ; 06-68310225 ; 0182-310225 ; Baanstra@gmailer.com
+8272 ; mw. ; J.B. ;  ; Bijma ; ouder ; Burgemeester Martenssingel ; 22 ; Gouda ; 2806 CX ; 06-68425984 ; 0182-425984 ; Bijma@hotmailing.com
+8279 ; dhr. ; K.B. ;  ; Boutsma ; ouder ; Prins Hendrikstraat ; 32 ; Gouda ; 2802 JE ; 06-68541841 ; 0182-541841 ; Boutsma@planeet.nl
+8286 ; mw. ; L.D. ;  ; Dekinga ; ouder ; Waterruit ; 9 ; Gouda ; 2804 PB ; 06-68657796 ; 0182-657796 ; Dekinga@hetweb.nl
+8293 ; dhr. ; M.E. ;  ; Enninga ; ouder ; Vredebest ; 19 ; Gouda ; 2801 AS ; 06-68773849 ; 0182-773849 ; Enninga@xs4you.nl
+8300 ; mw. ; N.G. ;  ; Glastra ; ouder ; Semmelweislaan ; 29 ; Reeuwijk ; 2811 CK ; 06-68890000 ; 0182-890000 ; Glastra@zoggi.nl
+8307 ; dhr. ; O.H. ;  ; Hattinga ; ouder ; Kaagjesland ; 6 ; Reeuwijk ; 2811 KL ; 06-69006249 ; 0182-6249 ; Hattinga@freeweb.com
+8314 ; mw. ; P.H. ;  ; Hogema ; ouder ; Kattenburcht ; 16 ; Gouda ; 2801 BZ ; 06-69122596 ; 0182-122596 ; Hogema@gmailer.com
+8321 ; dhr. ; Q.I. ;  ; IJtsma ; ouder ; Nieuwe Parkerf ; 26 ; Gouda ; 2801 RZ ; 06-69239041 ; 0182-239041 ; IJtsma@hotmailing.com
+8328 ; mw. ; R.K. ; van ; Katsma ; ouder ; Frans Halsstraat ; 3 ; Stolwijk ; 2821 VE ; 06-69355584 ; 0182-355584 ; Katsma@planeet.nl
+8335 ; dhr. ; S.K. ;  ; Kruizenga ; ouder ; Meerburgstraat ; 13 ; Gouda ; 2804 ZE ; 06-69472225 ; 0182-472225 ; Kruizenga@hetweb.nl
+8342 ; mw. ; T.M. ;  ; Mecima ; ouder ; Van de Puttestraat ; 23 ; Gouda ; 2804 JK ; 06-69588964 ; 0182-588964 ; Mecima@xs4you.nl
+8349 ; dhr. ; U.O. ;  ; Ortega ; ouder ; Kruidenburg ; 33 ; Gouda ; 2804 ZT ; 06-69705801 ; 0182-705801 ; Ortega@zoggi.nl
+8356 ; mw. ; V.P. ; de ; Proemsma ; ouder ; Sophiastraat ; 10 ; Gouda ; 2805 HB ; 06-69822736 ; 0182-822736 ; Proemsma@freeweb.com
+8363 ; dhr. ; W.R. ;  ; Ritzema ; ouder ; Koningin Wilhelminaweg ; 20 ; Gouda ; 2802 HW ; 06-69939769 ; 0182-939769 ; Ritzema@gmailer.com
+8370 ; mw. ; X.S. ;  ; Schraa ; ouder ; Lavendelgaarde ; 30 ; Gouda ; 2803 RJ ; 06-70056900 ; 0182-56900 ; Schraa@hotmailing.com
+8377 ; dhr. ; Y.S. ;  ; Sjobbema ; ouder ; Lafeberhof ; 7 ; Gouda ; 2801 CZ ; 06-70174129 ; 0182-174129 ; Sjobbema@planeet.nl
+8384 ; mw. ; Z.S. ;  ; Strikwerda ; ouder ; Aalberseplein ; 17 ; Gouda ; 2805 EG ; 06-70291456 ; 0182-291456 ; Strikwerda@hetweb.nl
+8391 ; dhr. ; A.T. ;  ; Timmenga ; ouder ; Ruigenburg ; 27 ; Gouda ; 2804 VS ; 06-70408881 ; 0182-408881 ; Timmenga@xs4you.nl
+8398 ; mw. ; B.V. ;  ; Ververda ; ouder ; Korenbloemstraat ; 4 ; Stolwijk ; 2821 TD ; 06-70526404 ; 0182-526404 ; Ververda@zoggi.nl
+8405 ; dhr. ; C.W. ;  ; Wielenga ; ouder ; Citroenvlinderstraat ; 14 ; Gouda ; 2805 KJ ; 06-70644025 ; 0182-644025 ; Wielenga@freeweb.com
+8412 ; mw. ; D.Z. ;  ; Zanda ; ouder ; Graaf van Bloisstraat ; 24 ; Gouda ; 2805 RK ; 06-70761744 ; 0182-761744 ; Zanda@gmailer.com
+8419 ; dhr. ; E.A. ;  ; Andersma ; ouder ; Postbus ; 1 ; Reeuwijk ; 2810 AA ; 06-70879561 ; 0182-879561 ; Andersma@hotmailing.com
+8426 ; mw. ; F.B. ;  ; Belkega ; ouder ; Samuel Munckerstraat ; 11 ; Gouda ; 2806 ST ; 06-70997476 ; 0182-997476 ; Belkega@planeet.nl
+8433 ; dhr. ; G.B. ;  ; Booisma ; ouder ; Nieuwehaven ; 21 ; Gouda ; 2801 CV ; 06-71115489 ; 0182-115489 ; Booisma@hetweb.nl
+8440 ; mw. ; H.B. ;  ; Buntsma ; ouder ; Majoor Fransstraat ; 31 ; Gouda ; 2801 ST ; 06-71233600 ; 0182-233600 ; Buntsma@xs4you.nl
+8447 ; dhr. ; I.E. ;  ; Eekema ; ouder ; Bellamystraat ; 8 ; Gouda ; 2806 RK ; 06-71351809 ; 0182-351809 ; Eekema@zoggi.nl
+8454 ; mw. ; J.F. ;  ; Frietema ; ouder ; Willem en Marialaan ; 18 ; Gouda ; 2805 AS ; 06-71470116 ; 0182-470116 ; Frietema@freeweb.com
+8461 ; dhr. ; K.H. ;  ; Hajema ; ouder ; Orchislaan ; 28 ; Reeuwijk ; 2811 CR ; 06-71588521 ; 0182-588521 ; Hajema@gmailer.com
+8468 ; mw. ; L.H. ; van ; Hiddema ; ouder ; Lindelaan ; 5 ; Gouda ; 2803 SJ ; 06-71707024 ; 0182-707024 ; Hiddema@hotmailing.com
+8475 ; dhr. ; M.H. ;  ; Hukema ; ouder ; Achter de Vismarkt ; 15 ; Gouda ; 2801 ND ; 06-71825625 ; 0182-825625 ; Hukema@planeet.nl
+8482 ; mw. ; N.J. ; Voogt ; voogd ; ouder ; Kolkmanstraat ; 25 ; Gouda ; 2805 CG ; 06-71944324 ; 0182-944324 ; Jouta@hetweb.nl
+8489 ; dhr. ; O.K. ;  ; Kolkena ; ouder ; Vuurdoornlaan ; 2 ; Gouda ; 2803 BB ; 06-72063121 ; 0182-63121 ; Kolkena@xs4you.nl
+8496 ; mw. ; P.L. ; de ; Liezenga ; ouder ; Planciuslaan ; 12 ; Gouda ; 2803 EE ; 06-72182016 ; 0182-182016 ; Liezenga@zoggi.nl
+8503 ; dhr. ; Q.N. ;  ; Nauta ; ouder ; Wiltenburg ; 22 ; Gouda ; 2804 ZG ; 06-72301009 ; 0182-301009 ; Nauta@freeweb.com
+8510 ; mw. ; R.P. ;  ; Poldersma ; ouder ; Sleedoornsingel ; 32 ; Gouda ; 2803 BZ ; 06-72420100 ; 0182-420100 ; Poldersma@gmailer.com
+8517 ; dhr. ; S.R. ;  ; Rientstra ; ouder ; Crabethpark ; 9 ; Gouda ; 2801 AR ; 06-72539289 ; 0182-539289 ; Rientstra@hotmailing.com
+8524 ; mw. ; T.S. ;  ; Scharringa ; ouder ; Nieuwehaven ; 19 ; Gouda ; 2801 EA ; 06-72658576 ; 0182-658576 ; Scharringa@planeet.nl
+8531 ; dhr. ; U.S. ;  ; Sijbesma ; ouder ; Hanegevecht ; 29 ; Reeuwijk ; 2811 AD ; 06-72777961 ; 0182-777961 ; Sijbesma@hetweb.nl
+8538 ; mw. ; V.S. ;  ; Stegenga ; ouder ; Zoutmansweg ; 6 ; Reeuwijk ; 2811 ES ; 06-72897444 ; 0182-897444 ; Stegenga@xs4you.nl
+8545 ; dhr. ; W.T. ;  ; Terpstra ; ouder ; Freesiapad ; 16 ; Gouda ; 2803 AP ; 06-73017025 ; 0182-17025 ; Terpstra@zoggi.nl
+8552 ; mw. ; X.U. ;  ; Ungersma ; ouder ; Veenenburg ; 26 ; Gouda ; 2804 WV ; 06-73136704 ; 0182-136704 ; Ungersma@freeweb.com
+8559 ; dhr. ; Y.W. ;  ; Weeda ; ouder ; Turfsingel ; 3 ; Gouda ; 2802 BD ; 06-73256481 ; 0182-256481 ; Weeda@gmailer.com
+8566 ; mw. ; Z.W. ;  ; Wogma ; ouder ; Schoolstraat ; 13 ; Stolwijk ; 2821 AM ; 06-73376356 ; 0182-376356 ; Wogma@hotmailing.com
+8573 ; dhr. ; A.A. ;  ; Aikema ; ouder ; Hennephof ; 23 ; Stolwijk ; 2821 SK ; 06-73496329 ; 0182-496329 ; Aikema@planeet.nl
+8580 ; mw. ; B.B. ;  ; Baringa ; ouder ; Raam ; 33 ; Gouda ; 2801 VK ; 06-73616400 ; 0182-616400 ; Baringa@hetweb.nl
+8587 ; dhr. ; C.B. ;  ; Bloksma ; ouder ; Van Brederodestraat ; 10 ; Reeuwijk ; 2811 XH ; 06-73736569 ; 0182-736569 ; Bloksma@xs4you.nl
+8594 ; mw. ; D.B. ;  ; Broersema ; ouder ; Jan Luykenstraat ; 20 ; Gouda ; 2806 PE ; 06-73856836 ; 0182-856836 ; Broersema@zoggi.nl
+8601 ; dhr. ; E.D. ;  ; Dongstra ; ouder ; Zuidhoef ; 30 ; Gouda ; 2804 TA ; 06-73977201 ; 0182-977201 ; Dongstra@freeweb.com
+8608 ; mw. ; F.F. ; van ; Fennema ; ouder ; Wethouder Venteweg ; 7 ; Gouda ; 2805 JK ; 06-74097664 ; 0182-97664 ; Fennema@gmailer.com
+8615 ; dhr. ; G.G. ;  ; Grozema ; ouder ; Gravestein ; 17 ; Gouda ; 2804 GT ; 06-74218225 ; 0182-218225 ; Grozema@hotmailing.com
+8622 ; mw. ; H.H. ;  ; Heininga ; ouder ; Tulpenpad ; 27 ; Gouda ; 2803 AV ; 06-74338884 ; 0182-338884 ; Heininga@planeet.nl
+8629 ; dhr. ; I.H. ;  ; Hooijenga ; ouder ; Schielands Hoge Zeedijk ; 4 ; Gouda ; 2802 RC ; 06-74459641 ; 0182-459641 ; Hooijenga@hetweb.nl
+8636 ; mw. ; J.J. ; de ; Jeeninga ; ouder ; Koningin Wilhelminastraat ; 14 ; Reeuwijk ; 2811 TW ; 06-74580496 ; 0182-580496 ; Jeeninga@xs4you.nl
+8643 ; dhr. ; K.K. ;  ; Klaversma ; ouder ; Albrechtsveld ; 24 ; Gouda ; 2804 WG ; 06-74701449 ; 0182-701449 ; Klaversma@zoggi.nl
+8650 ; mw. ; L.L. ; van de ; Laversma ; ouder ; Van den Boschstraat ; 1 ; Gouda ; 2804 JM ; 06-74822500 ; 0182-822500 ; Laversma@freeweb.com
+8657 ; dhr. ; M.M. ;  ; Menkema ; ouder ; Armstronglaan ; 11 ; Reeuwijk ; 2811 SR ; 06-74943649 ; 0182-943649 ; Menkema@gmailer.com
+8664 ; mw. ; N.P. ;  ; Pebesma ; ouder ; Vrijheidslaan ; 21 ; Gouda ; 2806 KE ; 06-75064896 ; 0182-64896 ; Pebesma@hotmailing.com
+8671 ; dhr. ; O.R. ;  ; Reinstra ; ouder ; Tentweg ; 31 ; Stolwijk ; 2821 AD ; 06-75186241 ; 0182-186241 ; Reinstra@planeet.nl
+8678 ; mw. ; P.R. ;  ; Rosema ; ouder ; Kampenringweg ; 8 ; Gouda ; 2803 PE ; 06-75307684 ; 0182-307684 ; Rosema@hetweb.nl
+8685 ; dhr. ; Q.S. ;  ; Severina ; ouder ; Lange Groenendaal ; 18 ; Gouda ; 2801 LV ; 06-75429225 ; 0182-429225 ; Severina@xs4you.nl
+8692 ; mw. ; R.S. ;  ; Sonsma ; ouder ; Warmoezierskade ; 28 ; Gouda ; 2805 PT ; 06-75550864 ; 0182-550864 ; Sonsma@zoggi.nl
+8699 ; dhr. ; S.S. ;  ; Sytsma ; ouder ; Beethovenhof ; 5 ; Gouda ; 2807 PV ; 06-75672601 ; 0182-672601 ; Sytsma@freeweb.com
+8706 ; mw. ; T.T. ;  ; Toppinga ; ouder ; Kolfwetering ; 15 ; Gouda ; 2806 VE ; 06-75794436 ; 0182-794436 ; Toppinga@gmailer.com
+8713 ; dhr. ; U.V. ; Voogdholst ; voogd ; ouder ; Heuvellaan ; 25 ; Gouda ; 2803 DV ; 06-75916369 ; 0182-916369 ; Vriesenga@hotmailing.com
+8720 ; mw. ; V.W. ;  ; Wijbinga ; ouder ; Willem Bontekoesingel ; 2 ; Gouda ; 2803 XN ; 06-76038400 ; 0182-38400 ; Wijbinga@planeet.nl
+8727 ; dhr. ; W.Z. ;  ; Zittema ; ouder ; Lekkenburg ; 12 ; Gouda ; 2804 TW ; 06-76160529 ; 0182-160529 ; Zittema@hetweb.nl
+8734 ; mw. ; X.A. ;  ; Attinga ; ouder ; Middelburgseweg ; 22 ; Reeuwijk ; 2811 PL ; 06-76282756 ; 0182-282756 ; Attinga@xs4you.nl
+8741 ; dhr. ; Y.B. ;  ; Bierma ; ouder ; Drossaardslag ; 32 ; Gouda ; 2805 DE ; 06-76405081 ; 0182-405081 ; Bierma@zoggi.nl
+8748 ; mw. ; Z.B. ; van ; Botma ; ouder ; Karnemelksloot ; 9 ; Gouda ; 2806 BB ; 06-76527504 ; 0182-527504 ; Botma@freeweb.com
+8755 ; dhr. ; A.D. ;  ; Damsma ; ouder ; Bentpoldererf ; 19 ; Gouda ; 2807 LA ; 06-76650025 ; 0182-650025 ; Damsma@gmailer.com
+8762 ; mw. ; B.E. ;  ; Elzema ; ouder ; Waterruit ; 29 ; Gouda ; 2804 PD ; 06-76772644 ; 0182-772644 ; Elzema@hotmailing.com
+8769 ; dhr. ; C.G. ;  ; Gerkema ; ouder ; IJssellaan ; 6 ; Gouda ; 2806 TL ; 06-76895361 ; 0182-895361 ; Gerkema@planeet.nl
+8776 ; mw. ; D.H. ; de ; Harsma ; ouder ; James Wattstraat ; 16 ; Gouda ; 2809 PA ; 06-77018176 ; 0182-18176 ; Harsma@hetweb.nl
+8783 ; dhr. ; E.H. ;  ; Hobma ; ouder ; Benedenkerkseweg ; 26 ; Stolwijk ; 2821 LE ; 06-77141089 ; 0182-141089 ; Hobma@xs4you.nl
+8790 ; mw. ; F.I. ;  ; IJlstra ; ouder ; Tentweg ; 3 ; Stolwijk ; 2821 AH ; 06-77264100 ; 0182-264100 ; IJlstra@zoggi.nl
+8797 ; dhr. ; G.K. ;  ; Kampinga ; ouder ; Heesterlaan ; 13 ; Gouda ; 2803 BJ ; 06-77387209 ; 0182-387209 ; Kampinga@freeweb.com
+8804 ; mw. ; H.K. ;  ; Kraaima ; ouder ; Albert Schweitzerstraat ; 23 ; Reeuwijk ; 2811 TX ; 06-77510416 ; 0182-510416 ; Kraaima@gmailer.com
