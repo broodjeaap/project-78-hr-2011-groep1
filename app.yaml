@@ -8,6 +8,9 @@ handlers:
 - url: /afspraakplanningpost
   script: main.py
   
+- url: /nextstep
+  script: insert.py
+  
 - url: /plannen
   script: main.py
   
@@ -15,10 +18,13 @@ handlers:
   script: main.py
   
 - url: /
-  script: main.py
+  script: login.py
 
 - url: /insert/*.*
   script: insert.py
+  
+- url: /authenticate
+  script: main.py
   
 - url: /images
   static_dir: images
@@ -28,3 +34,6 @@ handlers:
   
 - url: /css
   static_dir: css
+  
+- url: /html
+  static_dir: html

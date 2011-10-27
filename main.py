@@ -7,11 +7,31 @@ import datetime
 import htmlHelper
 import entities
 
-class MainHandler(webapp.RequestHandler):
-    def get(self):
-        self.response.out.write(htmlHelper.header(bodyAttributes ="onload='afspraakInit()'" ))
-        self.response.out.write(htmlHelper.klasAfspraakPage('h3',leerlingID="1234"))
-        self.response.out.write(htmlHelper.footer())
+class Authenticate(webapp.RequestHandler):
+    def post(self):
+        inlogcode=self.request.get("inlogcode")
+        emailadres=self.request.get("emailadres")   
+        
+        
+        users = db.GqlQuery("SELECT __key__ FROM Docent WHERE email='"+emailadres+"' AND wachtwoord='"+inlogcode+"'")
+        
+        for user in users:
+            userObject = db.get(user)
+            self.response.out.write('<html><head><title>Afspraaksysteem docenten</title></head><body style="background-color:#FCF2E6;">')
+            self.response.out.write('<div id="contentWrapper" style="postion:relative; width:1030px; margin-left:auto; margin-right:auto; margin-top:80px;">')
+            self.response.out.write('<div><h1 style="margin-bottom:0px;">Welkom '+userObject.aanhef+'&nbsp;'+userObject.naam+'</h1></div>')
+            self.response.out.write('<div style="position:relative; width:1024px; min-height:400px; background-color:#FFE4C4; border: 3px coral solid;">')
+            self.response.out.write('<div style=" background-color:#FFFFFF;width:360px; margin-left:auto; margin-right:auto; margin-top:15px;">'+htmlHelper.afspraakTable(userObject.docentID)+'</div>')# fungeert als tablewrapper voor het uitlijnen van de tabel precies in het midden.
+            self.response.out.write('<div style=" margin-bottom:10px; position:relative; left: 880px;"><a style="text-decoration:none; href="http://www.google.nl"><input type="submit" value="print"/></a>&nbsp;&nbsp;<a style="text-decoration:none;" href="http://www.google.nl"><input type="submit" value="Uitloggen"/></a></div>')
+            self.response.out.write("</div>")
+            self.response.out.write('</body></html>')
+            
+            
+        
+        #'
+        #self.response.out.write(htmlHelper.header(bodyAttributes ="onload='afspraakInit()'" ))
+        #self.response.out.write(htmlHelper.klasAfspraakPage('h3',leerlingID="1234"))
+        #self.response.out.write(htmlHelper.footer())
 
 class OuderAvondPlannen(webapp.RequestHandler):
     def get(self):
@@ -64,7 +84,7 @@ class AfspraakPlanningPost(webapp.RequestHandler):
                 self.redirect('/')
     
 def main():
-    application = webapp.WSGIApplication([('/', MainHandler),
+    application = webapp.WSGIApplication([('/authenticate', Authenticate),
                                           ('/afspraakplanningpost', AfspraakPlanningPost),
                                           ('/plannen', OuderAvondPlannen),
                                           ('/plannenpost', OuderAvondPlannenPost)],

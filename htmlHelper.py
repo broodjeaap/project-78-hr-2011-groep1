@@ -85,7 +85,7 @@ def afspraakTable(docentID,aantalTijden=12,leerlingID="1234",tableCount=0): # ma
     
     tijden = zip(*tijden) # transponeer de matrix
     
-    ret = "<table border='1'><tr><th colspan='100%'>"+docentID+"</th></tr>"
+    ret = "<table border='1'><tr><th colspan='100%'>"+'Ouderavond rooster van:&nbsp;'+docentID+"</th></tr>"
     ret += "<input type='hidden' name='"+docentID+"_aantalDagen' id='"+docentID+"_aantalDagen' value='"+str(len(datums))+"' />" #aantal dagen, nodig voor javascript
     ret += "<input type='hidden' name='"+docentID+"_aantalTijden' id='"+docentID+"_aantalTijden' value='"+str(aantalTijden)+"' />" #aantal tijden, nodig voor javascript
     ret += "<input type='hidden' name='"+docentID+"_docentIndex' id='"+docentID+"_docentIndex' value='"+str(tableCount)+"' />"
