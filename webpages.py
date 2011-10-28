@@ -29,7 +29,7 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 
 
 
-def LoginForm():
+def LoginForm(message='&nbsp;'):
         return """
         <html>
             <head>
@@ -37,6 +37,10 @@ def LoginForm():
                 <link rel="stylesheet" href="/css/loginpageStyle.css"/>
             </head>
             <body>
+            <div id="div-0">
+                <div id="div-head">
+                    <h3>Login - ouderavondregistratie</h3>
+                </div>
                 <div id="div-1">
                     <div id="header">
                         <div id="photo"><img src="../images/DKC.png"></div>
@@ -44,13 +48,11 @@ def LoginForm():
                     </div>
         
                     <div id="div-2">
-                        <form action="/authenticate" method="post" name="test">
+                        <form action="/authenticate" method="post">
                             <table>
                                 <tr>
-                                    <td colspan="2" align="center">
-                                        <h5>
-                                            <i>Ouderavondregistratie</i>
-                                        </h5>
+                                    <td style="color:red;" colspan="2" align="center">
+                                    """+message+"""
                                     </td>
                                 </tr>
                                 <tr>
@@ -74,7 +76,8 @@ def LoginForm():
                             </table>
                         </form>
                     </div>
-                </div> 
+                </div>
+            </div> 
             </body>
         </html>
         """
@@ -132,7 +135,7 @@ def LeerlingPage(student):
             </div>
         </body>
     </html>"""
-
+    
 def header(bodyAttributes = ""):
     return """<html>
                 <body %s>

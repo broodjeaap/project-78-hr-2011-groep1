@@ -1,85 +1,88 @@
- body
-    {
-     background-color:#FCF2E6;
-    }
-    #div-1 {
-    position:absolute;
-    margin-right:-250px;
-    margin-top:-150px;
-    top:50%;
-    right:50%;
-    width:500px;
-    height:250px;
-    border:5px;
-    border: 3px coral solid;
-    background-color:#FFE4C4;
-    }
-    #div-2 {
-    position:absolute;
-    top:50%;
-    right:50%;
-    width:200px;
-    height:100px;
-    margin-right:-63px;
-    }
-    p
-    {
-    font-size:12px;
-    text-align:right;
-    }
-    #test2
-    {
-    position:absolute;
-    width:250px;
-    margin-right:0px;
-    margin-top:25px;
-    }
-    h5
-    {
-    margin-bottom:5px;
-    }
-    #adres
-    {
-    float:right;
-    margin-right:25px;
-    margin-top:25px;
-    }
-    #photo
-    {
-    margin-left:25px;
-    margin-top:25px;
-    float:left;
-    }
-    #backboneWrapper{
-	postion:relative; 
-	width:1030px; 
-	margin-left:auto; 
-	margin-right:auto; 
-	margin-top:80px;
-    }
-    h1{
-    margin-bottom:0px;
-    }
-    #contentWrapper{
-    position:relative; 
-    width:1024px; 
-    min-height:400px; 
-    background-color:#FFE4C4; 
-    border: 3px coral solid;
-    }
-    #tableWrapper{
-    background-color:#FFFFFF;
-    width:360px; 
-    margin-left:auto; 
-    margin-right:auto; 
-    margin-top:15px;
-    }
-    a{
-    text-decoration:none;
-    margin-left:5px;
-    }
-    #buttons{
-    margin-bottom:10px; 
-    position:relative; 
+body {
+    background-color: #FCF2E6;
+}
+#div-0 {
+    height: 250px;
+    margin-right: -250px;
+    margin-top: -150px;
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    width: 506px;
+}
+#div-head {
+    position: relative;
+}
+h3 {
+    margin: 0;
+}
+#div-1 {
+    background-color: #FFE4C4;
+    border: 3px solid coral;
+    height: 250px;
+    position: relative;
+    width: 500px;
+}
+#div-2 {
+    height: 100px;
+    margin-right: -63px;
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    width: 200px;
+}
+p {
+    font-size: 12px;
+    text-align: right;
+}
+#test2 {
+    margin-right: 0;
+    margin-top: 25px;
+    position: absolute;
+    width: 250px;
+}
+h5 {
+    margin-bottom: 5px;
+}
+#adres {
+    float: right;
+    margin-right: 25px;
+    margin-top: 25px;
+}
+#photo {
+    float: left;
+    margin-left: 25px;
+    margin-top: 25px;
+}
+#backboneWrapper {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    width: 1030px;
+}
+h1 {
+    margin-bottom: 0;
+}
+#contentWrapper {
+    background-color: #FFE4C4;
+    border: 3px solid coral;
+    min-height: 400px;
+    position: relative;
+    width: 1024px;
+}
+#tableWrapper {
+    background-color: #FFFFFF;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    width: 360px;
+}
+a {
+    margin-left: 5px;
+    text-decoration: none;
+}
+#buttons {
     left: 880px;
-    }
+    margin-bottom: 10px;
+    position: relative;
+}
