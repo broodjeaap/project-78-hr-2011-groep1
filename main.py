@@ -30,13 +30,13 @@ class Authenticate(webapp.RequestHandler):
 
 class OuderAvondPlannen(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(htmlHelper.header())
+        self.response.out.write(webpages.header())
         self.response.out.write(htmlHelper.planningPage())
-        self.response.out.write(htmlHelper.footer())
+        self.response.out.write(webpages.footer())
 
 class OuderAvondPlannenPost(webapp.RequestHandler):
     def post(self):
-        self.response.out.write(htmlHelper.header())
+        self.response.out.write(webpages.header())
         docenten = self.request.get("checkedDocenten").split(",")
         datums = self.request.get("datums").split(",")
         splitDatums = []
@@ -51,7 +51,7 @@ class OuderAvondPlannenPost(webapp.RequestHandler):
             for datum in datums:
                 self.response.out.write(datum+" <br />")
             self.response.out.write("<br />")
-        self.response.out.write(htmlHelper.footer())
+        self.response.out.write(webpages.footer())
             
 class AfspraakPlanningPost(webapp.RequestHandler):
     def post(self):

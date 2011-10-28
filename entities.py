@@ -50,3 +50,9 @@ class Leerling(db.Model):
     mobielnummer = db.StringProperty()
     vastnummer = db.StringProperty()
     email = db.StringProperty()
+    
+class Beheerder(db.Model):
+    login = db.StringProperty()
+    beschrijving = db.StringProperty()
+    wachtwoord = db.StringProperty()
+    securityLevel = db.IntegerProperty()

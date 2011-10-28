@@ -162,24 +162,6 @@ def planningPage():
 
 def insertRootLink(entiteitNaam):
     return "<a href = '/insert/"+entiteitNaam.lower()+"'>"+entiteitNaam+" insert</a><form action='/insert/"+entiteitNaam.lower()+"post' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete all from "+entiteitNaam+"' /></form><br />"
-    
-def header(bodyAttributes = ""):
-    return """<html>
-                <body %s>
-                    <link rel="stylesheet" type="text/css" href="css/jquery.datepick.css" media="screen" />
-                    <script type='text/javascript' src='js/jquery-1.6.4.js'></SCRIPT>
-                    <script type='text/javascript' src='js/jquery.datepick.js'></script>
-                    <script type='text/javascript' src='js/Afspraak.js'></SCRIPT>
-                    <table width='500'>
-                        <tr>
-                            <td><a href='/'>Home</a></td>
-                            <td><a href='/insert'>Insert root</a></td>
-                            <td><a href='/plannen'>Ouder avond plannen</a></td>
-                        </tr>
-                    </table>""" %(bodyAttributes)
-
-def footer():
-    return "</body></html>"
 
 def table(data, attributes="",head=None, headAttributes="",title=None):
     ret = "<table "+attributes+" >"

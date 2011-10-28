@@ -6,20 +6,22 @@ from google.appengine.ext import db
 import datetime
 import entities
 import htmlHelper
+import webpages
 
 class InsertRoot(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(htmlHelper.header())
+        self.response.out.write(webpages.header())
         self.response.out.write(htmlHelper.insertRootLink("Afspraak"))
         self.response.out.write(htmlHelper.insertRootLink("Docent"))
         self.response.out.write(htmlHelper.insertRootLink("Vak"))
         self.response.out.write(htmlHelper.insertRootLink("VakPerKlas"))
         self.response.out.write(htmlHelper.insertRootLink("Leerling"))
-        self.response.out.write(htmlHelper.footer())
+        self.response.out.write(htmlHelper.insertRootLink("beheerder"))
+        self.response.out.write(webpages.footer())
 
 class InsertAfspraak(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(htmlHelper.header())
+        self.response.out.write(webpages.header())
         afspraken = entities.Afspraak.all()
         if(afspraken.count() == 0):
             afspraak = entities.Afspraak(leerlingID="0",docentID='BAARR',dag=datetime.date(2011, 10, 11), tijd=-1,tafelnummer=0,beschrijving='test')
@@ -69,11 +71,11 @@ class InsertAfspraak(webapp.RequestHandler):
                 self.response.out.write("</tr>")
             self.response.out.write("</table>")
             self.response.out.write("<form action='/insert/afspraakpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
-            self.response.out.write(htmlHelper.footer())
+            self.response.out.write(webpages.footer())
 
 class InsertDocent(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(htmlHelper.header())
+        self.response.out.write(webpages.header())
         docenten = entities.Docent.all()
         if(docenten.count() == 0):
             docent = entities.Docent(docentID='BAARR', aanhef='mw. drs.', naam='R.Baart', postvaknummer=41, email='BAARR@DKC.NL', wachtwoord='a')
@@ -324,11 +326,11 @@ class InsertDocent(webapp.RequestHandler):
                 self.response.out.write("</tr>")
             self.response.out.write("</table>")
             self.response.out.write("<form action='/insert/docentpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
-            self.response.out.write(htmlHelper.footer())
+        self.response.out.write(webpages.footer())
 
 class InsertVak(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(htmlHelper.header())
+        self.response.out.write(webpages.header())
         vakken = entities.Vak.all()
         if(vakken.count() == 0):
             vak = entities.Vak(vakCode='NED', vakNaam='Nederlands')
@@ -366,11 +368,11 @@ class InsertVak(webapp.RequestHandler):
                 self.response.out.write("</tr>")
             self.response.out.write("</table>")
             self.response.out.write("<form action='/insert/vakpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
-            self.response.out.write(htmlHelper.footer())
+        self.response.out.write(webpages.footer())
 
 class InsertVakPerKlas(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(htmlHelper.header())
+        self.response.out.write(webpages.header())
         vakken = entities.VakPerKlas.all()
         if(vakken.count() == 0):
             vak = entities.VakPerKlas(jaargang='2010-2011', klas='h3', vakCode='NED', docentID='BAARR')
@@ -395,11 +397,32 @@ class InsertVakPerKlas(webapp.RequestHandler):
                 self.response.out.write("</tr>")
             self.response.out.write("</table>")
             self.response.out.write("<form action='/insert/vakpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
-            self.response.out.write(htmlHelper.footer())
-            
+        self.response.out.write(webpages.footer())
+
+class InsertBeheerder(webapp.RequestHandler):
+    def get(self):
+        self.response.out.write(webpages.header())
+        beheerders = entities.Beheerder.all()
+        if(beheerders.count() == 0):
+            beheerder = entities.Beheerder(login='admin', beschrijving='Ingebouwde admin account', wachtwoord='admin', securityLevel=2)
+            beheerder.put()
+            self.response.out.write('Beheerders toegevoegd aan de datastore')
+        else:
+            self.response.out.write(htmlHelper.startTable(header=['Login','beschrijving','wachtwoord','securityLevel']))
+            for beheerder in beheerders:
+                self.response.out.write("<tr>")
+                self.response.out.write(htmlHelper.cell(beheerder.login))
+                self.response.out.write(htmlHelper.cell(beheerder.beschrijving))
+                self.response.out.write(htmlHelper.cell(beheerder.wachtwoord))
+                self.response.out.write(htmlHelper.cell(beheerder.securityLevel))
+                self.response.out.write("</tr>")
+            self.response.out.write("</table>")
+            self.response.out.write("<form action='/insert/beheerderpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
+        self.response.out.write(webpages.footer())
+        
 class InsertLeerling(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(htmlHelper.header())
+        self.response.out.write(webpages.header())
         leerlingen = entities.Leerling.all()
         if(leerlingen.count() == 0):
             leerling = entities.Leerling( leerlingID='2402', wachtwoord='a', voornaam=unicode('Alexei','latin-1'), tussenvoegsel='', achternaam=unicode('IJntema','latin-1'), geslacht='M', klas='1B1', aanhefVerzorger='dhr.', initialenVerzorger='Y.', voorvoegselsVerzorger='', achternaamVerzorger=unicode('IJntema','latin-1'), rolVerzorger='ouder', adres='Van Staverenstraat', huisnummer='22',  woonplaats='Reeuwijk',  postcode='2811 TK',  mobielnummer='06-5621641',  vastnummer='0182-621641',  email='IJntema@zoggi.nl', )
@@ -2631,7 +2654,7 @@ class InsertLeerling(webapp.RequestHandler):
             headRow = ["LeerlingID", "Voornaam", "Tussenvoegsel", "Achternaam", "Geslacht", "Klas", "aanhefVerzorger", "initialenVerzorger", "voorvoegselsVerzorger", "achternaamVerzorger", "rolVerzorger", "adres", "huisnummer", "woonplaats", "postcode", "mobielnummer", "vastnummer", "email"]
             self.response.out.write(htmlHelper.table(data=tableData,attributes="border='1'",head=headRow,title="Leerlingen"))
             self.response.out.write("<form action='/insert/leerlingpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
-            self.response.out.write(htmlHelper.footer())
+        self.response.out.write(webpages.footer())
 
 
 class PostAfspraak(webapp.RequestHandler):
@@ -2640,9 +2663,9 @@ class PostAfspraak(webapp.RequestHandler):
             afspraken = db.GqlQuery("SELECT * FROM Afspraak")
             for afspraak in afspraken:
                 afspraak.delete()
-            self.response.out.write(htmlHelper.header())
+            self.response.out.write(webpages.header())
             self.response.out.write("<p>Deleted all entries <a href='/insert/afspraak'>terug (insert nieuwe data)</a></p></body></html>")
-            self.response.out.write(htmlHelper.footer())
+            self.response.out.write(webpages.footer())
 
 class PostDocent(webapp.RequestHandler):
     def post(self):
@@ -2650,9 +2673,9 @@ class PostDocent(webapp.RequestHandler):
             docenten = db.GqlQuery("SELECT * FROM Docent")
             for docent in docenten:
                 docent.delete()
-            self.response.out.write(htmlHelper.header())
+            self.response.out.write(webpages.header())
             self.response.out.write("<p>Deleted all entries <a href='/insert/docent'>terug (insert nieuwe data)</a></p></body></html>")
-            self.response.out.write(htmlHelper.footer())
+            self.response.out.write(webpages.footer())
 
 class PostVak(webapp.RequestHandler):
     def post(self):
@@ -2660,9 +2683,9 @@ class PostVak(webapp.RequestHandler):
             vakken = db.GqlQuery("SELECT * FROM Vak")
             for vak in vakken:
                 vak.delete()
-            self.response.out.write(htmlHelper.header())
+            self.response.out.write(webpages.header())
             self.response.out.write("<p>Deleted all entries <a href='/insert/vak'>terug (insert nieuwe data)</a></p></body></html>")
-            self.response.out.write(htmlHelper.footer())
+            self.response.out.write(webpages.footer())
 
 class PostVakPerKlas(webapp.RequestHandler):
     def post(self):
@@ -2670,9 +2693,9 @@ class PostVakPerKlas(webapp.RequestHandler):
             vakken = db.GqlQuery("SELECT * FROM VakPerKlas")
             for vak in vakken:
                 vak.delete()
-            self.response.out.write(htmlHelper.header())
+            self.response.out.write(webpages.header())
             self.response.out.write("<p>Deleted all entries <a href='/insert/vakperklas'>terug (insert nieuwe data)</a></p></body></html>")
-            self.response.out.write(htmlHelper.footer())
+            self.response.out.write(webpages.footer())
             
 class PostLeerling(webapp.RequestHandler):
     def post(self):
@@ -2680,10 +2703,19 @@ class PostLeerling(webapp.RequestHandler):
             leerlingen = db.GqlQuery("SELECT * FROM Leerling")
             for leerling in leerlingen:
                 leerling.delete()
-            self.response.out.write(htmlHelper.header())
+            self.response.out.write(webpages.header())
             self.response.out.write("<p>Deleted all entries <a href='/insert/leerling'>terug (insert nieuwe data)</a></p></body></html>")
-            self.response.out.write(htmlHelper.footer())
+            self.response.out.write(webpages.footer())
 
+class PostBeheerder(webapp.RequestHandler):
+    def post(self):
+        if(self.request.get('delete') == 'delete'):
+            beheerders = db.GqlQuery("SELECT * FROM Beheerder")
+            for beheerder in beheerders:
+                beheerder.delete()
+            self.response.out.write(webpages.header())
+            self.response.out.write("<p>Deleted all entries <a href='/insert/beheerder'>terug (insert nieuwe data)</a></p></body></html>")
+            self.response.out.write(webpages.footer())
 
 def main():
     application = webapp.WSGIApplication([('/insert/afspraak', InsertAfspraak), 
@@ -2696,6 +2728,8 @@ def main():
                                           ('/insert/vakperklaspost', PostVakPerKlas),
                                           ('/insert/leerling', InsertLeerling),
                                           ('/insert/leerlingpost', PostLeerling),
+                                          ('/insert/beheerder', InsertBeheerder),
+                                          ('/insert/beheerderpost', PostBeheerder),
                                           ('/insert', InsertRoot)],
                                          debug=True)
     util.run_wsgi_app(application)
