@@ -18,7 +18,7 @@ handlers:
   script: main.py
   
 - url: /
-  script: login.py
+  script: main.py
 
 - url: /insert/*.*
   script: insert.py
