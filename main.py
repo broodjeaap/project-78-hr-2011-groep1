@@ -17,16 +17,16 @@ class Authenticate(webapp.RequestHandler):
         wachtwoord=self.request.get("wachtwoord")
         id=self.request.get("id")
         categorys = ['docent', 'leerling']
-        showErrorPage = True
+        NoValidCredentials= True
         
         for category in categorys:
             result = db.GqlQuery("SELECT __key__ FROM "+category.capitalize()+" WHERE "+category+'ID'+" = '"+id+"' AND wachtwoord='"+wachtwoord+"'")
             if result.count() >=1:
                 self.response.out.write(getattr(webpages, category.capitalize()+'Page')(db.get(result[0])))
-                showErrorPage = False
+                NoValidCredentials = False
         
-        if showErrorPage:
-            self.response.out.write('show errorpage')
+        if NoValidCredentials:
+            self.response.out.write(webpages.LoginForm('Geen geldige combinatie!'))
 
 class OuderAvondPlannen(webapp.RequestHandler):
     def get(self):
