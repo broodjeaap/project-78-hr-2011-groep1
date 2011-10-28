@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.python.pydev.pythonNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>webpages.py</name>
+			<type>1</type>
+			<location>C:/eclipse/workspace/davidzessen/webpages.py</location>
+		</link>
+	</linkedResources>
 </projectDescription>
