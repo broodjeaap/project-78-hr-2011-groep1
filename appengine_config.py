@@ -1,0 +1,5 @@
+# -*- coding: latin-1 -*-
+from gaesessions import SessionMiddleware
+def webapp_add_wsgi_middleware(app):
+    app = SessionMiddleware(app, cookie_key="ˆ˝@i]^ÁúfJõ#!d—¶4˙bõjW>ç]D<¡Pãƒ…“2mº≤Xwëj]ƒ«äv&óM.û1µÚPSµµçM")
+    return app

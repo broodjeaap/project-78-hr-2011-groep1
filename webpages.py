@@ -52,7 +52,7 @@ def LoginForm(message='&nbsp;'):
                             <table>
                                 <tr>
                                     <td style="color:red;" colspan="2" align="center">
-                                    """+message+"""
+                                    %s
                                     </td>
                                 </tr>
                                 <tr>
@@ -80,7 +80,7 @@ def LoginForm(message='&nbsp;'):
             </div> 
             </body>
         </html>
-        """
+        """%(str(message))
 
 def DocentPage(docent):
         return """

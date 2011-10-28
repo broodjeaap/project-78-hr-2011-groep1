@@ -1,6 +1,8 @@
+import os
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
 from google.appengine.ext import db
+from gaesessions import get_current_session
 import datetime
 import webpages
 
@@ -22,6 +24,17 @@ class Authenticate(webapp.RequestHandler):
         for category in categorys:
             result = db.GqlQuery("SELECT __key__ FROM "+category.capitalize()+" WHERE "+category+'ID'+" = '"+id+"' AND wachtwoord='"+wachtwoord+"'")
             if result.count() >=1:
+                
+                
+                
+                #------------------ session test -------------------------
+                session = get_current_session() #vraag het sesion object op
+                session.__setitem__('username',id) #sla de username op in het session object
+                #------------------ session test -------------------------
+                
+                
+                
+                
                 self.response.out.write(getattr(webpages, category.capitalize()+'Page')(db.get(result[0])))
                 NoValidCredentials = False
         
@@ -31,6 +44,17 @@ class Authenticate(webapp.RequestHandler):
 class OuderAvondPlannen(webapp.RequestHandler):
     def get(self):
         self.response.out.write(webpages.header())
+        
+        
+        
+        #------------------ session test -------------------------
+        session = get_current_session()
+        self.response.out.write(str(session['username']))
+        #------------------ session test -------------------------
+        
+        
+        
+        
         self.response.out.write(htmlHelper.planningPage())
         self.response.out.write(webpages.footer())
 
