@@ -8,6 +8,12 @@ handlers:
 - url: /afspraakplanningpost
   script: main.py
   
+- url: /docentafspraak
+  script: main.py
+  
+- url: /leerlingafspraak
+  script: main.py  
+
 - url: /nextstep
   script: insert.py
   

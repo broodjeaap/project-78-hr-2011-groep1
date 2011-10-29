@@ -101,12 +101,26 @@ class AfspraakPlanningPost(webapp.RequestHandler):
                 afspraak = entities.Afspraak(leerlingID = leerlingID,docentID = vak.docentID,dag= datetime.date(int(datumStrings[0]),int(datumStrings[1]), int(datumStrings[2])),tijd= int(afspraakData[1]),tafelnummer=0,beschrijving = beschrijving)
                 afspraak.put()
                 self.redirect('/')
-    
+
+class DocentAfspraak(webapp.RequestHandler):
+    def get(self):
+        self.response.out.write(webpages.header())
+        self.response.out.write(htmlHelper.afspraakTableReadOnly())
+        self.response.out.write(webpages.footer())
+
+class LeerlingAfspraak(webapp.RequestHandler):
+    def get(self):
+        self.response.out.write(webpages.header())
+        self.response.out.write(htmlHelper.klasAfspraakPage(klas="h3"))
+        self.response.out.write(webpages.footer())
+        
 def main():
     application = webapp.WSGIApplication([('/', MainHandler),
                                           ('/authenticate', Authenticate),
                                           ('/afspraakplanningpost', AfspraakPlanningPost),
                                           ('/plannen', OuderAvondPlannen),
+                                          ('/leerlingafspraak', LeerlingAfspraak),
+                                          ('/docentafspraak', DocentAfspraak),
                                           ('/plannenpost', OuderAvondPlannenPost)],
                                          debug=True)
     util.run_wsgi_app(application)

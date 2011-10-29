@@ -10,8 +10,6 @@ class Afspraak(db.Model):
   tafelnummer = db.IntegerProperty()
   beschrijving = db.StringProperty()
   
-  
-  
 class Docent(db.Model):
     docentID = db.StringProperty()
     aanhef = db.StringProperty()

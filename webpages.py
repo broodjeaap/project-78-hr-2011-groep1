@@ -92,11 +92,11 @@ def DocentPage(docent):
             <body>
                 <div id="backboneWrapper">
                     <div>
-                        <h1>Welkom,&nbsp;"""+docent.aanhef+"""&nbsp;"""+docent.naam+"""</h1>
+                        <h1>Welkom,&nbsp; %s &nbsp; %s </h1>
                     </div>
                     <div id="contentWrapper">
                         <div id="tableWrapper">
-                            """+htmlHelper.afspraakTable(docent.docentID)+"""
+                            %s
                         </div>
                     <div id="buttons">
                         <a href="http://www.google.nl">
@@ -109,7 +109,7 @@ def DocentPage(docent):
                 </div>
             </body>
         </html>
-        """
+        """ %(docent.aanhef, docent.naam, htmlHelper.afspraakTableReadOnly(docent.docentID))
 def LeerlingPage(student):
     return """
     <html>
@@ -120,7 +120,7 @@ def LeerlingPage(student):
         <body>
            <div id="backboneWrapper">
                <div>
-                   <h1>Welkom, geachte """+student.rolVerzorger+' van '+student.voornaam+' '+student.tussenvoegsel+' '+student.achternaam+"""</h1>
+                   <h1>Welkom, geachte %s van %s %s %s</h1>
                 </div>
                 <div id="contentWrapper">
                     <div id=tableWrapper/>
@@ -134,7 +134,7 @@ def LeerlingPage(student):
                     </div>
             </div>
         </body>
-    </html>"""
+    </html>""" %(student.rolVerzorger,student.voornaam,student.voornaam,student.tussenvoegsel,student.achternaam)
     
 def header(bodyAttributes = ""):
     return """<html>
@@ -142,7 +142,6 @@ def header(bodyAttributes = ""):
                     <link rel="stylesheet" type="text/css" href="css/jquery.datepick.css" media="screen" />
                     <script type='text/javascript' src='js/jquery-1.6.4.js'></SCRIPT>
                     <script type='text/javascript' src='js/jquery.datepick.js'></script>
-                    <script type='text/javascript' src='js/Afspraak.js'></SCRIPT>
                     <table width='500'>
                         <tr>
                             <td><a href='/'>Home</a></td>

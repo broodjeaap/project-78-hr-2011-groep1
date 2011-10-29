@@ -18,7 +18,7 @@ def startTable(header=None, tableStart=True,border=True):
 
 def klasAfspraakPage(klas,leerlingID="1234"): #maak voor een klas alle afspraak tabellen aan
     vakken = db.GqlQuery("SELECT * FROM VakPerKlas WHERE klas = '"+klas+"'") # pak alle vakken van een klas
-    ret = "<div><form name='afspraken' action='/afspraakplanningpost' method='post'>"
+    ret = "<div><script type='text/javascript' src='js/LeerlingAfspraak.js'></SCRIPT><form name='afspraken' action='/afspraakplanningpost' method='post'>"
     count = 0
     afspraakCount = 0;
     for vak in vakken: # voor elk vak in de klas, maak een afspraakTable
@@ -36,23 +36,12 @@ def klasAfspraakPage(klas,leerlingID="1234"): #maak voor een klas alle afspraak 
 
 def afspraakTable(docentID,aantalTijden=12,leerlingID="1234",tableCount=0): # maak een afspraakTable
     afspraken = db.GqlQuery("SELECT * FROM Afspraak WHERE docentID = '"+docentID+"'") # pak alle afspraken voor de docent
-    
-    
+
     oudeAfspraak = False
     for afspraak in afspraken:
         if(afspraak.leerlingID == leerlingID):
             oudeAfspraak = True
             break
-    
-    """
-    
-    afspraakTest = None
-    ret = "blaat"
-    for tmp in oudeAfspraken:
-        afspraakTest = tmp
-        ret += "blaat"
-    ret += "blaat"
-    """
     if(oudeAfspraak): # is er al een afspraak geplanned? laat dan geen schema zien, maar de huidige afspraak met een knop om af te zeggen
         afspraakTable = []
         tableRow = []
@@ -117,6 +106,58 @@ def afspraakTable(docentID,aantalTijden=12,leerlingID="1234",tableCount=0): # ma
     ret += "</form></table>"
     return ret
 
+def afspraakTableReadOnly(docentID="BAARR"):
+    afspraken = db.GqlQuery("SELECT * FROM Afspraak WHERE docentID = '"+docentID+"'")
+    if(afspraken.count() == 0):
+        return "<h3>"+docentID+" heeft geen ouderavond ingepland </h3>"
+    tijden = []
+    datums = []
+    echteAfspraken = []
+    for afspraak in afspraken: # aanmaken van het 2d afspraken array
+        index = inList(afspraak.dag,datums) # zit de datum al in de datums array
+        if(index == -1): # nee? voeg em toe + een extra regel van booleans
+            datums.append(afspraak.dag)
+            tijden.append([False,False,False,False,False,False,False,False,False,False,False,False])\
+            
+        if(afspraak.tijd >= 0): # zet de afspraak op True in de afspraken array
+            tijden[inList(afspraak.dag,datums)][afspraak.tijd] = True
+            echteAfspraken.append(afspraak)
+    
+    tijden = zip(*tijden) # transponeer de matrix
+    ret = "<script type='text/javascript' src='js/DocentAfspraak.js'></script><script type='text/javascript' src='js/jquery-1.6.4.js'></SCRIPT><table border='1'><tr><th colspan='100%'>Ouderavond rooster van:&nbsp;"+docentID+"</th></tr>"
+    ret += "<tr><th>Tijd</th>"
+    for datum in datums: #print alle datums uit
+        ret += "<th>"+str(datum)+"</th>"
+    ret += "</tr>"
+    count = 0;
+    time = datetime.datetime(2011,1,1,hour=19) #start tijd van de ouderavond
+    delta = datetime.timedelta(minutes=15) #tijd die nodig is voor elke afspraak
+    afspraakCounter = 0
+    for tijdList in tijden: # outer loop voor 2d tijden matrix
+        ret += "<tr>"+cell(str(datetime.time(hour=time.hour,minute=time.minute))[:-3])
+        dag = 0
+        for tijd in tijdList: # inner loop voor 2d tijden matrix
+            if(tijd):
+                functie = "\"showAfspraak('"+echteAfspraken[afspraakCounter].leerlingID+"','"+str(echteAfspraken[afspraakCounter].dag)+"','"+str(echteAfspraken[afspraakCounter].tijd)+"','"+str(echteAfspraken[afspraakCounter].tafelnummer)+"','"+echteAfspraken[afspraakCounter].beschrijving+"')\""
+                #ret += functie
+                ret += cell(data=" ",attributes="bgcolor=#FF0000 onMouseOver="+functie)
+                afspraakCounter += 1
+            else:
+                ret += cell(data=" ",attributes="bgcolor=#00FF00")
+                dag += 1
+                #showAfspraak(leerlingID,dag,tijd,tafelnummer,beschrijving)
+        time += delta # time += 15 minuten
+        
+    ret += "</form></table>"
+    ret += "<table border='1'>"
+    ret += "<tr><td><b>LeerlingID</b></td><td id='leerlingID'></td></tr>"
+    ret += "<tr><td><b>Dag</b></td><td id='dag'></td></tr>"
+    ret += "<tr><td><b>Tijd</b></td><td id='tijd'></td></tr>"
+    ret += "<tr><td><b>Tafelnummer</b></td><td id='tafelnummer'></td></tr>"
+    ret += "<tr><td><b>Beschrijving</b></td><td id='beschrijving'></td></tr>"
+    ret += "</table>"
+    return ret
+    
 def inList(item, list): #checkt of 'item' in de 'list' zit, zo ja, return de index van het item, nee return -1
     count = 0
     for i in range(len(list)):
