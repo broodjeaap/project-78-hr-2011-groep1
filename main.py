@@ -41,6 +41,8 @@ class Login(webapp.RequestHandler):
                                     </td>
                                 </tr>""")
             session.__delitem__('loginError')
+        else:
+            self.response.out.write('<tr><td colspan="2">&nbsp;</td></tr>')       
         self.response.out.write("""
                                 <tr>
                                     <td>Gebruikersnaam</td>
