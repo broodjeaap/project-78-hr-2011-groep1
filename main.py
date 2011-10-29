@@ -10,51 +10,103 @@ import webpages
 import htmlHelper
 import entities
 
-class MainHandler(webapp.RequestHandler):
+class Login(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(webpages.LoginForm())
+        self.response.out.write("""
+        <html>
+            <head>
+                <title>Ouderavondregistratie inlogscherm</title>
+                <link rel="stylesheet" href="/css/loginpageStyle.css"/>
+            </head>
+            <body>
+            <div id="div-0">
+                <div id="div-head">
+                    <h3>Login - ouderavondregistratie</h3>
+                </div>
+                <div id="div-1">
+                    <div id="header">
+                        <div id="photo"><img src="../images/DKC.png"></div>
+                        <div id="adres"><p>DONALD KNUTH COLLEGE<br />Scholengemeenschap MAVO/HAVO/VWO<br />Pascalstraat 1<br />2811 EL REEUWIJK<br /></div>
+                    </div>
+        
+                    <div id="div-2">
+                        <form action="/authenticate" method="post">
+                            <table>""")
+        session = get_current_session()
+        if(session.has_key('loginError')):
+            self.response.out.write("""
+                                <tr>
+                                    <td style="color:red;" colspan="2" align="center">
+                                    Geen geldige combinatie!
+                                    </td>
+                                </tr>""")
+            session.__delitem__('loginError')
+        self.response.out.write("""
+                                <tr>
+                                    <td>Gebruikersnaam</td>
+                                    <td align="center">
+                                        <input type="text" name="id">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Wachtwoord</td>
+                                    <td align="center">
+                                        <input type="password" name="wachtwoord">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <input type="submit" value="inloggen">
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div> 
+            </body>
+        </html>
+        """)
+
+class Logout(webapp.RequestHandler):
+    def get(self):
+        webpages.header(title="Logout")
+        session = get_current_session()
+        if(session.has_key('id')):
+            session.terminate()
+            self.response.out.write("U bent uitgelogt")
+        else:
+            self.response.out.write("U bent niet ingelogt")
+        webpages.footer()
 
 class Authenticate(webapp.RequestHandler):
     def post(self):
         wachtwoord=self.request.get("wachtwoord")
         id=self.request.get("id")
-        categorys = ['docent', 'leerling']
-        NoValidCredentials= True
-        
-        for category in categorys:
-            result = db.GqlQuery("SELECT __key__ FROM "+category.capitalize()+" WHERE "+category+'ID'+" = '"+id+"' AND wachtwoord='"+wachtwoord+"'")
-            if result.count() >=1:
-                
-                
-                
-                #------------------ session test -------------------------
-                session = get_current_session() #vraag het sesion object op
-                session.__setitem__('username',id) #sla de username op in het session object
-                #------------------ session test -------------------------
-                
-                
-                
-                
-                self.response.out.write(getattr(webpages, category.capitalize()+'Page')(db.get(result[0])))
-                NoValidCredentials = False
-        
-        if NoValidCredentials:
-            self.response.out.write(webpages.LoginForm('Geen geldige combinatie!'))
+        if(db.GqlQuery("SELECT __key__ FROM Leerling where leerlingID = '"+id+"' and wachtwoord = '"+wachtwoord+"'").count() != 0):
+            session = get_current_session()
+            session.__setitem__('id',id)
+            session.__setitem__('loginType','leerling')
+            self.redirect('/leerlingafspraak')
+        elif(db.GqlQuery("SELECT __key__ FROM Docent where docentID = '"+id+"' and wachtwoord = '"+wachtwoord+"'").count() != 0):
+            session = get_current_session()
+            session.__setitem__('id',id)
+            session.__setitem__('loginType','docent')
+            self.redirect('/docentafspraak')
+        elif(db.GqlQuery("SELECT __key__ FROM Beheerder where login = '"+id+"' and wachtwoord = '"+wachtwoord+"'").count() != 0):
+            session = get_current_session()
+            session.__setitem__('id',id)
+            session.__setitem__('loginType','beheerder')
+            self.redirect('/beheerder')
+        else:
+            session = get_current_session()
+            session.__setitem__('loginError','error')
+            self.redirect('/')
 
 class OuderAvondPlannen(webapp.RequestHandler):
     def get(self):
         self.response.out.write(webpages.header())
-        
-        
-        
-        #------------------ session test -------------------------
-        session = get_current_session()
-        self.response.out.write(str(session['username']))
-        #------------------ session test -------------------------
-        
-        
-        
-        
         self.response.out.write(htmlHelper.planningPage())
         self.response.out.write(webpages.footer())
 
@@ -105,7 +157,14 @@ class AfspraakPlanningPost(webapp.RequestHandler):
 class DocentAfspraak(webapp.RequestHandler):
     def get(self):
         self.response.out.write(webpages.header())
-        self.response.out.write(htmlHelper.afspraakTableReadOnly())
+        session = get_current_session()
+        if(session.has_key('id') and session.__getitem__('loginType') == "docent"):
+            docent = db.GqlQuery("SELECT * FROM Docent where docentID = '"+session['id']+"'")
+            docent = docent[0]
+            
+            self.response.out.write(webpages.DocentPage(docent))
+        else:
+            self.response.out.write("U heeft niet de juist rechten om deze pagina te bezoeken")
         self.response.out.write(webpages.footer())
 
 class LeerlingAfspraak(webapp.RequestHandler):
@@ -115,7 +174,8 @@ class LeerlingAfspraak(webapp.RequestHandler):
         self.response.out.write(webpages.footer())
         
 def main():
-    application = webapp.WSGIApplication([('/', MainHandler),
+    application = webapp.WSGIApplication([('/', Login),
+                                          ('/logout', Logout),
                                           ('/authenticate', Authenticate),
                                           ('/afspraakplanningpost', AfspraakPlanningPost),
                                           ('/plannen', OuderAvondPlannen),

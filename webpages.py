@@ -27,88 +27,25 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
 from google.appengine.ext.webapp.util import run_wsgi_app
 
-
-
-def LoginForm(message='&nbsp;'):
-        return """
-        <html>
-            <head>
-                <title>Ouderavondregistratie inlogscherm</title>
-                <link rel="stylesheet" href="/css/loginpageStyle.css"/>
-            </head>
-            <body>
-            <div id="div-0">
-                <div id="div-head">
-                    <h3>Login - ouderavondregistratie</h3>
-                </div>
-                <div id="div-1">
-                    <div id="header">
-                        <div id="photo"><img src="../images/DKC.png"></div>
-                        <div id="adres"><p>DONALD KNUTH COLLEGE<br />Scholengemeenschap MAVO/HAVO/VWO<br />Pascalstraat 1<br />2811 EL REEUWIJK<br /></div>
-                    </div>
-        
-                    <div id="div-2">
-                        <form action="/authenticate" method="post">
-                            <table>
-                                <tr>
-                                    <td style="color:red;" colspan="2" align="center">
-                                    %s
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Gebruikersnaam</td>
-                                    <td align="center">
-                                        <input type="text" name="id">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Wachtwoord</td>
-                                    <td align="center">
-                                        <input type="password" name="wachtwoord">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>
-                                        <input type="submit" value="inloggen">
-                                    </td>
-                                </tr>
-                            </table>
-                        </form>
-                    </div>
-                </div>
-            </div> 
-            </body>
-        </html>
-        """%(str(message))
-
 def DocentPage(docent):
         return """
-        <html>
-            <head>
-                <title>Afspraaksysteem docenten</title>
-                 <link rel="stylesheet" href="/css/loginpageStyle.css"/>
-            </head>
-            <body>
-                <div id="backboneWrapper">
-                    <div>
-                        <h1>Welkom,&nbsp; %s &nbsp; %s </h1>
-                    </div>
-                    <div id="contentWrapper">
-                        <div id="tableWrapper">
-                            %s
-                        </div>
-                    <div id="buttons">
-                        <a href="http://www.google.nl">
-                            <input type="submit" value="print"/>
-                        </a>
-                        <a href="http://www.google.nl">
-                            <input type="submit" value="Uitloggen"/>
-                        </a>
-                    </div>
+            <div id="backboneWrapper">
+                <div>
+                    <h1>Welkom,&nbsp; %s &nbsp; %s </h1>
                 </div>
-            </body>
-        </html>
+                <div id="contentWrapper">
+                    <div id="tableWrapper">
+                        %s
+                    </div>
+                <div id="buttons">
+                    <a href="http://www.google.nl">
+                        <input type="submit" value="print"/>
+                    </a>
+                    <a href="http://www.google.nl">
+                        <input type="submit" value="Uitloggen"/>
+                    </a>
+                </div>
+            </div>
         """ %(docent.aanhef, docent.naam, htmlHelper.afspraakTableReadOnly(docent.docentID))
 def LeerlingPage(student):
     return """
@@ -136,8 +73,12 @@ def LeerlingPage(student):
         </body>
     </html>""" %(student.rolVerzorger,student.voornaam,student.voornaam,student.tussenvoegsel,student.achternaam)
     
-def header(bodyAttributes = ""):
+def header(bodyAttributes = "",title=""):
     return """<html>
+                <head>
+                    <title>%s</title>
+                    <link rel="stylesheet" href="/css/loginpageStyle.css"/>
+                </head>
                 <body %s>
                     <link rel="stylesheet" type="text/css" href="css/jquery.datepick.css" media="screen" />
                     <script type='text/javascript' src='js/jquery-1.6.4.js'></SCRIPT>
@@ -147,8 +88,9 @@ def header(bodyAttributes = ""):
                             <td><a href='/'>Home</a></td>
                             <td><a href='/insert'>Insert root</a></td>
                             <td><a href='/plannen'>Ouder avond plannen</a></td>
+                            <td><a href='/logout'>Logout</a></td>
                         </tr>
-                    </table>""" %(bodyAttributes)
+                    </table>""" %(str(title),bodyAttributes)
 
 def footer():
     return "</body></html>"

@@ -26,6 +26,9 @@ handlers:
 - url: /
   script: main.py
 
+- url: /logout
+  script: main.py
+
 - url: /insert/*.*
   script: insert.py
   
