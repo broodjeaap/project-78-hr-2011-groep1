@@ -51,7 +51,7 @@ def LeerlingPage(student):
     return """
     <html>
         <head>
-            <link rel="stylesheet" href="/css/loginpageStyle.css"/>
+            <link rel="stylesheet" href="/css/global.css"/>
             <title>Afspraaksysteem leerling</title>
         </head>
         <body>
@@ -73,11 +73,11 @@ def LeerlingPage(student):
         </body>
     </html>""" %(student.rolVerzorger,student.voornaam,student.voornaam,student.tussenvoegsel,student.achternaam)
     
-def header(bodyAttributes = "",title=""):
+def header(bodyAttributes = "",title="",homeLink="/"):
     return """<html>
                 <head>
                     <title>%s</title>
-                    <link rel="stylesheet" href="/css/loginpageStyle.css"/>
+                    <link rel="stylesheet" href="/css/global.css"/>
                 </head>
                 <body %s>
                     <link rel="stylesheet" type="text/css" href="css/jquery.datepick.css" media="screen" />
@@ -85,12 +85,12 @@ def header(bodyAttributes = "",title=""):
                     <script type='text/javascript' src='js/jquery.datepick.js'></script>
                     <table width='500'>
                         <tr>
-                            <td><a href='/'>Home</a></td>
+                            <td><a href='%s'>Home</a></td>
                             <td><a href='/insert'>Insert root</a></td>
                             <td><a href='/plannen'>Ouder avond plannen</a></td>
                             <td><a href='/logout'>Logout</a></td>
                         </tr>
-                    </table>""" %(str(title),bodyAttributes)
+                    </table>""" %(str(title),bodyAttributes,homeLink)
 
 def footer():
     return "</body></html>"

@@ -27,20 +27,21 @@ def klasAfspraakPage(klas,leerlingID="1234"): #maak voor een klas alle afspraak 
         
         if(len(afspraakFunctieReturn) == 2):
             hiddenInputs.append(afspraakFunctieReturn[1])
+        ret += "<div class='afspraakDiv'><a href='#' onclick=\"afspraakToggle('"+vak.docentID+"')\">"+vak.vakCode+"</a><div class='toggle_afspraak' id='"+vak.docentID+"_toggle' >"
         ret += afspraakFunctieReturn[0]
-        
+        ret += "</div></div>"
         if(ret[-1:] == "1"):
             afspraakCount += 1
             ret = ret[:-1]
         
         ret += "<input type='hidden' name='klas' value='"+klas+"' />"
         count += 1
-    ret += "<form name='afspraken' action='/afspraakplanningpost' method='post'>"
+    ret += "<form name='afspraken' action='/afspraakplanningpost' method='post' id='leerlingAfspraakForm'>"
     for hiddenInput in hiddenInputs:
         ret += hiddenInput
     ret += "<input type='hidden' id='aantalAfspraken' name='aantalAfspraken' value='"+str(afspraakCount)+"' />"
     ret += "<input type='hidden' name='klas' value='"+klas+"' />"
-    ret += "<input type='submit' value='Ok' /></form></div>"
+    ret += "<input type='submit' value='Ok'  /></form></div>"
     return ret
 
 def afspraakTable(docentID,aantalTijden=12,leerlingID="1234",tableCount=0): # maak een afspraakTable
@@ -108,7 +109,7 @@ def afspraakTable(docentID,aantalTijden=12,leerlingID="1234",tableCount=0): # ma
             else:
                 #ret += cell("<input type='checkbox' name='checkbox' id='"+docentID+"_"+str(dag)+"_"+str(afspraaknummer)+"' value='afspraak"+str(afspraaknummer)+"' onClick='selectCheckbox(this,"+str(dag)+", "+str(afspraaknummer)+", \""+docentID+"\", \""+str(datums[dag])+"\");'/>", attributes=" ")
                 ret += "<td onClick='selectCheckbox(this,"+str(dag)+", "+str(afspraaknummer)+", \""+docentID+"\", \""+str(datums[dag])+"\");' bgcolor=#00FF00> </td>"
-                dag += 1
+            dag += 1
         afspraaknummer += 1
         time += delta # time += 15 minuten
         

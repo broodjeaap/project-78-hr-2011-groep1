@@ -1,6 +1,10 @@
 var keuzes = 0;
 var keuzeArray=[];
 
+$(document).ready(function() {
+	$(".toggle_afspraak").toggle();
+});
+
 function afspraakInit(){
 	keuzes = $("#aantalAfspraken").val();
 }
@@ -38,4 +42,8 @@ function selectCheckbox(clickedCell, dag, afspraakNummer, docentNaam, datum){
 
 function parseBeschrijving(textField, docentID){
 	$("#"+docentID+"_hidden_beschrijving").val($(textField).val());
+}
+
+function afspraakToggle(docentID){
+	$("#"+docentID+"_toggle").toggle();
 }

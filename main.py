@@ -16,7 +16,7 @@ class Login(webapp.RequestHandler):
         <html>
             <head>
                 <title>Ouderavondregistratie inlogscherm</title>
-                <link rel="stylesheet" href="/css/loginpageStyle.css"/>
+                <link rel="stylesheet" href="/css/global.css"/>
             </head>
             <body>
             <div id="div-0">
@@ -84,29 +84,28 @@ class Authenticate(webapp.RequestHandler):
     def post(self):
         wachtwoord=self.request.get("wachtwoord")
         id=self.request.get("id")
+        session = get_current_session()
+        if(session.has_key('id')):
+            session.terminate()
         if(db.GqlQuery("SELECT __key__ FROM Leerling where leerlingID = '"+id+"' and wachtwoord = '"+wachtwoord+"'").count() != 0):
-            session = get_current_session()
             session.__setitem__('id',id)
             session.__setitem__('loginType','leerling')
             self.redirect('/leerlingafspraak')
         elif(db.GqlQuery("SELECT __key__ FROM Docent where docentID = '"+id+"' and wachtwoord = '"+wachtwoord+"'").count() != 0):
-            session = get_current_session()
             session.__setitem__('id',id)
             session.__setitem__('loginType','docent')
             self.redirect('/docentafspraak')
         elif(db.GqlQuery("SELECT __key__ FROM Beheerder where login = '"+id+"' and wachtwoord = '"+wachtwoord+"'").count() != 0):
-            session = get_current_session()
             session.__setitem__('id',id)
             session.__setitem__('loginType','beheerder')
             self.redirect('/beheerder')
         else:
-            session = get_current_session()
             session.__setitem__('loginError','error')
             self.redirect('/')
 
 class OuderAvondPlannen(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(webpages.header())
+        self.response.out.write(webpages.header(homeLink="/leerlingafspraak"))
         self.response.out.write(htmlHelper.planningPage())
         self.response.out.write(webpages.footer())
 
@@ -171,7 +170,7 @@ class DocentAfspraak(webapp.RequestHandler):
 
 class LeerlingAfspraak(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(webpages.header())
+        self.response.out.write(webpages.header(homeLink="/leerlingafspraak"))
         
         session = get_current_session()
         if(session.has_key('id') and session.__getitem__('loginType') == 'leerling'):
