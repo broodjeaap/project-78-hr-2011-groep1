@@ -18,6 +18,13 @@ def startTable(header=None, tableStart=True,border=True):
 
 def klasAfspraakPage(klas,leerlingID="1234"): #maak voor een klas alle afspraak tabellen aan
     vakken = db.GqlQuery("SELECT * FROM VakPerKlas WHERE klas = '"+klas+"'") # pak alle vakken van een klas
+    vakNaam = db.GqlQuery("SELECT * FROM Vak")
+    vakNaamList = []
+    vakCodeList = []
+    for vak in vakNaam:
+        vakNaamList.append(vak.vakNaam)
+        vakCodeList.append(vak.vakCode)
+
     ret = "<div><script type='text/javascript' src='js/LeerlingAfspraak.js'></SCRIPT>"
     count = 0
     afspraakCount = 0;
@@ -27,7 +34,7 @@ def klasAfspraakPage(klas,leerlingID="1234"): #maak voor een klas alle afspraak 
         
         if(len(afspraakFunctieReturn) == 2):
             hiddenInputs.append(afspraakFunctieReturn[1])
-        ret += "<div class='afspraakDiv'><a href='#' onclick=\"afspraakToggle('"+vak.docentID+"')\">"+vak.vakCode+"</a><div class='toggle_afspraak' id='"+vak.docentID+"_toggle' >"
+        ret += "<div class='afspraakDivLeerling'><a href='#' class='leerlingAfspraakVakken' onclick=\"afspraakToggle('"+vak.docentID+"')\">"+vakNaamList[inList(vak.vakCode,vakCodeList)]+"</a><div class='toggle_afspraak' id='"+vak.docentID+"_toggle' >"
         ret += afspraakFunctieReturn[0]
         ret += "</div></div>"
         if(ret[-1:] == "1"):
@@ -85,7 +92,7 @@ def afspraakTable(docentID,aantalTijden=12,leerlingID="1234",tableCount=0): # ma
     
     tijden = zip(*tijden) # transponeer de matrix
     
-    ret = "<table border='1'><tr><th colspan='100%'>Ouderavond rooster van:&nbsp;"+docentID+"</th></tr>"
+    ret = "<table border='1' class='afspraakTable'><tr><th colspan='100%'>Ouderavond rooster van:&nbsp;"+docentID+"</th></tr>"
     ret += "<input type='hidden' name='"+docentID+"_aantalDagen' id='"+docentID+"_aantalDagen' value='"+str(len(datums))+"' />" #aantal dagen, nodig voor javascript
     ret += "<input type='hidden' name='"+docentID+"_aantalTijden' id='"+docentID+"_aantalTijden' value='"+str(aantalTijden)+"' />" #aantal tijden, nodig voor javascript
     ret += "<input type='hidden' name='"+docentID+"_docentIndex' id='"+docentID+"_docentIndex' value='"+str(tableCount)+"' />"
@@ -113,7 +120,7 @@ def afspraakTable(docentID,aantalTijden=12,leerlingID="1234",tableCount=0): # ma
         afspraaknummer += 1
         time += delta # time += 15 minuten
         
-    ret += "<tr>"+cell(data="<input style='width:100%'  name='"+docentID+"_beschrijving' type='text' value='Gespreks punt(en)' onChange=\"parseBeschrijving(this,'"+docentID+"')\" />", attributes="colspan='100%' ")+"</tr>"
+    ret += "<tr>"+cell(data="<textarea class='leerlingBeschrijving'  name='"+docentID+"_beschrijving' type='textarea' onChange=\"parseBeschrijving(this,'"+docentID+"')\" >Gespreks punt(en)</textarea>", attributes="colspan='100%' ")+"</tr>"
     ret += "</form></table>"
     ret = [ret, "<input type='hidden' name='"+docentID+"_afspraak' id='"+docentID+"_afspraak' value='' /> <input type='hidden' name='"+docentID+"_hidden_beschrijving' id='"+docentID+"_hidden_beschrijving' />"]
     return ret
@@ -136,7 +143,7 @@ def afspraakTableReadOnly(docentID="BAARR"):
             echteAfspraken.append(afspraak)
     
     tijden = zip(*tijden) # transponeer de matrix
-    ret = "<script type='text/javascript' src='js/DocentAfspraak.js'></script><script type='text/javascript' src='js/jquery-1.6.4.js'></SCRIPT><table border='1'><tr><th colspan='100%'>Ouderavond rooster van:&nbsp;"+docentID+"</th></tr>"
+    ret = "<script type='text/javascript' src='js/DocentAfspraak.js'></script><script type='text/javascript' src='js/jquery-1.6.4.js'></SCRIPT><div class='afspraakDivDocent'><table border='1' class='afspraakTable'><tr><th colspan='100%'>Ouderavond rooster van:&nbsp;"+docentID+"</th></tr>"
     ret += "<tr><th>Tijd</th>"
     for datum in datums: #print alle datums uit
         ret += "<th>"+str(datum)+"</th>"
@@ -161,13 +168,13 @@ def afspraakTableReadOnly(docentID="BAARR"):
         time += delta # time += 15 minuten
         
     ret += "</form></table>"
-    ret += "<table border='1'>"
+    ret += "<table>"
     ret += "<tr><td><b>LeerlingID</b></td><td id='leerlingID'></td></tr>"
     ret += "<tr><td><b>Dag</b></td><td id='dag'></td></tr>"
     ret += "<tr><td><b>Tijd</b></td><td id='tijd'></td></tr>"
     ret += "<tr><td><b>Tafelnummer</b></td><td id='tafelnummer'></td></tr>"
     ret += "<tr><td><b>Beschrijving</b></td><td id='beschrijving'></td></tr>"
-    ret += "</table>"
+    ret += "</table></div>"
     return ret
     
 def inList(item, list): #checkt of 'item' in de 'list' zit, zo ja, return de index van het item, nee return -1

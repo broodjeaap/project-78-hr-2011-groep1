@@ -118,14 +118,21 @@ class OuderAvondPlannenPost(webapp.RequestHandler):
         for datum in datums:
             splitDatums.append(datum.split("-"))
             
-        for docent in docenten:
-            for datum in splitDatums:
-                afspraak = entities.Afspraak(leerlingID="0",docentID=docent,dag=datetime.date(int(datum[0]), int(datum[1]), int(datum[2])), tijd=-1,tafelnummer=0,beschrijving='#')
-                afspraak.put();
-            self.response.out.write(docent+" heeft ouderavond(en) op: <br />")
-            for datum in datums:
-                self.response.out.write(datum+" <br />")
-            self.response.out.write("<br />")
+        afspraken = []
+        try:
+            for docent in docenten:
+                for datum in splitDatums:
+                    afspraak = entities.Afspraak(leerlingID="0",docentID=docent,dag=datetime.date(int(datum[0]), int(datum[1]), int(datum[2])), tijd=-1,tafelnummer=0,beschrijving='#')
+                    afspraken.append(afspraak)
+                    #afspraak.put();
+                self.response.out.write(docent+" heeft ouderavond(en) op: <br />")
+                for datum in datums:
+                    self.response.out.write(datum+" <br />")
+                self.response.out.write("<br />")
+            for afspraak in afspraken:
+                afspraak.put()
+        except:
+            self.response.out.write("Datums verkeerd ingevoerd...")
         self.response.out.write(webpages.footer())
             
 class AfspraakPlanningPost(webapp.RequestHandler):

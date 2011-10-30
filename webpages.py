@@ -37,14 +37,6 @@ def DocentPage(docent):
                     <div id="tableWrapper">
                         %s
                     </div>
-                <div id="buttons">
-                    <a href="http://www.google.nl">
-                        <input type="submit" value="print"/>
-                    </a>
-                    <a href="http://www.google.nl">
-                        <input type="submit" value="Uitloggen"/>
-                    </a>
-                </div>
             </div>
         """ %(docent.aanhef, docent.naam, htmlHelper.afspraakTableReadOnly(docent.docentID))
 def LeerlingPage(student):
