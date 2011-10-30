@@ -34,13 +34,13 @@ def klasAfspraakPage(klas,leerlingID="1234"): #maak voor een klas alle afspraak 
         
         if(len(afspraakFunctieReturn) == 2):
             hiddenInputs.append(afspraakFunctieReturn[1])
-        ret += "<div class='afspraakDivLeerling'><a href='#' class='leerlingAfspraakVakken' onclick=\"afspraakToggle('"+vak.docentID+"')\">"+vakNaamList[inList(vak.vakCode,vakCodeList)]+"</a><div class='toggle_afspraak' id='"+vak.docentID+"_toggle' >"
+        ret += "<div class='afspraakDivLeerling'><div class='leerlingTableHeader' onclick=\"afspraakToggle('"+vak.docentID+"')\">"+vakNaamList[inList(vak.vakCode,vakCodeList)]+"</div><div class='toggle_afspraak' id='"+vak.docentID+"_toggle' >"
         ret += afspraakFunctieReturn[0]
-        ret += "</div></div>"
+        
         if(ret[-1:] == "1"):
             afspraakCount += 1
             ret = ret[:-1]
-        
+        ret += "</div></div>"
         ret += "<input type='hidden' name='klas' value='"+klas+"' />"
         count += 1
     ret += "<form name='afspraken' action='/afspraakplanningpost' method='post' id='leerlingAfspraakForm'>"

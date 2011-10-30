@@ -94,7 +94,7 @@ a {
 .afspraakDivLeerling {
 	float: left;
 	margin: 15px 0 15px 0;
-	padding: 15px 15px 15px 0;
+	/*padding: 15px 15px 15px 0;*/
 	background-color: #FFE4C4;
     border: 3px solid #FF7F50;
 }
@@ -113,16 +113,8 @@ a {
 	resize: none;
 }
 
-.afspraakTable {
-	margin: 10px 10px 10px 10px;
-	background-color: #FFE1C1;
+.leerlingTableHeader {
 	border-bottom: 5px solid #FF7F50;
-    border-collapse: collapse;
-    border-top: 5px solid #FF7F50;
-}
-
-
-a.leerlingAfspraakVakken, a.leerlingAfspraakVakken:link, a.leerlingAfspraakVakken:visited{
 	color: #7A311D;
 	display:block;
 	font-size:20px;
@@ -130,10 +122,20 @@ a.leerlingAfspraakVakken, a.leerlingAfspraakVakken:link, a.leerlingAfspraakVakke
 	font-weight:bold;
 	padding: 3px 0 4px;
 	text-align: center;
-	text-decoration:none;
-	width:120px;
+	min-width: 120px;
+	cursor: hand;
+
 }
- 
-a.leerlingAfspraakVakken:hover{
+
+.leerlingTableHeader:hover {
 	background-color:#FFD09B;
+	cursor: hand;
+}
+
+.afspraakTable {
+	margin: 10px 10px 10px 10px;
+	background-color: #FFE1C1;
+	border-bottom: 5px solid #FF7F50;
+    border-collapse: collapse;
+    border-top: 5px solid #FF7F50;
 }
