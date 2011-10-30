@@ -5,22 +5,6 @@ function afspraakInit(){
 	keuzes = $("#aantalAfspraken").val();
 }
 
-$(document).ready(function() {
-
-	var updateHidden = function (){
-		$("#checkedDocenten").val($("input:checkbox:checked[docentCheckBox |='true']").map(function(i,n) {
-			return $(n).val();
-		}).get().join(','));
-	}
-	
-	$("input:checkbox").change(updateHidden);
-	
-	$("#select_all").change(function() {
-		$("input:checkbox").attr('checked', $('#select_all').is(':checked')); 
-		updateHidden();
-	});
-});
-
 function selectCheckbox(clickedCell, dag, afspraakNummer, docentNaam, datum){
 	aantalDagen = $("#"+docentNaam+"_aantalDagen").val();
 	aantalTijden = $("#"+docentNaam+"_aantalTijden").val();
@@ -50,4 +34,8 @@ function selectCheckbox(clickedCell, dag, afspraakNummer, docentNaam, datum){
 		document.getElementById(docentNaam+"_afspraak").value = datum+"_"+afspraakNummer;
 		return;
 	}
+}
+
+function parseBeschrijving(textField, docentID){
+	$("#"+docentID+"_hidden_beschrijving").val($(textField).val());
 }

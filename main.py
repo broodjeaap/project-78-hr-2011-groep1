@@ -135,8 +135,7 @@ class AfspraakPlanningPost(webapp.RequestHandler):
         if(len(key) != 0):
             afspraak = entities.Afspraak.get(key)
             afspraak.delete()
-            self.response.out.write("test")
-            #self.redirect('/leerlingafspraak')
+            self.redirect('/leerlingafspraak')
             return
         
         klas = self.request.get("klas")
@@ -148,7 +147,7 @@ class AfspraakPlanningPost(webapp.RequestHandler):
         for vak in vakken:
             afspraakString = self.request.get(vak.docentID+"_afspraak")
             if(len(afspraakString) != 0):
-                beschrijving = self.request.get(vak.docentID+"_beschrijving")
+                beschrijving = self.request.get(vak.docentID+"_hidden_beschrijving")
                 afspraakData = afspraakString.split("_")
                 
                 datumStrings = afspraakData[0].split("-")

@@ -18,17 +18,26 @@ def startTable(header=None, tableStart=True,border=True):
 
 def klasAfspraakPage(klas,leerlingID="1234"): #maak voor een klas alle afspraak tabellen aan
     vakken = db.GqlQuery("SELECT * FROM VakPerKlas WHERE klas = '"+klas+"'") # pak alle vakken van een klas
-    ret = "<div><script type='text/javascript' src='js/LeerlingAfspraak.js'></SCRIPT><form name='afspraken' action='/afspraakplanningpost' method='post'>"
+    ret = "<div><script type='text/javascript' src='js/LeerlingAfspraak.js'></SCRIPT>"
     count = 0
     afspraakCount = 0;
+    hiddenInputs = []
     for vak in vakken: # voor elk vak in de klas, maak een afspraakTable
-        ret += afspraakTable(docentID=vak.docentID,leerlingID=leerlingID,tableCount=count)
+        afspraakFunctieReturn = afspraakTable(docentID=vak.docentID,leerlingID=leerlingID,tableCount=count)
+        
+        if(len(afspraakFunctieReturn) == 2):
+            hiddenInputs.append(afspraakFunctieReturn[1])
+        ret += afspraakFunctieReturn[0]
+        
         if(ret[-1:] == "1"):
             afspraakCount += 1
             ret = ret[:-1]
+        
         ret += "<input type='hidden' name='klas' value='"+klas+"' />"
         count += 1
-    
+    ret += "<form name='afspraken' action='/afspraakplanningpost' method='post'>"
+    for hiddenInput in hiddenInputs:
+        ret += hiddenInput
     ret += "<input type='hidden' id='aantalAfspraken' name='aantalAfspraken' value='"+str(afspraakCount)+"' />"
     ret += "<input type='hidden' name='klas' value='"+klas+"' />"
     ret += "<input type='submit' value='Ok' /></form></div>"
@@ -56,10 +65,11 @@ def afspraakTable(docentID,aantalTijden=12,leerlingID="1234",tableCount=0): # ma
         afspraakTable.append(tableRow)
         ret = table(afspraakTable, attributes="border='1'", head=["LeerlingID","DocentID","Datum","Tijd","Tafelnummer","Afzeggen"])
         ret += "1" #yeah... uuh...
+        ret = [ret]
         return ret
     
     if(afspraken.count() == 0):
-        return "<h3>"+docentID+" heeft geen ouderavond ingepland </h3>"
+        return ["<h3>"+docentID+" heeft geen ouderavond ingepland </h3>"]
     
     tijden = []
     datums = []
@@ -74,12 +84,12 @@ def afspraakTable(docentID,aantalTijden=12,leerlingID="1234",tableCount=0): # ma
     
     tijden = zip(*tijden) # transponeer de matrix
     
-    ret = "<table border='1'><tr><th colspan='100%'>"+'Ouderavond rooster van:&nbsp;'+docentID+"</th></tr>"
+    ret = "<table border='1'><tr><th colspan='100%'>Ouderavond rooster van:&nbsp;"+docentID+"</th></tr>"
     ret += "<input type='hidden' name='"+docentID+"_aantalDagen' id='"+docentID+"_aantalDagen' value='"+str(len(datums))+"' />" #aantal dagen, nodig voor javascript
     ret += "<input type='hidden' name='"+docentID+"_aantalTijden' id='"+docentID+"_aantalTijden' value='"+str(aantalTijden)+"' />" #aantal tijden, nodig voor javascript
     ret += "<input type='hidden' name='"+docentID+"_docentIndex' id='"+docentID+"_docentIndex' value='"+str(tableCount)+"' />"
     
-    ret += "<input type='hidden' name='"+docentID+"_afspraak' id='"+docentID+"_afspraak' value='' />" # belangrijkste data voor post
+    #ret += "<input type='hidden' name='"+docentID+"_afspraak' id='"+docentID+"_afspraak' value='' />" # belangrijkste data voor post
     ret += "<tr><th>Tijd</th>"
     for datum in datums: #print alle datums uit
         ret += "<th>"+str(datum)+"</th>"
@@ -102,8 +112,9 @@ def afspraakTable(docentID,aantalTijden=12,leerlingID="1234",tableCount=0): # ma
         afspraaknummer += 1
         time += delta # time += 15 minuten
         
-    ret += "<tr>"+cell(data="<input style='width:100%'  name='"+docentID+"_beschrijving' type='text' value='Gespreks punt(en)' />", attributes="colspan='100%' ")+"</tr>"
+    ret += "<tr>"+cell(data="<input style='width:100%'  name='"+docentID+"_beschrijving' type='text' value='Gespreks punt(en)' onChange=\"parseBeschrijving(this,'"+docentID+"')\" />", attributes="colspan='100%' ")+"</tr>"
     ret += "</form></table>"
+    ret = [ret, "<input type='hidden' name='"+docentID+"_afspraak' id='"+docentID+"_afspraak' value='' /> <input type='hidden' name='"+docentID+"_hidden_beschrijving' id='"+docentID+"_hidden_beschrijving' />"]
     return ret
 
 def afspraakTableReadOnly(docentID="BAARR"):
