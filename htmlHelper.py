@@ -169,7 +169,7 @@ def inList(item, list): #checkt of 'item' in de 'list' zit, zo ja, return de ind
 def planningPage():
     docentTable = []
     tableRow = []
-    ret = "<form name='plannen' action='/plannenpost' method='post'>"
+    ret = "<script type='text/javascript' src='js/OuderAvondPlannen.js'></SCRIPT><form name='plannen' action='/plannenpost' method='post'>"
     ret += "<input type='hidden' name='checkedDocenten' id='checkedDocenten' value='' />"
     tableRow.append("""<input type='text' name='datums' id='datepicker' />
                 <script type="text/javascript">

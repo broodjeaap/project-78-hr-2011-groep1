@@ -51,11 +51,3 @@ function selectCheckbox(clickedCell, dag, afspraakNummer, docentNaam, datum){
 		return;
 	}
 }
-
-function arraySum(array){
-	sum = 0;
-	for(var a = 0;a < array.length;++a){
-		sum += array[a];
-	}
-	return sum;
-}

@@ -73,14 +73,12 @@ class Login(webapp.RequestHandler):
 
 class Logout(webapp.RequestHandler):
     def get(self):
-        webpages.header(title="Logout")
         session = get_current_session()
         if(session.has_key('id')):
             session.terminate()
-            self.response.out.write("U bent uitgelogt")
+            self.redirect('/')
         else:
-            self.response.out.write("U bent niet ingelogt")
-        webpages.footer()
+            self.redirect('/')
 
 class Authenticate(webapp.RequestHandler):
     def post(self):
@@ -137,10 +135,13 @@ class AfspraakPlanningPost(webapp.RequestHandler):
         if(len(key) != 0):
             afspraak = entities.Afspraak.get(key)
             afspraak.delete()
-            self.redirect('/')
+            self.response.out.write("test")
+            #self.redirect('/leerlingafspraak')
             return
+        
         klas = self.request.get("klas")
-        leerlingID = "4321"
+        session = get_current_session()
+        leerlingID = session['id']
         vakken = db.GqlQuery("SELECT * FROM VakPerKlas WHERE klas = '"+klas+"'")
         
         #self.response.out.write("<table border='1'><tr><th>leerlingID</th><th>docentID</th><th>dag</th><th>tijd</th><th>beschrijving</th></tr>")
@@ -154,7 +155,7 @@ class AfspraakPlanningPost(webapp.RequestHandler):
                 
                 afspraak = entities.Afspraak(leerlingID = leerlingID,docentID = vak.docentID,dag= datetime.date(int(datumStrings[0]),int(datumStrings[1]), int(datumStrings[2])),tijd= int(afspraakData[1]),tafelnummer=0,beschrijving = beschrijving)
                 afspraak.put()
-                self.redirect('/')
+                self.redirect('/leerlingafspraak')
 
 class DocentAfspraak(webapp.RequestHandler):
     def get(self):
@@ -172,7 +173,14 @@ class DocentAfspraak(webapp.RequestHandler):
 class LeerlingAfspraak(webapp.RequestHandler):
     def get(self):
         self.response.out.write(webpages.header())
-        self.response.out.write(htmlHelper.klasAfspraakPage(klas="h3"))
+        
+        session = get_current_session()
+        if(session.has_key('id') and session.__getitem__('loginType') == 'leerling'):
+            leerling = db.GqlQuery("SELECT * FROM Leerling where leerlingID = '"+session['id']+"'")
+            leerling = leerling[0]
+            self.response.out.write(htmlHelper.klasAfspraakPage(klas=leerling.klas,leerlingID=leerling.leerlingID))
+        else:
+            self.response.out.write("U heeft niet de juist rechten om deze pagina te bezoeken")
         self.response.out.write(webpages.footer())
         
 def main():
