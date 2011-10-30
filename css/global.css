@@ -137,3 +137,8 @@ a.leerlingAfspraakVakken, a.leerlingAfspraakVakken:link, a.leerlingAfspraakVakke
 a.leerlingAfspraakVakken:hover{
 	background-color:#FFD09B;
 }
+
+#navigationAlign{
+margin-right:0px;
+margin-left:auto;
+}
