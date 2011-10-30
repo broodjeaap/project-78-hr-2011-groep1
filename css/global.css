@@ -136,6 +136,11 @@ a {
 	margin: 10px 10px 10px 10px;
 	background-color: #FFE1C1;
 	border-bottom: 5px solid #FF7F50;
-    border-collapse: collapse;
-    border-top: 5px solid #FF7F50;
+	border-collapse: collapse;
+	border-top: 5px solid #FF7F50;
+}
+
+#headerTable {
+	margin-right:0px;
+	margin-left:auto;
 }
