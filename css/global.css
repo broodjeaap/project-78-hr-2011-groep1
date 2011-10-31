@@ -103,7 +103,6 @@ a {
 	margin: 15px 0 15px 0;
 	padding: 15px 15px 15px 0;
 	background-color: #FFE4C4;
-    border: 3px solid #FF7F50;
 }
 
 .leerlingBeschrijving {
@@ -116,9 +115,8 @@ a {
 .afspraakTable {
 	margin: 10px 10px 10px 10px;
 	background-color: #FFE1C1;
-	border-bottom: 5px solid #FF7F50;
     border-collapse: collapse;
-    border-top: 5px solid #FF7F50;
+    border: 2px solid #FF7F50;
 }
 
 
@@ -139,6 +137,6 @@ a.leerlingAfspraakVakken:hover{
 }
 
 #navigationAlign{
-margin-right:0px;
-margin-left:auto;
+	margin-right:0px;
+	margin-left:auto;
 }
