@@ -122,8 +122,6 @@ a {
 	padding: 3px 0 4px;
 	text-align: center;
 	min-width: 120px;
-	cursor: hand;
-
 }
 
 .GeenOuderAvondText {
@@ -187,7 +185,7 @@ a {
 	margin: 0 15px 15px 15px;
 }
 
-.wachtwoordpost {
+.wachtwoordPost {
 	color: #7A311D;
 	display:block;
 	font-size:20px;
@@ -199,6 +197,27 @@ a {
 }
 
 .header {
-	border-bottom: 3px solid #F9E2C7;
+	background-color: #F9E2C7;
 	margin: 0 0 30px 0;
+	color: #7A311D;
+	display:block;
+	font-size:20px;
+	font-weight:bold;
+	height: 25px;
+}
+
+.headerLink {
+	color: #7A311D;
+	display:block;
+	font-size:15px;
+	text-align: center;
+	font-weight:bold;
+	text-align: center;
+	
+	cursor: hand;
+}
+
+.headerLink:hover {
+	background-color:#FFD09B;
+	cursor: hand;
 }

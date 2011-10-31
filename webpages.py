@@ -78,11 +78,11 @@ def header(bodyAttributes = "",title="",homeLink="/"):
                     <div class='header'>
                         <table id="headerTable" width='500'>
                             <tr>
-                                <td><a href='%s'>Home</a></td>
-                                <td><a href='/insert'>Insert root</a></td>
-                                <td><a href='/plannen'>Ouder avond plannen</a></td>
-                                <td><a href='/accountsettings'>Account Settings</a></td>
-                                <td><a href='/logout'>Logout</a></td>
+                                <td><a href='%s'><div class='headerLink'>Home</div></a></td>
+                                <td><a href='/insert'><div class='headerLink'>Insert root</div></a></td>
+                                <td><a href='/plannen'><div class='headerLink'>Ouder avond plannen</div></a></td>
+                                <td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>
+                                <td><a href='/logout'><div class='headerLink'>Logout</div></a></td>
                             </tr>
                         </table>
                     </div>""" %(str(title),bodyAttributes,homeLink)

@@ -391,11 +391,11 @@ class AccountWachtwoordPost(webapp.RequestHandler):
                 if(nieuwPassword == herhaalPassword):
                    persoon.wachtwoord = nieuwPassword
                    persoon.put()
-                   self.response.out.write("<div class='wachtwoordpost'>Wachtwoord veranderd <br /><a href='/accountsettings'>Terug</a></div>")
+                   self.response.out.write("<div class='wachtwoordPost'>Wachtwoord veranderd <br /><a href='/accountsettings'>Terug</a></div>")
                 else:
-                    self.response.out.write("<div class='wachtwoordpost'>Nieuwe wachtwoorden waren niet hetzelfde <br /><a href='/accountsettings'>Terug</a></div>")
+                    self.response.out.write("<div class='wachtwoordPost'>Nieuwe wachtwoorden waren niet hetzelfde <br /><a href='/accountsettings'>Terug</a></div>")
             else:
-                self.response.out.write("<div class='wachtwoordpost'>Verkeerde wachtwoord <br /><a href='/accountsettings'>Terug</a></div>")
+                self.response.out.write("<div class='wachtwoordPost'>Verkeerde wachtwoord <br /><a href='/accountsettings'>Terug</a></div>")
         else:
             self.redirect('/')
         self.response.out.write(webpages.footer())
