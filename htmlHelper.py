@@ -168,7 +168,7 @@ def afspraakTableReadOnly(docentID="BAARR"):
         time += delta # time += 15 minuten
         
     ret += "</form></table>"
-    ret += "<table>"
+    ret += "<table class='afspraakTable' style='width:425px;'>"
     ret += "<tr><td><b>LeerlingID</b></td><td id='leerlingID'></td></tr>"
     ret += "<tr><td><b>Dag</b></td><td id='dag'></td></tr>"
     ret += "<tr><td><b>Tijd</b></td><td id='tijd'></td></tr>"
