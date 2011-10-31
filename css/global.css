@@ -127,6 +127,16 @@ a {
 
 }
 
+.GeenOuderAvondText {
+	color: #7A311D;
+	display:block;
+	font-size:20px;
+	text-align: center;
+	font-weight:bold;
+	margin: 5px 5px 5px 5px;
+	text-align: center;
+}
+
 .leerlingTableHeader:hover {
 	background-color:#FFD09B;
 	cursor: hand;
@@ -143,4 +153,20 @@ a {
 #headerTable {
 	margin-right:0px;
 	margin-left:auto;
+}
+
+.leerlingAccount {
+    margin-right: -250px;
+    position: absolute;
+    right: 50%;
+	border: 3px solid #FF7F50;
+	background-color: #FFE4C4;
+}
+
+.accountTable {
+	margin: 15px 15px 15px 15px;
+}
+
+.accountTablePassword {
+	margin: 0 15px 15px 15px;
 }

@@ -77,7 +77,7 @@ def afspraakTable(docentID,aantalTijden=12,leerlingID="1234",tableCount=0): # ma
         return ret
     
     if(afspraken.count() == 0):
-        return ["<h3>"+docentID+" heeft geen ouderavond ingepland </h3>"]
+        return ["<div class='GeenOuderAvondText'>"+docentID+" heeft geen ouderavond ingepland </div>"]
     
     tijden = []
     datums = []
@@ -223,8 +223,8 @@ def planningPage():
 def insertRootLink(entiteitNaam):
     return "<a href = '/insert/"+entiteitNaam.lower()+"'>"+entiteitNaam+" insert</a><form action='/insert/"+entiteitNaam.lower()+"post' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete all from "+entiteitNaam+"' /></form><br />"
 
-def table(data, attributes="",head=None, headAttributes="",title=None):
-    ret = "<table "+attributes+" >"
+def table(data, attributes="",head=None, headAttributes="",title=None,divAttr=''):
+    ret = "<div class="+divAttr+"><table "+attributes+" >"
     if(title != None):
         ret += "<tr><td colspan='100%'>"+str(title)+"</td></tr>"
     if(head != None):
@@ -234,7 +234,7 @@ def table(data, attributes="",head=None, headAttributes="",title=None):
         ret += "</tr>"
     for tableRow in data:
         ret += row(tableRow)
-    ret += "</table>"
+    ret += "</table></div>"
     return ret
 
 def row(values,attributes=""):

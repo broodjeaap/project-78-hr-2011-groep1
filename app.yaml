@@ -29,6 +29,12 @@ handlers:
 - url: /logout
   script: main.py
 
+- url: /accountsettings
+  script: main.py
+
+- url: /accountwachtwoordpost
+  script: main.py
+  
 - url: /insert/*.*
   script: insert.py
   

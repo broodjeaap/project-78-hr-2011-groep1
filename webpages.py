@@ -80,6 +80,7 @@ def header(bodyAttributes = "",title="",homeLink="/"):
                             <td><a href='%s'>Home</a></td>
                             <td><a href='/insert'>Insert root</a></td>
                             <td><a href='/plannen'>Ouder avond plannen</a></td>
+                            <td><a href='/accountsettings'>Account Settings</a></td>
                             <td><a href='/logout'>Logout</a></td>
                         </tr>
                     </table>""" %(str(title),bodyAttributes,homeLink)
