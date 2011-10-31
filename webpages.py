@@ -75,7 +75,7 @@ def header(bodyAttributes = "",title="",homeLink="/"):
                     <link rel="stylesheet" type="text/css" href="css/jquery.datepick.css" media="screen" />
                     <script type='text/javascript' src='js/jquery-1.6.4.js'></SCRIPT>
                     <script type='text/javascript' src='js/jquery.datepick.js'></script>
-                    <table id="navigationAlign" width='500'>
+                    <table id="headerTable" width='500'>
                         <tr>
                             <td><a href='%s'>Home</a></td>
                             <td><a href='/insert'>Insert root</a></td>
