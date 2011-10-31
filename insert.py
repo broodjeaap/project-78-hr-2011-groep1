@@ -406,6 +406,10 @@ class InsertBeheerder(webapp.RequestHandler):
         if(beheerders.count() == 0):
             beheerder = entities.Beheerder(login='admin', beschrijving='Ingebouwde admin account', wachtwoord='admin', securityLevel=2)
             beheerder.put()
+            beheerder = entities.Beheerder(login='secretariaat', beschrijving='Ingebouwde secretariaat account', wachtwoord='secretariaat', securityLevel=1)
+            beheerder.put()
+            beheerder = entities.Beheerder(login='read-only', beschrijving='Ingebouwde read-only account', wachtwoord='read-only', securityLevel=0)
+            beheerder.put()
             self.response.out.write('Beheerders toegevoegd aan de datastore')
         else:
             self.response.out.write(htmlHelper.startTable(header=['Login','beschrijving','wachtwoord','securityLevel']))

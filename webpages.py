@@ -75,15 +75,18 @@ def header(bodyAttributes = "",title="",homeLink="/"):
                     <link rel="stylesheet" type="text/css" href="css/jquery.datepick.css" media="screen" />
                     <script type='text/javascript' src='js/jquery-1.6.4.js'></SCRIPT>
                     <script type='text/javascript' src='js/jquery.datepick.js'></script>
-                    <table id="headerTable" width='500'>
-                        <tr>
-                            <td><a href='%s'>Home</a></td>
-                            <td><a href='/insert'>Insert root</a></td>
-                            <td><a href='/plannen'>Ouder avond plannen</a></td>
-                            <td><a href='/accountsettings'>Account Settings</a></td>
-                            <td><a href='/logout'>Logout</a></td>
-                        </tr>
-                    </table>""" %(str(title),bodyAttributes,homeLink)
+                    <div class='header'>
+                        <table id="headerTable" width='500'>
+                            <tr>
+                                <td><a href='%s'>Home</a></td>
+                                <td><a href='/insert'>Insert root</a></td>
+                                <td><a href='/plannen'>Ouder avond plannen</a></td>
+                                <td><a href='/accountsettings'>Account Settings</a></td>
+                                <td><a href='/logout'>Logout</a></td>
+                            </tr>
+                        </table>
+                    </div>""" %(str(title),bodyAttributes,homeLink)
+                    
 
 def footer():
     return "</body></html>"

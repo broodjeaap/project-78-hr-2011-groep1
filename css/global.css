@@ -153,9 +153,26 @@ a {
 #headerTable {
 	margin-right:0px;
 	margin-left:auto;
+	
 }
 
 .leerlingAccount {
+    margin-right: -250px;
+    position: absolute;
+    right: 50%;
+	border: 3px solid #FF7F50;
+	background-color: #FFE4C4;
+}
+
+.docentAccount {
+    margin-right: -250px;
+    position: absolute;
+    right: 50%;
+	border: 3px solid #FF7F50;
+	background-color: #FFE4C4;
+}
+
+.beheerAccount {
     margin-right: -250px;
     position: absolute;
     right: 50%;
@@ -169,4 +186,20 @@ a {
 
 .accountTablePassword {
 	margin: 0 15px 15px 15px;
+}
+
+.wachtwoordpost {
+	color: #7A311D;
+	display:block;
+	font-size:20px;
+	text-align: center;
+	font-weight:bold;
+	padding: 3px 0 4px;
+	text-align: center;
+	min-width: 120px;
+}
+
+.header {
+	border-bottom: 3px solid #F9E2C7;
+	margin: 0 0 30px 0;
 }

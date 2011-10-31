@@ -7,7 +7,10 @@ handlers:
 
 - url: /afspraakplanningpost
   script: main.py
-  
+
+- url: /beheerder
+  script: main.py
+
 - url: /docentafspraak
   script: main.py
   

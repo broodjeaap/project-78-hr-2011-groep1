@@ -202,6 +202,11 @@ class LeerlingAfspraak(webapp.RequestHandler):
             self.response.out.write("U heeft niet de juist rechten om deze pagina te bezoeken")
         self.response.out.write(webpages.footer())
 
+class Beheerder(webapp.RequestHandler):
+    def get(self):
+        self.response.out.write(webpages.header(homeLink="/beheerder"))
+        self.response.out.write("Beheer pagina")
+        self.response.out.write(webpages.footer())
 class AccountSettings(webapp.RequestHandler):
     def get(self):
         session = get_current_session()
@@ -284,22 +289,98 @@ class AccountSettings(webapp.RequestHandler):
             self.response.out.write("</div>")
         elif(session.__getitem__('loginType') == 'docent'):
             self.response.out.write(webpages.header(homeLink="/docentafspraak"))
+            self.response.out.write("<div class='docentAccount'>")
             docent = db.get(session.__getitem__('key'))
             
+            tableData = []
+            tableRow = []
+            tableRow.append("Naam")
+            tableRow.append(docent.aanhef+" "+docent.naam)
+            tableData.append(tableRow)
+            tableRow = []
+            tableRow.append("Postvaknummer")
+            tableRow.append(str(docent.postvaknummer))
+            tableData.append(tableRow)
+            tableRow = []
+            tableRow.append("Email")
+            tableRow.append(docent.email)
+            tableData.append(tableRow)
             
+            self.response.out.write(htmlHelper.table(tableData,attributes="class='accountTable'",title="<h2>Docent: "+docent.docentID+"</h2>",divAttr='docentAccountGegevens'))
+            
+            tableData = []
+            tableRow = []
+            self.response.out.write("<form action='/accountwachtwoordpost' method='post'>")
+            tableRow.append("Huidig wachtwoord")
+            tableRow.append("<input type='password' id='huidig_password' name='huidig_password' />")
+            tableData.append(tableRow)
+            tableRow = []
+            tableRow.append("Nieuwe wachtwoord")
+            tableRow.append("<input type='password' id='nieuw_password' name='nieuw_password' />")
+            tableData.append(tableRow)
+            tableRow = []
+            tableRow.append("Herhaal wachtwoord")
+            tableRow.append("<input type='password' id='herhaal_password' name='herhaal_password' />")
+            tableData.append(tableRow)
+            tableRow = []
+            tableRow.append("<input type='submit' value='Ok' />")
+            
+            tableData.append(tableRow)
+            self.response.out.write(htmlHelper.table(tableData,attributes="class='accountTablePassword'",title="<h3>Wachtwoord veranderen</h3>", divAttr='leerlingAccountWachtwoord'))
+            self.response.out.write("</form>")
+            self.response.out.write("</div>")
             
         elif(session.__getitem__('loginType') == 'beheerder'):
             self.response.out.write(webpages.header(homeLink="/beheerder"))
+            self.response.out.write("<div class='beheerAccount'>")
             beheerder = db.get(session.__getitem__('key'))
+            tableData = []
+            tableRow = []
+            tableRow.append("Beschrijving")
+            tableRow.append(beheerder.beschrijving)
+            tableData.append(tableRow)
+            tableRow = []
+            tableRow.append("SecurityLevel")
+            if(beheerder.securityLevel == 0):
+                tableRow.append("Read-only access")
+            elif(beheerder.securityLevel == 1):
+                tableRow.append("Secretariaat")
+            elif(beheerder.securityLevel == 2):
+                tableRow.append("Admin")
+            else:
+                tableRow.append("Error")
+            tableData.append(tableRow)
+            tableRow = []
+            self.response.out.write(htmlHelper.table(tableData,attributes="class='accountTable'",title="<h2>Beheerder: "+beheerder.login+"</h2>",divAttr='docentAccountGegevens'))
             
+            tableData = []
+            tableRow = []
+            self.response.out.write("<form action='/accountwachtwoordpost' method='post'>")
+            tableRow.append("Huidig wachtwoord")
+            tableRow.append("<input type='password' id='huidig_password' name='huidig_password' />")
+            tableData.append(tableRow)
+            tableRow = []
+            tableRow.append("Nieuwe wachtwoord")
+            tableRow.append("<input type='password' id='nieuw_password' name='nieuw_password' />")
+            tableData.append(tableRow)
+            tableRow = []
+            tableRow.append("Herhaal wachtwoord")
+            tableRow.append("<input type='password' id='herhaal_password' name='herhaal_password' />")
+            tableData.append(tableRow)
+            tableRow = []
+            tableRow.append("<input type='submit' value='Ok' />")
             
-            
+            tableData.append(tableRow)
+            self.response.out.write(htmlHelper.table(tableData,attributes="class='accountTablePassword'",title="<h3>Wachtwoord veranderen</h3>", divAttr='leerlingAccountWachtwoord'))
+            self.response.out.write("</form>")
+            self.response.out.write("</div>")
         else:
             self.redirect('/')
         self.response.out.write(webpages.footer())
         
 class AccountWachtwoordPost(webapp.RequestHandler):
     def post(self):
+        self.response.out.write(webpages.header())
         session = get_current_session()
         if(session.has_key('id')):
             huidigPassword = self.request.get("huidig_password")
@@ -310,13 +391,14 @@ class AccountWachtwoordPost(webapp.RequestHandler):
                 if(nieuwPassword == herhaalPassword):
                    persoon.wachtwoord = nieuwPassword
                    persoon.put()
-                   self.response.out.write("Wachtwoord veranderd")
+                   self.response.out.write("<div class='wachtwoordpost'>Wachtwoord veranderd <br /><a href='/accountsettings'>Terug</a></div>")
                 else:
-                    self.response.out.write("Nieuwe wachtwoorden waren niet hetzelfde")
+                    self.response.out.write("<div class='wachtwoordpost'>Nieuwe wachtwoorden waren niet hetzelfde <br /><a href='/accountsettings'>Terug</a></div>")
             else:
-                self.response.out.write("Verkeerde wachtwoord")
+                self.response.out.write("<div class='wachtwoordpost'>Verkeerde wachtwoord <br /><a href='/accountsettings'>Terug</a></div>")
         else:
             self.redirect('/')
+        self.response.out.write(webpages.footer())
     
 def main():
     application = webapp.WSGIApplication([('/', Login),
@@ -328,6 +410,7 @@ def main():
                                           ('/docentafspraak', DocentAfspraak),
                                           ('/accountsettings', AccountSettings),
                                           ('/accountwachtwoordpost', AccountWachtwoordPost),
+                                          ('/beheerder',Beheerder),
                                           ('/plannenpost', OuderAvondPlannenPost)],
                                          debug=True)
     util.run_wsgi_app(application)
