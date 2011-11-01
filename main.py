@@ -189,7 +189,7 @@ class DocentAfspraak(webapp.RequestHandler):
             
             self.response.out.write(webpages.DocentPage(docent))
         else:
-            self.response.out.write("U heeft niet de juist rechten om deze pagina te bezoeken")
+            self.redirect('/')
         self.response.out.write(webpages.footer())
 
 class LeerlingAfspraak(webapp.RequestHandler):
@@ -201,7 +201,7 @@ class LeerlingAfspraak(webapp.RequestHandler):
             leerling = leerling[0]
             self.response.out.write(htmlHelper.klasAfspraakPage(klas=leerling.klas,leerlingID=leerling.leerlingID))
         else:
-            self.response.out.write("U heeft niet de juist rechten om deze pagina te bezoeken")
+            self.redirect('/')
         self.response.out.write(webpages.footer())
 
 class Beheerder(webapp.RequestHandler):
