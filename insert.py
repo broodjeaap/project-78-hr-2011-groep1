@@ -13,159 +13,201 @@ import inputFunctions
 class InsertRoot(webapp.RequestHandler):
     def get(self):
         session = get_current_session()
-        self.response.out.write(webpages.header(session))
-        self.response.out.write(htmlHelper.insertRootLink("Afspraak"))
-        self.response.out.write(htmlHelper.insertRootLink("Docent"))
-        self.response.out.write(htmlHelper.insertRootLink("Vak"))
-        self.response.out.write(htmlHelper.insertRootLink("VakPerKlas"))
-        self.response.out.write(htmlHelper.insertRootLink("Leerling"))
-        self.response.out.write(htmlHelper.insertRootLink("beheerder"))
-        self.response.out.write(webpages.footer())
-
+        if(session.__getitem__('loginType') == 'beheerder'):
+            if(session.__getitem__('securityLevel') == 2):
+                self.response.out.write(webpages.header(session))
+                self.response.out.write(htmlHelper.insertRootLink("Afspraak"))
+                self.response.out.write(htmlHelper.insertRootLink("Docent"))
+                self.response.out.write(htmlHelper.insertRootLink("Vak"))
+                self.response.out.write(htmlHelper.insertRootLink("VakPerKlas"))
+                self.response.out.write(htmlHelper.insertRootLink("Leerling"))
+                self.response.out.write(htmlHelper.insertRootLink("beheerder"))
+                self.response.out.write(webpages.footer())
+            else:
+                self.redirect('/beheerder')
+        else:
+            self.redirect('/')
+            
 class InsertAfspraak(webapp.RequestHandler):
     def get(self):
         session = get_current_session()
-        self.response.out.write(webpages.header(session))
-        afspraken = entities.Afspraak.all()
-        if(afspraken.count() == 0):
-            inputFunctions.insertAfspraak()
-            self.response.out.write('Afspraken toegevoegd aan de datastore')
+        if(session.__getitem__('loginType') == 'beheerder'):
+            if(session.__getitem__('securityLevel') == 2):
+                self.response.out.write(webpages.header(session))
+                afspraken = entities.Afspraak.all()
+                if(afspraken.count() == 0):
+                    inputFunctions.insertAfspraak()
+                    self.response.out.write('Afspraken toegevoegd aan de datastore')
+                else:
+                    tableData = []
+                    for afspraak in afspraken:
+                        tableRow = []
+                        tableRow.append(afspraak.leerlingID)
+                        tableRow.append(afspraak.docentID)
+                        tableRow.append(afspraak.dag)
+                        tableRow.append(afspraak.tijd)
+                        tableRow.append(afspraak.tafelnummer)
+                        tableRow.append(afspraak.beschrijving)
+                        tableData.append(tableRow)
+                    self.response.out.write(htmlHelper.table(data=tableData, attributes="class='overzichtTable" ,head=['leerlingID','DocentID','dag','Tijd','Tafelnummer','beschrijving'],title="Afspraken",divAttr='overzichtDiv',evenOdd=True))
+                    self.response.out.write("<form action='/insert/afspraakpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
+                    self.response.out.write(webpages.footer())
+            else:
+                self.redirect('/beheerder')
         else:
-            self.response.out.write(htmlHelper.startTable(header=['leerlingID','DocentID','dag','Tijd','Tafelnummer','beschrijving']))
-            for afspraak in afspraken:
-                self.response.out.write("<tr>")
-                self.response.out.write(htmlHelper.cell(afspraak.leerlingID))
-                self.response.out.write(htmlHelper.cell(afspraak.docentID))
-                self.response.out.write(htmlHelper.cell(afspraak.dag))
-                self.response.out.write(htmlHelper.cell(afspraak.tijd))
-                self.response.out.write(htmlHelper.cell(afspraak.tafelnummer))
-                self.response.out.write(htmlHelper.cell(afspraak.beschrijving))
-                self.response.out.write("</tr>")
-            self.response.out.write("</table>")
-            self.response.out.write("<form action='/insert/afspraakpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
-            self.response.out.write(webpages.footer())
+            self.redirect('/')
 
 class InsertDocent(webapp.RequestHandler):
     def get(self):
         session = get_current_session()
-        self.response.out.write(webpages.header(session))
-        docenten = entities.Docent.all()
-        if(docenten.count() == 0):
-            inputFunctions.insertDocent()
-            self.response.out.write('Docenten toegevoegd aan de datastore')
+        if(session.__getitem__('loginType') == 'beheerder'):
+            if(session.__getitem__('securityLevel') == 2):
+                self.response.out.write(webpages.header(session))
+                docenten = entities.Docent.all()
+                if(docenten.count() == 0):
+                    inputFunctions.insertDocent()
+                    self.response.out.write('Docenten toegevoegd aan de datastore')
+                else:
+                    tableData = []
+                    for docent in docenten:
+                        tableRow = []
+                        tableRow.append(docent.docentID)
+                        tableRow.append(docent.aanhef)
+                        tableRow.append(docent.naam)
+                        tableRow.append(docent.postvaknummer)
+                        tableRow.append(docent.email)
+                        tableRow.append(docent.wachtwoord)
+                        tableData.append(tableRow)
+                    self.response.out.write(htmlHelper.table(data=tableData, attributes="class='overzichtTable" ,head=['docentID','aanhef','naam','postvaknummer','email','wachtwoord'],title="Docenten",divAttr='overzichtDiv',evenOdd=True))
+                    self.response.out.write("<form action='/insert/docentpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
+                self.response.out.write(webpages.footer())
+            else:
+                self.redirect('/beheerder')
         else:
-            self.response.out.write(htmlHelper.startTable(header=['docentID','Aanhef','Naam','Postvaknummer','email', 'wachtwoord']))
-            for docent in docenten:
-                self.response.out.write("<tr>")
-                self.response.out.write(htmlHelper.cell(docent.docentID))
-                self.response.out.write(htmlHelper.cell(docent.aanhef))
-                self.response.out.write(htmlHelper.cell(docent.naam))
-                self.response.out.write(htmlHelper.cell(str(docent.postvaknummer)))
-                self.response.out.write(htmlHelper.cell(docent.email))
-                self.response.out.write(htmlHelper.cell(docent.wachtwoord))
-                self.response.out.write("</tr>")
-            self.response.out.write("</table>")
-            self.response.out.write("<form action='/insert/docentpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
-        self.response.out.write(webpages.footer())
+            self.redirect('/')
 
 class InsertVak(webapp.RequestHandler):
     def get(self):
         session = get_current_session()
-        self.response.out.write(webpages.header(session))
-        vakken = entities.Vak.all()
-        if(vakken.count() == 0):
-            inputFunctions.insertVak()
-            self.response.out.write('Vakken toegevoegd aan de datastore')
+        if(session.__getitem__('loginType') == 'beheerder'):
+            if(session.__getitem__('securityLevel') == 2):
+                self.response.out.write(webpages.header(session))
+                vakken = entities.Vak.all()
+                if(vakken.count() == 0):
+                    inputFunctions.insertVak()
+                    self.response.out.write('Vakken toegevoegd aan de datastore')
+                else:
+                    tableData = []
+                    for vak in vakken:
+                        tableRow = []
+                        tableRow.append(vak.vakCode)
+                        tableRow.append(vak.vakNaam)
+                        tableData.append(tableRow)
+                    self.response.out.write(htmlHelper.table(data=tableData, attributes="class='overzichtTable" ,head=['VakCode','VakNaam'],title="Vakken",divAttr='overzichtDiv',evenOdd=True))
+                    self.response.out.write("<form action='/insert/vakpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
+                self.response.out.write(webpages.footer())
+            else:
+                self.redirect('/beheerder')
         else:
-            self.response.out.write(htmlHelper.startTable(header=['VakCode','VakNaam']))
-            for vak in vakken:
-                self.response.out.write("<tr>")
-                self.response.out.write(htmlHelper.cell(vak.vakCode))
-                self.response.out.write(htmlHelper.cell(vak.vakNaam))
-                self.response.out.write("</tr>")
-            self.response.out.write("</table>")
-            self.response.out.write("<form action='/insert/vakpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
-        self.response.out.write(webpages.footer())
+            self.redirect('/')
+
 
 class InsertVakPerKlas(webapp.RequestHandler):
     def get(self):
         session = get_current_session()
-        self.response.out.write(webpages.header(session))
-        vakken = entities.VakPerKlas.all()
-        if(vakken.count() == 0):
-            inputFunctions.insertVakPerKlas()
-            self.response.out.write('Vakken per klas toegevoegd aan de datastore')
+        if(session.__getitem__('loginType') == 'beheerder'):
+            if(session.__getitem__('securityLevel') == 2):
+                self.response.out.write(webpages.header(session))
+                vakken = entities.VakPerKlas.all()
+                if(vakken.count() == 0):
+                    inputFunctions.insertVakPerKlas()
+                    self.response.out.write('Vakken per klas toegevoegd aan de datastore')
+                else:
+                    tableData = []
+                    for vakPerKlas in vakken:
+                        tableRow = []
+                        tableRow.append(vakPerKlas.jaargang)
+                        tableRow.append(vakPerKlas.klas)
+                        tableRow.append(vakPerKlas.vakCode)
+                        tableRow.append(vakPerKlas.docentID)
+                        tableData.append(tableRow)
+                    self.response.out.write(htmlHelper.table(data=tableData, attributes="class='overzichtTable" ,head=['Jaargang','Klas','VakCode','DocentID'],title="Vakken",divAttr='overzichtDiv',evenOdd=True))
+                    self.response.out.write("<form action='/insert/vakpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
+                self.response.out.write(webpages.footer())
+            else:
+                self.redirect('/beheerder')
         else:
-            self.response.out.write(htmlHelper.startTable(header=['Jaargang','Klas','VakCode','docentID']))
-            for vak in vakken:
-                self.response.out.write("<tr>")
-                self.response.out.write(htmlHelper.cell(vak.jaargang))
-                self.response.out.write(htmlHelper.cell(vak.klas))
-                self.response.out.write(htmlHelper.cell(vak.vakCode))
-                self.response.out.write(htmlHelper.cell(vak.docentID))
-                self.response.out.write("</tr>")
-            self.response.out.write("</table>")
-            self.response.out.write("<form action='/insert/vakpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
-        self.response.out.write(webpages.footer())
+            self.redirect('/')
+
 
 class InsertBeheerder(webapp.RequestHandler):
     def get(self):
         session = get_current_session()
-        self.response.out.write(webpages.header(session))
-        beheerders = entities.Beheerder.all()
-        if(beheerders.count() == 0):
-            inputFunctions.insertBeheerder()
-            self.response.out.write('Beheerders toegevoegd aan de datastore')
+        if(session.__getitem__('loginType') == 'beheerder'):
+            if(session.__getitem__('securityLevel') == 2):
+                self.response.out.write(webpages.header(session))
+                beheerders = entities.Beheerder.all()
+                if(beheerders.count() == 0):
+                    inputFunctions.insertBeheerder()
+                    self.response.out.write('Beheerders toegevoegd aan de datastore')
+                else:
+                    tableData = []
+                    for beheerder in beheerders:
+                        tableRow = []
+                        tableRow.append(beheerder.login)
+                        tableRow.append(beheerder.beschrijving)
+                        tableRow.append(beheerder.wachtwoord)
+                        tableRow.append(beheerder.securityLevel)
+                        tableData.append(tableRow)
+                    self.response.out.write(htmlHelper.table(data=tableData, attributes="class='overzichtTable" ,head=['Login','Beschrijving','Wachtwoord','SecurityLevel'],title="Vakken",divAttr='overzichtDiv',evenOdd=True))
+                    self.response.out.write("<form action='/insert/beheerderpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
+                self.response.out.write(webpages.footer())
+            else:
+                self.redirect('/beheerder')
         else:
-            self.response.out.write(htmlHelper.startTable(header=['Login','beschrijving','wachtwoord','securityLevel']))
-            for beheerder in beheerders:
-                self.response.out.write("<tr>")
-                self.response.out.write(htmlHelper.cell(beheerder.login))
-                self.response.out.write(htmlHelper.cell(beheerder.beschrijving))
-                self.response.out.write(htmlHelper.cell(beheerder.wachtwoord))
-                self.response.out.write(htmlHelper.cell(beheerder.securityLevel))
-                self.response.out.write("</tr>")
-            self.response.out.write("</table>")
-            self.response.out.write("<form action='/insert/beheerderpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
-        self.response.out.write(webpages.footer())
-        
+            self.redirect('/')
+
 class InsertLeerling(webapp.RequestHandler):
     def get(self):
         session = get_current_session()
-        self.response.out.write(webpages.header(session))
-        leerlingen = entities.Leerling.all()
-        if(leerlingen.count() == 0):
-            inputFunctions.insertLeerling()
-            self.response.out.write('Leerlingen toegevoegd aan de datastore')
+        if(session.__getitem__('loginType') == 'beheerder'):
+            if(session.__getitem__('securityLevel') == 2):
+                self.response.out.write(webpages.header(session))
+                leerlingen = entities.Leerling.all()
+                if(leerlingen.count() == 0):
+                    inputFunctions.insertLeerling()
+                    self.response.out.write('Leerlingen toegevoegd aan de datastore')
+                else:
+                    tableData = []
+                    for leerling in leerlingen:
+                        tableRow = []
+                        tableRow.append(leerling.leerlingID)
+                        tableRow.append(leerling.wachtwoord)
+                        tableRow.append(leerling.voornaam)
+                        tableRow.append(leerling.tussenvoegsel)
+                        tableRow.append(leerling.achternaam)
+                        tableRow.append(leerling.geslacht)
+                        tableRow.append(leerling.klas)
+                        tableRow.append(leerling.aanhefVerzorger)
+                        tableRow.append(leerling.initialenVerzorger)
+                        tableRow.append(leerling.voorvoegselsVerzorger)
+                        tableRow.append(leerling.achternaamVerzorger)
+                        tableRow.append(leerling.rolVerzorger)
+                        tableRow.append(leerling.adres)
+                        tableRow.append(leerling.huisnummer)
+                        tableRow.append(leerling.woonplaats)
+                        tableRow.append(leerling.postcode)
+                        tableRow.append(leerling.mobielnummer)
+                        tableRow.append(leerling.vastnummer)
+                        tableRow.append(leerling.email)
+                        tableData.append(tableRow)
+                    self.response.out.write(htmlHelper.table(data=tableData, attributes="class='overzichtTable" ,head=['LeerlingID','Wachtwoord','Voornaam','Tussenvoegsel','Achternaam','Geslacht','Klas','AanhefVerzorger','InitialenVerzorger','VoorvoegselsVerzorger','AchternaamVerzorger','RolVerzorger','Adres','Huisnummer','Woonplaats','Postcode','Mobielnummer','Vastnummer','Email'],title="Vakken",divAttr='overzichtDiv',evenOdd=True))
+                    self.response.out.write("<form action='/insert/leerlingpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
+                self.response.out.write(webpages.footer())
+            else:
+                self.redirect('/beheerder')
         else:
-            tableData = []
-            for leerling in leerlingen:
-                tableRow = []
-                tableRow.append(leerling.leerlingID)
-                tableRow.append(leerling.voornaam)
-                tableRow.append(leerling.tussenvoegsel)
-                tableRow.append(leerling.achternaam)
-                tableRow.append(leerling.geslacht)
-                tableRow.append(leerling.klas)
-                tableRow.append(leerling.aanhefVerzorger)
-                tableRow.append(leerling.initialenVerzorger)
-                tableRow.append(leerling.voorvoegselsVerzorger)
-                tableRow.append(leerling.achternaamVerzorger)
-                tableRow.append(leerling.rolVerzorger)
-                tableRow.append(leerling.adres)
-                tableRow.append(leerling.huisnummer)
-                tableRow.append(leerling.woonplaats)
-                tableRow.append(leerling.postcode)
-                tableRow.append(leerling.mobielnummer)
-                tableRow.append(leerling.vastnummer)
-                tableRow.append(leerling.email)
-                tableData.append(tableRow)
-            
-            headRow = ["LeerlingID", "Voornaam", "Tussenvoegsel", "Achternaam", "Geslacht", "Klas", "aanhefVerzorger", "initialenVerzorger", "voorvoegselsVerzorger", "achternaamVerzorger", "rolVerzorger", "adres", "huisnummer", "woonplaats", "postcode", "mobielnummer", "vastnummer", "email"]
-            self.response.out.write(htmlHelper.table(data=tableData,attributes="border='1'",head=headRow,title="Leerlingen"))
-            self.response.out.write("<form action='/insert/leerlingpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
-        self.response.out.write(webpages.footer())
-
+            self.redirect('/')
 
 class PostAfspraak(webapp.RequestHandler):
     def post(self):

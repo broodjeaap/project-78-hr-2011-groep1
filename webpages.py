@@ -59,7 +59,7 @@ def header(session,bodyAttributes = ""):
                 </head>
                 <body %s>
                     <div class='header'>
-                        <table id="headerTable" width='500'>
+                        <table id="headerTable">
                             <tr>
                 """ %(bodyAttributes)
     if(session.__getitem__('loginType') == 'leerling'):
@@ -74,7 +74,7 @@ def header(session,bodyAttributes = ""):
         if(session.__getitem__('securityLevel') == 0):
             ret += "<td><a href='/beheerder'><div class='headerLink'>Home</div></a></td>"
             ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
-            ret += "<td><a href='/overzichten/'><div class='headerLink'>Overzichten Datastore</div></a></td>"
+            ret += "<td><a href='/overzichten'><div class='headerLink'>Overzichten Datastore</div></a></td>"
             ret += "<td><a href='/logout'><div class='headerLink'>Uitloggen</div></a></td>"
         elif(session.__getitem__('securityLevel') == 1):
             ret += "<td><a href='/beheerder'><div class='headerLink'>Home</div></a></td>"
@@ -84,7 +84,10 @@ def header(session,bodyAttributes = ""):
         elif(session.__getitem__('securityLevel') == 2):
             ret += "<td><a href='/beheerder'><div class='headerLink'>Home</div></a></td>"
             ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
+            ret += "<td><a href='/plannen'><div class='headerLink'>Ouder avond plannen</div></a></td>"
             ret += "<td><a href='/insert'><div class='headerLink'>Insert Root</div></a></td>"
+            ret += "<td><a href='/overzichten'><div class='headerLink'>Overzichten Datastore</div></a></td>"
+            ret += "<td><a href='/datastore'><div class='headerLink'>Aanpassen Datastore</div></a></td>"
             ret += "<td><a href='/logout'><div class='headerLink'>Uitloggen</div></a></td>"
     else:
         pass

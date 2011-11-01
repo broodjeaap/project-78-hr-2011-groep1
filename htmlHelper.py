@@ -34,7 +34,7 @@ def klasAfspraakPage(klas,leerlingID="1234"): #maak voor een klas alle afspraak 
         
         if(len(afspraakFunctieReturn) == 2):
             hiddenInputs.append(afspraakFunctieReturn[1])
-        ret += "<div class='afspraakDivLeerling'><div class='leerlingTableHeader' onclick=\"afspraakToggle('"+vak.docentID+"')\">"+vakNaamList[inList(vak.vakCode,vakCodeList)]+"</div><div class='toggle_afspraak' id='"+vak.docentID+"_toggle' >"
+        ret += "<div class='afspraakDivLeerling'><div class='leerlingTableHeader' onclick=\"afspraakToggle('"+vak.vakCode+"')\">"+vakNaamList[inList(vak.vakCode,vakCodeList)]+"</div><div class='toggle_afspraak' id='"+vak.vakCode+"_toggle' >"
         ret += afspraakFunctieReturn[0]
         
         if(ret[-1:] == "1"):
@@ -223,7 +223,7 @@ def planningPage():
 def insertRootLink(entiteitNaam):
     return "<a href = '/insert/"+entiteitNaam.lower()+"'>"+entiteitNaam+" insert</a><form action='/insert/"+entiteitNaam.lower()+"post' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete all from "+entiteitNaam+"' /></form><br />"
 
-def table(data, attributes="",head=None, headAttributes="",title=None,divAttr=''):
+def table(data, attributes="",head=None, headAttributes="",title=None,divAttr='',evenOdd=False):
     ret = "<div class="+divAttr+"><table "+attributes+" >"
     if(title != None):
         ret += "<tr><td colspan='100%'>"+str(title)+"</td></tr>"
@@ -232,8 +232,19 @@ def table(data, attributes="",head=None, headAttributes="",title=None,divAttr=''
         for item in head:
             ret += "<th>"+str(item)+"</th>"
         ret += "</tr>"
-    for tableRow in data:
-        ret += row(tableRow)
+    if(evenOdd):
+        even = False
+        for tableRow in data:
+            if(even):
+                ret += row(tableRow,attributes="class='odd'")
+                even = False
+            else:
+                ret += row(tableRow,attributes="class='even'")
+                even = True
+    else:
+        for tableRow in data:
+            ret += row(tableRow)
+        
     ret += "</table></div>"
     return ret
 
@@ -251,4 +262,6 @@ def cell(data,attributes=""):
     except: 
       ret = "<td "+attributes+" >"+str(data.encode('utf-8'))+"</td>"
     return ret
-    
+
+def link(href,text):
+    return "<a href='"+href+"' >"+text+"</a>"

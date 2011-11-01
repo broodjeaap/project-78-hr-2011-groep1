@@ -44,6 +44,6 @@ function parseBeschrijving(textField, docentID){
 	$("#"+docentID+"_hidden_beschrijving").val($(textField).val());
 }
 
-function afspraakToggle(docentID){
-	$("#"+docentID+"_toggle").toggle();
+function afspraakToggle(vakCode){
+	$("#"+vakCode+"_toggle").toggle();
 }

@@ -170,14 +170,15 @@ class AfspraakPlanningPost(webapp.RequestHandler):
         for vak in vakken:
             afspraakString = self.request.get(vak.docentID+"_afspraak")
             if(len(afspraakString) != 0):
-                beschrijving = self.request.get(vak.docentID+"_hidden_beschrijving").rstrip('\n')
+                beschrijving = self.request.get(vak.docentID+"_hidden_beschrijving").replace('\n',", ")
+                self.response.out.write(beschrijving)
                 afspraakData = afspraakString.split("_")
                 
                 datumStrings = afspraakData[0].split("-")
                 
                 afspraak = entities.Afspraak(leerlingID = leerlingID,docentID = vak.docentID,dag= datetime.date(int(datumStrings[0]),int(datumStrings[1]), int(datumStrings[2])),tijd= int(afspraakData[1]),tafelnummer=0,beschrijving = beschrijving)
                 afspraak.put()
-                self.redirect('/leerlingafspraak')
+                #self.redirect('/leerlingafspraak')
 
 class DocentAfspraak(webapp.RequestHandler):
     def get(self):

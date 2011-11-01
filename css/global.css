@@ -213,11 +213,23 @@ a {
 	text-align: center;
 	font-weight:bold;
 	text-align: center;
-	
+	margin: 0 15px 0 0;
 	cursor: hand;
 }
 
 .headerLink:hover {
 	background-color:#FFD09B;
 	cursor: hand;
+}
+
+.overzichtTable .odd{
+	background-color: #FFD5A8;
+}
+
+.overzichtDiv {
+	float: left;
+	margin: 15px 0 15px 0;
+	/*padding: 15px 15px 15px 0;*/
+	background-color: #FFE4C4;
+    border: 3px solid #FF7F50;
 }

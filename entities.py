@@ -8,7 +8,7 @@ class Afspraak(db.Model):
     dag = db.DateProperty()
     tijd = db.IntegerProperty()
     tafelnummer = db.IntegerProperty()
-    beschrijving = db.StringProperty(multiline=True)
+    beschrijving = db.TextProperty()
   
 class Docent(db.Model):
     docentID = db.StringProperty()

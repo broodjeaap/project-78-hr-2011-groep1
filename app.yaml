@@ -5,6 +5,9 @@ api_version: 1
 
 handlers:
 
+- url: /overzichten/*.*
+  script: overzichten.py
+
 - url: /afspraakplanningpost
   script: main.py
 
