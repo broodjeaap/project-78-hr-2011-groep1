@@ -206,8 +206,10 @@ class LeerlingAfspraak(webapp.RequestHandler):
 class Beheerder(webapp.RequestHandler):
     def get(self):
         session = get_current_session()
-        self.response.out.write(webpages.header(homeLink="/beheerder", securityLevel=session.__getitem__('securityLevel')))
-        self.response.out.write("Beheer pagina")
+        header=webpages.header(homeLink="/beheerder", securityLevel=session.__getitem__('securityLevel'))
+        session.__setitem__('header', header)
+        self.response.out.write(header)
+        self.response.out.write('Beheer pagina')
         self.response.out.write(webpages.footer())
 class AccountSettings(webapp.RequestHandler):
     def get(self):
@@ -333,7 +335,7 @@ class AccountSettings(webapp.RequestHandler):
             self.response.out.write("</div>")
             
         elif(session.__getitem__('loginType') == 'beheerder'):
-            self.response.out.write(webpages.header(homeLink="/beheerder"))
+            self.response.out.write(session.__getitem__('header'))
             self.response.out.write("<div class='beheerAccount'>")
             beheerder = db.get(session.__getitem__('key'))
             tableData = []
