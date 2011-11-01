@@ -65,8 +65,16 @@ def LeerlingPage(student):
         </body>
     </html>""" %(student.rolVerzorger,student.voornaam,student.voornaam,student.tussenvoegsel,student.achternaam)
     
-def header(bodyAttributes = "",title="",homeLink="/"):
-    return """<html>
+def header(bodyAttributes = "",title="",homeLink="/", securityLevel=0):
+    options=''
+    if (securityLevel==1):
+        options="<td><a href='/'><div class='headerLink'>Optie 1</div></a></td>"
+    elif (securityLevel==2):
+        options="<td><a href='/'><div class='headerLink'>Optie 2</div></a></td>"
+    elif(securityLevel==3):
+        options="<td><a href='/'><div class='headerLink'>Optie 3</div></a></td>"
+        
+    return"""<html>
                 <head>
                     <title>%s</title>
                     <link rel="stylesheet" href="/css/global.css"/>
@@ -82,11 +90,10 @@ def header(bodyAttributes = "",title="",homeLink="/"):
                                 <td><a href='/insert'><div class='headerLink'>Insert root</div></a></td>
                                 <td><a href='/plannen'><div class='headerLink'>Ouder avond plannen</div></a></td>
                                 <td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>
-                                <td><a href='/logout'><div class='headerLink'>Logout</div></a></td>
+                                %s
                             </tr>
                         </table>
-                    </div>""" %(str(title),bodyAttributes,homeLink)
-                    
+                    </div>"""%(str(title),bodyAttributes,homeLink,options)
 
 def footer():
     return "</body></html>"

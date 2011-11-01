@@ -110,6 +110,7 @@ class Authenticate(webapp.RequestHandler):
             session.__setitem__('id',id)
             session.__setitem__('loginType','beheerder')
             session.__setitem__('key',result[0])
+            session.__setitem__('securityLevel',db.get(result[0]).securityLevel)
             self.redirect('/beheerder')
             return
                 
@@ -204,7 +205,8 @@ class LeerlingAfspraak(webapp.RequestHandler):
 
 class Beheerder(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(webpages.header(homeLink="/beheerder"))
+        session = get_current_session()
+        self.response.out.write(webpages.header(homeLink="/beheerder", securityLevel=session.__getitem__('securityLevel')))
         self.response.out.write("Beheer pagina")
         self.response.out.write(webpages.footer())
 class AccountSettings(webapp.RequestHandler):
