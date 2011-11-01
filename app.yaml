@@ -5,6 +5,9 @@ api_version: 1
 
 handlers:
 
+- url: /datastore/*.*
+  script: datastore.py
+
 - url: /overzichten/*.*
   script: overzichten.py
 

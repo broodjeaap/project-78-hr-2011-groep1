@@ -233,3 +233,11 @@ a {
 	background-color: #FFE4C4;
     border: 3px solid #FF7F50;
 }
+
+.dataStoreDiv {
+	float: left;
+	margin: 15px 0 15px 0;
+	/*padding: 15px 15px 15px 0;*/
+	background-color: #FFE4C4;
+    border: 3px solid #FF7F50;
+}
