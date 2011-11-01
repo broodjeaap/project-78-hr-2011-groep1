@@ -120,13 +120,15 @@ class Authenticate(webapp.RequestHandler):
 
 class OuderAvondPlannen(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(webpages.header(homeLink="/leerlingafspraak"))
+        session = get_current_session()
+        self.response.out.write(webpages.header(session))
         self.response.out.write(htmlHelper.planningPage())
         self.response.out.write(webpages.footer())
 
 class OuderAvondPlannenPost(webapp.RequestHandler):
     def post(self):
-        self.response.out.write(webpages.header())
+        session = get_current_session()
+        self.response.out.write(webpages.header(session))
         docenten = self.request.get("checkedDocenten").split(",")
         datums = self.request.get("datums").split(",")
         splitDatums = []
@@ -168,7 +170,7 @@ class AfspraakPlanningPost(webapp.RequestHandler):
         for vak in vakken:
             afspraakString = self.request.get(vak.docentID+"_afspraak")
             if(len(afspraakString) != 0):
-                beschrijving = self.request.get(vak.docentID+"_hidden_beschrijving")
+                beschrijving = self.request.get(vak.docentID+"_hidden_beschrijving").rstrip('\n')
                 afspraakData = afspraakString.split("_")
                 
                 datumStrings = afspraakData[0].split("-")
@@ -179,8 +181,8 @@ class AfspraakPlanningPost(webapp.RequestHandler):
 
 class DocentAfspraak(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(webpages.header())
         session = get_current_session()
+        self.response.out.write(webpages.header(session))
         if(session.has_key('id') and session.__getitem__('loginType') == "docent"):
             docent = db.GqlQuery("SELECT * FROM Docent where docentID = '"+session['id']+"'")
             docent = docent[0]
@@ -192,9 +194,8 @@ class DocentAfspraak(webapp.RequestHandler):
 
 class LeerlingAfspraak(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(webpages.header(homeLink="/leerlingafspraak"))
-        
         session = get_current_session()
+        self.response.out.write(webpages.header(session))
         if(session.has_key('id') and session.__getitem__('loginType') == 'leerling'):
             leerling = db.GqlQuery("SELECT * FROM Leerling where leerlingID = '"+session['id']+"'")
             leerling = leerling[0]
@@ -206,7 +207,7 @@ class LeerlingAfspraak(webapp.RequestHandler):
 class Beheerder(webapp.RequestHandler):
     def get(self):
         session = get_current_session()
-        header=webpages.header(homeLink="/beheerder", securityLevel=session.__getitem__('securityLevel'))
+        header=webpages.header(session)
         session.__setitem__('header', header)
         self.response.out.write(header)
         self.response.out.write('Beheer pagina')
@@ -215,7 +216,7 @@ class AccountSettings(webapp.RequestHandler):
     def get(self):
         session = get_current_session()
         if(session.__getitem__('loginType') == 'leerling'):
-            self.response.out.write(webpages.header(homeLink="/leerlingafspraak"))
+            self.response.out.write(webpages.header(session))
             self.response.out.write("<div class='leerlingAccount'>")
             leerling = db.get(session.__getitem__('key'))
             tableData = []
@@ -292,7 +293,7 @@ class AccountSettings(webapp.RequestHandler):
             self.response.out.write("</form>")
             self.response.out.write("</div>")
         elif(session.__getitem__('loginType') == 'docent'):
-            self.response.out.write(webpages.header(homeLink="/docentafspraak"))
+            self.response.out.write(webpages.header(session))
             self.response.out.write("<div class='docentAccount'>")
             docent = db.get(session.__getitem__('key'))
             
@@ -384,8 +385,8 @@ class AccountSettings(webapp.RequestHandler):
         
 class AccountWachtwoordPost(webapp.RequestHandler):
     def post(self):
-        self.response.out.write(webpages.header())
         session = get_current_session()
+        self.response.out.write(webpages.header(session))
         if(session.has_key('id')):
             huidigPassword = self.request.get("huidig_password")
             nieuwPassword = self.request.get("nieuw_password")

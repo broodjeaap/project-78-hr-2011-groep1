@@ -48,35 +48,51 @@ def LeerlingPage(student):
         </body>
     </html>""" %(student.rolVerzorger,student.voornaam,student.voornaam,student.tussenvoegsel,student.achternaam)
     
-def header(bodyAttributes = "",title="",homeLink="/", securityLevel=0):
-    options=''
-    if (securityLevel==1):
-        options="<td><a href='/'><div class='headerLink'>Optie 1</div></a></td>"
-    elif (securityLevel==2):
-        options="<td><a href='/'><div class='headerLink'>Optie 2</div></a></td>"
-    elif(securityLevel==3):
-        options="<td><a href='/'><div class='headerLink'>Optie 3</div></a></td>"
-        
-    return"""<html>
+def header(session,bodyAttributes = ""):
+    ret = """<html>
                 <head>
-                    <title>%s</title>
+                    <title>Donald Knuth College</title>
                     <link rel="stylesheet" href="/css/global.css"/>
-                </head>
-                <body %s>
                     <link rel="stylesheet" type="text/css" href="css/jquery.datepick.css" media="screen" />
                     <script type='text/javascript' src='js/jquery-1.6.4.js'></SCRIPT>
                     <script type='text/javascript' src='js/jquery.datepick.js'></script>
+                </head>
+                <body %s>
                     <div class='header'>
                         <table id="headerTable" width='500'>
                             <tr>
-                                <td><a href='%s'><div class='headerLink'>Home</div></a></td>
-                                <td><a href='/insert'><div class='headerLink'>Insert root</div></a></td>
-                                <td><a href='/plannen'><div class='headerLink'>Ouder avond plannen</div></a></td>
-                                <td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>
-                                %s
+                """ %(bodyAttributes)
+    if(session.__getitem__('loginType') == 'leerling'):
+        ret += "<td><a href='/leerlingafspraak'><div class='headerLink'>Home</div></a></td>"
+        ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
+        ret += "<td><a href='/logout'><div class='headerLink'>Uitloggen</div></a></td>"
+    elif(session.__getitem__('loginType') == 'docent'):
+        ret += "<td><a href='/docnetafspraak'><div class='headerLink'>Home</div></a></td>"
+        ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
+        ret += "<td><a href='/logout'><div class='headerLink'>Uitloggen</div></a></td>"
+    elif(session.__getitem__('loginType') == 'beheerder'):
+        if(session.__getitem__('securityLevel') == 0):
+            ret += "<td><a href='/beheerder'><div class='headerLink'>Home</div></a></td>"
+            ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
+            ret += "<td><a href='/overzichten/'><div class='headerLink'>Overzichten Datastore</div></a></td>"
+            ret += "<td><a href='/logout'><div class='headerLink'>Uitloggen</div></a></td>"
+        elif(session.__getitem__('securityLevel') == 1):
+            ret += "<td><a href='/beheerder'><div class='headerLink'>Home</div></a></td>"
+            ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
+            ret += "<td><a href='/plannen'><div class='headerLink'>Ouder avond plannen</div></a></td>"
+            ret += "<td><a href='/logout'><div class='headerLink'>Uitloggen</div></a></td>"
+        elif(session.__getitem__('securityLevel') == 2):
+            ret += "<td><a href='/beheerder'><div class='headerLink'>Home</div></a></td>"
+            ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
+            ret += "<td><a href='/insert'><div class='headerLink'>Insert Root</div></a></td>"
+            ret += "<td><a href='/logout'><div class='headerLink'>Uitloggen</div></a></td>"
+    else:
+        pass
+    ret +="""
                             </tr>
                         </table>
-                    </div>"""%(str(title),bodyAttributes,homeLink,options)
+                    </div>"""
+    return ret
 
 def footer():
     return "</body></html>"

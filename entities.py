@@ -3,12 +3,12 @@ from google.appengine.ext.webapp import util
 from google.appengine.ext import db
 
 class Afspraak(db.Model):
-  leerlingID = db.StringProperty()
-  docentID = db.StringProperty()
-  dag = db.DateProperty()
-  tijd = db.IntegerProperty()
-  tafelnummer = db.IntegerProperty()
-  beschrijving = db.StringProperty()
+    leerlingID = db.StringProperty()
+    docentID = db.StringProperty()
+    dag = db.DateProperty()
+    tijd = db.IntegerProperty()
+    tafelnummer = db.IntegerProperty()
+    beschrijving = db.StringProperty(multiline=True)
   
 class Docent(db.Model):
     docentID = db.StringProperty()

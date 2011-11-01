@@ -3,6 +3,7 @@
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
 from google.appengine.ext import db
+from gaesessions import get_current_session
 import datetime
 import entities
 import htmlHelper
@@ -10,7 +11,8 @@ import webpages
 
 class InsertRoot(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(webpages.header())
+        session = get_current_session()
+        self.response.out.write(webpages.header(session))
         self.response.out.write(htmlHelper.insertRootLink("Afspraak"))
         self.response.out.write(htmlHelper.insertRootLink("Docent"))
         self.response.out.write(htmlHelper.insertRootLink("Vak"))
@@ -21,7 +23,8 @@ class InsertRoot(webapp.RequestHandler):
 
 class InsertAfspraak(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(webpages.header())
+        session = get_current_session()
+        self.response.out.write(webpages.header(session))
         afspraken = entities.Afspraak.all()
         if(afspraken.count() == 0):
             afspraak = entities.Afspraak(leerlingID="0",docentID='BAARR',dag=datetime.date(2011, 10, 11), tijd=-1,tafelnummer=0,beschrijving='test')
@@ -75,7 +78,8 @@ class InsertAfspraak(webapp.RequestHandler):
 
 class InsertDocent(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(webpages.header())
+        session = get_current_session()
+        self.response.out.write(webpages.header(session))
         docenten = entities.Docent.all()
         if(docenten.count() == 0):
             docent = entities.Docent(docentID='BAARR', aanhef='mw. drs.', naam='R.Baart', postvaknummer=41, email='BAARR@DKC.NL', wachtwoord='a')
@@ -330,7 +334,8 @@ class InsertDocent(webapp.RequestHandler):
 
 class InsertVak(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(webpages.header())
+        session = get_current_session()
+        self.response.out.write(webpages.header(session))
         vakken = entities.Vak.all()
         if(vakken.count() == 0):
             vak = entities.Vak(vakCode='NED', vakNaam='Nederlands')
@@ -372,7 +377,8 @@ class InsertVak(webapp.RequestHandler):
 
 class InsertVakPerKlas(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(webpages.header())
+        session = get_current_session()
+        self.response.out.write(webpages.header(session))
         vakken = entities.VakPerKlas.all()
         if(vakken.count() == 0):
             vak = entities.VakPerKlas(jaargang='2010-2011', klas='1B1', vakCode='NED', docentID='BAARR')
@@ -401,7 +407,8 @@ class InsertVakPerKlas(webapp.RequestHandler):
 
 class InsertBeheerder(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(webpages.header())
+        session = get_current_session()
+        self.response.out.write(webpages.header(session))
         beheerders = entities.Beheerder.all()
         if(beheerders.count() == 0):
             beheerder = entities.Beheerder(login='admin', beschrijving='Ingebouwde admin account', wachtwoord='admin', securityLevel=2)
@@ -426,7 +433,8 @@ class InsertBeheerder(webapp.RequestHandler):
         
 class InsertLeerling(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(webpages.header())
+        session = get_current_session()
+        self.response.out.write(webpages.header(session))
         leerlingen = entities.Leerling.all()
         if(leerlingen.count() == 0):
             leerling = entities.Leerling( leerlingID='2402', wachtwoord='a', voornaam=unicode('Alexei','latin-1'), tussenvoegsel='', achternaam=unicode('IJntema','latin-1'), geslacht='M', klas='1B1', aanhefVerzorger='dhr.', initialenVerzorger='Y.', voorvoegselsVerzorger='', achternaamVerzorger=unicode('IJntema','latin-1'), rolVerzorger='ouder', adres='Van Staverenstraat', huisnummer='22',  woonplaats='Reeuwijk',  postcode='2811 TK',  mobielnummer='06-5621641',  vastnummer='0182-621641',  email='IJntema@zoggi.nl', )
@@ -2667,7 +2675,8 @@ class PostAfspraak(webapp.RequestHandler):
             afspraken = db.GqlQuery("SELECT * FROM Afspraak")
             for afspraak in afspraken:
                 afspraak.delete()
-            self.response.out.write(webpages.header())
+            session = get_current_session()
+            self.response.out.write(webpages.header(session))
             self.response.out.write("<p>Deleted all entries <a href='/insert/afspraak'>terug (insert nieuwe data)</a></p></body></html>")
             self.response.out.write(webpages.footer())
 
@@ -2677,7 +2686,8 @@ class PostDocent(webapp.RequestHandler):
             docenten = db.GqlQuery("SELECT * FROM Docent")
             for docent in docenten:
                 docent.delete()
-            self.response.out.write(webpages.header())
+            session = get_current_session()
+            self.response.out.write(webpages.header(session))
             self.response.out.write("<p>Deleted all entries <a href='/insert/docent'>terug (insert nieuwe data)</a></p></body></html>")
             self.response.out.write(webpages.footer())
 
@@ -2687,7 +2697,8 @@ class PostVak(webapp.RequestHandler):
             vakken = db.GqlQuery("SELECT * FROM Vak")
             for vak in vakken:
                 vak.delete()
-            self.response.out.write(webpages.header())
+            session = get_current_session()
+            self.response.out.write(webpages.header(session))
             self.response.out.write("<p>Deleted all entries <a href='/insert/vak'>terug (insert nieuwe data)</a></p></body></html>")
             self.response.out.write(webpages.footer())
 
@@ -2697,7 +2708,8 @@ class PostVakPerKlas(webapp.RequestHandler):
             vakken = db.GqlQuery("SELECT * FROM VakPerKlas")
             for vak in vakken:
                 vak.delete()
-            self.response.out.write(webpages.header())
+            session = get_current_session()
+            self.response.out.write(webpages.header(session))
             self.response.out.write("<p>Deleted all entries <a href='/insert/vakperklas'>terug (insert nieuwe data)</a></p></body></html>")
             self.response.out.write(webpages.footer())
             
@@ -2707,7 +2719,8 @@ class PostLeerling(webapp.RequestHandler):
             leerlingen = db.GqlQuery("SELECT * FROM Leerling")
             for leerling in leerlingen:
                 leerling.delete()
-            self.response.out.write(webpages.header())
+            session = get_current_session()
+            self.response.out.write(webpages.header(session))
             self.response.out.write("<p>Deleted all entries <a href='/insert/leerling'>terug (insert nieuwe data)</a></p></body></html>")
             self.response.out.write(webpages.footer())
 
@@ -2717,7 +2730,8 @@ class PostBeheerder(webapp.RequestHandler):
             beheerders = db.GqlQuery("SELECT * FROM Beheerder")
             for beheerder in beheerders:
                 beheerder.delete()
-            self.response.out.write(webpages.header())
+            session = get_current_session()
+            self.response.out.write(webpages.header(session))
             self.response.out.write("<p>Deleted all entries <a href='/insert/beheerder'>terug (insert nieuwe data)</a></p></body></html>")
             self.response.out.write(webpages.footer())
 
