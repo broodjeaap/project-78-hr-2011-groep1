@@ -2,7 +2,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
 from google.appengine.ext import db
 from gaesessions import get_current_session
-import htmlHelper
+import webpages
 import entities
 import webpages
 
@@ -22,7 +22,7 @@ class AfspraakOverzicht(webapp.RequestHandler):
                 tableRow.append(afspraak.tafelnummer)
                 tableRow.append(afspraak.beschrijving)
                 tableData.append(tableRow)
-            self.response.out.write(htmlHelper.table(data=tableData, attributes="class='overzichtTable" ,head=['leerlingID','DocentID','dag','Tijd','Tafelnummer','beschrijving'],title="Afspraken",divAttr='overzichtDiv',evenOdd=True))
+            self.response.out.write(webpages.table(data=tableData, attributes="class='overzichtTable" ,head=['leerlingID','DocentID','dag','Tijd','Tafelnummer','beschrijving'],title="Afspraken",divAttr='overzichtDiv',evenOdd=True))
             self.response.out.write(webpages.footer())
         else:
             self.redirect('/')
@@ -43,7 +43,7 @@ class DocentOverzicht(webapp.RequestHandler):
                 tableRow.append(docent.email)
                 tableRow.append(docent.wachtwoord)
                 tableData.append(tableRow)
-            self.response.out.write(htmlHelper.table(data=tableData, attributes="class='overzichtTable" ,head=['docentID','aanhef','naam','postvaknummer','email','wachtwoord'],title="Docenten",divAttr='overzichtDiv',evenOdd=True))
+            self.response.out.write(webpages.table(data=tableData, attributes="class='overzichtTable" ,head=['docentID','aanhef','naam','postvaknummer','email','wachtwoord'],title="Docenten",divAttr='overzichtDiv',evenOdd=True))
             self.response.out.write(webpages.footer())
         else:
             self.redirect('/')
@@ -61,7 +61,7 @@ class VakOverzicht(webapp.RequestHandler):
                 tableRow.append(vak.vakCode)
                 tableRow.append(vak.vakNaam)
                 tableData.append(tableRow)
-            self.response.out.write(htmlHelper.table(data=tableData, attributes="class='overzichtTable" ,head=['VakCode','VakNaam'],title="Vakken",divAttr='overzichtDiv',evenOdd=True))
+            self.response.out.write(webpages.table(data=tableData, attributes="class='overzichtTable" ,head=['VakCode','VakNaam'],title="Vakken",divAttr='overzichtDiv',evenOdd=True))
             self.response.out.write(webpages.footer())
         else:
             self.redirect('/')
@@ -80,7 +80,7 @@ class VakPerKlasOverzicht(webapp.RequestHandler):
                 tableRow.append(vakPerKlas.vakCode)
                 tableRow.append(vakPerKlas.docentID)
                 tableData.append(tableRow)
-            self.response.out.write(htmlHelper.table(data=tableData, attributes="class='overzichtTable" ,head=['Jaargang','Klas','VakCode','DocentID'],title="Vakken",divAttr='overzichtDiv',evenOdd=True))
+            self.response.out.write(webpages.table(data=tableData, attributes="class='overzichtTable" ,head=['Jaargang','Klas','VakCode','DocentID'],title="Vakken",divAttr='overzichtDiv',evenOdd=True))
             self.response.out.write(webpages.footer())
         else:
             self.redirect('/')
@@ -114,7 +114,7 @@ class LeerlingOverzicht(webapp.RequestHandler):
                 tableRow.append(leerling.vastnummer)
                 tableRow.append(leerling.email)
                 tableData.append(tableRow)
-            self.response.out.write(htmlHelper.table(data=tableData, attributes="class='overzichtTable" ,head=['LeerlingID','Wachtwoord','Voornaam','Tussenvoegsel','Achternaam','Geslacht','Klas','AanhefVerzorger','InitialenVerzorger','VoorvoegselsVerzorger','AchternaamVerzorger','RolVerzorger','Adres','Huisnummer','Woonplaats','Postcode','Mobielnummer','Vastnummer','Email'],title="Vakken",divAttr='overzichtDiv',evenOdd=True))
+            self.response.out.write(webpages.table(data=tableData, attributes="class='overzichtTable" ,head=['LeerlingID','Wachtwoord','Voornaam','Tussenvoegsel','Achternaam','Geslacht','Klas','AanhefVerzorger','InitialenVerzorger','VoorvoegselsVerzorger','AchternaamVerzorger','RolVerzorger','Adres','Huisnummer','Woonplaats','Postcode','Mobielnummer','Vastnummer','Email'],title="Vakken",divAttr='overzichtDiv',evenOdd=True))
             self.response.out.write(webpages.footer())
         else:
             self.redirect('/')
@@ -133,7 +133,7 @@ class BeheerderOverzicht(webapp.RequestHandler):
                 tableRow.append(beheerder.wachtwoord)
                 tableRow.append(beheerder.securityLevel)
                 tableData.append(tableRow)
-            self.response.out.write(htmlHelper.table(data=tableData, attributes="class='overzichtTable" ,head=['Login','Beschrijving','Wachtwoord','SecurityLevel'],title="Vakken",divAttr='overzichtDiv',evenOdd=True))
+            self.response.out.write(webpages.table(data=tableData, attributes="class='overzichtTable" ,head=['Login','Beschrijving','Wachtwoord','SecurityLevel'],title="Vakken",divAttr='overzichtDiv',evenOdd=True))
             self.response.out.write(webpages.footer())
         else:
             self.redirect('/')
@@ -143,12 +143,12 @@ class OverzichtenRoot(webapp.RequestHandler):
         session = get_current_session()
         if(session.__getitem__('loginType') == 'beheerder'):
             self.response.out.write(webpages.header(session))
-            self.response.out.write(htmlHelper.link('/overzichten/afspraak',"Afspraak"))
-            self.response.out.write(htmlHelper.link('/overzichten/docent',"Docent"))
-            self.response.out.write(htmlHelper.link('/overzichten/vak',"Vak"))
-            self.response.out.write(htmlHelper.link('/overzichten/vakperklas',"Vak per klas"))
-            self.response.out.write(htmlHelper.link('/overzichten/leerling',"Leerling"))
-            self.response.out.write(htmlHelper.link('/overzichten/beheerder',"Beheerder"))
+            self.response.out.write(webpages.link('/overzichten/afspraak',"Afspraak"))
+            self.response.out.write(webpages.link('/overzichten/docent',"Docent"))
+            self.response.out.write(webpages.link('/overzichten/vak',"Vak"))
+            self.response.out.write(webpages.link('/overzichten/vakperklas',"Vak per klas"))
+            self.response.out.write(webpages.link('/overzichten/leerling',"Leerling"))
+            self.response.out.write(webpages.link('/overzichten/beheerder',"Beheerder"))
             self.response.out.write(webpages.footer())
         else:
             self.redirect('/')

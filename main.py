@@ -5,9 +5,6 @@ from google.appengine.ext import db
 from gaesessions import get_current_session
 import datetime
 import webpages
-
-
-import htmlHelper
 import entities
 
 class Login(webapp.RequestHandler):
@@ -122,7 +119,7 @@ class OuderAvondPlannen(webapp.RequestHandler):
     def get(self):
         session = get_current_session()
         self.response.out.write(webpages.header(session))
-        self.response.out.write(htmlHelper.planningPage())
+        self.response.out.write(webpages.planningPage())
         self.response.out.write(webpages.footer())
 
 class OuderAvondPlannenPost(webapp.RequestHandler):
@@ -171,14 +168,13 @@ class AfspraakPlanningPost(webapp.RequestHandler):
             afspraakString = self.request.get(vak.docentID+"_afspraak")
             if(len(afspraakString) != 0):
                 beschrijving = self.request.get(vak.docentID+"_hidden_beschrijving").replace('\n',", ")
-                self.response.out.write(beschrijving)
                 afspraakData = afspraakString.split("_")
                 
                 datumStrings = afspraakData[0].split("-")
                 
                 afspraak = entities.Afspraak(leerlingID = leerlingID,docentID = vak.docentID,dag= datetime.date(int(datumStrings[0]),int(datumStrings[1]), int(datumStrings[2])),tijd= int(afspraakData[1]),tafelnummer=0,beschrijving = beschrijving)
                 afspraak.put()
-                #self.redirect('/leerlingafspraak')
+                self.redirect('/leerlingafspraak')
 
 class DocentAfspraak(webapp.RequestHandler):
     def get(self):
@@ -200,7 +196,7 @@ class LeerlingAfspraak(webapp.RequestHandler):
         if(session.has_key('id') and session.__getitem__('loginType') == 'leerling'):
             leerling = db.GqlQuery("SELECT * FROM Leerling where leerlingID = '"+session['id']+"'")
             leerling = leerling[0]
-            self.response.out.write(htmlHelper.klasAfspraakPage(klas=leerling.klas,leerlingID=leerling.leerlingID))
+            self.response.out.write(webpages.klasAfspraakPage(klas=leerling.klas,leerlingID=leerling.leerlingID))
         else:
             self.redirect('/')
         self.response.out.write(webpages.footer())
@@ -270,7 +266,7 @@ class AccountSettings(webapp.RequestHandler):
             tableRow.append(leerling.email)
             tableData.append(tableRow)
             
-            self.response.out.write(htmlHelper.table(tableData,attributes="class='accountTable'",title="<h2>Leerling: "+leerling.leerlingID+"</h2>",divAttr='leerlingAccountGegevens'))
+            self.response.out.write(webpages.table(tableData,attributes="class='accountTable'",title="<h2>Leerling: "+leerling.leerlingID+"</h2>",divAttr='leerlingAccountGegevens'))
             
             tableData = []
             tableRow = []
@@ -290,7 +286,7 @@ class AccountSettings(webapp.RequestHandler):
             tableRow.append("<input type='submit' value='Ok' />")
             
             tableData.append(tableRow)
-            self.response.out.write(htmlHelper.table(tableData,attributes="class='accountTablePassword'",title="<h3>Wachtwoord veranderen</h3>", divAttr='leerlingAccountWachtwoord'))
+            self.response.out.write(webpages.table(tableData,attributes="class='accountTablePassword'",title="<h3>Wachtwoord veranderen</h3>", divAttr='leerlingAccountWachtwoord'))
             self.response.out.write("</form>")
             self.response.out.write("</div>")
         elif(session.__getitem__('loginType') == 'docent'):
@@ -312,7 +308,7 @@ class AccountSettings(webapp.RequestHandler):
             tableRow.append(docent.email)
             tableData.append(tableRow)
             
-            self.response.out.write(htmlHelper.table(tableData,attributes="class='accountTable'",title="<h2>Docent: "+docent.docentID+"</h2>",divAttr='docentAccountGegevens'))
+            self.response.out.write(webpages.table(tableData,attributes="class='accountTable'",title="<h2>Docent: "+docent.docentID+"</h2>",divAttr='docentAccountGegevens'))
             
             tableData = []
             tableRow = []
@@ -332,7 +328,7 @@ class AccountSettings(webapp.RequestHandler):
             tableRow.append("<input type='submit' value='Ok' />")
             
             tableData.append(tableRow)
-            self.response.out.write(htmlHelper.table(tableData,attributes="class='accountTablePassword'",title="<h3>Wachtwoord veranderen</h3>", divAttr='leerlingAccountWachtwoord'))
+            self.response.out.write(webpages.table(tableData,attributes="class='accountTablePassword'",title="<h3>Wachtwoord veranderen</h3>", divAttr='leerlingAccountWachtwoord'))
             self.response.out.write("</form>")
             self.response.out.write("</div>")
             
@@ -357,7 +353,7 @@ class AccountSettings(webapp.RequestHandler):
                 tableRow.append("Error")
             tableData.append(tableRow)
             tableRow = []
-            self.response.out.write(htmlHelper.table(tableData,attributes="class='accountTable'",title="<h2>Beheerder: "+beheerder.login+"</h2>",divAttr='docentAccountGegevens'))
+            self.response.out.write(webpages.table(tableData,attributes="class='accountTable'",title="<h2>Beheerder: "+beheerder.login+"</h2>",divAttr='docentAccountGegevens'))
             
             tableData = []
             tableRow = []
@@ -377,7 +373,7 @@ class AccountSettings(webapp.RequestHandler):
             tableRow.append("<input type='submit' value='Ok' />")
             
             tableData.append(tableRow)
-            self.response.out.write(htmlHelper.table(tableData,attributes="class='accountTablePassword'",title="<h3>Wachtwoord veranderen</h3>", divAttr='leerlingAccountWachtwoord'))
+            self.response.out.write(webpages.table(tableData,attributes="class='accountTablePassword'",title="<h3>Wachtwoord veranderen</h3>", divAttr='leerlingAccountWachtwoord'))
             self.response.out.write("</form>")
             self.response.out.write("</div>")
         else:

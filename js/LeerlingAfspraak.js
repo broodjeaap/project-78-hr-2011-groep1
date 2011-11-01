@@ -3,10 +3,12 @@ var keuzeArray=[];
 
 $(document).ready(function() {
 	$(".toggle_afspraak").toggle();
+	keuzes = $("#aantalAfspraken").val();
 });
 
 function afspraakInit(){
-	keuzes = $("#aantalAfspraken").val();
+	
+	
 }
 
 function selectCheckbox(clickedCell, dag, afspraakNummer, docentNaam, datum){

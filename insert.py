@@ -6,7 +6,7 @@ from google.appengine.ext import db
 from gaesessions import get_current_session
 import datetime
 import entities
-import htmlHelper
+import webpages
 import webpages
 import inputFunctions
 
@@ -16,12 +16,12 @@ class InsertRoot(webapp.RequestHandler):
         if(session.__getitem__('loginType') == 'beheerder'):
             if(session.__getitem__('securityLevel') == 2):
                 self.response.out.write(webpages.header(session))
-                self.response.out.write(htmlHelper.insertRootLink("Afspraak"))
-                self.response.out.write(htmlHelper.insertRootLink("Docent"))
-                self.response.out.write(htmlHelper.insertRootLink("Vak"))
-                self.response.out.write(htmlHelper.insertRootLink("VakPerKlas"))
-                self.response.out.write(htmlHelper.insertRootLink("Leerling"))
-                self.response.out.write(htmlHelper.insertRootLink("beheerder"))
+                self.response.out.write(webpages.insertRootLink("Afspraak"))
+                self.response.out.write(webpages.insertRootLink("Docent"))
+                self.response.out.write(webpages.insertRootLink("Vak"))
+                self.response.out.write(webpages.insertRootLink("VakPerKlas"))
+                self.response.out.write(webpages.insertRootLink("Leerling"))
+                self.response.out.write(webpages.insertRootLink("beheerder"))
                 self.response.out.write(webpages.footer())
             else:
                 self.redirect('/beheerder')
@@ -49,7 +49,7 @@ class InsertAfspraak(webapp.RequestHandler):
                         tableRow.append(afspraak.tafelnummer)
                         tableRow.append(afspraak.beschrijving)
                         tableData.append(tableRow)
-                    self.response.out.write(htmlHelper.table(data=tableData, attributes="class='overzichtTable" ,head=['leerlingID','DocentID','dag','Tijd','Tafelnummer','beschrijving'],title="Afspraken",divAttr='overzichtDiv',evenOdd=True))
+                    self.response.out.write(webpages.table(data=tableData, attributes="class='overzichtTable" ,head=['leerlingID','DocentID','dag','Tijd','Tafelnummer','beschrijving'],title="Afspraken",divAttr='overzichtDiv',evenOdd=True))
                     self.response.out.write("<form action='/insert/afspraakpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
                     self.response.out.write(webpages.footer())
             else:
@@ -78,7 +78,7 @@ class InsertDocent(webapp.RequestHandler):
                         tableRow.append(docent.email)
                         tableRow.append(docent.wachtwoord)
                         tableData.append(tableRow)
-                    self.response.out.write(htmlHelper.table(data=tableData, attributes="class='overzichtTable" ,head=['docentID','aanhef','naam','postvaknummer','email','wachtwoord'],title="Docenten",divAttr='overzichtDiv',evenOdd=True))
+                    self.response.out.write(webpages.table(data=tableData, attributes="class='overzichtTable" ,head=['docentID','aanhef','naam','postvaknummer','email','wachtwoord'],title="Docenten",divAttr='overzichtDiv',evenOdd=True))
                     self.response.out.write("<form action='/insert/docentpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
                 self.response.out.write(webpages.footer())
             else:
@@ -103,7 +103,7 @@ class InsertVak(webapp.RequestHandler):
                         tableRow.append(vak.vakCode)
                         tableRow.append(vak.vakNaam)
                         tableData.append(tableRow)
-                    self.response.out.write(htmlHelper.table(data=tableData, attributes="class='overzichtTable" ,head=['VakCode','VakNaam'],title="Vakken",divAttr='overzichtDiv',evenOdd=True))
+                    self.response.out.write(webpages.table(data=tableData, attributes="class='overzichtTable" ,head=['VakCode','VakNaam'],title="Vakken",divAttr='overzichtDiv',evenOdd=True))
                     self.response.out.write("<form action='/insert/vakpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
                 self.response.out.write(webpages.footer())
             else:
@@ -131,7 +131,7 @@ class InsertVakPerKlas(webapp.RequestHandler):
                         tableRow.append(vakPerKlas.vakCode)
                         tableRow.append(vakPerKlas.docentID)
                         tableData.append(tableRow)
-                    self.response.out.write(htmlHelper.table(data=tableData, attributes="class='overzichtTable" ,head=['Jaargang','Klas','VakCode','DocentID'],title="Vakken",divAttr='overzichtDiv',evenOdd=True))
+                    self.response.out.write(webpages.table(data=tableData, attributes="class='overzichtTable" ,head=['Jaargang','Klas','VakCode','DocentID'],title="Vakken",divAttr='overzichtDiv',evenOdd=True))
                     self.response.out.write("<form action='/insert/vakpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
                 self.response.out.write(webpages.footer())
             else:
@@ -159,7 +159,7 @@ class InsertBeheerder(webapp.RequestHandler):
                         tableRow.append(beheerder.wachtwoord)
                         tableRow.append(beheerder.securityLevel)
                         tableData.append(tableRow)
-                    self.response.out.write(htmlHelper.table(data=tableData, attributes="class='overzichtTable" ,head=['Login','Beschrijving','Wachtwoord','SecurityLevel'],title="Vakken",divAttr='overzichtDiv',evenOdd=True))
+                    self.response.out.write(webpages.table(data=tableData, attributes="class='overzichtTable" ,head=['Login','Beschrijving','Wachtwoord','SecurityLevel'],title="Vakken",divAttr='overzichtDiv',evenOdd=True))
                     self.response.out.write("<form action='/insert/beheerderpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
                 self.response.out.write(webpages.footer())
             else:
@@ -201,7 +201,7 @@ class InsertLeerling(webapp.RequestHandler):
                         tableRow.append(leerling.vastnummer)
                         tableRow.append(leerling.email)
                         tableData.append(tableRow)
-                    self.response.out.write(htmlHelper.table(data=tableData, attributes="class='overzichtTable" ,head=['LeerlingID','Wachtwoord','Voornaam','Tussenvoegsel','Achternaam','Geslacht','Klas','AanhefVerzorger','InitialenVerzorger','VoorvoegselsVerzorger','AchternaamVerzorger','RolVerzorger','Adres','Huisnummer','Woonplaats','Postcode','Mobielnummer','Vastnummer','Email'],title="Vakken",divAttr='overzichtDiv',evenOdd=True))
+                    self.response.out.write(webpages.table(data=tableData, attributes="class='overzichtTable" ,head=['LeerlingID','Wachtwoord','Voornaam','Tussenvoegsel','Achternaam','Geslacht','Klas','AanhefVerzorger','InitialenVerzorger','VoorvoegselsVerzorger','AchternaamVerzorger','RolVerzorger','Adres','Huisnummer','Woonplaats','Postcode','Mobielnummer','Vastnummer','Email'],title="Vakken",divAttr='overzichtDiv',evenOdd=True))
                     self.response.out.write("<form action='/insert/leerlingpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
                 self.response.out.write(webpages.footer())
             else:
