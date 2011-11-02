@@ -1,6 +1,7 @@
 from google.appengine.ext import db
 from google.appengine.api import users
 from google.appengine.ext import webapp
+from google.appengine.api import mail
 from google.appengine.ext.webapp import util
 from google.appengine.ext.webapp.util import run_wsgi_app
 
@@ -75,11 +76,13 @@ def header(session,bodyAttributes = ""):
             ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
             ret += "<td><a href='/overzichten'><div class='headerLink'>Overzichten Datastore</div></a></td>"
             ret += "<td><a href='/logout'><div class='headerLink'>Uitloggen</div></a></td>"
+            ret += "<td><a href='/stuuremail'><div class='headerLink'>Mail versturen</div></a></td>"
         elif(session.__getitem__('securityLevel') == 1):
             ret += "<td><a href='/beheerder'><div class='headerLink'>Home</div></a></td>"
             ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
             ret += "<td><a href='/plannen'><div class='headerLink'>Ouder avond plannen</div></a></td>"
             ret += "<td><a href='/logout'><div class='headerLink'>Uitloggen</div></a></td>"
+            ret += "<td><a href='/berichtenVersturen'><div class='headerLink'>Berichten versturen</div></a></td>"
         elif(session.__getitem__('securityLevel') == 2):
             ret += "<td><a href='/beheerder'><div class='headerLink'>Home</div></a></td>"
             ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
