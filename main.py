@@ -1,14 +1,22 @@
 import os
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
-from google.appengine.ext import db
 from gaesessions import get_current_session
+from google.appengine.ext import db
+from google.appengine.api import mail
 import datetime
 import webpages
 import entities
 
+import wsgiref.handlers
+import sys
+sys.path.insert(0, 'reportlab.zip')
+from reportlab.pdfgen import canvas
+
 class Login(webapp.RequestHandler):
     def get(self):
+        beheerder = entities.Beheerder(login='admin', beschrijving='Ingebouwde admin account', wachtwoord='admin', securityLevel=2)
+        beheerder.put()
         self.response.out.write("""
         <html>
             <head>
@@ -421,6 +429,60 @@ class AjaxChatHandler(webapp.RequestHandler):
         elif (self.request.get('type') == 'post'):
             message = entities.ChatMessage(poster=self.request.get('id'),room=self.request.get('room'),time=datetime.datetime.now().time(),message=self.request.get('message'))
             message.put();
+
+
+class pdfWriter(webapp.RequestHandler):
+
+    def get(self):
+        result = db.GqlQuery("SELECT __key__ FROM Leerling where email = ''")                                
+        self.response.headers['Content-Type'] = 'application.pdf'
+       
+        p = canvas.Canvas(self.response.out)
+        for leerling in result:
+            Ouder = db.get(leerling)
+            p.drawString(100, 750, "Geachte meneer/mevrouw " + "%s" % Ouder.achternaam + ",")
+            p.drawString(100, 690, "Op 10 december 2011 is er weer de mogelijkheid om met de docenten")                            
+            p.drawString(100, 665, "van " + "%s" % Ouder.voornaam + " te praten.")
+            p.drawString(100, 615, "De avonden worden gehouden van 19:00 tot 22:00 uur.")
+            p.drawString(100, 565, "Wij verzoeken u om telefonisch contact op te nemen om een afspraak te maken.")
+            p.drawString(100, 540, "Wij zijn bereikbaar van 8:30 tot 17:00 uur op 070-1234567.")
+            p.drawString(100, 490, "Wij hopen u spoedig te mogen verwelkomen op de ouderavond.")
+            p.drawString(100, 430, "Met vriendelijke groeten,")
+            p.drawString(100, 405, "Bob Bemer MSc, directeur DKC")
+            p.showPage()   
+            p.save()
+
+class StuurEmail(webapp.RequestHandler):      
+    
+    def get(self):                
+        
+        result = db.GqlQuery("SELECT * FROM Leerling WHERE email = 'jordyhert@gmail.com'")   
+        for leerling in result:
+            message = mail.EmailMessage(sender="Donald Knuth College <jordyhert@gmail.com>", subject="Uitnodiging ouderavond")
+            message.to = leerling.aanhefVerzorger+"<jordyhert@gmail.com>"
+            message.body = """
+            Geachte meneer/mevrouw """ + leerling.aanhefVerzorger + """ """ + leerling.achternaamVerzorger + """
+
+            Op 10 december 2011 is er weer de mogelijkheid om met de docenten van """ + leerling.voornaam + """ te praten. 
+            
+            De avond vindt plaats tussen 19:00 en 22:00 uur.
+
+            Door de onderstaande pagina te openen kunt u zich inschrijven voor de ouderavond.
+
+            http://hrpro78.appspot.com
+
+            U kunt inloggen met de volgende gegevens:
+            
+            Gebruikersnaam: """ + leerling.achternaamVerzorger + """
+            Wachtwoord: """ + leerling.wachtwoord + """
+
+            Wij hopen u spoedig te mogen verwelkomen op de ouderavond.
+
+            Met vriendelijke groeten,
+
+            Bob Bemer MSc, directeur DKC
+            """            
+            message.send()
     
 def main():
     application = webapp.WSGIApplication([('/', Login),
@@ -435,8 +497,11 @@ def main():
                                           ('/beheerder',Beheerder),
                                           ('/chat',Chat),
                                           ('/chatajaxhandler',AjaxChatHandler),
-                                          ('/plannenpost', OuderAvondPlannenPost)],
-                                         debug=True)
+                                          ('/plannenpost', OuderAvondPlannenPost),
+                                          ('/plannenpost', OuderAvondPlannenPost),
+                                          ('/berichtenVersturen', pdfWriter),
+                                          ('/stuuremail', StuurEmail)],
+                                            debug=True)
     util.run_wsgi_app(application)
 
 
