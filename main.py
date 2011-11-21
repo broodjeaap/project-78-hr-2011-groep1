@@ -10,7 +10,6 @@ import entities
 
 import wsgiref.handlers
 import sys
-sys.path.insert(0, 'reportlab.zip')
 from reportlab.pdfgen import canvas
 
 class Login(webapp.RequestHandler):
