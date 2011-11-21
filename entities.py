@@ -54,3 +54,9 @@ class Beheerder(db.Model):
     beschrijving = db.StringProperty()
     wachtwoord = db.StringProperty()
     securityLevel = db.IntegerProperty()
+    
+class ChatMessage(db.Model):
+    poster = db.StringProperty()
+    room = db.StringProperty()
+    time = db.TimeProperty(auto_now=True)
+    message = db.StringProperty()

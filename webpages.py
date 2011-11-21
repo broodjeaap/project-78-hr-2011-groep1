@@ -82,6 +82,7 @@ def header(session,bodyAttributes = ""):
             ret += "<td><a href='/logout'><div class='headerLink'>Uitloggen</div></a></td>"
         elif(session.__getitem__('securityLevel') == 2):
             ret += "<td><a href='/beheerder'><div class='headerLink'>Home</div></a></td>"
+            ret += "<td><a href='/chat'><div class='headerLink'>Chat</div></a></td>"
             ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
             ret += "<td><a href='/plannen'><div class='headerLink'>Ouder avond plannen</div></a></td>"
             ret += "<td><a href='/insert'><div class='headerLink'>Insert Root</div></a></td>"
@@ -366,3 +367,32 @@ def cell(data,attributes=""):
 
 def link(href,text):
     return "<a href='"+href+"' >"+text+"</a>"
+
+def chatBox(id,room="global"):
+    ret = """ <script type='text/javascript' src='js/Chat.js'></script>
+                                        <div class='chatDiv' id='chatDiv'>
+                                            <div class='chatHeader' id='chatHeader'>
+                                                Header
+                                            </div>
+                                            <div class='chatSpace' id='chatSpace'>
+                                                
+                                            </div>
+                                            <div class='chatControls' id='chatControls'>
+                                                <table width='350px'>
+                                                    <tr>
+                                                        <td>
+                                                            <input type='hidden' name='id' id='id' value='%s' />
+                                                            <input type='hidden' name='room' id='room' value='%s' />
+                                                        </td>
+                                                        <td>
+                                                            <input type='text' size='40' id='chatTextBox' />
+                                                        </td> 
+                                                        <td>
+                                                            <img src="images/chatSend.png" alt="send" onclick='send();'/>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div> 
+                                        """ %(id,room)
+    return ret

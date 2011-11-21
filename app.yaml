@@ -34,7 +34,13 @@ handlers:
   
 - url: /
   script: main.py
-
+  
+- url: /chat
+  script: main.py
+  
+- url: /chatajaxhandler
+  script: main.py
+  
 - url: /logout
   script: main.py
 

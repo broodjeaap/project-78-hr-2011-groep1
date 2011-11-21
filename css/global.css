@@ -241,3 +241,30 @@ a {
 	background-color: #FFE4C4;
     border: 3px solid #FF7F50;
 }
+
+.chatDiv {
+    background-color: #FFE4C4;
+    border: 3px solid #FF7F50;
+	width:350px;
+}
+
+.chatSpace {
+	width:350px;
+	height:450px;
+	overflow: auto;
+}
+
+.chatHeader {
+	border-bottom: 2px solid #FF7F50;
+}
+
+.chatControls{
+	border-top: 2px solid #FF7F50;
+}
+
+.chatTextBox {
+	border: 3px solid #FF7F50;
+	width: 200px;
+	height: 100%;
+	resize: none;
+}

@@ -401,6 +401,26 @@ class AccountWachtwoordPost(webapp.RequestHandler):
         else:
             self.redirect('/')
         self.response.out.write(webpages.footer())
+        
+class Chat(webapp.RequestHandler):
+    def get(self):
+        session = get_current_session()
+        self.response.out.write(webpages.header(session))
+        if(session.has_key('id')):
+            self.response.out.write(webpages.chatBox(session['id'],"global"))
+        self.response.out.write(webpages.footer())
+    
+class AjaxChatHandler(webapp.RequestHandler):
+    def get(self):
+        if(self.request.get('type') == 'get'):
+            messages = db.GqlQuery("SELECT * FROM ChatMessage where room = '"+self.request.get('room')+"'")
+            ret = "";
+            for message in messages:
+                ret += str(message.time)[:-7]+"-"+message.poster+": "+message.message.replace("_"," ")+"<br />"
+            self.response.out.write(ret)
+        elif (self.request.get('type') == 'post'):
+            message = entities.ChatMessage(poster=self.request.get('id'),room=self.request.get('room'),time=datetime.datetime.now().time(),message=self.request.get('message'))
+            message.put();
     
 def main():
     application = webapp.WSGIApplication([('/', Login),
@@ -413,6 +433,8 @@ def main():
                                           ('/accountsettings', AccountSettings),
                                           ('/accountwachtwoordpost', AccountWachtwoordPost),
                                           ('/beheerder',Beheerder),
+                                          ('/chat',Chat),
+                                          ('/chatajaxhandler',AjaxChatHandler),
                                           ('/plannenpost', OuderAvondPlannenPost)],
                                          debug=True)
     util.run_wsgi_app(application)

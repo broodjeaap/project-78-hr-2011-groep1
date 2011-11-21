@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
 	var updateHidden = function (){
 		$("#checkedDocenten").val($("input:checkbox:checked[docentCheckBox |='true']").map(function(i,n) {
 			return $(n).val();
