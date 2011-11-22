@@ -8,6 +8,7 @@ $.ajaxSetup ({
 function send(){
 	if($("#chatTextBox").val() != ""){
 		$("#chatSpace").load("/chatajaxhandler?type=post&id="+$("#id").val()+"&room="+$("#room").val()+"&message="+prepare($("#chatTextBox").val()),scrollDown);
+		$("#chatTextBox").val("");
 		timout = 100;
 	}
 	getMessages();
@@ -21,7 +22,7 @@ function prepare(str){
 }
 
 function getMessages(){
-	$("#chatSpace").load("/chatajaxhandler?type=get&room="+$("#room").val(),scrollDown);
+	$("#chatSpace").load("/chatajaxhandler?type=get&room="+$("#room").val()+"&id="+$("#id").val(),scrollDown);
 	timout--;
 	if(timout <= 0){
 		clearInterval(timerID);

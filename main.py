@@ -4,6 +4,7 @@ from google.appengine.ext.webapp import util
 from gaesessions import get_current_session
 from google.appengine.ext import db
 from google.appengine.api import mail
+from google.appengine.api import memcache
 import datetime
 import webpages
 import entities
@@ -419,15 +420,33 @@ class Chat(webapp.RequestHandler):
     
 class AjaxChatHandler(webapp.RequestHandler):
     def get(self):
-        if(self.request.get('type') == 'get'):
-            messages = db.GqlQuery("SELECT * FROM ChatMessage where room = '"+self.request.get('room')+"'")
-            ret = "";
-            for message in messages:
-                ret += str(message.time)[:-7]+"-"+message.poster+": "+message.message.replace("_"," ")+"<br />"
-            self.response.out.write(ret)
-        elif (self.request.get('type') == 'post'):
-            message = entities.ChatMessage(poster=self.request.get('id'),room=self.request.get('room'),time=datetime.datetime.now().time(),message=self.request.get('message'))
-            message.put();
+        session = get_current_session()
+        if(session.has_key('id')):
+            if(session['id'] == self.request.get('id')):
+                roomGet = self.request.get('room')
+                #memcache.flush_all()
+                messages = memcache.get(roomGet+"Chat")
+                
+                if(messages == None):
+                    datastoreMessages = db.GqlQuery("SELECT * FROM ChatMessage where room = '"+roomGet+"'")
+                    messageList = []
+                    for message in datastoreMessages:
+                        messageList.append(message)
+                    memcache.set(key=roomGet+"Chat",value=messageList)
+                    messages = messageList
+                    
+                if(self.request.get('type') == 'get'):
+                    ret = "";
+                    for message in messages:
+                        ret += str(message.time)[:-7]+"-"+message.poster+": "+message.message.replace("_"," ")+"<br />"
+                    self.response.out.write(ret)
+                elif (self.request.get('type') == 'post'):
+                    message = entities.ChatMessage(poster=self.request.get('id'),room=roomGet,time=datetime.datetime.now().time(),message=self.request.get('message'))
+                    db.put_async(message)
+                    #message.put()
+                    messages.append(message)
+                    memcache.set(key=roomGet+"Chat",value=messages)
+                    
 
 
 class pdfWriter(webapp.RequestHandler):
