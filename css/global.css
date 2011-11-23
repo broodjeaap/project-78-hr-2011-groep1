@@ -245,13 +245,24 @@ a {
 .chatDiv {
     background-color: #FFE4C4;
     border: 3px solid #FF7F50;
-	width:350px;
+	width:450px;
 }
 
 .chatSpace {
+	float:left;
 	width:350px;
 	height:450px;
 	overflow: auto;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.userSpace {
+	float:left;
+	width:98px;
+	height:450px;
+	overflow: auto;
+	border-right: 2px solid #FF7F50;
 }
 
 .chatHeader {
@@ -259,6 +270,7 @@ a {
 }
 
 .chatControls{
+	width:100%;
 	border-top: 2px solid #FF7F50;
 }
 

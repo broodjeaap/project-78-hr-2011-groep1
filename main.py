@@ -424,9 +424,9 @@ class AjaxChatHandler(webapp.RequestHandler):
         if(session.has_key('id')):
             if(session['id'] == self.request.get('id')):
                 roomGet = self.request.get('room')
+                type = self.request.get('type')
                 #memcache.flush_all()
                 messages = memcache.get(roomGet+"Chat")
-                
                 if(messages == None):
                     datastoreMessages = db.GqlQuery("SELECT * FROM ChatMessage where room = '"+roomGet+"'")
                     messageList = []
@@ -434,18 +434,34 @@ class AjaxChatHandler(webapp.RequestHandler):
                         messageList.append(message)
                     memcache.set(key=roomGet+"Chat",value=messageList)
                     messages = messageList
+                
+                users = memcache.get(roomGet+"Users")
+                if(users == None):
+                    users = []
                     
-                if(self.request.get('type') == 'get'):
+                if(type == 'get'):
                     ret = "";
                     for message in messages:
                         ret += str(message.time)[:-7]+"-"+message.poster+": "+message.message.replace("_"," ")+"<br />"
                     self.response.out.write(ret)
-                elif (self.request.get('type') == 'post'):
+                elif (type == 'post'):
                     message = entities.ChatMessage(poster=self.request.get('id'),room=roomGet,time=datetime.datetime.now().time(),message=self.request.get('message'))
                     db.put_async(message)
                     #message.put()
                     messages.append(message)
                     memcache.set(key=roomGet+"Chat",value=messages)
+                elif(type == "users"):
+                    ret = "";
+                    for user in users:
+                        ret += user+"<br />"
+                    self.response.out.write(ret)
+                elif(type == "join"):
+                    users.append(session['id'])
+                    memcache.set(key=roomGet+"Users",value=users)
+                elif(type == "quit"):
+                    users.remove(session['id'])
+                    memchache.set(key=roomGet+"Users",value=users)
+                
                     
 
 

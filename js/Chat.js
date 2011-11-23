@@ -34,9 +34,24 @@ function scrollDown(){
 	$("#chatSpace").scrollTop($("#chatSpace")[0].scrollHeight);
 }
 
-$(document).ready(function() {
+function getUsers(){
+	$("#userSpace").load("/chatajaxhandler?type=users&room="+$("#room").val()+"&id="+$("#id").val());
+}
+
+function updateChat(){
 	getMessages();
-	timerID = setInterval("getMessages()",5000);
+	getUsers();
+}
+
+$(document).ready(function() {
+	$("#userSpace").load("/chatajaxhandler?type=join&room="+$("#room").val()+"&id="+$("#id").val());
+	getMessages();
+	getUsers();
+	timerID = setInterval("updateChat()",5000);
+});
+
+$(window).unload(function() {
+	$("#userSpace").load("/chatajaxhandler?type=quit&room="+$("#room").val()+"&id="+$("#id").val());
 });
 
 $(document).keypress(function(e) {

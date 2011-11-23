@@ -375,20 +375,23 @@ def chatBox(id,room="global"):
     ret = """ <script type='text/javascript' src='js/Chat.js'></script>
                                         <div class='chatDiv' id='chatDiv'>
                                             <div class='chatHeader' id='chatHeader'>
-                                                Header
+                                                Chatting in %s
+                                            </div>
+                                            <div class='userSpace' id='userSpace'>
+
                                             </div>
                                             <div class='chatSpace' id='chatSpace'>
                                                 
                                             </div>
                                             <div class='chatControls' id='chatControls'>
-                                                <table width='350px'>
+                                                <table width='450px'>
                                                     <tr>
                                                         <td>
                                                             <input type='hidden' name='id' id='id' value='%s' />
                                                             <input type='hidden' name='room' id='room' value='%s' />
                                                         </td>
                                                         <td>
-                                                            <input type='text' size='40' id='chatTextBox' />
+                                                            <input type='text' size='60' id='chatTextBox' />
                                                         </td> 
                                                         <td>
                                                             <img src="images/chatSend.png" alt="send" onclick='send();'/>
@@ -397,5 +400,5 @@ def chatBox(id,room="global"):
                                                 </table>
                                             </div>
                                         </div> 
-                                        """ %(id,room)
+                                        """ %(room,id,room)
     return ret
