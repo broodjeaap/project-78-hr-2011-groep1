@@ -8,7 +8,6 @@ from gaesessions import get_current_session
 import datetime
 import entities
 import webpages
-import webpages
 import inputFunctions
 
 
@@ -24,7 +23,7 @@ class ChatRoot(webapp.RequestHandler):
             rooms.append(leerling.klas)
             klassen = db.GqlQuery("SELECT * FROM VakPerKlas where klas = '"+leerling.klas+"'")
             for klas in klassen:
-                rooms.append(klas.vakNaam)
+                rooms.append(webpages.getKlasNaam(klas.vakCode))
             
         elif(type == 'docent'):
             rooms.append("docenten")
@@ -44,6 +43,7 @@ class ChatRoot(webapp.RequestHandler):
                 if klas not in klassen:
                     klassen.append(klas)
                     rooms.append(klas.klas)
+        session.__setitem__('rooms',rooms)
         
         self.response.out.write("<table class='chatTable' id=chatTable'><tr><th> </th><th>Naam: </th><th>Aantal deelnemers: </th><th>Join: </th><tr>")
         for room in rooms:
@@ -60,7 +60,11 @@ class ChatMain(webapp.RequestHandler):
         session = get_current_session()
         self.response.out.write(webpages.header(session))
         if(session.has_key('id')):
-            self.response.out.write(webpages.chatBox(session['id'],self.request.get('room')))
+            roomGet = self.request.get('room')
+            if(roomGet in session['rooms']):
+                self.response.out.write(webpages.chatBox(session['id'],roomGet))
+            else:
+                self.response.out.write("Geen toegang tot deze chatroom")
         self.response.out.write(webpages.footer())
 
 class AjaxGetMessages(webapp.RequestHandler):

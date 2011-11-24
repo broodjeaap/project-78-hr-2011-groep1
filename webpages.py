@@ -4,7 +4,9 @@ from google.appengine.ext import webapp
 from google.appengine.api import mail
 from google.appengine.ext.webapp import util
 from google.appengine.ext.webapp.util import run_wsgi_app
+from google.appengine.api import memcache
 
+import entities
 import cgi
 import datetime
 import urllib
@@ -64,21 +66,25 @@ def header(session,bodyAttributes = ""):
                 """ %(bodyAttributes)
     if(session.__getitem__('loginType') == 'leerling'):
         ret += "<td><a href='/leerlingafspraak'><div class='headerLink'>Home</div></a></td>"
+        ret += "<td><a href='/chat/'><div class='headerLink'>Chat</div></a></td>"
         ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
         ret += "<td><a href='/logout'><div class='headerLink'>Uitloggen</div></a></td>"
     elif(session.__getitem__('loginType') == 'docent'):
         ret += "<td><a href='/docnetafspraak'><div class='headerLink'>Home</div></a></td>"
+        ret += "<td><a href='/chat/'><div class='headerLink'>Chat</div></a></td>"
         ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
         ret += "<td><a href='/logout'><div class='headerLink'>Uitloggen</div></a></td>"
     elif(session.__getitem__('loginType') == 'beheerder'):
         if(session.__getitem__('securityLevel') == 0):
             ret += "<td><a href='/beheerder'><div class='headerLink'>Home</div></a></td>"
+            ret += "<td><a href='/chat/'><div class='headerLink'>Chat</div></a></td>"
             ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
             ret += "<td><a href='/overzichten'><div class='headerLink'>Overzichten Datastore</div></a></td>"
             ret += "<td><a href='/logout'><div class='headerLink'>Uitloggen</div></a></td>"
             ret += "<td><a href='/stuuremail'><div class='headerLink'>Mail versturen</div></a></td>"
         elif(session.__getitem__('securityLevel') == 1):
             ret += "<td><a href='/beheerder'><div class='headerLink'>Home</div></a></td>"
+            ret += "<td><a href='/chat/'><div class='headerLink'>Chat</div></a></td>"
             ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
             ret += "<td><a href='/plannen'><div class='headerLink'>Ouder avond plannen</div></a></td>"
             ret += "<td><a href='/logout'><div class='headerLink'>Uitloggen</div></a></td>"
@@ -123,13 +129,6 @@ def startTable(header=None, tableStart=True,border=True):
 
 def klasAfspraakPage(klas,leerlingID="1234"): #maak voor een klas alle afspraak tabellen aan
     vakken = db.GqlQuery("SELECT * FROM VakPerKlas WHERE klas = '"+klas+"'") # pak alle vakken van een klas
-    vakNaam = db.GqlQuery("SELECT * FROM Vak")
-    vakNaamList = []
-    vakCodeList = []
-    for vak in vakNaam:
-        vakNaamList.append(vak.vakNaam)
-        vakCodeList.append(vak.vakCode)
-
     ret = "<div><script type='text/javascript' src='js/LeerlingAfspraak.js'></SCRIPT>"
     count = 0
     afspraakCount = 0;
@@ -139,7 +138,7 @@ def klasAfspraakPage(klas,leerlingID="1234"): #maak voor een klas alle afspraak 
         
         if(len(afspraakFunctieReturn) == 2):
             hiddenInputs.append(afspraakFunctieReturn[1])
-        ret += "<div class='afspraakDivLeerling'><div class='leerlingTableHeader' onclick=\"afspraakToggle('"+vak.vakCode+"')\">"+vakNaamList[inList(vak.vakCode,vakCodeList)]+"</div><div class='toggle_afspraak' id='"+vak.vakCode+"_toggle' >"
+        ret += "<div class='afspraakDivLeerling'><div class='leerlingTableHeader' onclick=\"afspraakToggle('"+vak.vakCode+"')\">"+getKlasNaam(vak.vakCode)+"</div><div class='toggle_afspraak' id='"+vak.vakCode+"_toggle' >"
         ret += afspraakFunctieReturn[0]
         
         if(ret[-1:] == "1"):
@@ -402,3 +401,15 @@ def chatBox(id,room="global"):
                                         </div> 
                                         """ %(room,id,room)
     return ret
+
+def getKlasNaam(vakCode):
+    klassen = memcache.get("klassen")
+    if(klassen == None):
+        klassen = []
+        datastoreVak = entities.Vak.all()
+        for vak in datastoreVak:
+            klassen.append(vak)
+    for klas in klassen:
+        if(klas.vakCode == vakCode):
+            return klas.vakNaam
+    return "Null"
