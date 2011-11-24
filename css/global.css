@@ -280,3 +280,10 @@ a {
 	height: 100%;
 	resize: none;
 }
+
+.chatTable {
+	margin: 10px 10px 10px 10px;
+	background-color: #FFE1C1;
+	border: 2px solid #FF7F50;
+	border-collapse: collapse;
+}

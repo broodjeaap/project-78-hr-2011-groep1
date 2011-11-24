@@ -12,13 +12,55 @@ import webpages
 import inputFunctions
 
 
-
-class Main(webapp.RequestHandler):
+class ChatRoot(webapp.RequestHandler):
     def get(self):
         session = get_current_session()
         self.response.out.write(webpages.header(session))
+        rooms = ["global"]
+        type = session['loginType']
+        if(type == 'leerling'):
+            rooms.append("leerlingen")
+            leerling = db.GqlQuery("SELECT * FROM Leerling where leerlingID = '"+session['id']+"'")[0]
+            rooms.append(leerling.klas)
+            klassen = db.GqlQuery("SELECT * FROM VakPerKlas where klas = '"+leerling.klas+"'")
+            for klas in klassen:
+                rooms.append(klas.vakNaam)
+            
+        elif(type == 'docent'):
+            rooms.append("docenten")
+            klassen = db.GqlQuery("SELECT * FROM VakPerKlas where docentID = '"+session['id']+"'")
+            for klas in klassen:
+                rooms.append(klas.klas)
+        elif(type == 'beheerder'):
+            rooms.append("leerlingen")
+            rooms.append("docenten")
+            rooms.append("beheerders")
+            vakken = db.GqlQuery("SELECT * FROM Vak")
+            for vak in vakken:
+                rooms.append(vak.vakNaam)
+            tmp = db.GqlQuery("SELECT * FROM VakPerKlas")
+            klassen = []
+            for klas in tmp:
+                if klas not in klassen:
+                    klassen.append(klas)
+                    rooms.append(klas.klas)
+        
+        self.response.out.write("<table class='chatTable' id=chatTable'><tr><th> </th><th>Naam: </th><th>Aantal deelnemers: </th><th>Join: </th><tr>")
+        for room in rooms:
+            users = memcache.get(room+"Users")
+            usersInRoom = 0
+            if users is not None:
+                usersInRoom = len(users)
+            self.response.out.write("<td><form action='/chat/chat' method='post'><input type='hidden' name='room' id='room' value="+room+" /></td><td>"+room+"</td><td>"+str(usersInRoom)+"</td><td><input type='submit' value='join' /></td></tr></form>")
+        self.response.out.write("</table>")
+        self.response.out.write(webpages.footer())
+
+class ChatMain(webapp.RequestHandler):
+    def post(self):
+        session = get_current_session()
+        self.response.out.write(webpages.header(session))
         if(session.has_key('id')):
-            self.response.out.write(webpages.chatBox(session['id'],"global"))
+            self.response.out.write(webpages.chatBox(session['id'],self.request.get('room')))
         self.response.out.write(webpages.footer())
 
 class AjaxGetMessages(webapp.RequestHandler):
@@ -96,13 +138,15 @@ class AjaxJoin(webapp.RequestHandler):
             users = memcache.get(roomGet+"Users")
             if(users == None):
                 users = []
-            users.append(session['id'])
+            if session['id'] not in users:
+                users.append(session['id'])
             memcache.set(key=roomGet+"Users",value=users)
             
         
 
 def main():
-    application = webapp.WSGIApplication([('/chat/', Main), 
+    application = webapp.WSGIApplication([('/chat/', ChatRoot), 
+                                          ('/chat/chat', ChatMain),
                                           ('/chat/ajaxgetmessages', AjaxGetMessages),
                                           ('/chat/ajaxpostmessages', AjaxPostMessages),
                                           ('/chat/ajaxjoin', AjaxJoin),
