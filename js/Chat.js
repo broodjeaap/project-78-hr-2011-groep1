@@ -7,7 +7,7 @@ $.ajaxSetup ({
 
 function send(){
 	if($("#chatTextBox").val() != ""){
-		$("#chatSpace").load("/chatajaxhandler?type=post&id="+$("#id").val()+"&room="+$("#room").val()+"&message="+prepare($("#chatTextBox").val()),scrollDown);
+		$.ajax("/chat/ajaxpostmessages?id="+$("#id").val()+"&room="+$("#room").val()+"&message="+prepare($("#chatTextBox").val()),scrollDown);
 		$("#chatTextBox").val("");
 		timout = 100;
 	}
@@ -22,7 +22,7 @@ function prepare(str){
 }
 
 function getMessages(){
-	$("#chatSpace").load("/chatajaxhandler?type=get&room="+$("#room").val()+"&id="+$("#id").val(),scrollDown);
+	$("#chatSpace").load("/chat/ajaxgetmessages?room="+$("#room").val()+"&id="+$("#id").val(),scrollDown);
 	timout--;
 	if(timout <= 0){
 		clearInterval(timerID);
@@ -35,7 +35,7 @@ function scrollDown(){
 }
 
 function getUsers(){
-	$("#userSpace").load("/chatajaxhandler?type=users&room="+$("#room").val()+"&id="+$("#id").val());
+	$("#userSpace").load("/chat/ajaxgetusers?room="+$("#room").val()+"&id="+$("#id").val());
 }
 
 function updateChat(){
@@ -44,14 +44,14 @@ function updateChat(){
 }
 
 $(document).ready(function() {
-	$("#userSpace").load("/chatajaxhandler?type=join&room="+$("#room").val()+"&id="+$("#id").val());
+	$.ajax("/chat/ajaxjoin?&room="+$("#room").val()+"&id="+$("#id").val());
 	getMessages();
 	getUsers();
 	timerID = setInterval("updateChat()",5000);
 });
 
 $(window).unload(function() {
-	$("#userSpace").load("/chatajaxhandler?type=quit&room="+$("#room").val()+"&id="+$("#id").val());
+	$.ajax("/chat/ajaxquit?room="+$("#room").val()+"&id="+$("#id").val());
 });
 
 $(document).keypress(function(e) {

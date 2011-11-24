@@ -53,9 +53,9 @@ def header(session,bodyAttributes = ""):
                 <head>
                     <title>Donald Knuth College</title>
                     <link rel="stylesheet" href="/css/global.css"/>
-                    <link rel="stylesheet" type="text/css" href="css/jquery.datepick.css" media="screen" />
-                    <script type='text/javascript' src='js/jquery-1.6.4.js'></SCRIPT>
-                    <script type='text/javascript' src='js/jquery.datepick.js'></script>
+                    <link rel="stylesheet" type="text/css" href="/css/jquery.datepick.css" media="screen" />
+                    <script type='text/javascript' src='/js/jquery-1.6.4.js'></SCRIPT>
+                    <script type='text/javascript' src='/js/jquery.datepick.js'></script>
                 </head>
                 <body %s>
                     <div class='header'>
@@ -85,7 +85,7 @@ def header(session,bodyAttributes = ""):
             ret += "<td><a href='/berichtenVersturen'><div class='headerLink'>Berichten versturen</div></a></td>"
         elif(session.__getitem__('securityLevel') == 2):
             ret += "<td><a href='/beheerder'><div class='headerLink'>Home</div></a></td>"
-            ret += "<td><a href='/chat'><div class='headerLink'>Chat</div></a></td>"
+            ret += "<td><a href='/chat/'><div class='headerLink'>Chat</div></a></td>"
             ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
             ret += "<td><a href='/plannen'><div class='headerLink'>Ouder avond plannen</div></a></td>"
             ret += "<td><a href='/insert'><div class='headerLink'>Insert Root</div></a></td>"
@@ -372,7 +372,7 @@ def link(href,text):
     return "<a href='"+href+"' >"+text+"</a>"
 
 def chatBox(id,room="global"):
-    ret = """ <script type='text/javascript' src='js/Chat.js'></script>
+    ret = """ <script type='text/javascript' src='/js/Chat.js'></script>
                                         <div class='chatDiv' id='chatDiv'>
                                             <div class='chatHeader' id='chatHeader'>
                                                 Chatting in %s
@@ -394,7 +394,7 @@ def chatBox(id,room="global"):
                                                             <input type='text' size='60' id='chatTextBox' />
                                                         </td> 
                                                         <td>
-                                                            <img src="images/chatSend.png" alt="send" onclick='send();'/>
+                                                            <img src="/images/chatSend.png" alt="send" onclick='send();'/>
                                                         </td>
                                                     </tr>
                                                 </table>
