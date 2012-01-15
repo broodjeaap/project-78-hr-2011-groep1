@@ -215,7 +215,10 @@ class Beheerder(webapp.RequestHandler):
         header=webpages.header(session)
         session.__setitem__('header', header)
         self.response.out.write(header)
-        self.response.out.write('Beheer pagina')
+        if(session.__getitem__('securityLevel') == 2):
+            self.response.out.write(webpages.cmsHeader())
+            self.response.out.write(webpages.cmsFooter())
+                
         self.response.out.write(webpages.footer())
 class AccountSettings(webapp.RequestHandler):
     def get(self):

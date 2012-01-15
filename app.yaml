@@ -1,4 +1,4 @@
-application: davidzessen
+application: jordyhert
 version: 1
 runtime: python
 api_version: 1
@@ -22,6 +22,9 @@ handlers:
 
 - url: /beheerder
   script: main.py
+
+- url: /beheerder/*.*
+  script: main.py
   
 - url: /stuuremail
   script: main.py
@@ -37,6 +40,9 @@ handlers:
 
 - url: /nextstep
   script: insert.py
+  
+- url: /insertleerling
+  script: main.py
   
 - url: /plannen
   script: main.py
