@@ -60,3 +60,6 @@ class ChatMessage(db.Model):
     room = db.StringProperty()
     time = db.TimeProperty(auto_now=True)
     message = db.StringProperty()
+    
+class idCounter(db.Model):
+    count = db.IntegerProperty(required=True, default=3321)

@@ -61,16 +61,6 @@ class AfspraakDatastorePost(webapp.RequestHandler):
         else:
             self.redirect('/')
 
-
-
-
-
-
-
-
-
-
-
 class DocentDatastore(webapp.RequestHandler):
     def get(self):
         session = get_current_session()
@@ -268,47 +258,138 @@ class LeerlingDatastore(webapp.RequestHandler):
                 self.redirect('/beheerder')
         else:
             self.redirect('/')
+
+
+
+def klassenLijst():
+
+    result = db.GqlQuery("SELECT * FROM VakPerKlas")
+    klassen = []
+    unique = []
+    
+    
+    for VakPerKlas in result:
+        klassen.append(VakPerKlas.klas)   
+    
+    klassen.sort()
+    
+    unique.append(klassen[0])
+        
+    klassenIndex = 1
+    uniqueIndex = 0
+    
+    while klassenIndex < len(klassen):
+        if(unique[uniqueIndex] == klassen[klassenIndex]):
+            klassenIndex +=1
+        else:
+            unique.append(klassen[klassenIndex])
+            klassenIndex +=1
+            uniqueIndex  +=1
+
+    return unique
+
+def leerlingIDS():
+
+    result = db.GqlQuery("SELECT * FROM Leerling")
+    ids = []    
+    
+    for leerling in result:
+        ids.append(leerling.leerlingID)   
+    
+    ids.sort()
+    
+    return ids
+
+def newLeerlingID(increment=False):
+    
+    counter = entities.idCounter.get_by_key_name("idcounter")
+    
+    if increment:
+        if not counter:
+            counter = entities.idCounter(key_name="idcounter")
+            counter.count +=1
+            counter.put()
+            return
+        else:
+            counter.count +=1
+            counter.put()     
+    else:
+        if not counter:
+            counter = entities.idCounter(key_name="idcounter")
+            counter.count +=1
             
-class LeerlingDatastorePost(webapp.RequestHandler):
+        else:
+            counter.count +=1
+        
+    return counter.count
+
+class DeleteStudent(webapp.RequestHandler):
     def post(self):
+         result = db.GqlQuery("SELECT * FROM Leerling WHERE leerlingID = '%s'"%(self.request.get('leerlingID')))
+         leerling = result[0]
+         leerling.delete()
+         self.redirect('/datastore/addstudentpage')
+
+class addStudentPage(webapp.RequestHandler):
+    def get(self):
+        id = self.request.get('id')
+        leerling = None
+        
+        if id:
+            result = db.GqlQuery("SELECT * FROM Leerling WHERE leerlingID = '%s'"%(id))
+            leerling = result[0]
+
+        self.response.out.write(webpages.header(get_current_session()))
+        self.response.out.write(webpages.cmsHeader())
+        if not leerling:
+            self.response.out.write(webpages.addStudent(newLeerlingID(), leerlingIDS(), klassenLijst()))
+        else:
+            self.response.out.write(webpages.modifyStudent(leerling, leerlingIDS(), klassenLijst()))
+        self.response.out.write(webpages.cmsFooter())
+        self.response.out.write(webpages.footer())
+
+class AddStudent(webapp.RequestHandler):
+    def post(self):
+        
         session = get_current_session()
         if(session.__getitem__('loginType') == 'beheerder'):
             if(session.__getitem__('securityLevel') == 2):
-                key = self.request.get("key")
-                leerling = db.get(key)
-                if(self.request.get("delete") == 'delete'):
-                    leerling.delete()
-                    self.redirect('/datastore/leerling')
-                    return
+                leerling = None
+                if str(newLeerlingID()) == self.request.get('leerlingID'):
+                    leerling = entities.Leerling()
+                    newLeerlingID(True)
+                else:
+                     result = db.GqlQuery("SELECT * FROM Leerling WHERE leerlingID = '%s'"%(self.request.get('leerlingID')))
+                     leerling = result[0]
                 
-                leerling.leerlingID = self.request.get("leerlingID")
-                leerling.wachtwoord = self.request.get("wachtwoord")
-                leerling.voornaam = self.request.get("voornaam")
-                leerling.tussenvoegsel = self.request.get("tussenvoegsel")
-                leerling.achternaam = self.request.get("achternaam")
-                leerling.geslacht = self.request.get("geslacht")
-                leerling.klas = self.request.get("klas")
                 leerling.aanhefVerzorger = self.request.get("aanhefVerzorger")
                 leerling.initialenVerzorger = self.request.get("initialenVerzorger")
                 leerling.voorvoegselsVerzorger = self.request.get("voorvoegselsVerzorger")
                 leerling.achternaamVerzorger = self.request.get("achternaamVerzorger")
                 leerling.rolVerzorger = self.request.get("rolVerzorger")
+                
                 leerling.adres = self.request.get("adres")
                 leerling.huisnummer = self.request.get("huisnummer")
-                leerling.woonplaats = self.request.get("woonplaats")
                 leerling.postcode = self.request.get("postcode")
-                leerling.mobielnummer = self.request.get("mobielnummer")
-                leerling.vastnummer = self.request.get("vastnummer")
+                leerling.woonplaats = self.request.get("woonplaats")
                 leerling.email = self.request.get("email")
+                leerling.vastnummer = self.request.get("telefoon_vast")
+                leerling.mobielnummer = self.request.get("mobiel")
+                    
+                leerling.geslacht = self.request.get("geslacht")
+                leerling.voornaam = self.request.get("voornaam")
+                leerling.tussenvoegsel = self.request.get("tussenvoegsel")
+                leerling.achternaam = self.request.get("achternaam")
+                leerling.klas = self.request.get("klas")                                  
+                
+                
+                
+                leerling.leerlingID = self.request.get("leerlingID")
+                leerling.wachtwoord = self.request.get("wachtwoord")
+                
                 leerling.put()
-                self.redirect('/datastore/leerling')
-            else:
-                self.redirect('/beheerder')
-        else:
-            self.redirect('/')
 
-
-
+                self.redirect('/datastore/addstudentpage')
 
 class BeheerderDatastore(webapp.RequestHandler):
     def get(self):
@@ -386,9 +467,13 @@ def main():
                                           ('/datastore/vakperklas', VakPerKlasDatastore),
                                           ('/datastore/vakperklaspost', VakPerKlasDatastorePost),
                                           ('/datastore/leerling', LeerlingDatastore),
-                                          ('/datastore/leerlingpost', LeerlingDatastorePost),
+                                          ('/datastore/leerlingpost', AddStudent),
                                           ('/datastore/beheerder', BeheerderDatastore),
                                           ('/datastore/beheerderpost', BeheerderDatastorePost),
+                                          ('/datastore/addstudentpage', addStudentPage),
+                                          ('/datastore/modifystudentpage', addStudentPage),
+                                          ('/datastore/deletestudent', DeleteStudent),
+                                          ('/datastore/updatestudent', AddStudent),
                                           ('/datastore', DatastoreRoot)],
                                          debug=True)
     util.run_wsgi_app(application)
