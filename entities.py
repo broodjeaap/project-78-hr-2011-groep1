@@ -48,6 +48,7 @@ class Leerling(db.Model):
     mobielnummer = db.StringProperty()
     vastnummer = db.StringProperty()
     email = db.StringProperty()
+    lokatie = db.GeoPtProperty()
     
 class Beheerder(db.Model):
     login = db.StringProperty()
