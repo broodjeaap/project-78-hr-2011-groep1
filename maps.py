@@ -73,7 +73,7 @@ class KortsteRoute(webapp.RequestHandler):
     def get(self):
         session = get_current_session()
         self.response.out.write(webpages.header(session))
-        leerlingen = entities.Leerling.all().fetch(MAX)
+        leerlingen = entities.Leerling.all().fetch(6)
         matrix = {}
         matrixRegel = {}
         length = len(leerlingen)
@@ -85,7 +85,12 @@ class KortsteRoute(webapp.RequestHandler):
         
         """
         debugging...
+        """
+        
         self.response.out.write("<h1>~Snelste routen tussen leerlingen</h1><br /><table border='1'><tr><td> </td>")
+        for key,tmp in matrix.iteritems():
+            self.response.out.write("<td>"+key+"</td>")
+            
         self.response.out.write("</tr>")
         for key,dict in matrix.iteritems():
             self.response.out.write("<tr><td>"+key+"</td>")
@@ -94,7 +99,7 @@ class KortsteRoute(webapp.RequestHandler):
                 
             self.response.out.write("</tr>")
         self.response.out.write("</table>")
-        """
+        
         leerlingenDic = {}
         for leerling in leerlingen:
             leerlingenDic[leerling.leerlingID] = leerling
