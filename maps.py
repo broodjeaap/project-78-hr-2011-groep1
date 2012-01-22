@@ -60,10 +60,30 @@ class Afstanden(webapp.RequestHandler):
                     if distanceTo < distances[i]:
                         counts[i] += 1
                         break
-        self.response.out.write("""<iframe id='afstandMap' frameborder=0 marginwidth=0 marginheight=0 border=0 style="border:0;margin:0;width:500px;height:375px;" src="http://www.google.com/uds/modules/elements/mapselement/iframe.html?maptype=roadmap&latlng=52.015043%2C4.695895&mlatlng=52.015043%2C4.695895&maddress1=Kanaalstraat%2031&maddress2=2801%20Gouda%2C%20The%20Netherlands&mtitle=School&element=true" scrolling="no" allowtransparency="true"></iframe>""")
-        #self.response.out.write("<a href='#' onclick='test()'>test</a>")
-                        
         self.response.out.write("<h1>Afstanden van leerlingen tot de school</h1><br /><table border='1'>")
+        self.response.out.write("""
+        <script>
+        $(document).ready(function() {
+            var myOptions = {
+                center: new google.maps.LatLng(52.015043, 4.695895),
+                zoom: 11,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+            var image = '/images/marker.png';
+            var test = new google.maps.LatLng(-33.890542, 151.274856);
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(52.015043, 4.695895),
+                map: map
+            });
+        
+        """)
+        for leerling in leerlingen:
+            self.response.out.write("var marker = new google.maps.Marker({ position: new google.maps.LatLng(%s,%s),map: map,icon:'/images/marker.png'});" %(str(leerling.lokatie.lat),str(leerling.lokatie.lon)))
+        for distance in distances:
+            self.response.out.write("var options = {strokeColor: '#FF0000',strokeOpacity: 0.5,strokeWeight: 2,fillColor: '#000000',fillOpacity: 0.00,map: map,center: new google.maps.LatLng(%s, %s),radius: %s};circle = new google.maps.Circle(options);" %(str(school.lat),str(school.lon),str(distance * 1000)))
+        self.response.out.write("""});</script><script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBUHKNVPkzNbOjejdzPKIVIMK12IU7w4Vg&sensor=false"></script><div id="map_canvas" style="width:100%; height:100%"></div>""")
+        #self.response.out.write("<a href='#' onclick='test()'>test</a>")
         for i in range(len(counts)):
             self.response.out.write("<tr><td> < "+str(distances[i])+"km</td><td>"+str(counts[i])+"</td></tr> <br />")
         self.response.out.write("</table>")
@@ -73,7 +93,7 @@ class KortsteRoute(webapp.RequestHandler):
     def get(self):
         session = get_current_session()
         self.response.out.write(webpages.header(session))
-        leerlingen = entities.Leerling.all().fetch(6)
+        leerlingen = entities.Leerling.all().fetch(100)
         matrix = {}
         matrixRegel = {}
         length = len(leerlingen)
@@ -85,12 +105,11 @@ class KortsteRoute(webapp.RequestHandler):
         
         """
         debugging...
-        """
-        
+                
         self.response.out.write("<h1>~Snelste routen tussen leerlingen</h1><br /><table border='1'><tr><td> </td>")
         for key,tmp in matrix.iteritems():
             self.response.out.write("<td>"+key+"</td>")
-            
+        
         self.response.out.write("</tr>")
         for key,dict in matrix.iteritems():
             self.response.out.write("<tr><td>"+key+"</td>")
@@ -99,6 +118,7 @@ class KortsteRoute(webapp.RequestHandler):
                 
             self.response.out.write("</tr>")
         self.response.out.write("</table>")
+        """
         
         leerlingenDic = {}
         for leerling in leerlingen:
@@ -107,22 +127,11 @@ class KortsteRoute(webapp.RequestHandler):
         visited = []
         current = leerlingen[0]
         
-        tmp = []
-        count = 0
-        for leerling in leerlingen:
-            if leerling.lokatie in tmp:
-                count += 1
-            else:
-                tmp.append(leerling.lokatie)
-                
-        self.response.out.write(str(count)+": "+str(len(tmp)))
-        
-        
-        
-        
+        debugLimit = 0
         output.append(current)
         visited.append(current.leerlingID)
-        while len(output) < len(leerlingen):
+        while len(output) < len(leerlingen) and debugLimit < 2000:
+            debugLimit += 1
             lowest = MAX
             lowestID = current.leerlingID
             for key,afstand in matrix[current.leerlingID].iteritems():
@@ -131,13 +140,34 @@ class KortsteRoute(webapp.RequestHandler):
                         lowest = afstand
                         lowestID = key
                     else:
-                        visited.append(key)
+                        if key not in visited:
+                            visited.append(key)
+                        leerlingTmp = leerlingenDic[key] 
+                        if leerlingTmp not in output:
+                            output.append(leerlingTmp)
+            if current not in output:
+                output.append(current)
             current = leerlingenDic[lowestID]
             visited.append(leerling.leerlingID)
-            output.append(current)
-            
-        for leerling in output:
-            self.response.out.write(leerling.leerlingID+"<br />")
+
+        
+        self.response.out.write("<h1>Routen tussen de opgegeven leerlingen:</h1><table><tr><th>Afspraak#</th><th>LeerlingID</th><th>Lokatie</th></tr>")
+        for count, leerling in enumerate(output):
+            self.response.out.write(
+            """
+            <tr>
+                <td>
+                    %s
+                </td>
+                <td>
+                    %s
+                </td>
+                <td>
+                    %s
+                </td>
+            </tr>
+            """ %(str(count),leerling.leerlingID,leerling.adres+" "+leerling.huisnummer+", "+leerling.woonplaats+", "+leerling.postcode))
+        self.response.out.write("</table>")
         """
         self.response.out.write("<h1>~Snelste routen tussen leerlingen</h1><br /><table border='1'>")
         for i in range(len(counts)):

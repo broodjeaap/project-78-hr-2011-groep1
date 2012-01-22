@@ -59,13 +59,7 @@ def header(session,bodyAttributes = ""):
                     <title>Donald Knuth College</title>
                     <link rel="stylesheet" href="/css/global.css"/>
                     <link rel="stylesheet" type="text/css" href="/css/jquery.datepick.css" media="screen" />
-                    <script type="text/javascript" src='/js/tabber.js'></script>
-                    <link rel="stylesheet" href="example.css" TYPE="text/css" MEDIA="screen">
-                    <link rel="stylesheet" href="example-print.css" TYPE="text/css" MEDIA="print">
-                    <script type="text/javascript">
-                    document.write('<style type="text/css">.tabber{display:none;}<\/style>');
-                    </script>
-                    <script type='text/javascript' src='/js/jquery-1.6.4.js'></SCRIPT>
+                    <script type='text/javascript' src='/js/jquery-1.7.1.min.js'></SCRIPT>
                     <script type='text/javascript' src='/js/jquery.datepick.js'></script>
                     <script type='text/javascript' src='/js/formulierValidatie.js'></script>
                 </head>
