@@ -76,6 +76,7 @@ def header(session,bodyAttributes = ""):
     elif(session.__getitem__('loginType') == 'docent'):
         ret += "<td><a href='/docnetafspraak'><div class='headerLink'>Home</div></a></td>"
         ret += "<td><a href='/chat/'><div class='headerLink'>Chat</div></a></td>"
+        ret += "<td><a href='/map/kortsteroute'><div class='headerLink'>Leerling bezoek plannen</div></a></td>"
         ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
         ret += "<td><a href='/logout'><div class='headerLink'>Uitloggen</div></a></td>"
     elif(session.__getitem__('loginType') == 'beheerder'):
@@ -96,6 +97,7 @@ def header(session,bodyAttributes = ""):
         elif(session.__getitem__('securityLevel') == 2):
             ret += "<td><a href='/beheerder'><div class='headerLink'>Home</div></a></td>"
             ret += "<td><a href='/chat/'><div class='headerLink'>Chat</div></a></td>"
+            ret += "<td><a href='/map/afstanden'><div class='headerLink'>Verspreidings gegevens</div></a></td>"
             ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
             ret += "<td><a href='/plannen'><div class='headerLink'>Ouder avond plannen</div></a></td>"
             ret += "<td><a href='/insert'><div class='headerLink'>Insert Root</div></a></td>"
