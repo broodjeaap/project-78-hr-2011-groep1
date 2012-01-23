@@ -85,7 +85,7 @@ class Afstanden(webapp.RequestHandler):
         self.response.out.write("""});</script><script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBUHKNVPkzNbOjejdzPKIVIMK12IU7w4Vg&sensor=false"></script><div id="map_canvas" style="width:100%; height:100%"></div>""")
         #self.response.out.write("<a href='#' onclick='test()'>test</a>")
         for i in range(len(counts)):
-            self.response.out.write("<tr><td> < "+str(distances[i])+"km</td><td>"+str(counts[i])+"</td></tr> <br />")
+            self.response.out.write("<tr><td>"+str(distances[i])+"km</td><td>"+str(counts[i])+"</td></tr> <br />")
         self.response.out.write("</table>")
         self.response.out.write(webpages.footer())
 
