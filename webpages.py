@@ -63,13 +63,7 @@ def header(session,bodyAttributes = ""):
                     <title>Donald Knuth College</title>
                     <link rel="stylesheet" href="/css/global.css"/>
                     <link rel="stylesheet" type="text/css" href="/css/jquery.datepick.css" media="screen" />
-                    <script type="text/javascript" src='/js/tabber.js'></script>
-                    <link rel="stylesheet" href="example.css" TYPE="text/css" MEDIA="screen">
-                    <link rel="stylesheet" href="example-print.css" TYPE="text/css" MEDIA="print">
-                    <script type="text/javascript">
-                    document.write('<style type="text/css">.tabber{display:none;}<\/style>');
-                    </script>
-                    <script type='text/javascript' src='/js/jquery-1.6.4.js'></SCRIPT>
+                    <script type='text/javascript' src='/js/jquery-1.7.1.min.js'></SCRIPT>
                     <script type='text/javascript' src='/js/jquery.datepick.js'></script>
                     <script type='text/javascript' src='/js/formulierValidatie.js'></script>
                 </head>
@@ -86,6 +80,7 @@ def header(session,bodyAttributes = ""):
     elif(session.__getitem__('loginType') == 'docent'):
         ret += "<td><a href='/docnetafspraak'><div class='headerLink'>Home</div></a></td>"
         ret += "<td><a href='/chat/'><div class='headerLink'>Chat</div></a></td>"
+        ret += "<td><a href='/map/kortsteroute'><div class='headerLink'>Leerling bezoek plannen</div></a></td>"
         ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
         ret += "<td><a href='/logout'><div class='headerLink'>Uitloggen</div></a></td>"
     elif(session.__getitem__('loginType') == 'beheerder'):
@@ -106,6 +101,7 @@ def header(session,bodyAttributes = ""):
         elif(session.__getitem__('securityLevel') == 2):
             ret += "<td><a href='/beheerder'><div class='headerLink'>Home</div></a></td>"
             ret += "<td><a href='/chat/'><div class='headerLink'>Chat</div></a></td>"
+            ret += "<td><a href='/map/afstanden'><div class='headerLink'>Verspreidings gegevens</div></a></td>"
             ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
             ret += "<td><a href='/plannen'><div class='headerLink'>Ouder avond plannen</div></a></td>"
             ret += "<td><a href='/insert'><div class='headerLink'>Insert Root</div></a></td>"
