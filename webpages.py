@@ -36,6 +36,10 @@ def cmsHeader():
                 <div id="CMSnavigation">
                     <ul style="list-style:none;">
                         <li><a style="text-align:left;" class="headerlink" href="/datastore/addstudentpage">Leerling beheer</a></li>
+                        <li><a style="text-align:left;" class="headerlink" href="/datastore/adddocentpage">Docent beheer</a></li>
+                         <li><a style="text-align:left;" class="headerlink" href="/datastore/addbeheerderpage">Beheerder beheer</a></li>
+                         <li><a style="text-align:left;" class="headerlink" href="/datastore/addvakpage">Vak beheer</a></li>
+                         <li><a style="text-align:left;" class="headerlink" href="/datastore/addklaspage">Klas beheer</a></li>
                     </ul>
                  
                 </div>
@@ -435,14 +439,15 @@ def addStudent(leerlingID, leerlingIDS=[], klassen=[]):
                 <li>aanpassen</li>
                 <li> of verwijderen</li>
             </ul>
-            van een leerling, selecteer een ID
+            van een leerling, selecteer een ID.
+            Of voor het toevoegen van een leerling selecteer nieuw.
             <form method="get" action="/datastore/addstudentpage">        
                 <select  name='id' onChange="submitForm(this.form)" style="margin:5px 80px;">
-                    <option  value=""></option>"""
+                    <option selected="true"  value="nieuw">NIEUW</option>"""
     for id in leerlingIDS:
         cmsPage += "<option value=" + id +">" + id +"</option>"
             
-    cmsPage += """"</select></form>
+    cmsPage += """</select></form>
          </div>
         
         
@@ -573,7 +578,7 @@ def addStudent(leerlingID, leerlingIDS=[], klassen=[]):
         cmsPage += "<option>" + klas +"</option>"
     
                     
-    cmsPage += """"</select></td>
+    cmsPage += """</select></td>
             </tr>
             <tr>
                 <td colspan="2">&nbsp;</td>
@@ -617,17 +622,18 @@ def modifyStudent(leerling, leerlingIDS=[],klassen=[]):
                 <li>aanpassen</li>
                 <li> of verwijderen</li>
             </ul>
-            van een leerling, selecteer een ID
+            van een leerling, selecteer een ID.
+            Of voor het toevoegen van een leerling selecteer nieuw.
         <form method="get" action="/datastore/addstudentpage">                 
                 <select  name='id' onChange="submitForm(this.form)" style="margin:5px 80px;">
-                    <option  value=""></option>"""
+                    <option  value="nieuw">NIEUW</option>"""
     for id in leerlingIDS:
         if(leerling.leerlingID == id):
             cmsPage += "<option selected='true' value=" + id +">" + id +"</option>"
         else: cmsPage += "<option value=" + id +">" + id +"</option>"
     
                     
-    cmsPage += """"</select>
+    cmsPage += """</select>
     </form>
          </div>
         
@@ -794,7 +800,7 @@ def modifyStudent(leerling, leerlingIDS=[],klassen=[]):
             cmsPage += "<option>" + klas +"</option>"
     
                     
-    cmsPage += """"</select></td>
+    cmsPage += """</select></td>
             </tr>
             <tr>
                 <td colspan="2">&nbsp;</td>
@@ -821,21 +827,798 @@ def modifyStudent(leerling, leerlingIDS=[],klassen=[]):
              
             </div>
             <div style="text-align:right; clear:both; height:25px; width:882px;">
-                <input type="button" value="Verwijderen" onClick="deleteForm(this.form)"/>
-                <input type="button" value="aanpassen" onClick="updateForm(this.form)"/>
+                <input type="button" value="Verwijderen" onClick="deleteFormStudent(this.form)"/>
+                <input type="button" value="aanpassen" onClick="updateFormStudent(this.form)"/>
             </div>
         </form>
     </div>"""%(leerling.leerlingID, leerling.leerlingID, leerling.wachtwoord, leerling.wachtwoord)
     return cmsPage
 
 
+def addDocent(docentIDS):
+    
+    cmsPage = """
+       <div id="tableFormWrapper" style="width:882; margin:50px auto;">
+        <div style=" float:left; border:1px solid black; width:214px; height:440px; padding:5px;">
+            Voor het
+            <ul style="margin:3px;">
+                <li>Weergeven</li>
+                <li>aanpassen</li>
+                <li> of verwijderen</li>
+            </ul>
+            van een docent, selecteer een ID.<br />
+            Of voor het toevoegen van een docent selecteer nieuw.
+            <form method="get" action="/datastore/adddocentpage">        
+                <select  name='id' onChange="submitForm(this.form)" style="margin:5px 80px;">
+                    <option selected="true">NIEUW</option>"""
+    for id in docentIDS:
+        cmsPage += "<option value='%s'>%s</option>"%(id, id)
+            
+    cmsPage += """</select></form>
+         </div>
+        
+        
+            <form action="/datastore/docentpost" method="post">
+                <div style="float:left; border:1px solid black; margin-left:25px; width:300px; height:450px;">
+            <table>
+            <tr>
+                <th colspan="2" style="text-align:left;">Gegevens docent</th>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    dhr.    <input type="radio" name="aanhef" value="dhr."/>
+                    mw.        <input type="radio" name="aanhef" value="mw."/>
+                </td>
+            </tr>
+            <tr>
+                <td>naam</td>
+                <td>
+                    <input type="text" name="naam"/>
+                </td>
+            </tr>
+            <tr>
+                <td>postvaknummer</td>
+                <td>
+                    <input type="text" name="postvaknummer"/>
+                </td>
+            </tr>
+            <tr>
+                <td>e-mailadres</td>
+                <td>
+                    <input type="text" name="email" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;</td>
+            </tr>
+             <tr>
+                <th colspan="2" style="text-align:left;">Account gegevens</th>
+            </tr>
+            <tr>
+                <td>docentID</td> 
+                <td><input type="text" name="docentID"/><input type="hidden" name="docentID" value="%s"/></td>
+            </tr>
+            <tr>
+                <td>wachtwoord</td> 
+                <td><input type="password" name="wachtwoord"/></td>
+            </tr>
+            <tr>
+                <td>wachtwoord 2x</td> 
+                <td><input type="password" name="password"/></td>
+            </tr>
+            </table>
+            </div>
+            <div style="float:left; margin-bottom:5px; margin-left:25px; border:1px solid black; width:300px; height:450px">
+            <table>
+              <tr><th style="text-align:left;">Titel</th></tr>
+                <tr><td>
+                
+                <b>Associate Degree</b><br />
+                <input name="Ad" type="checkbox" value=", Ad"/>
+                <label for="Ad">Associate Degree</label><br />
+                
+                <b>Wo-bachelor</b><br />
+                <input name="BA" type="checkbox" value=", BA"/>
+                <label for="BA">Bachelor of Arts</label><br />
+                
+                <input name="BSc" type="checkbox" value=", BSc"/>
+                <label for="BSc">Bachelor of Science</label><br />
+                
+                <input name="LLB" type="checkbox" value=", LLB"/>
+                <label for="LLB">Bachelor of Laws</label><br />
+                
+                <b>Wo-master</b><br />
+                <input name="MA" type="checkbox" value=", MA"/>
+                <label for="MA">Master of Arts</label><br />
+                
+                <input name="MSc" type="checkbox" value=", MSc"/>
+                <label for="MSc">Master of Science</label><br />
+                
+                <input name="LLM" type="checkbox" value=", LLM"/>
+                <label for="LLM">Master of Laws</label><br />
+                
+                <input name="MPhil" type="checkbox" value=", MPhil"/>
+                <label for="MPhil">Master of Philosophy</label><br />
+                
+                <b>Nederlandse titels</b><br />
+                <input type="checkbox" name="drs" value="drs."/>
+                <label for="drs">Doctorandus</label><br />
+                
+                <input name="mr" type="checkbox" value="mr."/>
+                <label for="mr">Meester</label><br />
+                
+                <input name="ir" type="checkbox" value="ir."/>
+                <label for="ir">Ingenieur</label><br />
+                
+                <input name="dr" type="checkbox" value="dr."/>
+                <label for="dr">Doctor</label><br />
+                
+                <input name="RA" type="checkbox" value=", RA"/>
+                <label for="RA">Registeraccountant</label><br />                         
+            </td>
+            </tr>
+             </table>
+             
+            </div>
+            <div style="text-align:right; clear:both; height:25px; width:882px;">
+                <input type="button" value="Toevoegen" onClick="formulierCheckDocent(this.form)"/>
+            </div>
+        </form>
+    </div>"""
+    return cmsPage
+
+def modifyDocent(docent, docentIDS=[]):
+    
+    docentNaam = docent.naam
+    titels = [', RA', ', Ad', ', BA', ', BSc', ', LLB', ', MA', ', MSc', ', LLM', ', MPhil']            
+    for titel in titels:
+        if(titel in docentNaam):
+            docentNaam = docentNaam.partition(titel)[0]
+    
+    cmsPage = """
+    
+       <div id="tableFormWrapper" style="width:882; margin:50px auto;">
+        <div style=" float:left; border:1px solid black; width:214px; height:440px; padding:5px;">
+            Voor het
+            <ul style="margin:3px;">
+                <li>Weergeven</li>
+                <li>aanpassen</li>
+                <li> of verwijderen</li>
+            </ul>
+            van een docent, selecteer een ID.<br />
+            Of voor het toevoegen van een docent selecteer nieuw.
+            <form method="get" action="/datastore/adddocentpage">        
+                <select  name='id' onChange="submitForm(this.form)" style="margin:5px 80px;">
+                    <option>NIEUW</option>"""
+    for id in docentIDS:
+        
+        if(id == docent.docentID):
+            cmsPage += "<option selected='true' value=" + id +">" + id +"</option>"
+        else:
+            cmsPage += "<option value=" + id +">" + id +"</option>"
+            
+    cmsPage += """</select></form>
+         </div>
+            
+        
+            <form action="/datastore/leerlingpost" method="post">
+                <div style="float:left; border:1px solid black; margin-left:25px; width:300px; height:450px;">
+            <table>
+            <tr>
+                <th colspan="2" style="text-align:left;">Gegevens docent</th>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;</td>
+            </tr>
+            <td></td>"""
+            
+    if('dhr.' in docent.aanhef):
+        cmsPage += """ 
+                <td>
+                    dhr.    <input checked="true" type="radio" name="aanhef" value="dhr."/>
+                    mw.        <input type="radio" name="aanhefVerzorger" value="mw."/>
+                </td>"""
+    else: 
+        
+        cmsPage += """ 
+                <td>
+                    dhr.    <input type="radio" name="aanhefVerzorger" value="dhr."/>
+                    mw.        <input checked="true"  type="radio" name="aanhef" value="mw."/>
+                </td>"""
+                
+    cmsPage +="""<tr>
+                <td>naam</td>
+                <td>
+                    <input type="text" name="naam" value="%s"/>
+                </td>
+            </tr>
+            <tr>
+                <td>postvaknummer</td>
+                <td>
+                    <input type="text" name="postvaknummer" value="%s"/>
+                </td>
+            </tr>
+            <tr>
+                <td>e-mailadres</td>
+                <td>
+                    <input type="text" name="email" value="%s" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;</td>
+            </tr>
+             <tr>
+                <th colspan="2" style="text-align:left;">Account gegevens</th>
+            </tr>
+            <tr>
+                <td>docentID</td> 
+                <td><input type="text" value="%s" disabled="disabled"/><input type="hidden" name="docentID" value="%s"/></td>
+            </tr>
+            <tr>
+                <td>wachtwoord</td> 
+                <td><input type="password" name="wachtwoord" value="%s" /></td>
+            </tr>
+            <tr>
+                <td>wachtwoord 2x</td> 
+                <td><input type="password" name="password" value="%s"/></td>
+            </tr>
+            </table>
+            </div>
+            <div style="float:left; margin-bottom:5px; margin-left:25px; border:1px solid black; width:300px; height:450px">
+            <table>
+              <tr><th style="text-align:left;">Titel</th></tr>
+                <tr><td>
+                <b>Associate Degree</b><br />"""%(docentNaam, docent.postvaknummer, docent.email, docent.docentID, docent.docentID, docent.wachtwoord,docent.wachtwoord)
+    
+    if(', Ad' in docent.naam):
+        cmsPage += """<input checked="yes" type="checkbox" name="Ad" value=", Ad"/>
+                      <label for="Ad">Associate Degree</label><br /><b>Wo-bachelor</b><br />"""
+
+    else:
+        cmsPage += """<input type="checkbox" name="Ad" value=", Ad"/>
+                      <label for="Ad">Associate Degree</label><br /><b>Wo-bachelor</b><br />"""
+    
+    if(', BA' in docent.naam):
+        cmsPage += """<input checked="yes" type="checkbox" name="BA" value=", BA"/>
+                      <label for="BA">Bachelor of Arts</label><br />"""
+                    
+    else:
+        cmsPage += """<input type="checkbox" name="BA" value=", BA"/>
+                      <label for="BA">Bachelor of Arts</label><br />"""
+    
+    if(', BSc' in docent.naam):
+        cmsPage += """<input checked="yes" type="checkbox" name="BSc" value=", BSc"/>
+                      <label for="BSc">Bachelor of Science</label><br />"""
+    else:
+        cmsPage += """<input type="checkbox" name="BSc" value=", BSc"/>
+                      <label for="BSc">Bachelor of Science</label><br />"""
+
+                
+    if(', LLB' in docent.naam):
+        cmsPage += """<input checked="yes" type="checkbox" name="LLB" value=", LLB"/>
+                      <label for="LLB">Bachelor of Laws</label><br />
+                      <b>Wo-master</b><br />"""
+    else:
+        cmsPage += """<input type="checkbox" name="LLB" value=", LLB"/>
+                      <label for="LLB">Bachelor of Laws</label><br />
+                      <b>Wo-master</b><br />"""
+    
+    if(', MA' in docent.naam):
+        cmsPage += """<input checked="yes" type="checkbox" name="MA" value=", MA"/>
+                      <label for="MA">Master of Arts</label><br />"""
+    else:
+        cmsPage += """<input type="checkbox" name="MA" value=", MA"/>
+                      <label for="MA">Master of Arts</label><br />"""
+        
+
+    
+    if(', MSc' in docent.naam):
+        cmsPage += """<input checked="yes" type="checkbox" name="MSc" value=", MSc"/>
+                      <label for="MSc">Master of Science</label><br />"""
+    else:
+        cmsPage += """<input type="checkbox" name="MSc" value=", MSc"/>
+                      <label for="MSc">Master of Science</label><br />"""
+    
+
+    
+    if(', LLM' in docent.naam):
+        cmsPage += """<input checked="yes" type="checkbox" name="LLM" value=", LLM"/>
+                      <label for="LLM">Master of Laws</label><br />"""
+    else:
+        cmsPage += """<input type="checkbox" name="LLM" value=", LLM"/>
+                      <label for="LLM">Master of Laws</label><br />"""
+
+    
+    if(', MPhil' in docent.naam):
+        cmsPage += """<input checked="yes" type="checkbox" name="MPhil" value=", MPhil"/>
+                      <label for="MPhil">Master of Philosophy</label><br />
+                      <b>Nederlandse titels</b><br />"""
+    else:
+        cmsPage += """<input type="checkbox" name="MPhil" value=", MPhil"/>
+                      <label for="MPhil">Master of Philosophy</label><br />
+                      <b>Nederlandse titels</b><br />"""
+    
+                   
+    if('drs.' in docent.aanhef):
+        cmsPage += """<input checked="yes" type="checkbox" name="drs." value="drs."/>
+                      <label for="drs.">Doctorandus</label><br />"""
+    else:
+        cmsPage += """<input type="checkbox" name="drs." value="drs."/>
+                      <label for="drs.">Doctorandus</label><br />"""
+    
+    
+    if('mr.' in docent.aanhef):
+        cmsPage += """<input checked="yes" type="checkbox" name="mr." value="mr."/>
+                      <label for="mr.">Meester</label><br />"""
+    else:
+        cmsPage += """<input type="checkbox" name="mr." value="mr."/>
+                      <label for="mr.">Meester</label><br />"""
+               
+
+    
+    if('ir.' in docent.aanhef):
+        cmsPage += """<input checked="yes" type="checkbox" name="ir." value="ir."/>
+                      <label for="ir.">Ingenieur</label><br />"""
+    else:
+        cmsPage += """<input type="checkbox" name="ir." value="ir."/>
+                      <label for="ir.">Ingenieur</label><br />"""
+                      
+    
+    if('dr.' in docent.aanhef):
+        cmsPage += """<input checked="yes" type="checkbox" name="dr." value="dr."/>
+                      <label for="dr.">Doctor</label><br />"""
+    else:
+        cmsPage += """<input type="checkbox" name="dr." value="dr."/>
+                      <label for="dr.">Doctor</label><br />"""
+    
+    if(', RA' in docent.naam):
+        cmsPage += """<input checked="yes" type="checkbox" name="dr." value=", RA"/>
+                      <label for=", RA">Registeraccountant</label><br />"""
+    else:
+        cmsPage += """<input type="checkbox" name="RA" value=", RA"/>
+                      <label for="RA">Registeraccountant</label><br />"""
+                     
+    cmsPage +="""                                   
+            </td>
+            </tr>
+             </table>
+             
+            </div>
+             <div style="text-align:right; clear:both; height:25px; width:882px;">
+                <input type="button" value="Verwijderen" onClick="deleteFormDocent(this.form)"/>
+                <input type="button" value="aanpassen" onClick="updateFormDocent(this.form)"/>
+            </div>
+        </form>
+    </div>"""
+    return cmsPage
 
 
+def addBeheerderPage(beheerderIDS):
+    
+    cmsPage = """
+       <div id="tableFormWrapper" style="width:882; margin:50px auto;">
+        <div style=" float:left; border:1px solid black; width:214px; height:440px; padding:5px;">
+            Voor het
+            <ul style="margin:3px;">
+                <li>Weergeven</li>
+                <li>aanpassen</li>
+                <li> of verwijderen</li>
+            </ul>
+            van een beheerder, selecteer een ID.
+            Of voor het toevoegen van een beheerder selecteer nieuw.
+            <form name='formforid' method="get" action="/datastore/addbeheerderpage">        
+                <select  name='id' onChange="submitForm(this.form)" style="margin:5px 80px;">
+                    <option selected="true">NIEUW</option>"""
+    for id in beheerderIDS:
+        cmsPage += "<option value='%s'>%s</option>"%(id, id)
+            
+    cmsPage += """</select></form>
+         </div>
+        
+        
+            <form name="inputform" action="/datastore/beheerderpost" method="post">
+                <div style="float:left; border:1px solid black; margin-left:25px; width:300px; height:450px;">
+            <table>
+            <tr>
+                <th colspan="2" style="text-align:left;">Account gegevens</th>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>gebruikersnaam</td>
+                <td>
+                    <input type="text" name="gebruikersnaam"/>
+                </td>
+            </tr>
+            <tr>
+                <td>wachtwoord</td>
+                <td>
+                    <input type="password" name="wachtwoord"/>
+                </td>
+            </tr>
+            <tr>
+                <td>wachtwoord 2x</td>
+                <td>
+                    <input type="password" name="password"/>
+                </td>
+            </tr>
+            <tr>
+                <td>securitylevel</td>
+                <td>
+                    <select name="securitylevel">
+                        <option>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>omschrijving</td> 
+                <td><textarea rows="2" cols="17" name="beschrijving"/></textarea></td>
+            </tr>
+            </table>
+            </div>
+            <div style="text-align:right; clear:both; height:25px; width:554px;">
+                <input type="button" value="Toevoegen" onClick="formulierCheckBeheerder(this.form)"/>
+            </div>
+        </form>
+    </div>"""
+    return cmsPage
+
+def modifyBeheerder(beheerder, beheerderIDS):
+    
+    cmsPage = """
+       <div id="tableFormWrapper" style="width:882; margin:50px auto;">
+        <div style=" float:left; border:1px solid black; width:214px; height:440px; padding:5px;">
+            Voor het
+            <ul style="margin:3px;">
+                <li>Weergeven</li>
+                <li>aanpassen</li>
+                <li> of verwijderen</li>
+            </ul>
+            van een beheerder, selecteer een ID.
+            Of voor het toevoegen van een beheerder selecteer nieuw.
+            <form name="formforid" method="get" action="/datastore/addbeheerderpage">        
+                <select  name="id" onChange="submitForm(this.form)" style="margin:5px 80px;">
+                    <option>NIEUW</option>"""
+    for id in beheerderIDS:
+        if id == beheerder.login:
+            cmsPage += "<option name='ids' selected='true' value='%s'>%s</option>"%(id, id)
+        else: cmsPage += "<option value='%s'>%s</option>"%(id, id)
+            
+    cmsPage += """</select></form>
+         </div>
+        
+        
+            <form name="inputform" action="/datastore/docentpost" method="post">
+                <div style="float:left; border:1px solid black; margin-left:25px; width:300px; height:450px;">
+            <table>
+            <tr>
+                <th colspan="2" style="text-align:left;">Account gegevens</th>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>gebruikersnaam</td>
+                <td>
+                    <input type="text" name="gebruikersnaam" value="%s"/>
+                </td>
+            </tr>
+            <tr>
+                <td>wachtwoord</td>
+                <td>
+                    <input type="password" name="wachtwoord" value="%s"/>
+                </td>
+            </tr>
+            <tr>
+                <td>wachtwoord 2x</td>
+                <td>
+                    <input type="password" name="password" value="%s"/>
+                </td>
+            </tr>
+            <tr>
+                <td>securitylevel</td>
+                <td>
+                    <select name="securitylevel" value="%s" >"""%(beheerder.login, beheerder.wachtwoord, beheerder.wachtwoord, beheerder.securityLevel)     
+    level = 0
+    while level <= 2:
+        level += 1
+        if beheerder.securityLevel == level:
+            cmsPage += "<option selected=""true>"+str(level)+"</option>"
+        else: cmsPage += "<option>"+str(level)+"</option>"
 
 
+    cmsPage +=     """
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>omschrijving</td> 
+                <td><textarea rows="2" cols="17" name="beschrijving"/>%s</textarea></td>
+            </tr>
+            </table>
+            </div>
+              <div style="text-align:right; clear:both; height:25px; width:554px;">
+                <input type="button" value="Verwijderen" onClick="deleteFormBeheerder(this.form)"/>
+                <input type="button" value="aanpassen" onClick="updateFormBeheerder(this.form)"/>
+            </div>
+        </form>
+    </div>"""%(beheerder.beschrijving)
+    return cmsPage
+
+def addVakPage(vakken):
+    
+    cmsPage = """
+       <div id="tableFormWrapper" style="width:882; margin:50px auto;">
+        <div style=" float:left; border:1px solid black; width:214px; height:440px; padding:5px;">
+            Voor het
+            <ul style="margin:3px;">
+                <li>Weergeven</li>
+                <li>aanpassen</li>
+                <li> of verwijderen</li>
+            </ul>
+            van een vak, selecteer een vakcode.
+            Of voor het toevoegen van een vak selecteer nieuw.
+            <form name='formforid' method="get" action="/datastore/addvakpage">        
+                <select  name='id' onChange="submitForm(this.form)" style="margin:5px 80px;">
+                    <option selected="true">NIEUW</option>"""
+    for vak in vakken :
+        cmsPage += "<option value='%s'>%s</option>"%(vak.vakCode, vak.vakCode)
+            
+    cmsPage += """</select></form>
+         </div>
+            <form name="inputform" action="/datastore/vakpost" method="post">
+                <div style="float:left; border:1px solid black; margin-left:25px; width:300px; height:450px;">
+            <table>
+            <tr>
+                <th colspan="2" style="text-align:left;">Gegevens vak</th>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>vakcode</td>
+                <td>
+                    <input type="text" name="vakcode"/>
+                </td>
+            </tr>
+            <tr>
+                <td>vaknaam</td>
+                <td>
+                    <input type="text" name="vaknaam"/>
+                </td>
+            </tr>
+            </table>
+            </div>
+            <div style="text-align:right; clear:both; height:25px; width:554px;">
+                <input type="button" value="Toevoegen" onClick="formulierCheckVak(this.form)"/>
+            </div>
+        </form>
+    </div>"""
+    return cmsPage
+
+def modifyVak(vak, vakCodes):
+    
+    cmsPage = """
+       <div id="tableFormWrapper" style="width:882; margin:50px auto;">
+        <div style=" float:left; border:1px solid black; width:214px; height:440px; padding:5px;">
+            Voor het
+            <ul style="margin:3px;">
+                <li>Weergeven</li>
+                <li>aanpassen</li>
+                <li> of verwijderen</li>
+            </ul>
+            van een vak, selecteer een vakcode.
+            Of voor het toevoegen van een vak selecteer nieuw.
+            <form name='formforid' method="get" action="/datastore/addvakpage">        
+                <select  name='id' onChange="submitForm(this.form)" style="margin:5px 80px;">
+                    <option selected="true">NIEUW</option>"""
+    for vakCode in vakCodes:
+        if vak.vakCode == vakCode.vakCode:
+            cmsPage += "<option selected='true' value='%s'>%s</option>"%(vakCode.vakCode, vakCode.vakCode)
+        else: 
+            cmsPage += "<option value='%s'>%s</option>"%(vakCode.vakCode, vakCode.vakCode)
+            
+    cmsPage += """</select></form>
+         </div>
+            <form name="inputform" action="/datastore/vakpost" method="post">
+                <div style="float:left; border:1px solid black; margin-left:25px; width:300px; height:450px;">
+            <table>
+            <tr>
+                <th colspan="2" style="text-align:left;">Gegevens vak</th>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>vakcode</td>
+                <td>
+                    <input type="text" name="vakcode" value="%s"/>
+                    <input type="hidden" name="vakcodereal" value="%s"/>
+                </td>
+            </tr>
+            <tr>
+                <td>vaknaam</td>
+                <td>
+                    <input type="text" name="vaknaam" value="%s"/>
+                </td>
+            </tr>
+            </table>
+            </div>
+           <div style="text-align:right; clear:both; height:25px; width:554px;">
+                <input type="button" value="Verwijderen" onClick="deleteFormVak(this.form)"/>
+                <input type="button" value="aanpassen" onClick="updateFormVak(this.form)"/>
+            </div>
+        </form>
+    </div>"""%(vak.vakCode,vak.vakCode, vak.vakNaam)
+    return cmsPage
 
 
+def addKlasPage(klassen, docentIDS, vakken):
+    
+    cmsPage = """
+    
+       <div id="tableFormWrapper" style="width:882; margin:50px auto;">
+        <div style=" float:left; border:1px solid black; width:214px; height:440px; padding:5px;">
+            Voor het
+            <ul style="margin:3px;">
+                <li>Weergeven</li>
+                <li>aanpassen</li>
+                <li> of verwijderen</li>
+            </ul>
+            van een leerling, selecteer een ID.
+            Of voor het toevoegen van een leerling selecteer nieuw.
+            <form method="get" action="/datastore/addklaspage">        
+                <select  name='klasCode' onChange="submitForm(this.form)" style="margin:5px 80px;">
+                    <option selected="true"  value="nieuw">NIEUW</option>"""
+    for klas in klassen:
+       cmsPage +=  """<option value="%s">%s</option>"""%(klas, klas)
+            
+    cmsPage += """</select></form>
+         </div>
+        
+        
+            <form name="inputform" action="/datastore/klaspost" method="post">
+                <div style="float:left; border:1px solid black; margin-left:25px; width:300px; height:450px;">
+            <table>
+            <tr>
+                <th colspan="2" style="text-align:left;">Gegevens klas</th>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>klas</td>
+                <td>
+                    <input type="text" name="klas"/>
+                </td>
+            </tr>
+            <tr>
+                <td>jaargang</td>
+                <td>
+                    <input type="text" name="jaargang"/>
+                </td>
+            </tr>
+            </table>
+            </div>
+            <div style="float:left; margin-bottom:5px; margin-left:25px; border:1px solid black; width:300px; height:450px">
+            <table><tr><th style="text-align:left;">vak selectie</th></tr><tr><td><br /></td></tr>"""
+    
+    counter = 0
+    for vak in vakken:
+        cmsPage += """<tr><td><input type="checkbox" name="%s" value="%s"/>
+                              <label for="%s">%s</label></td></td>"""%(counter, vak.vakCode, counter, vak.vakNaam)
+        cmsPage += """<td><select name="docent%s"><option></option>"""%(counter)          
+        for id in docentIDS:
+            cmsPage += "<option value='%s'>%s</option>"%(id, id)
+        cmsPage += """</td></select></tr>""" 
+        counter +=1
+            
+            
+            
+            
+    cmsPage +="""</table>
+            </div>
+            <div style="text-align:right; clear:both; height:25px; width:882px;">
+                <input type="button" value="Toevoegen" onClick="submitForm(this.form)"/>
+            </div>
+        </form>
+    </div>"""
+    return cmsPage
 
+def modifyKlas(klassen, docentIDS, vakken, sendResult):
+    
+    cmsPage = """
+    
+       <div id="tableFormWrapper" style="width:882; margin:50px auto;">
+        <div style=" float:left; border:1px solid black; width:214px; height:440px; padding:5px;">
+            Voor het
+            <ul style="margin:3px;">
+                <li>Weergeven</li>
+                <li>aanpassen</li>
+                <li> of verwijderen</li>
+            </ul>
+            van een leerling, selecteer een ID.
+            Of voor het toevoegen van een leerling selecteer nieuw.
+            <form method="get" action="/datastore/addklaspage">        
+                <select  name='klasCode' onChange="submitForm(this.form)" style="margin:5px 80px;">
+                    <option selected="true"  value="nieuw">NIEUW</option>"""
+    for klas in klassen:
+        if klas == sendResult[0].klas:
+            cmsPage +=  """<option selected="true" value="%s">%s</option>"""%(klas, klas)
+        else: 
+            cmsPage += """<option value="%s">%s</option>"""%(klas, klas)
+            
+    cmsPage += """</select></form>
+         </div>
+        
+        
+            <form name="inputform" action="/datastore/klaspost" method="post">
+                <div style="float:left; border:1px solid black; margin-left:25px; width:300px; height:450px;">
+            <table>
+            <tr>
+                <th colspan="2" style="text-align:left;">Gegevens klas</th>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>klas</td>
+                <td>
+                    <input type="text" name="klas" value="%s"/>
+                </td>
+            </tr>
+            <tr>
+                <td>jaargang</td>
+                <td>
+                    <input type="text" name="jaargang" value="%s"/>
+                </td>
+            </tr>
+            </table>
+            </div>
+            <div style="float:left; margin-bottom:5px; margin-left:25px; border:1px solid black; width:300px; height:450px">
+            <table><tr><th style="text-align:left;">vak selectie</th></tr><tr><td><br /></td></tr>"""%(sendResult[0].klas, sendResult[0].jaargang)
+    
+    counter = 0
+    for vak in vakken:
 
+        for vakIn in sendResult:
 
-
+            if vak.vakCode == vakIn.vakCode:
+                cmsPage += """<tr><td><input checked="yes" type="checkbox" name="%s" value="%s"/>
+                              <label for="%s">%s</label></td></td>"""%(counter, vak.vakCode, counter, vak.vakNaam)
+                cmsPage += """<td><select name="docent%s"><option></option>"""%(counter)          
+                for id in docentIDS:
+                    if vakIn.docentID == id:
+                        cmsPage += "<option selected='true' value='%s'>%s</option>"%(id, id)
+                    else: 
+                        cmsPage += "<option value='%s'>%s</option>"%(id, id)
+                cmsPage += """</td></select></tr>""" 
+                counter +=1
+                break
+            
+        else:
+            cmsPage += """<tr><td><input type="checkbox" name="%s" value="%s"/>
+                              <label for="%s">%s</label></td></td>"""%(counter, vak.vakCode, counter, vak.vakNaam)
+            cmsPage += """<td><select name="docent%s"><option></option>"""%(counter)          
+            for id in docentIDS:
+                cmsPage += "<option value='%s'>%s</option>"%(id, id)
+            cmsPage += """</td></select></tr>""" 
+            counter +=1
+            
+     
+    cmsPage +="""</table>
+            </div>
+            <div style="text-align:right; clear:both; height:25px; width:882px;">
+                <input type="button" value="Verwijderen" onClick="deleteFormKlas(this.form)"/>
+                <input type="button" value="aanpassen" onClick="updateFormStudent(this.form)"/>
+            </div>
+        </form>
+    </div>"""
+    return cmsPage

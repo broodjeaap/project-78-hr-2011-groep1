@@ -15,8 +15,6 @@ from reportlab.pdfgen import canvas
 
 class Login(webapp.RequestHandler):
     def get(self):
-        beheerder = entities.Beheerder(login='admin', beschrijving='Ingebouwde admin account', wachtwoord='admin', securityLevel=2)
-        beheerder.put()
         self.response.out.write("""
         <html>
             <head>
