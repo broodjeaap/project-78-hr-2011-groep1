@@ -68,6 +68,9 @@ handlers:
 - url: /selector/*.*
   script: selector.py
   
+- url: /statistieken
+  script: statistieken.py
+  
 - url: /authenticate
   script: main.py
   

@@ -11,15 +11,20 @@ from math import *
 import datetime
 import entities
 import webpages
+import selector
 import inputFunctions
 
 MAX = 2147483647
 
 class MapRoot(webapp.RequestHandler):
-    def post(self):
+    def get(self):
         session = get_current_session()
         self.response.out.write(webpages.header(session))
-        #self.response.out.write("<a href='/map/fill' >fill</a>")
+        self.response.out.write("<h1>Map root</h1>")
+        session["selectionReferer"] = "/map"
+        self.response.out.write("<a href='/selector'><h3>Selecteer leerlingen</h3></a>")
+        self.response.out.write("<h1><a href='/map/afstanden'>Afstanden App</a></h1>")
+        self.response.out.write("<h1><a href='/map/kortsteroute'>Route planner</a></h1>")
         self.response.out.write(webpages.footer())
 
 class MapFill(webapp.RequestHandler):
@@ -52,7 +57,10 @@ class Afstanden(webapp.RequestHandler):
         g = geocoders.Google()
         place, (lat, lng) = g.geocode("Kanaalstraat 31, 2801 SH Gouda")
         school = db.GeoPt(lat,lng)
-        leerlingen = entities.Leerling.all().fetch(MAX)
+        leerlingen = selector.getList()
+        if not leerlingen:
+            leerlingen = entities.Leerling.all().fetch(MAX)
+            
         for leerling in leerlingen:
             if leerling.lokatie:
                 distanceTo = haversine(school,leerling.lokatie)
@@ -93,7 +101,9 @@ class KortsteRoute(webapp.RequestHandler):
     def get(self):
         session = get_current_session()
         self.response.out.write(webpages.header(session))
-        leerlingen = entities.Leerling.all().fetch(100)
+        leerlingen = selector.getList()
+        if not leerlingen:
+            leerlingen = entities.Leerling.all().fetch(MAX)
         matrix = {}
         matrixRegel = {}
         length = len(leerlingen)
@@ -186,7 +196,7 @@ def haversine(point1,point2):
     return km
 
 def main():
-    application = webapp.WSGIApplication([('/map/', MapRoot),
+    application = webapp.WSGIApplication([('/map', MapRoot),
                                           ('/map/fill', MapFill),
                                           ('/map/afstanden', Afstanden),
                                           ('/map/kortsteroute', KortsteRoute)],

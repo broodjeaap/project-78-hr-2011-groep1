@@ -1,6 +1,7 @@
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
 from google.appengine.ext import db
+from entities import *
 
 class Afspraak(db.Model):
     leerlingID = db.StringProperty()
@@ -61,6 +62,9 @@ class ChatMessage(db.Model):
     room = db.StringProperty()
     time = db.TimeProperty(auto_now=True)
     message = db.StringProperty()
-    
+
+class Klas(db.Model):
+    klas = db.StringProperty(required=True)
+
 class idCounter(db.Model):
     count = db.IntegerProperty(required=True, default=3321)

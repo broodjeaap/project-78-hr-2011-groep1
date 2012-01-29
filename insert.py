@@ -260,6 +260,10 @@ class PostLeerling(webapp.RequestHandler):
             for leerling in leerlingen:
                 leerling.delete()
             session = get_current_session()
+            klassen = db.GqlQuery("SELECT * FROM Klas")
+            for klas in klassen:
+                klas.delete()
+            session = get_current_session()
             self.response.out.write(webpages.header(session))
             self.response.out.write("<p>Deleted all entries <a href='/insert/leerling'>terug (insert nieuwe data)</a></p></body></html>")
             self.response.out.write(webpages.footer())

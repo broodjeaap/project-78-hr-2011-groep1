@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.python.pydev.pythonNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>statistieken.py</name>
+			<type>1</type>
+			<location>C:/eclipse/workspace/davidzessen/statistieken.py</location>
+		</link>
+	</linkedResources>
 </projectDescription>
