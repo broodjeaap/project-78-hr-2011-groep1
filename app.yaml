@@ -64,6 +64,9 @@ handlers:
   
 - url: /insert/*.*
   script: insert.py
+
+- url: /selector/*.*
+  script: selector.py
   
 - url: /authenticate
   script: main.py
