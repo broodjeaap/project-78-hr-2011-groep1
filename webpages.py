@@ -89,15 +89,17 @@ def header(session,bodyAttributes = ""):
             ret += "<td><a href='/chat/'><div class='headerLink'>Chat</div></a></td>"
             ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
             ret += "<td><a href='/overzichten'><div class='headerLink'>Overzichten Datastore</div></a></td>"
+            ret += "<td><a href='/pdfcheck'><div class='headerLink'>Berichten versturen</div></a></td>"
+            "<td><a href='/mailcheck'><div class='headerLink'>Mail versturen</div></a></td>"
             ret += "<td><a href='/logout'><div class='headerLink'>Uitloggen</div></a></td>"
-            ret += "<td><a href='/stuuremail'><div class='headerLink'>Mail versturen</div></a></td>"
         elif(session.__getitem__('securityLevel') == 1):
             ret += "<td><a href='/beheerder'><div class='headerLink'>Home</div></a></td>"
             ret += "<td><a href='/chat/'><div class='headerLink'>Chat</div></a></td>"
             ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
             ret += "<td><a href='/plannen'><div class='headerLink'>Ouder avond plannen</div></a></td>"
+            ret += "<td><a href='/pdfcheck'><div class='headerLink'>Berichten versturen</div></a></td>"
+            "<td><a href='/mailcheck'><div class='headerLink'>Mail versturen</div></a></td>"
             ret += "<td><a href='/logout'><div class='headerLink'>Uitloggen</div></a></td>"
-            ret += "<td><a href='/berichtenVersturen'><div class='headerLink'>Berichten versturen</div></a></td>"
         elif(session.__getitem__('securityLevel') == 2):
             ret += "<td><a href='/beheerder'><div class='headerLink'>Home</div></a></td>"
             ret += "<td><a href='/chat/'><div class='headerLink'>Chat</div></a></td>"
@@ -107,6 +109,8 @@ def header(session,bodyAttributes = ""):
             ret += "<td><a href='/insert'><div class='headerLink'>Insert Root</div></a></td>"
             ret += "<td><a href='/overzichten'><div class='headerLink'>Overzichten Datastore</div></a></td>"
             ret += "<td><a href='/datastore'><div class='headerLink'>Aanpassen Datastore</div></a></td>"
+            ret += "<td><a href='/pdfcheck'><div class='headerLink'>Berichten versturen</div></a></td>"
+            "<td><a href='/mailcheck'><div class='headerLink'>Mail versturen</div></a></td>"
             ret += "<td><a href='/logout'><div class='headerLink'>Uitloggen</div></a></td>"
     else:
         pass

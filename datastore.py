@@ -685,6 +685,8 @@ class DatastoreRoot(webapp.RequestHandler):
             self.response.out.write(webpages.footer())
         else:
             self.redirect('/')
+
+
             
 def main():
     application = webapp.WSGIApplication([('/datastore/afspraak', AfspraakDatastore),
