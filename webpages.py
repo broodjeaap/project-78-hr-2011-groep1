@@ -109,9 +109,11 @@ def header(session,bodyAttributes = ""):
             ret += "<td><a href='/accountsettings'><div class='headerLink'>Account Settings</div></a></td>"
             ret += "<td><a href='/plannen'><div class='headerLink'>Ouder avond plannen</div></a></td>"
             ret += "<td><a href='/insert'><div class='headerLink'>Insert Root</div></a></td>"
+            ret += "<td><a href='/bestellingenadmin'><div class='headerLink'>Bestellingen bekijken</div></a></td>"
             ret += "<td><a href='/overzichten'><div class='headerLink'>Overzichten Datastore</div></a></td>"
             ret += "<td><a href='/datastore'><div class='headerLink'>Aanpassen Datastore</div></a></td>"
-            ret += "<td><a href='/pdfcheck'><div class='headerLink'>Berichten versturen</div></a></td>"
+            ret += "<td><a href='/berichtenversturen'><div class='headerLink'>Uitnodigingen uitprinten</div></a></td>"
+            ret += "<td><a href='/stuuremail'><div class='headerLink'>Email versturen</div></a></td>"
             "<td><a href='/mailcheck'><div class='headerLink'>Mail versturen</div></a></td>"
             ret += "<td><a href='/logout'><div class='headerLink'>Uitloggen</div></a></td>"
     else:

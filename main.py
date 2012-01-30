@@ -494,17 +494,15 @@ class MailCheck(webapp.RequestHandler):
 class pdfWriter(webapp.RequestHandler):
 
     def get(self):
-        session = get_current_session()
-        result = db.GqlQuery("SELECT * FROM Leerling where email = ''")
-        if session['selectorList']:
-            result = session['selectorList']                             
+        result = db.GqlQuery("SELECT __key__ FROM Leerling where email = ''")                                
         self.response.headers['Content-Type'] = 'application.pdf'
        
         p = canvas.Canvas(self.response.out)
-        for Ouder in result:
-            p.drawString(100, 750, "Geachte meneer/mevrouw " + Ouder.achternaam.encode('utf-8') + ",")
+        for leerling in result:
+            Ouder = db.get(leerling)
+            p.drawString(100, 750, "Geachte meneer/mevrouw " + "%s" % Ouder.achternaam + ",")
             p.drawString(100, 690, "Op 10 december 2011 is er weer de mogelijkheid om met de docenten")                            
-            p.drawString(100, 665, "van " + Ouder.voornaam.encode('utf-8') + " te praten.")
+            p.drawString(100, 665, "van " + "%s" % Ouder.voornaam + " te praten.")
             p.drawString(100, 615, "De avonden worden gehouden van 19:00 tot 22:00 uur.")
             p.drawString(100, 565, "Wij verzoeken u om telefonisch contact op te nemen om een afspraak te maken.")
             p.drawString(100, 540, "Wij zijn bereikbaar van 8:30 tot 17:00 uur op 070-1234567.")
@@ -516,37 +514,38 @@ class pdfWriter(webapp.RequestHandler):
 
 class StuurEmail(webapp.RequestHandler):      
     
-    def get(self):                
-        
-        result = db.GqlQuery("SELECT * FROM Leerling WHERE email = 'jordyhert@gmail.com'")
-        if session['selectorList']:
-            result = session['selectorList']   
-        for leerling in result:
-            message = mail.EmailMessage(sender="Donald Knuth College <jordyhert@gmail.com>", subject="Uitnodiging ouderavond")
-            message.to = leerling.aanhefVerzorger+"<jordyhert@gmail.com>"
-            message.body = """
-            Geachte meneer/mevrouw """ + leerling.aanhefVerzorger + """ """ + leerling.achternaamVerzorger + """
+    def get(self):
+		session = get_current_session()
+		self.response.out.write(webpages.header(session))
+		self.response.out.write("email is verstuurd<br /><a href='/beheerder'>Home</a>")
+		result = db.GqlQuery("SELECT * FROM Leerling WHERE email = 'paulo.deen@gmail.com'")   
+		for leerling in result:
+			message = mail.EmailMessage(sender="Donald Knuth College <paulo.deen@gmail.com>", subject="Uitnodiging ouderavond")
+			message.to = leerling.aanhefVerzorger+"<paulo.deen@gmail.com>"
+			message.body = """
+			Geachte meneer/mevrouw """ + leerling.aanhefVerzorger + """ """ + leerling.achternaamVerzorger + """
 
-            Op 10 december 2011 is er weer de mogelijkheid om met de docenten van """ + leerling.voornaam + """ te praten. 
-            
-            De avond vindt plaats tussen 19:00 en 22:00 uur.
+			Op 10 december 2011 is er weer de mogelijkheid om met de docenten van """ + leerling.voornaam + """ te praten. 
+			
+			De avond vindt plaats tussen 19:00 en 22:00 uur.
 
-            Door de onderstaande pagina te openen kunt u zich inschrijven voor de ouderavond.
+			Door de onderstaande pagina te openen kunt u zich inschrijven voor de ouderavond.
 
-            http://hrpro78.appspot.com
+			http://hrpro78.appspot.com
 
-            U kunt inloggen met de volgende gegevens:
-            
-            Gebruikersnaam: """ + leerling.achternaamVerzorger + """
-            Wachtwoord: """ + leerling.wachtwoord + """
+			U kunt inloggen met de volgende gegevens:
+			
+			Gebruikersnaam: """ + leerling.achternaamVerzorger + """
+			Wachtwoord: """ + leerling.wachtwoord + """
 
-            Wij hopen u spoedig te mogen verwelkomen op de ouderavond.
+			Wij hopen u spoedig te mogen verwelkomen op de ouderavond.
 
-            Met vriendelijke groeten,
+			Met vriendelijke groeten,
 
-            Bob Bemer MSc, directeur DKC
-            """            
-            message.send()
+			Bob Bemer MSc, directeur DKC
+			"""			
+			message.send()
+	
 
 class BoekenBestellen(webapp.RequestHandler):      
 	def get(self):
@@ -555,11 +554,15 @@ class BoekenBestellen(webapp.RequestHandler):
 		result = db.GqlQuery("SELECT * FROM Boek")
 		self.response.out.write("<form action='/boekenbestellen' method='post'><table>")
 		self.response.out.write("<tr><td>isbn</td><td>titel</td><td>auteur</td><td>prijs per stuk</td><td>aantal</td></tr>")
+		self.response.out.write("<tr><td><br /></td></tr>")
 		for boek in result:
 			self.response.out.write("<tr><td>"+boek.isbn+"</td><td>"+boek.titel+"</td><td>"+boek.auteur+"</td><td>"+str(boek.prijs)+"</td><td><select name='"+boek.isbn+"'>")
-			self.response.out.write("<option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>")
+			self.response.out.write("<option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select>")
 		self.response.out.write("</td></tr>")
-		self.response.out.write("</select></table><br /><input type='submit' value='Bevestigen'></form><form action='/leerlingafspraak'><input type='submit' value='Annuleren'></form>")
+		self.response.out.write("<tr><td><br /></td></tr>")
+		self.response.out.write("<tr><td><input type='submit' value='Bestelling plaatsen'></form></tr>")
+		self.response.out.write("<tr><td><br /></td></tr>")
+		self.response.out.write("<tr></td><td><form action='/leerlingafspraak'><input type='submit' value='Annuleren'></form></td></td></tr></table>")
 	def post(self):
 		session = get_current_session()
 		self.response.out.write(webpages.header(session))
@@ -567,15 +570,18 @@ class BoekenBestellen(webapp.RequestHandler):
 		lisbn = []
 		laantal = []
 		lprijs = []
-		prijstotaal = 0
-		for boek in result:
+		prijstotaal = 0.00
+		self.response.out.write("<table><tr><td>isbn</td><td>titel</td><td>auteur</td><td>aantal</td><td>prijs per stuk</td><td>prijs totaal</td></tr>")
+		self.response.out.write("<tr><td><br /></td></tr>")
+		for boek in result:			
 			if(self.request.get(boek.isbn)!='0'):
-				self.response.out.write("isbn: "+boek.isbn+" titel: "+boek.titel+" aantal: "+self.request.get(boek.isbn)+" prijs per stuk: "+str(boek.prijs)+" euro prijs totaal: "+str(float(self.request.get(boek.isbn))*float(boek.prijs))+" euro<br />")
+				self.response.out.write("<tr><td>"+boek.isbn+"</td><td>"+boek.titel+"</td><td>"+boek.auteur+"</td><td>"+self.request.get(boek.isbn)+"</td><td>"+str(boek.prijs)+"</td><td>"+str(float(self.request.get(boek.isbn))*float(boek.prijs))+"</td></tr>")
 				lisbn.append(boek.isbn)
 				laantal.append(int(self.request.get(boek.isbn)))
 				lprijs.append(boek.prijs)
 				prijstotaal += int(self.request.get(boek.isbn))*boek.prijs
-		self.response.out.write("prijs totaal: "+str(prijstotaal)+" euro.")
+		self.response.out.write("<tr><td><br /></td></tr>")
+		self.response.out.write("<tr><td>prijs totaal: </td><td>"+str(prijstotaal)+"</td><table>")
 		self.response.out.write("<form action='/leerlingafspraak'>")
 		self.response.out.write("</select></table><br /><input type='submit' value='Klaar'></form>")
 		order = entities.Order(leerlingId = (session['id']), isbn = lisbn, aantal = laantal, prijs = lprijs, behandeld = False)
@@ -587,14 +593,37 @@ class BekijkBestelling(webapp.RequestHandler):
 		self.response.out.write(webpages.header(session))
 		result = db.GqlQuery("SELECT * FROM Order WHERE leerlingId = '"+session['id']+"'")
 		for Order in result:
-			self.response.out.write("<table><tr><td>Datum: </td><td>"+str(Order.date)+"</td></tr>")
+			self.response.out.write("<table><tr><td>Datum: </td><td>"+str(Order.date.day)+"-"+str(Order.date.month)+"-"+str(Order.date.year)+"</td></tr>")
 			self.response.out.write("<tr><td><br /></td></tr>")
-			self.response.out.write("<tr><td>isbn</td><td>aantal</td><td>prijs per stuk</td><td>prijs totaal</td></tr>")			
+			self.response.out.write("<tr><td>isbn</td><td>aantal</td><td>prijs per stuk</td><td>prijs totaal</td></tr>")
+			prijstotaal = 0.00
 			for i in range(len(Order.isbn)):
 				self.response.out.write("<tr><td>"+Order.isbn[i]+"</td>")
 				self.response.out.write("<td>"+str(Order.aantal[i])+"</td>")
 				self.response.out.write("<td>"+str(Order.prijs[i])+"</td>")
 				self.response.out.write("<td>"+str(float(Order.aantal[i])*float(Order.prijs[i]))+"</td><tr>")
+				prijstotaal += float(Order.aantal[i])*float(Order.prijs[i])
+			self.response.out.write("<tr><td>prijs totaal:</td><td>"+str(prijstotaal)+"</td></tr>")
+			self.response.out.write("<tr><td><br /></td></tr>")
+			self.response.out.write("</table>")
+			
+class BestellingenAdmin(webapp.RequestHandler):      
+	def get(self):
+		session = get_current_session()
+		self.response.out.write(webpages.header(session))
+		result = db.GqlQuery("SELECT * FROM Order")
+		for Order in result:
+			self.response.out.write("<table><tr><td>Leerling id: </td><td>"+Order.leerlingId+"</td></tr>")
+			self.response.out.write("<tr><td>Datum: </td><td>"+str(Order.date.day)+"-"+str(Order.date.month)+"-"+str(Order.date.year)+"</td></tr>")
+			self.response.out.write("<tr><td>isbn</td><td>aantal</td><td>prijs per stuk</td><td>prijs totaal</td></tr>")
+			prijstotaal = 0.00
+			for i in range(len(Order.isbn)):
+				self.response.out.write("<tr><td>"+Order.isbn[i]+"</td>")
+				self.response.out.write("<td>"+str(Order.aantal[i])+"</td>")
+				self.response.out.write("<td>"+str(Order.prijs[i])+"</td>")
+				self.response.out.write("<td>"+str(float(Order.aantal[i])*float(Order.prijs[i]))+"</td><tr>")
+				prijstotaal += float(Order.aantal[i])*float(Order.prijs[i])
+			self.response.out.write("<tr><td>prijs totaal:</td><td>"+str(prijstotaal)+"</td></tr>")
 			self.response.out.write("<tr><td><br /></td></tr>")
 			self.response.out.write("</table>")
 				
@@ -617,7 +646,8 @@ def main():
                                           ('/plannenpost', OuderAvondPlannenPost),
                                           ('/boekenbestellen', BoekenBestellen),
 										  ('/bekijkbestelling', BekijkBestelling),
-                                          ('/berichtenVersturen', pdfWriter),
+										  ('/bestellingenadmin', BestellingenAdmin),
+                                          ('/berichtenversturen', pdfWriter),
                                           ('/pdfcheck', PdfCheck),
                                           ('/mailcheck', MailCheck),
                                           ('/stuuremail', StuurEmail)],

@@ -35,13 +35,16 @@ handlers:
 - url: /leerlingafspraak
   script: main.py
 
-- url: /berichtenVersturen
+- url: /berichtenversturen
   script: main.py
   
 - url: /boekenbestellen
   script: main.py
   
 - url: /bekijkbestelling
+  script: main.py
+  
+- url: /bestellingenadmin
   script: main.py
 
 - url: /nextstep
