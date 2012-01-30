@@ -518,10 +518,10 @@ class StuurEmail(webapp.RequestHandler):
 		session = get_current_session()
 		self.response.out.write(webpages.header(session))
 		self.response.out.write("email is verstuurd<br /><a href='/beheerder'>Home</a>")
-		result = db.GqlQuery("SELECT * FROM Leerling WHERE email = 'paulo.deen@gmail.com'")   
+		result = db.GqlQuery("SELECT * FROM Leerling WHERE email = '0818191@hr.nl'")   
 		for leerling in result:
 			message = mail.EmailMessage(sender="Donald Knuth College <paulo.deen@gmail.com>", subject="Uitnodiging ouderavond")
-			message.to = leerling.aanhefVerzorger+"<paulo.deen@gmail.com>"
+			message.to = leerling.aanhefVerzorger+"<0818191@hr.nl>"
 			message.body = """
 			Geachte meneer/mevrouw """ + leerling.aanhefVerzorger + """ """ + leerling.achternaamVerzorger + """
 
@@ -535,7 +535,7 @@ class StuurEmail(webapp.RequestHandler):
 
 			U kunt inloggen met de volgende gegevens:
 			
-			Gebruikersnaam: """ + leerling.achternaamVerzorger + """
+			Gebruikersnaam: """ + leerling.leerlingID + """
 			Wachtwoord: """ + leerling.wachtwoord + """
 
 			Wij hopen u spoedig te mogen verwelkomen op de ouderavond.
@@ -624,6 +624,8 @@ class BestellingenAdmin(webapp.RequestHandler):
 				self.response.out.write("<td>"+str(float(Order.aantal[i])*float(Order.prijs[i]))+"</td><tr>")
 				prijstotaal += float(Order.aantal[i])*float(Order.prijs[i])
 			self.response.out.write("<tr><td>prijs totaal:</td><td>"+str(prijstotaal)+"</td></tr>")
+			self.response.out.write("<tr><td>behandeld:</td><td><input type='checkbox' /></td>")
+			self.response.out.write("<tr><td><form action='/beheerder'><input type='submit' value='Update' /></form></td></tr>")
 			self.response.out.write("<tr><td><br /></td></tr>")
 			self.response.out.write("</table>")
 				
