@@ -15,14 +15,15 @@ class InsertRoot(webapp.RequestHandler):
         session = get_current_session()
         if(session.__getitem__('loginType') == 'beheerder'):
             if(session.__getitem__('securityLevel') == 2):
-                self.response.out.write(webpages.header(session))
-                self.response.out.write(webpages.insertRootLink("Afspraak"))
-                self.response.out.write(webpages.insertRootLink("Docent"))
-                self.response.out.write(webpages.insertRootLink("Vak"))
-                self.response.out.write(webpages.insertRootLink("VakPerKlas"))
-                self.response.out.write(webpages.insertRootLink("Leerling"))
-                self.response.out.write(webpages.insertRootLink("beheerder"))
-                self.response.out.write(webpages.footer())
+				self.response.out.write(webpages.header(session))
+				self.response.out.write(webpages.insertRootLink("Afspraak"))
+				self.response.out.write(webpages.insertRootLink("Docent"))
+				self.response.out.write(webpages.insertRootLink("Vak"))
+				self.response.out.write(webpages.insertRootLink("VakPerKlas"))
+				self.response.out.write(webpages.insertRootLink("Leerling"))
+				self.response.out.write(webpages.insertRootLink("Beheerder"))
+				self.response.out.write(webpages.insertRootLink("Boek"))
+				self.response.out.write(webpages.footer())
             else:
                 self.redirect('/beheerder')
         else:
@@ -208,6 +209,33 @@ class InsertLeerling(webapp.RequestHandler):
                 self.redirect('/beheerder')
         else:
             self.redirect('/')
+			
+class InsertBoek(webapp.RequestHandler):
+    def get(self):
+        session = get_current_session()
+        if(session.__getitem__('loginType') == 'beheerder'):
+            if(session.__getitem__('securityLevel') == 2):
+                self.response.out.write(webpages.header(session))
+                boeken = entities.Boek.all()
+                if(boeken.count() == 0):
+                    inputFunctions.insertBoek()
+                    self.response.out.write('Boeken toegevoegd aan de datastore')
+                else:
+                    tableData = []
+                    for boek in boeken:
+						tableRow = []
+						tableRow.append(boek.isbn)
+						tableRow.append(boek.titel)
+						tableRow.append(boek.auteur)
+						tableRow.append(boek.prijs)
+						tableData.append(tableRow)
+                    self.response.out.write(webpages.table(data=tableData, attributes="class='overzichtTable" ,head=['isbn', 'titel', 'auteur', 'prijs'],title="Boeken",divAttr='overzichtDiv',evenOdd=True))
+                    self.response.out.write("<form action='/insert/boekpost' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete All' /></form")
+                self.response.out.write(webpages.footer())
+            else:
+                self.redirect('/beheerder')
+        else:
+            self.redirect('/')
 
 class PostAfspraak(webapp.RequestHandler):
     def post(self):
@@ -274,6 +302,17 @@ class PostBeheerder(webapp.RequestHandler):
             self.response.out.write(webpages.header(session))
             self.response.out.write("<p>Deleted all entries <a href='/insert/beheerder'>terug (insert nieuwe data)</a></p></body></html>")
             self.response.out.write(webpages.footer())
+			
+class PostBoek(webapp.RequestHandler):
+    def post(self):
+        if(self.request.get('delete') == 'delete'):
+            boeken = db.GqlQuery("SELECT * FROM Boek")
+            for boek in boeken:
+                boek.delete()
+            session = get_current_session()
+            self.response.out.write(webpages.header(session))
+            self.response.out.write("<p>Deleted all entries <a href='/insert/boek'>terug (insert nieuwe data)</a></p></body></html>")
+            self.response.out.write(webpages.footer())
 
 def main():
     application = webapp.WSGIApplication([('/insert/afspraak', InsertAfspraak), 
@@ -288,6 +327,8 @@ def main():
                                           ('/insert/leerlingpost', PostLeerling),
                                           ('/insert/beheerder', InsertBeheerder),
                                           ('/insert/beheerderpost', PostBeheerder),
+										  ('/insert/boek', InsertBoek),
+										  ('/insert/boekpost', PostBoek),
                                           ('/insert', InsertRoot)],
                                          debug=True)
     util.run_wsgi_app(application)

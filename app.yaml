@@ -31,6 +31,12 @@ handlers:
 
 - url: /berichtenVersturen
   script: main.py
+  
+- url: /boekenbestellen
+  script: main.py
+  
+- url: /bekijkbestelling
+  script: main.py
 
 - url: /nextstep
   script: insert.py

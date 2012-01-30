@@ -60,3 +60,17 @@ class ChatMessage(db.Model):
     room = db.StringProperty()
     time = db.TimeProperty(auto_now=True)
     message = db.StringProperty()
+
+class Boek(db.Model):
+	isbn = db.StringProperty()
+	titel = db.StringProperty()
+	auteur = db.StringProperty()
+	prijs = db.IntegerProperty()
+	
+class Order(db.Model):
+	leerlingId = db.StringProperty()
+	date = db.DateTimeProperty(auto_now_add=True)
+	isbn = db.ListProperty(type(""))
+	aantal = db.ListProperty(type(1))
+	prijs = db.ListProperty(type(1))
+	behandeld = db.BooleanProperty()

@@ -517,7 +517,48 @@ class StuurEmail(webapp.RequestHandler):
             Bob Bemer MSc, directeur DKC
             """            
             message.send()
-    
+
+class BoekenBestellen(webapp.RequestHandler):      
+	def get(self):
+		session = get_current_session()
+		self.response.out.write(webpages.header(session))
+		result = db.GqlQuery("SELECT * FROM Boek")
+		self.response.out.write("<form action='/boekenbestellen' method='post'><table>")
+		self.response.out.write("<tr><td>isbn</td><td>titel</td><td>auteur</td><td>prijs per stuk</td><td>aantal</td></tr>")
+		for boek in result:
+			self.response.out.write("<tr><td>"+boek.isbn+"</td><td>"+boek.titel+"</td><td>"+boek.auteur+"</td><td>"+str(boek.prijs)+"</td><td><select name='"+boek.isbn+"'>")
+			self.response.out.write("<option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>")
+		self.response.out.write("</td></tr>")
+		self.response.out.write("</select></table><br /><input type='submit' value='Bevestigen'></form><form action='/leerlingafspraak'><input type='submit' value='Annuleren'></form>")
+	def post(self):
+		session = get_current_session()
+		self.response.out.write(webpages.header(session))
+		result = db.GqlQuery("SELECT * FROM Boek")
+		lisbn = []
+		laantal = []
+		lprijs = []
+		prijstotaal = 0
+		for boek in result:
+			if(self.request.get(boek.isbn)!='0'):
+				self.response.out.write("isbn: "+boek.isbn+" titel: "+boek.titel+" aantal: "+self.request.get(boek.isbn)+" prijs per stuk: "+str(boek.prijs)+" euro prijs totaal: "+str(int(self.request.get(boek.isbn))*boek.prijs)+" euro<br />")
+				lisbn.append(boek.isbn)
+				laantal.append(int(self.request.get(boek.isbn)))
+				lprijs.append(boek.prijs)
+				prijstotaal += int(self.request.get(boek.isbn))*boek.prijs
+		self.response.out.write("prijs totaal: "+str(prijstotaal)+" euro.")
+		self.response.out.write("<form action='/leerlingafspraak'>")
+		self.response.out.write("</select></table><br /><input type='submit' value='Klaar'></form>")
+		order = entities.Order(leerlingId = (session['id']), isbn = lisbn, aantal = laantal, prijs = lprijs, behandeld = False)
+		entities.Order.put(order)
+		
+class BekijkBestelling(webapp.RequestHandler):      
+	def get(self):
+		session = get_current_session()
+		self.response.out.write(webpages.header(session))
+		result = db.GqlQuery("SELECT * FROM Order WHERE leerlingId = '"+session['id']+"'")
+		for Order in result:
+			self.response.out.write(Order.leerlingId+"<br />"+str(Order.date)+"<br />")
+		
 def main():
     application = webapp.WSGIApplication([('/', Login),
                                           ('/logout', Logout),
@@ -533,9 +574,11 @@ def main():
                                           ('/chatajaxhandler',AjaxChatHandler),
                                           ('/plannenpost', OuderAvondPlannenPost),
                                           ('/plannenpost', OuderAvondPlannenPost),
+                                          ('/boekenbestellen', BoekenBestellen),
+										  ('/bekijkbestelling', BekijkBestelling),
                                           ('/berichtenVersturen', pdfWriter),
                                           ('/stuuremail', StuurEmail)],
-                                            debug=True)
+                                          debug=True)
     util.run_wsgi_app(application)
 
 
