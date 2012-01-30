@@ -8,6 +8,7 @@ from google.appengine.api import memcache
 import datetime
 import webpages
 import entities
+import selector
 
 import wsgiref.handlers
 import sys
@@ -15,8 +16,6 @@ from reportlab.pdfgen import canvas
 
 class Login(webapp.RequestHandler):
     def get(self):
-        beheerder = entities.Beheerder(login='admin', beschrijving='Ingebouwde admin account', wachtwoord='admin', securityLevel=2)
-        beheerder.put()
         self.response.out.write("""
         <html>
             <head>
@@ -215,7 +214,10 @@ class Beheerder(webapp.RequestHandler):
         header=webpages.header(session)
         session.__setitem__('header', header)
         self.response.out.write(header)
-        self.response.out.write('Beheer pagina')
+        if(session.__getitem__('securityLevel') == 2):
+            self.response.out.write(webpages.cmsHeader())
+            self.response.out.write(webpages.cmsFooter())
+                
         self.response.out.write(webpages.footer())
 class AccountSettings(webapp.RequestHandler):
     def get(self):
@@ -463,20 +465,46 @@ class AjaxChatHandler(webapp.RequestHandler):
                     memchache.set(key=roomGet+"Users",value=users)
                 
                     
+class PdfCheck(webapp.RequestHandler):
+    def get(self):
+        session = get_current_session()
+        self.response.out.write(webpages.header(session))
+        session["selectionReferer"] = "/berichtenVersturen"
+        if not session['selectorList']:
+            self.response.out.write("<a href='/selector'><h3>Selecteer leerlingen</h3></a>")
+            self.response.out.write("<a href='/berichtenVersturen'><h3>Of verstuur naar iedereen</h3></a>")
+        else:
+            self.response.out.write("<a href='/selector'><h3>Pas huidige selectie leerlingen aan</h3></a>")
+            self.response.out.write("<a href='/berichtenVersturen'><h3>Of verstuur met de huidige selectie</h3></a>")
+        self.response.out.write(webpages.footer())
 
-
+class MailCheck(webapp.RequestHandler):
+    def get(self):
+        session = get_current_session()
+        self.response.out.write(webpages.header(session))
+        session["selectionReferer"] = "/stuuremail"
+        if not session['selectorList']:
+            self.response.out.write("<a href='/selector'><h3>Selecteer leerlingen</h3></a>")
+            self.response.out.write("<a href='/berichtenVersturen'><h3>Of verstuur naar iedereen</h3></a>")
+        else:
+            self.response.out.write("<a href='/selector'><h3>Pas huidige selectie leerlingen aan</h3></a>")
+            self.response.out.write("<a href='/berichtenVersturen'><h3>Of verstuur met de huidige selectie</h3></a>")
+        self.response.out.write(webpages.footer())
+    
 class pdfWriter(webapp.RequestHandler):
 
     def get(self):
-        result = db.GqlQuery("SELECT __key__ FROM Leerling where email = ''")                                
+        session = get_current_session()
+        result = db.GqlQuery("SELECT * FROM Leerling where email = ''")
+        if session['selectorList']:
+            result = session['selectorList']                             
         self.response.headers['Content-Type'] = 'application.pdf'
        
         p = canvas.Canvas(self.response.out)
-        for leerling in result:
-            Ouder = db.get(leerling)
-            p.drawString(100, 750, "Geachte meneer/mevrouw " + "%s" % Ouder.achternaam + ",")
+        for Ouder in result:
+            p.drawString(100, 750, "Geachte meneer/mevrouw " + Ouder.achternaam.encode('utf-8') + ",")
             p.drawString(100, 690, "Op 10 december 2011 is er weer de mogelijkheid om met de docenten")                            
-            p.drawString(100, 665, "van " + "%s" % Ouder.voornaam + " te praten.")
+            p.drawString(100, 665, "van " + Ouder.voornaam.encode('utf-8') + " te praten.")
             p.drawString(100, 615, "De avonden worden gehouden van 19:00 tot 22:00 uur.")
             p.drawString(100, 565, "Wij verzoeken u om telefonisch contact op te nemen om een afspraak te maken.")
             p.drawString(100, 540, "Wij zijn bereikbaar van 8:30 tot 17:00 uur op 070-1234567.")
@@ -490,7 +518,9 @@ class StuurEmail(webapp.RequestHandler):
     
     def get(self):                
         
-        result = db.GqlQuery("SELECT * FROM Leerling WHERE email = 'jordyhert@gmail.com'")   
+        result = db.GqlQuery("SELECT * FROM Leerling WHERE email = 'jordyhert@gmail.com'")
+        if session['selectorList']:
+            result = session['selectorList']   
         for leerling in result:
             message = mail.EmailMessage(sender="Donald Knuth College <jordyhert@gmail.com>", subject="Uitnodiging ouderavond")
             message.to = leerling.aanhefVerzorger+"<jordyhert@gmail.com>"
@@ -573,10 +603,11 @@ def main():
                                           ('/chat',Chat),
                                           ('/chatajaxhandler',AjaxChatHandler),
                                           ('/plannenpost', OuderAvondPlannenPost),
-                                          ('/plannenpost', OuderAvondPlannenPost),
                                           ('/boekenbestellen', BoekenBestellen),
 										  ('/bekijkbestelling', BekijkBestelling),
                                           ('/berichtenVersturen', pdfWriter),
+                                          ('/pdfcheck', PdfCheck),
+                                          ('/mailcheck', MailCheck),
                                           ('/stuuremail', StuurEmail)],
                                           debug=True)
     util.run_wsgi_app(application)

@@ -1,6 +1,7 @@
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
 from google.appengine.ext import db
+from entities import *
 
 class Afspraak(db.Model):
     leerlingID = db.StringProperty()
@@ -48,6 +49,7 @@ class Leerling(db.Model):
     mobielnummer = db.StringProperty()
     vastnummer = db.StringProperty()
     email = db.StringProperty()
+    lokatie = db.GeoPtProperty()
     
 class Beheerder(db.Model):
     login = db.StringProperty()
@@ -60,7 +62,6 @@ class ChatMessage(db.Model):
     room = db.StringProperty()
     time = db.TimeProperty(auto_now=True)
     message = db.StringProperty()
-
 class Boek(db.Model):
 	isbn = db.StringProperty()
 	titel = db.StringProperty()
@@ -74,3 +75,9 @@ class Order(db.Model):
 	aantal = db.ListProperty(type(1))
 	prijs = db.ListProperty(type(1))
 	behandeld = db.BooleanProperty()
+	
+class Klas(db.Model):
+    klas = db.StringProperty(required=True)
+
+class idCounter(db.Model):
+    count = db.IntegerProperty(required=True, default=3321)

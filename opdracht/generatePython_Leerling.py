@@ -45,13 +45,16 @@ for line in output:
         outputFile.write("leerling = entities.Leerling( leerlingID='"+line[0]+"', wachtwoord='a', voornaam=unicode('"+line[1]+"','latin-1'), tussenvoegsel='"+line[2]+"', achternaam=unicode('"+line[3]+"','latin-1'), geslacht='"+line[4]+"', klas='"+line[5]+"', aanhefVerzorger='"+line[6]+"', initialenVerzorger='"+line[7]+"', voorvoegselsVerzorger='"+line[8]+"', achternaamVerzorger=unicode('"+line[9]+"','latin-1'), rolVerzorger='"+line[10]+"', adres='"+line[11]+"', huisnummer='"+line[12]+"',  woonplaats='"+line[13]+"',  postcode='"+line[14]+"',  mobielnummer='"+line[15]+"',  vastnummer='"+line[16]+"',  email='"+line[17]+"', )\n")
 
         outputFile.write("leerling.put()\n")
-outputFile.close()      
+outputFile.close()
 
+klassenArray = []
+for leerling in leerlingArray:
+        if leerling[5] not in klassenArray:
+                klassenArray.append(leerling[5])
 
-"""
-for line in lines:
-        values = line.split(" ; ")
-        str = "vak = entities.Vak(vakCode='"+values[0]+"', "
-        str += "vakNaam='"+values[1][:-1]+"')"
-        outputLines.append(str)
-"""
+outputFile = open("klassenOutput.txt","w")
+for klas in klassenArray:
+        outputFile.write("klas = entities.Klas(klas = '"+klas+"')\n")
+        outputFile.write("klas.put()\n")
+
+outputFile.close()
