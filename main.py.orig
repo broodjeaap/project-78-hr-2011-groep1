@@ -570,7 +570,7 @@ class BoekenBestellen(webapp.RequestHandler):
 		prijstotaal = 0
 		for boek in result:
 			if(self.request.get(boek.isbn)!='0'):
-				self.response.out.write("isbn: "+boek.isbn+" titel: "+boek.titel+" aantal: "+self.request.get(boek.isbn)+" prijs per stuk: "+str(boek.prijs)+" euro prijs totaal: "+str(float(self.request.get(boek.isbn))*float(boek.prijs))+" euro<br />")
+				self.response.out.write("isbn: "+boek.isbn+" titel: "+boek.titel+" aantal: "+self.request.get(boek.isbn)+" prijs per stuk: "+str(boek.prijs)+" euro prijs totaal: "+str(int(self.request.get(boek.isbn))*boek.prijs)+" euro<br />")
 				lisbn.append(boek.isbn)
 				laantal.append(int(self.request.get(boek.isbn)))
 				lprijs.append(boek.prijs)
@@ -587,19 +587,7 @@ class BekijkBestelling(webapp.RequestHandler):
 		self.response.out.write(webpages.header(session))
 		result = db.GqlQuery("SELECT * FROM Order WHERE leerlingId = '"+session['id']+"'")
 		for Order in result:
-			self.response.out.write("<table><tr><td>Datum: </td><td>"+str(Order.date)+"</td></tr>")
-			self.response.out.write("<tr><td><br /></td></tr>")
-			self.response.out.write("<tr><td>isbn</td><td>aantal</td><td>prijs per stuk</td><td>prijs totaal</td></tr>")			
-			for i in range(len(Order.isbn)):
-				self.response.out.write("<tr><td>"+Order.isbn[i]+"</td>")
-				self.response.out.write("<td>"+str(Order.aantal[i])+"</td>")
-				self.response.out.write("<td>"+str(Order.prijs[i])+"</td>")
-				self.response.out.write("<td>"+str(float(Order.aantal[i])*float(Order.prijs[i]))+"</td><tr>")
-			self.response.out.write("<tr><td><br /></td></tr>")
-			self.response.out.write("</table>")
-				
-				
-			
+			self.response.out.write(Order.leerlingId+"<br />"+str(Order.date)+"<br />")
 		
 def main():
     application = webapp.WSGIApplication([('/', Login),
@@ -615,8 +603,12 @@ def main():
                                           ('/chat',Chat),
                                           ('/chatajaxhandler',AjaxChatHandler),
                                           ('/plannenpost', OuderAvondPlannenPost),
+<<<<<<< HEAD
+                                          ('/plannenpost', OuderAvondPlannenPost),
                                           ('/boekenbestellen', BoekenBestellen),
 										  ('/bekijkbestelling', BekijkBestelling),
+=======
+>>>>>>> c6e99fc0f102de44b3dd70410c11fc237eade3b4
                                           ('/berichtenVersturen', pdfWriter),
                                           ('/pdfcheck', PdfCheck),
                                           ('/mailcheck', MailCheck),

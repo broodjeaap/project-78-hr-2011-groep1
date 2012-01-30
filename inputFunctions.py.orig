@@ -3372,6 +3372,20 @@ def insertLeerling():
     leerling.put()
     leerling = entities.Leerling( leerlingID='2817', wachtwoord='a', voornaam=unicode('Lieneke','latin-1'), tussenvoegsel='', achternaam=unicode('Vrijma','latin-1'), geslacht='V', klas='6V2', aanhefVerzorger='dhr.', initialenVerzorger='W.', voorvoegselsVerzorger='', achternaamVerzorger=unicode('Vrijma','latin-1'), rolVerzorger='ouder', adres='Ruichthoek', huisnummer='24',  woonplaats='Reeuwijk',  postcode='2811 AG',  mobielnummer='06-27762361',  vastnummer='0182-762361',  email='Vrijma@hetweb.nl', )
     leerling.put()
+<<<<<<< HEAD
+	
+def insertBoek():
+	boek = entities.Boek(isbn='9789077923', titel='Nederlands Grammatica', auteur='Haarmans, T.', prijs=19)
+	boek.put()
+	boek = entities.Boek(isbn='9876543223', titel='Engels Grammatica', auteur='Biegel, P.', prijs=39)
+	boek.put()
+	boek = entities.Boek(isbn='9059403908', titel='Basisboek Natuurkunde', auteur='Olij, E.', prijs=29)
+	boek.put()
+	boek = entities.Boek(isbn='9045647311', titel='Duitse Grammatica', auteur='Put, W. van der', prijs=15)
+	boek.put()
+	boek = entities.Boek(isbn='9735626650', titel='Basisboek Wiskunde', auteur='Ed Bott', prijs=26)
+	boek.put()
+=======
     
     klas = entities.Klas(klas = '1B1')
     klas.put()
@@ -3455,15 +3469,4 @@ def insertLeerling():
     klas.put()
     klas = entities.Klas(klas = '6V2')
     klas.put()
-def insertBoek():
-	boek = entities.Boek(isbn='9789077923', titel='Nederlands Grammatica', auteur='Haarmans, T.', prijs=19.95)
-	boek.put()
-	boek = entities.Boek(isbn='9876543223', titel='Engels Grammatica', auteur='Biegel, P.', prijs=39.95)
-	boek.put()
-	boek = entities.Boek(isbn='9059403908', titel='Basisboek Natuurkunde', auteur='Olij, E.', prijs=29.95)
-	boek.put()
-	boek = entities.Boek(isbn='9045647311', titel='Duitse Grammatica', auteur='Put, W. van der', prijs=15.95)
-	boek.put()
-	boek = entities.Boek(isbn='9735626650', titel='Basisboek Wiskunde', auteur='Ed Bott', prijs=26.95)
-	boek.put()
-    
+>>>>>>> c6e99fc0f102de44b3dd70410c11fc237eade3b4
