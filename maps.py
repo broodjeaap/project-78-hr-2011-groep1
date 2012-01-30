@@ -68,6 +68,10 @@ class Afstanden(webapp.RequestHandler):
                     if distanceTo < distances[i]:
                         counts[i] += 1
                         break
+                    
+        
+        session["selectionReferer"] = "/map/afstanden"
+        self.response.out.write("<a href='/selector'><h3>Selecteer leerlingen</h3></a>")
         self.response.out.write("<h1>Afstanden van leerlingen tot de school</h1><br /><table border='1'>")
         self.response.out.write("""
         <script>
@@ -160,7 +164,8 @@ class KortsteRoute(webapp.RequestHandler):
             current = leerlingenDic[lowestID]
             visited.append(leerling.leerlingID)
 
-        
+        session["selectionReferer"] = "/map/kortsteroute"
+        self.response.out.write("<a href='/selector'><h3>Selecteer leerlingen</h3></a>")
         self.response.out.write("<h1>Routen tussen de opgegeven leerlingen:</h1><table><tr><th>Afspraak#</th><th>LeerlingID</th><th>Lokatie</th></tr>")
         for count, leerling in enumerate(output):
             self.response.out.write(
