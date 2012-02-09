@@ -15,8 +15,16 @@ import selector
 import inputFunctions
 
 MAX = 2147483647
-
+"""
+Module voor de verspreidingsgegevens pagina en de route planner (voor docenten bezoeken)
+"""
 class MapRoot(webapp.RequestHandler):
+    """
+    Start pagina van de maps module, de gebruiker krijgt de keuzen om een 
+    selectie te maken uit de leerlingen, de verspreidings gegevens 
+    te zien van de geselecteerde leerlingen of om een routen te planen 
+    van de geselecteerde leerlingen. 
+    """
     def get(self):
         session = get_current_session()
         self.response.out.write(webpages.header(session))
@@ -28,6 +36,10 @@ class MapRoot(webapp.RequestHandler):
         self.response.out.write(webpages.footer())
 
 class MapFill(webapp.RequestHandler):
+    """
+    Op deze pagina worden alle adressen van de leerlingen omgezet in lon/lat
+    punten en opgeslagen in de datastore.
+    """
     def get(self):
         session = get_current_session()
         self.response.out.write(webpages.header(session))
@@ -49,6 +61,11 @@ class MapFill(webapp.RequestHandler):
         self.response.out.write(webpages.footer())
 
 class Afstanden(webapp.RequestHandler):
+    """
+    Deze pagina geeft een kaart weer met punten.
+    Elke punt geeft een huis adres van een leerling aan.
+    De cirkels op de kaart geven de afstanden aan.
+    """
     def get(self):
         session = get_current_session()
         self.response.out.write(webpages.header(session))
@@ -102,6 +119,11 @@ class Afstanden(webapp.RequestHandler):
         self.response.out.write(webpages.footer())
 
 class KortsteRoute(webapp.RequestHandler):
+    """
+    Op deze pagina kan een docent een routen plannen tussen de leerlingen
+    er wordt geen routen gegeven (met kaart) alleen maar wat ongeveer de
+    snelste routen is (hemelsbreed)
+    """
     def get(self):
         session = get_current_session()
         self.response.out.write(webpages.header(session))
@@ -191,6 +213,10 @@ class KortsteRoute(webapp.RequestHandler):
         """
         self.response.out.write(webpages.footer())
 
+
+"""
+haversine functie voor het berekenen van de afstand tussen 2 geoPoints
+"""
 def haversine(point1,point2):
     lon1, lat1, lon2, lat2 = map(radians, [point1.lon, point1.lat, point2.lon, point2.lat])
     dlon = lon2 - lon1 

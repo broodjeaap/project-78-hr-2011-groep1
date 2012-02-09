@@ -1,3 +1,5 @@
+import logging
+
 import os
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
@@ -14,8 +16,16 @@ import wsgiref.handlers
 import sys
 from reportlab.pdfgen import canvas
 
+"""
+Main module, centrale punt voor veel van de applicties/functies van de website.
+"""
+
 class Login(webapp.RequestHandler):
+    """
+    Login pagina, geeft de login pagina weer.
+    """
     def get(self):
+        logging.info("TEST")
         self.response.out.write("""
         <html>
             <head>
@@ -77,6 +87,9 @@ class Login(webapp.RequestHandler):
         """)
 
 class Logout(webapp.RequestHandler):
+    """
+    Op deze pagina wordt de gebruiker uitgelogged (het session object wordt vernietigt.
+    """
     def get(self):
         session = get_current_session()
         if(session.has_key('id')):
@@ -86,6 +99,9 @@ class Logout(webapp.RequestHandler):
             self.redirect('/')
 
 class Authenticate(webapp.RequestHandler):
+    """
+    Na het inloggen wordt de gebruiker naar deze pagina gestuurd, hier wordt het session object aangemaakt en worden de benodigden attributen aangemaakt.
+    """
     def post(self):
         wachtwoord=self.request.get("wachtwoord")
         id=self.request.get("id")
@@ -123,6 +139,9 @@ class Authenticate(webapp.RequestHandler):
         self.redirect('/')
 
 class OuderAvondPlannen(webapp.RequestHandler):
+    """
+    De pagina om een ouder avond te plannen.
+    """
     def get(self):
         session = get_current_session()
         self.response.out.write(webpages.header(session))
@@ -130,6 +149,9 @@ class OuderAvondPlannen(webapp.RequestHandler):
         self.response.out.write(webpages.footer())
 
 class OuderAvondPlannenPost(webapp.RequestHandler):
+    """
+    Verwerken en invoeren van de nieuwe ouderavond.
+    """
     def post(self):
         session = get_current_session()
         self.response.out.write(webpages.header(session))
@@ -157,6 +179,9 @@ class OuderAvondPlannenPost(webapp.RequestHandler):
         self.response.out.write(webpages.footer())
             
 class AfspraakPlanningPost(webapp.RequestHandler):
+    """
+    verwerken en invoeren van een nieuwe afspraak.
+    """
     def post(self):
         key = self.request.get("afzegkey")
         if(len(key) != 0):
@@ -184,6 +209,9 @@ class AfspraakPlanningPost(webapp.RequestHandler):
                 self.redirect('/leerlingafspraak')
 
 class DocentAfspraak(webapp.RequestHandler):
+    """
+    Een overzicht pagina voor een docent om te zien welke afspraken hij heeft staan, met wie, en om welke tijd.
+    """
     def get(self):
         session = get_current_session()
         self.response.out.write(webpages.header(session))
@@ -197,6 +225,9 @@ class DocentAfspraak(webapp.RequestHandler):
         self.response.out.write(webpages.footer())
 
 class LeerlingAfspraak(webapp.RequestHandler):
+    """
+    Een pagina voor de leerlingen/ouder van leerling om een afspraak in te plannen bij een docent/vak.
+    """
     def get(self):
         session = get_current_session()
         self.response.out.write(webpages.header(session))
@@ -209,6 +240,9 @@ class LeerlingAfspraak(webapp.RequestHandler):
         self.response.out.write(webpages.footer())
 
 class Beheerder(webapp.RequestHandler):
+    """
+    Main pagina als de gebruiker is ingelogged als een beheerder.
+    """
     def get(self):
         session = get_current_session()
         header=webpages.header(session)

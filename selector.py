@@ -16,7 +16,16 @@ from reportlab.pdfgen import canvas
 
 MAX = 2147483647
 
+"""
+De selector Module zorgt voor een makkelijke/overzichtelijke manier om leerlingen
+te selecteren, individueel of op basis van hele klassen.
+"""
+
 class Main(webapp.RequestHandler):
+    """
+    Main pagina van de selector module, hier zijn drie kollommen te zien
+    een klassen kolom, een leerlingen kolom en een geselecteerde kolom
+    """
     def get(self):
         session = get_current_session()
         self.response.out.write(webpages.header(session))
@@ -46,6 +55,10 @@ class Main(webapp.RequestHandler):
         self.response.out.write(webpages.footer())
 
 class LeerlingGet(webapp.RequestHandler):
+    """
+    AJAX pagina die op basis van 'q' leerlingen returned (deze worden weergegeven
+    in de leerlingen kolom) 
+    """
     def get(self):
         session = get_current_session()
         q = self.request.get('q')
@@ -67,9 +80,10 @@ class LeerlingGet(webapp.RequestHandler):
             self.response.out.write("<tr id='"+leerling.leerlingID+"row' onclick='"+onclick+"'>      <td><img id='"+leerling.leerlingID+"image' src='/images/"+image+"' width='20' height='20' /></td>          <td>"+leerling.leerlingID+"</td><td>"+leerling.voornaam+" "+leerling.tussenvoegsel+" "+leerling.achternaam+"</td><td>"+leerling.klas+"</tr>")
         self.response.out.write("</table>")
         
-        
-
 class LeerlingAdd(webapp.RequestHandler):
+    """
+    AJAX pagina voor het toevoegen van een leerling aan de huidige selectie.
+    """
     def post(self):
         list = getList()
         id = self.request.get('id')
@@ -84,6 +98,9 @@ class LeerlingAdd(webapp.RequestHandler):
         setList(list)
         
 class LeerlingRemove(webapp.RequestHandler):
+    """
+    AJAX pagina voor het verwijderen van een leerlingen uit de huidige selectie
+    """
     def post(self):
         list = getList()
         id = self.request.get('id')
@@ -95,6 +112,12 @@ class LeerlingRemove(webapp.RequestHandler):
         setList(list)
 
 class KlassenGet(webapp.RequestHandler):
+    """
+    AJAX pagina die de klassen weergeeft die voldoen aan de query 'q'
+    Deze pagina is erg langzaam en wachttijden kunnen tot wel 10 seconden duren
+    Dit komt vooral door de bruteforce methode van het checken of een hele klas
+    geselecteerd is. (zie 'isKlasFilled()')
+    """
     def get(self):
         session = get_current_session()
         q = self.request.get('q')
@@ -115,6 +138,11 @@ class KlassenGet(webapp.RequestHandler):
         self.response.out.write("</table>")
         
 def isKlasFilled(id):
+    """
+    Deze functie kijkt of een klas ('id') gevuld is en dus als geselecteerd weergegeven
+    kan worden.
+    Dit wordt op het moment gedaan door bruteforce alles na te kijken en is dus erg langzaam.
+    """
     klas = getKlas(id)
     check = {}
     for leerling in klas:
@@ -129,9 +157,10 @@ def isKlasFilled(id):
         
     return True
         
-    
-
 class KlasAdd(webapp.RequestHandler):
+    """
+    AJAX pagina om een hele klas toe te voegen aan de huidige selectie.
+    """
     def post(self):
         list = getList()
         klas = getKlas(self.request.get('id'))
@@ -147,6 +176,9 @@ class KlasAdd(webapp.RequestHandler):
             
     
 class KlasRemove(webapp.RequestHandler):
+    """
+    AJAX pagina om een hele klas te verwijderen uit de huidige selectie.
+    """
     def post(self):
         list = getList()
         klas = getKlas(self.request.get('id'))
@@ -158,6 +190,9 @@ class KlasRemove(webapp.RequestHandler):
         setList(list)
 
 class Selection(webapp.RequestHandler):
+    """
+    AJAX voor het overzicht van de huidige selectie
+    """
     def get(self):
         list = getList()
         self.response.out.write("<table border='1'>")
@@ -166,6 +201,9 @@ class Selection(webapp.RequestHandler):
         self.response.out.write("</table>")
         
 class Clear(webapp.RequestHandler):
+    """
+    AJAX pagina om de hele selectie te verwijderen
+    """
     def get(self):
         session = get_current_session()
         self.response.out.write(webpages.header(session))
@@ -173,6 +211,10 @@ class Clear(webapp.RequestHandler):
         self.response.out.write("Selectie verwijderd, <a href='/selector'>terug</a>")
         self.response.out.write(webpages.footer())
 
+
+"""
+Functie die leerlingen ophaalt en cached in memcache.
+"""
 def getLeerlingen():
     leerlingen = memcache.get("leerlingen1")
     if leerlingen:
@@ -184,6 +226,9 @@ def getLeerlingen():
         memcache.set("leerlingen2",leerlingen[((len(leerlingen) /2)+1):])
     return leerlingen
 
+"""
+Functie die 1 leerling ophaalt en cached in memcache.
+"""
 def getLeerling(id):
     leerling = memcache.get(id)
     if not leerling:
@@ -195,24 +240,10 @@ def getLeerling(id):
         memcache.set(id,leerling)
     return leerling
 
+"""
+Functie die klassen ophaalt en cached in memcache.
+"""
 def getKlassen():
-    """
-    klassen = memcache.get("klassen1")
-    if klassen:
-        klassen += memcache.get("klassen2")
-    if not klassen:
-        klassen = db.GqlQuery("SELECT * FROM Klas")
-        dic = {}
-        for klas in klassen:
-            dic[klas.klas] = []
-        leerlingen = getLeerlingen()
-        for leerling in leerlingen:
-            list = dic[leerling.klas.encode('utf-8')]
-            list.append(leerling)
-        klassen = dic
-        memcache.set("klassen1",klassen[:(len(klassen) / 2)])
-        memcache.set("klassen2",klassen[((len(klassen) / 2)+1)])
-    """
     klassen = db.GqlQuery("SELECT * FROM Klas")
     dic = {}
     for klas in klassen:
@@ -223,12 +254,18 @@ def getKlassen():
         list.append(leerling)
     klassen = dic
     return klassen
-        
+
+"""
+Functie 1 klas ophaalt en cached in memcache.
+"""
 def getKlas(id):
     klassen = getKlassen()
     klas = klassen[id]
     return klas
 
+"""
+Functie die de huidige selectie ophaalt.
+"""
 def getList():
     session = get_current_session()
     if session.__contains__("selectorList"):
@@ -237,7 +274,9 @@ def getList():
         list = []
         session["selectorList"] = list
     return list
-
+"""
+Functie die de huidige selectie opslaat.
+"""
 def setList(list):
     session = get_current_session()
     session["selectorList"] = list

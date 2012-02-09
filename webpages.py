@@ -55,7 +55,9 @@ def cmsFooter():
                 </div>
             </div>"""
 
-                
+"""
+Deze functie maakt m.b.v het session object de header aan van elke pagina.
+"""             
 def header(session,bodyAttributes = ""):
     ret = """
         <html>
@@ -124,12 +126,22 @@ def header(session,bodyAttributes = ""):
                     </div>"""
     return ret
 
+"""
+Deze functie maakt de footer aan van elke pagina.
+"""
 def footer():
     return "</body></html>"
 
 from google.appengine.ext import db
 import datetime
 
+
+"""
+Deze functie maakt het makkelijk om (HTML) tabellen te starten
+header        een array met <th> elementen </th>
+tableStart    of het <table> element nog gestart moet worden
+border        of de table een border heeft
+"""
 def startTable(header=None, tableStart=True,border=True):
     ret = "";
     if(tableStart):
@@ -145,6 +157,10 @@ def startTable(header=None, tableStart=True,border=True):
         ret += "</tr>"
     return ret
 
+"""
+Deze functie maakt afspraak elementen voor elk vak dat een leerling heeft
+met deze elementen kan de ouder afspraken plannen.
+"""
 def klasAfspraakPage(klas,leerlingID="1234"): #maak voor een klas alle afspraak tabellen aan
     vakken = db.GqlQuery("SELECT * FROM VakPerKlas WHERE klas = '"+klas+"'") # pak alle vakken van een klas
     ret = "<div><script type='text/javascript' src='js/LeerlingAfspraak.js'></SCRIPT>"
@@ -173,6 +189,9 @@ def klasAfspraakPage(klas,leerlingID="1234"): #maak voor een klas alle afspraak 
     ret += "<input type='submit' value='Ok'  /></form></div>"
     return ret
 
+"""
+Deze functie maakt een afspraak element voor een docent/leerling combinatie.
+"""
 def afspraakTable(docentID,aantalTijden=12,leerlingID="1234",tableCount=0): # maak een afspraakTable
     afspraken = db.GqlQuery("SELECT * FROM Afspraak WHERE docentID = '"+docentID+"'") # pak alle afspraken voor de docent
 
@@ -247,6 +266,10 @@ def afspraakTable(docentID,aantalTijden=12,leerlingID="1234",tableCount=0): # ma
     ret = [ret, "<input type='hidden' name='"+docentID+"_afspraak' id='"+docentID+"_afspraak' value='' /> <input type='hidden' name='"+docentID+"_hidden_beschrijving' id='"+docentID+"_hidden_beschrijving' />"]
     return ret
 
+"""
+Deze functie maakt een afspraak elemenent voor docenten, deze kunnen alleen maar
+kijken welke afspraken er zijn gemaakt door ouders.
+"""
 def afspraakTableReadOnly(docentID="BAARR"):
     afspraken = db.GqlQuery("SELECT * FROM Afspraak WHERE docentID = '"+docentID+"'")
     if(afspraken.count() == 0):
@@ -298,7 +321,11 @@ def afspraakTableReadOnly(docentID="BAARR"):
     ret += "<tr><td><b>Beschrijving</b></td><td id='beschrijving'></td></tr>"
     ret += "</table></div>"
     return ret
-    
+
+"""
+Checkt of een item in een list zit, kan ook "if item in list:" maar python was
+nog nieuw en onbekend :)
+"""  
 def inList(item, list): #checkt of 'item' in de 'list' zit, zo ja, return de index van het item, nee return -1
     count = 0
     for i in range(len(list)):
@@ -307,6 +334,9 @@ def inList(item, list): #checkt of 'item' in de 'list' zit, zo ja, return de ind
         count += 1
     return -1
 
+"""
+Deze functie maakt een element waar beheerders een ouderavond kunnen plannen
+"""
 def planningPage():
     docentTable = []
     tableRow = []
@@ -342,9 +372,22 @@ def planningPage():
     ret += "</form>"
     return ret
 
+"""
+Maakt links aan voor de insert.py
+"""
 def insertRootLink(entiteitNaam):
     return "<a href = '/insert/"+entiteitNaam.lower()+"'>"+entiteitNaam+" insert</a><form action='/insert/"+entiteitNaam.lower()+"post' method='post'><input type='hidden' name='delete' value='delete' /><input type='submit' value='Delete all from "+entiteitNaam+"' /></form><br />"
 
+"""
+voor het makkelijk printen van (HTML) tables
+data        2d array van de data die in de table moet komen
+attributes  eventuele attributen die de table moet krijgen
+head        de <th> elementen
+headAttr    de attributen die de tebleHeader moet krijgen
+title       de title die de table krijgt
+divAttr     de attributen van de <div> die om de table wrapped.
+evenOdd     Geeft de even en oneven regels een andere kleur
+"""
 def table(data, attributes="",head=None, headAttributes="",title=None,divAttr='',evenOdd=False):
     ret = "<div class="+divAttr+"><table "+attributes+" >"
     if(title != None):
@@ -370,6 +413,11 @@ def table(data, attributes="",head=None, headAttributes="",title=None,divAttr=''
     ret += "</table></div>"
     return ret
 
+"""
+print een enkele row uit van een (HTML) table
+values        de waardes in een array die in de row moeten komen
+attributes    de eventuele attributen die de row krijgt
+"""
 def row(values,attributes=""):
     ret = "<tr "+attributes+" >"
     for value in values:
@@ -377,6 +425,11 @@ def row(values,attributes=""):
     ret += "</tr>"
     return ret
 
+"""
+print een enkele cell uit van een (HTML) table
+data        de data die in de cell komt
+attributes  de eventuele attributen die de cell krijgt
+"""
 def cell(data,attributes=""):
     ret = ""
     try:
@@ -385,9 +438,16 @@ def cell(data,attributes=""):
       ret = "<td "+attributes+" >"+str(data.encode('utf-8'))+"</td>"
     return ret
 
+"""
+maakt een <a> link aan
+return:    <a href='{href}'>{text}</a>
+"""
 def link(href,text):
     return "<a href='"+href+"' >"+text+"</a>"
 
+"""
+Maakt een chatbox element aan voor gebruik in de chat module.
+"""
 def chatBox(id,room="global"):
     ret = """ <script type='text/javascript' src='/js/Chat.js'></script>
                                         <div class='chatDiv' id='chatDiv'>
@@ -420,6 +480,12 @@ def chatBox(id,room="global"):
                                         """ %(room,id,room)
     return ret
 
+"""
+geeft de volledige naam van een vak terug
+ENG -> Engels
+NED -> Nederlands
+etc
+"""
 def getKlasNaam(vakCode):
     klassen = memcache.get("klassen")
     if(klassen == None):

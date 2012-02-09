@@ -10,8 +10,14 @@ import entities
 import webpages
 import inputFunctions
 
+"""
+Alle RequestHandler's voor de chat functie zitten in deze module.
+"""
 
 class ChatRoot(webapp.RequestHandler):
+    """
+    Main pagina van de chat applicatie, maakt een pagina aan met alle beschikbare chat ruimtes (op basis van account typen)
+    """
     def get(self):
         session = get_current_session()
         self.response.out.write(webpages.header(session))
@@ -56,6 +62,9 @@ class ChatRoot(webapp.RequestHandler):
         self.response.out.write(webpages.footer())
 
 class ChatMain(webapp.RequestHandler):
+    """
+    Main chat window, krijgt een room van ChatRoot, checkt of de gebruiker deze room mag bezoeken, en presenteerd de chat client.
+    """
     def post(self):
         session = get_current_session()
         self.response.out.write(webpages.header(session))
@@ -68,6 +77,9 @@ class ChatMain(webapp.RequestHandler):
         self.response.out.write(webpages.footer())
 
 class AjaxGetMessages(webapp.RequestHandler):
+    """
+    AJAX pagina om de berichten voor een room op te halen.
+    """
     def get(self):
         session = get_current_session()
         if(session['id'] == self.request.get('id')):
@@ -86,6 +98,9 @@ class AjaxGetMessages(webapp.RequestHandler):
                 self.response.out.write(str(message.time)[:-7]+"-"+message.poster+": "+message.message.replace("_"," ")+"<br />")
 
 class AjaxPostMessages(webapp.RequestHandler):
+    """
+    AJAX pagina om de messages op te slaan/versturen.
+    """
     def get(self):
         session = get_current_session()
         if(session['id'] == self.request.get('id')):
@@ -106,8 +121,10 @@ class AjaxPostMessages(webapp.RequestHandler):
             messages.append(message)
             memcache.set(key=roomGet+"Chat",value=messages)
 
-
 class AjaxGetUsers(webapp.RequestHandler):
+    """
+    AJAX pagina om de actieve users van een room op te halen.
+    """
     def get(self):
         session = get_current_session()
         if(session['id'] == self.request.get('id')):
@@ -122,6 +139,9 @@ class AjaxGetUsers(webapp.RequestHandler):
                 self.response.out.write(user+"<br />")
 
 class AjaxQuit(webapp.RequestHandler):
+    """
+    AJAX pagina om aan te geven dat een gebruiker uitgelogd is uit een room.
+    """
     def get(self):
         session = get_current_session()
         if(session['id'] == self.request.get('id')):
@@ -134,6 +154,9 @@ class AjaxQuit(webapp.RequestHandler):
             memcache.set(key=roomGet+"Users",value=users)
                 
 class AjaxJoin(webapp.RequestHandler):
+    """
+    AJAX pagina om aan te geven dat een user ingelogged is in een room.
+    """
     def get(self):
         session = get_current_session()
         if(session['id'] == self.request.get('id')):

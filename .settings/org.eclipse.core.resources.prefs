@@ -1,5 +1,6 @@
-#Sun Dec 04 18:33:53 CET 2011
+#Wed Feb 01 20:41:52 CET 2012
 eclipse.preferences.version=1
+encoding/appengine_config.py=latin1
 encoding/chat.py=latin1
 encoding/htmlHelper.py=latin1
 encoding/inputFunctions.py=latin1

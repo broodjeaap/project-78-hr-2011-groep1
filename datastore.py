@@ -6,7 +6,9 @@ import webpages
 import entities
 import webpages
 import datetime
-
+"""
+Deze module geeft de mogelijkhied om de datastore te vullen met data.
+"""
 class AfspraakDatastore(webapp.RequestHandler):
     def get(self):
         session = get_current_session()

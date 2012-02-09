@@ -2,6 +2,10 @@
 from google.appengine.ext import db
 import entities
 import datetime
+
+"""
+Module voor het inserten van data in de datastore.
+"""
 def insertAfspraak():
     afspraak = entities.Afspraak(leerlingID="0",docentID='BAARR',dag=datetime.date(2011, 10, 11), tijd=-1,tafelnummer=0,beschrijving='test')
     afspraak.put();
